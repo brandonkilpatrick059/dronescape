@@ -13,6 +13,10 @@ var change_weight = 0.0
 
 static var wind_visible = false
 
+var zero_volume = -60
+var max_volume = -12
+@onready var audio_player : AudioStreamPlayer = $AudioStreamPlayer
+
 static func get_wind_visible() -> bool:
 	return wind_visible
 
@@ -22,6 +26,8 @@ static func set_wind_visible(set_to : bool):
 func _ready() -> void:
 	timer.one_shot = true
 	add_child(timer)
+	audio_player.volume_db = zero_volume
+	audio_player.play()
 
 func generate_wind():
 	var height = 1280
@@ -47,8 +53,16 @@ func handle_input():
 	if(Input.is_action_just_pressed("dev_1")):
 		wind_visible = !wind_visible
 
+func update_audio():
+	var wind_level = current_wind_speeds/max_wind_speed
+	var full_volume = -zero_volume
+	var volume_fraction = full_volume * wind_level
+	var current_volume = volume_fraction + zero_volume + max_volume
+	audio_player.volume_db = current_volume
+
 func _physics_process(delta: float) -> void:
 	handle_input()
 	if(timer.is_stopped()):
 		generate_wind()
+		update_audio()
 		timer.start(0.5)

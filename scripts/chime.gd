@@ -9,7 +9,7 @@ class_name Chime extends Grid_Entity
 @export var friction : float = 0.002
 
 var activation_level : float = 0.0 #is 0.0 to 1.0
-static var zero_volume = -50
+static var zero_volume = -60
 
 func _ready() -> void:
 	grid_entity_init()
