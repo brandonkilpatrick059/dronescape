@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwwo4l82msqi"]
+
+[ext_resource type="Texture2D" uid="uid://cr5by821rqqvl" path="res://sprites/interface/cursor.png" id="1_3lanx"]
+[ext_resource type="Script" uid="uid://pyvw1ldumuk5" path="res://scripts/cursor.gd" id="1_jrcvv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jrcvv"]
+radius = 5.0
+
+[node name="Cursor" type="Area2D" groups=["cursor"]]
+script = ExtResource("1_jrcvv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3lanx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jrcvv")

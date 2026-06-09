@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://clq5nv0qo1xmk"]
+
+[ext_resource type="Script" uid="uid://c8dmi87rlfntb" path="res://scripts/grid_base.gd" id="1_m7krx"]
+
+[node name="GridBase" type="Node2D" groups=["grid_base"]]
+script = ExtResource("1_m7krx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
