@@ -1,0 +1,82 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://0l5nd3edo5x0"]
+
+[ext_resource type="Texture2D" uid="uid://qknhft62i41y" path="res://sprites/interface/picker_glow.png" id="1_cufv4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkb3a"]
+atlas = ExtResource("1_cufv4")
+region = Rect2(54, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg16t"]
+atlas = ExtResource("1_cufv4")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73jp1"]
+atlas = ExtResource("1_cufv4")
+region = Rect2(18, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfitq"]
+atlas = ExtResource("1_cufv4")
+region = Rect2(36, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cl53"]
+atlas = ExtResource("1_cufv4")
+region = Rect2(36, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p23np"]
+atlas = ExtResource("1_cufv4")
+region = Rect2(18, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhqmp"]
+atlas = ExtResource("1_cufv4")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cufv4"]
+atlas = ExtResource("1_cufv4")
+region = Rect2(0, 0, 18, 18)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkb3a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg16t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73jp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfitq")
+}],
+"loop": true,
+"name": &"expand",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cl53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p23np")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhqmp")
+}],
+"loop": true,
+"name": &"retract",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cufv4")
+}],
+"loop": true,
+"name": &"retracted",
+"speed": 5.0
+}]

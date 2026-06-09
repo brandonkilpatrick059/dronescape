@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://5g0h50u7kjhn"]
+
+[ext_resource type="Texture2D" uid="uid://crtw4wgof37lk" path="res://sprites/interface/picker_circle.png" id="1_2cciy"]
+[ext_resource type="Script" uid="uid://b137ktfgvedwb" path="res://scripts/picker_circle.gd" id="1_yql5p"]
+[ext_resource type="SpriteFrames" uid="uid://0l5nd3edo5x0" path="res://sprites/interface/picker_glow.tres" id="2_domx8"]
+
+[node name="PickerCircle" type="Node2D" groups=["picker_circle"]]
+z_index = 2
+script = ExtResource("1_yql5p")
+
+[node name="structure" type="Sprite2D" parent="."]
+texture = ExtResource("1_2cciy")
+
+[node name="glow_0" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_domx8")
+animation = &"expand"
+frame_progress = 0.545887
+
+[node name="glow_1" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = ExtResource("2_domx8")
+
+[node name="glow_2" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, -24)
+sprite_frames = ExtResource("2_domx8")
+animation = &"expand"
+
+[node name="glow_3" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, 0)
+sprite_frames = ExtResource("2_domx8")
+animation = &"expand"
+
+[node name="glow_4" type="AnimatedSprite2D" parent="."]
+position = Vector2(24, 24)
+sprite_frames = ExtResource("2_domx8")
+animation = &"expand"
+
+[node name="glow_5" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 32)
+sprite_frames = ExtResource("2_domx8")
+animation = &"expand"
+
+[node name="glow_6" type="AnimatedSprite2D" parent="."]
+position = Vector2(-24, 24)
+sprite_frames = ExtResource("2_domx8")
+animation = &"expand"
+
+[node name="glow_7" type="AnimatedSprite2D" parent="."]
+position = Vector2(-32, 0)
+sprite_frames = ExtResource("2_domx8")
+animation = &"expand"
+
+[node name="glow_8" type="AnimatedSprite2D" parent="."]
+position = Vector2(-24, -24)
+sprite_frames = ExtResource("2_domx8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

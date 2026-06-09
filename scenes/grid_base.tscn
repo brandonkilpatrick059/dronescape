@@ -4,5 +4,3 @@
 
 [node name="GridBase" type="Node2D" groups=["grid_base"]]
 script = ExtResource("1_m7krx")
-
-[node name="Camera2D" type="Camera2D" parent="."]
