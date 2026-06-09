@@ -1,0 +1,72 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://b5ii4svkamhwm"]
+
+[ext_resource type="Texture2D" uid="uid://dq4mv3t8p4ebu" path="res://sprites/chimes/windmill_3.png" id="1_sbapb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n32fe"]
+atlas = ExtResource("1_sbapb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecmmh"]
+atlas = ExtResource("1_sbapb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jo26"]
+atlas = ExtResource("1_sbapb")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5abx"]
+atlas = ExtResource("1_sbapb")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1s73"]
+atlas = ExtResource("1_sbapb")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcvv6"]
+atlas = ExtResource("1_sbapb")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec21t"]
+atlas = ExtResource("1_sbapb")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxvqc"]
+atlas = ExtResource("1_sbapb")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n32fe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecmmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jo26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5abx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1s73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcvv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ec21t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxvqc")
+}],
+"loop": true,
+"name": &"picker",
+"speed": 5.0
+}]

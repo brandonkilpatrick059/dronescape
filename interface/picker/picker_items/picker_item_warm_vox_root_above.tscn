@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c46w710bxb65v"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker_item.gd" id="1_iejq6"]
+
+[node name="PickerItemWarmVoxRootAbove" type="Node2D"]
+script = ExtResource("1_iejq6")
+display_sprite_frames = "res://sprites/chimes/windmill_2.tres"
+display_animation = "picker"
+item_path = "res://entities/chimes/warm_vox_chime_root_above.tscn"
