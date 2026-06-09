@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://5g0h50u7kjhn"]
+
+[ext_resource type="Texture2D" uid="uid://crtw4wgof37lk" path="res://sprites/interface/picker_circle.png" id="1_2cciy"]
+[ext_resource type="Script" uid="uid://b137ktfgvedwb" path="res://scripts/picker_circle.gd" id="1_yql5p"]
+[ext_resource type="PackedScene" uid="uid://deiwk01jhatgw" path="res://interface/picker/picker_bubble.tscn" id="3_yql5p"]
+[ext_resource type="PackedScene" uid="uid://ovqo2g168soa" path="res://interface/picker/picker_items/picker_item_purple_brick.tscn" id="4_tt1gk"]
+[ext_resource type="PackedScene" uid="uid://cvb73mxosh43m" path="res://interface/picker/picker_items/picker_item_purple_stone.tscn" id="5_1u0t2"]
+
+[node name="PickerCircle" type="Node2D" groups=["picker_circle"]]
+z_index = 2
+script = ExtResource("1_yql5p")
+
+[node name="structure" type="Sprite2D" parent="."]
+texture = ExtResource("1_2cciy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="PickerBubble" parent="." instance=ExtResource("3_yql5p")]
+
+[node name="PickerBubble2" parent="." instance=ExtResource("3_yql5p")]
+position = Vector2(0, -32)
+
+[node name="PickerBubble3" parent="." instance=ExtResource("3_yql5p")]
+position = Vector2(24, -24)
+
+[node name="PickerBubble4" parent="." instance=ExtResource("3_yql5p")]
+position = Vector2(32, 0)
+
+[node name="PickerBubble5" parent="." instance=ExtResource("3_yql5p")]
+position = Vector2(24, 24)
+
+[node name="PickerBubble6" parent="." instance=ExtResource("3_yql5p")]
+position = Vector2(0, 32)
+
+[node name="PickerBubble7" parent="." instance=ExtResource("3_yql5p")]
+position = Vector2(-24, 24)
+
+[node name="PickerBubble8" parent="." instance=ExtResource("3_yql5p")]
+position = Vector2(-32, 0)
+
+[node name="PickerBubble9" parent="." instance=ExtResource("3_yql5p")]
+position = Vector2(-24, -24)
+
+[node name="display_items" type="Node2D" parent="."]
+
+[node name="PickerItemPurpleBrick" parent="display_items" instance=ExtResource("4_tt1gk")]
+
+[node name="PickerItemPurpleStone" parent="display_items" instance=ExtResource("5_1u0t2")]
