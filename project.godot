@@ -42,6 +42,11 @@ third_action={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="grid_entity"
+2d_physics/layer_2="wind"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

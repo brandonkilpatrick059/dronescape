@@ -44,12 +44,18 @@ func spawn_grid_entity():
 	if(active):
 		var bodies: Array[Node2D] = get_overlapping_bodies()
 		if(bodies.size() == 0):
-			var entity = load(create_grid_entity_path).instantiate()
-			get_parent().add_child(entity)
-			entity.global_position = global_position
-			update_grid_base()
-			var drum = randi_range(1,3)
-			play_stream(str(str("res://audio/interface/drum/",drum),".ogg"))
+			spawn_entity()
+		else:
+			delete_targeted()
+			spawn_entity()
+
+func spawn_entity():
+	var entity = load(create_grid_entity_path).instantiate()
+	get_parent().add_child(entity)
+	entity.global_position = global_position
+	update_grid_base()
+	var drum = randi_range(1,3)
+	play_stream(str(str("res://audio/interface/drum/",drum),".ogg"))
 
 func update_grid_base():
 	var grid_base = get_tree().get_first_node_in_group("grid_base")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://5g0h50u7kjhn"]
+[gd_scene load_steps=7 format=3 uid="uid://5g0h50u7kjhn"]
 
 [ext_resource type="Texture2D" uid="uid://crtw4wgof37lk" path="res://sprites/interface/picker_circle.png" id="1_2cciy"]
 [ext_resource type="Script" uid="uid://b137ktfgvedwb" path="res://scripts/picker_circle.gd" id="1_yql5p"]
 [ext_resource type="PackedScene" uid="uid://deiwk01jhatgw" path="res://interface/picker/picker_bubble.tscn" id="3_yql5p"]
 [ext_resource type="PackedScene" uid="uid://ovqo2g168soa" path="res://interface/picker/picker_items/picker_item_purple_brick.tscn" id="4_tt1gk"]
 [ext_resource type="PackedScene" uid="uid://cvb73mxosh43m" path="res://interface/picker/picker_items/picker_item_purple_stone.tscn" id="5_1u0t2"]
+[ext_resource type="PackedScene" uid="uid://dsny6almr1dj5" path="res://interface/picker/picker_items/picker_item_warm_vox_root.tscn" id="6_1u0t2"]
 
 [node name="PickerCircle" type="Node2D" groups=["picker_circle"]]
 z_index = 2
@@ -46,3 +47,5 @@ position = Vector2(-24, -24)
 [node name="PickerItemPurpleBrick" parent="display_items" instance=ExtResource("4_tt1gk")]
 
 [node name="PickerItemPurpleStone" parent="display_items" instance=ExtResource("5_1u0t2")]
+
+[node name="PickerItemWarmVoxRoot" parent="display_items" instance=ExtResource("6_1u0t2")]
