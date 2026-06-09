@@ -21,7 +21,7 @@ func update():
 
 func update_stones():
 	stones = get_tree().get_nodes_in_group("stone")
-	for stone in stones:
+	for stone : Stone in stones:
 		var pos_above :Vector2 = stone.global_position + Vector2(0,-grid_size)
 		var pos_below :Vector2 = stone.global_position + Vector2(0,grid_size)
 		var pos_left :Vector2 = stone.global_position + Vector2(-grid_size,0)
@@ -57,6 +57,7 @@ func update_stones():
 		elif(!stone_above && stone_below):
 			animation_name = "top_center"
 		stone.set_animation(animation_name)
+		stone.set_stone_collision(animation_name)
 
 func _process(delta: float) -> void:
 	if(!initialized):

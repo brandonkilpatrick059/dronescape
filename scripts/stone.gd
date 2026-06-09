@@ -28,6 +28,63 @@ func get_grid_vector() -> Vector2:
 func set_animation(name : String):
 	sprite.play(name)
 
+func set_stone_collision(name : String):
+	if(name.contains("center")):
+		$StaticBody2D/top_left.disabled = true
+		$StaticBody2D/top_right.disabled = true
+		$StaticBody2D/bottom_left.disabled = true
+		$StaticBody2D/bottom_right.disabled = true
+		$StaticBody2D/top_left.visible = false
+		$StaticBody2D/top_right.visible = false
+		$StaticBody2D/bottom_left.visible = false
+		$StaticBody2D/bottom_right.visible = false
+	else:
+		match(name):
+			"top_left":
+				$StaticBody2D/center.disabled = true
+				$StaticBody2D/top_left.disabled = false
+				$StaticBody2D/top_right.disabled = true
+				$StaticBody2D/bottom_left.disabled = true
+				$StaticBody2D/bottom_right.disabled = true
+				$StaticBody2D/center.visible = false
+				$StaticBody2D/top_left.visible = true
+				$StaticBody2D/top_right.visible = false
+				$StaticBody2D/bottom_left.visible = false
+				$StaticBody2D/bottom_right.visible = false
+			"top_right":
+				$StaticBody2D/center.disabled = true
+				$StaticBody2D/top_left.disabled = true
+				$StaticBody2D/top_right.disabled = false
+				$StaticBody2D/bottom_left.disabled = true
+				$StaticBody2D/bottom_right.disabled = true
+				$StaticBody2D/center.visible = false
+				$StaticBody2D/top_left.visible = false
+				$StaticBody2D/top_right.visible = true
+				$StaticBody2D/bottom_left.visible = false
+				$StaticBody2D/bottom_right.visible = false
+			"bottom_right":
+				$StaticBody2D/center.disabled = true
+				$StaticBody2D/top_left.disabled = true
+				$StaticBody2D/top_right.disabled = true
+				$StaticBody2D/bottom_left.disabled = true
+				$StaticBody2D/bottom_right.disabled = false
+				$StaticBody2D/center.visible = false
+				$StaticBody2D/top_left.visible = false
+				$StaticBody2D/top_right.visible = false
+				$StaticBody2D/bottom_left.visible = false
+				$StaticBody2D/bottom_right.visible = true
+			"bottom_left":
+				$StaticBody2D/center.disabled = true
+				$StaticBody2D/top_left.disabled = true
+				$StaticBody2D/top_right.disabled = true
+				$StaticBody2D/bottom_left.disabled = false
+				$StaticBody2D/bottom_right.disabled = true
+				$StaticBody2D/center.visible = false
+				$StaticBody2D/top_left.visible = false
+				$StaticBody2D/top_right.visible = false
+				$StaticBody2D/bottom_left.visible = true
+				$StaticBody2D/bottom_right.visible = false
+
 func _on_static_body_2d_mouse_entered() -> void:
 	#var cursor = get_tree().get_first_node_in_group("cursor")
 	#cursor.global_position = global_position

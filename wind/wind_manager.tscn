@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdyvb1d0a05c2"]
+
+[ext_resource type="Script" uid="uid://dvvm8m7uf5jfv" path="res://scripts/wind_manager.gd" id="1_wme0a"]
+
+[node name="WindManager" type="Node2D"]
+script = ExtResource("1_wme0a")

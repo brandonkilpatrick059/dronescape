@@ -4,10 +4,12 @@ class_name Chime extends Grid_Entity
 @onready var wind_activation_area : Area2D = $wind_area
 
 @export var wind_animations : Array[AnimatedSprite2D]
-@export var sensitivity : float = 0.02
+@export var sensitivity : float = 1.0
+@export var sensitivity_fraction : float = 2.0
+@export var friction : float = 0.002
 
 var activation_level : float = 0.0 #is 0.0 to 1.0
-static var zero_volume = -80
+static var zero_volume = -50
 
 func _ready() -> void:
 	grid_entity_init()
@@ -30,10 +32,9 @@ func update_wind_animation():
 
 func update_activation_level():
 	var winds = wind_activation_area.get_overlapping_bodies()
-	if(winds.size() > 1 && activation_level < 1.0):
-		activation_level = activation_level + sensitivity
-	else:
-		activation_level = activation_level - sensitivity
+	for wind in winds:
+		activation_level = activation_level/sensitivity_fraction + (sensitivity * wind.get_energy())
+	activation_level = activation_level - friction
 	if(activation_level > 1.0):
 		activation_level = 1.0
 	elif(activation_level < 0.0):
@@ -45,20 +46,20 @@ func update_audio():
 	var current_volume = volume_fraction + zero_volume
 	audio_player.volume_db = current_volume
 
-func debug_input():
-	if(Input.is_action_pressed("second_action")):
-		if(activation_level < 1.0):
-			activation_level = activation_level + sensitivity
-	else:
-		activation_level = activation_level - sensitivity
-	if(activation_level > 1.0):
-		activation_level = 1.0
-	elif(activation_level < 0.0):
-		activation_level = 0.0
+#func debug_input():
+	#if(Input.is_action_pressed("second_action")):
+		#if(activation_level < 1.0):
+			#activation_level = activation_level + sensitivity
+#
+	#activation_level = activation_level - friction
+	#if(activation_level > 1.0):
+		#activation_level = 1.0
+	#elif(activation_level < 0.0):
+		#activation_level = 0.0
 
 func _physics_process(delta: float) -> void:
-	#update_activation_level()
+	update_activation_level()
 	update_wind_animation()
 	update_audio()
-	debug_input()
+	#debug_input()
 	
