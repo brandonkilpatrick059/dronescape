@@ -32,8 +32,13 @@ func update_wind_animation():
 
 func update_activation_level():
 	var winds = wind_activation_area.get_overlapping_bodies()
+	var highest_energy : float = 0.0
 	for wind in winds:
-		activation_level = activation_level/sensitivity_fraction + (sensitivity * wind.get_energy())
+		if(wind.get_energy() > highest_energy):
+			highest_energy = wind.get_energy()
+	var new_activation = sensitivity * highest_energy
+	if(new_activation > activation_level):
+		activation_level = new_activation 
 	activation_level = activation_level - friction
 	if(activation_level > 1.0):
 		activation_level = 1.0

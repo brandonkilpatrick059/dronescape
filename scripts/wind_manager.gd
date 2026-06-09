@@ -4,6 +4,21 @@ var timer := Timer.new()
 
 var wind_particle = preload("res://wind/wind_particle.tscn")
 
+var min_wind_speed = 2000
+var max_wind_speed = 20000
+var current_wind_speeds = min_wind_speed
+var wind_speeds_rising = false
+
+var change_weight = 0.0
+
+static var wind_visible = false
+
+static func get_wind_visible() -> bool:
+	return wind_visible
+
+static func set_wind_visible(set_to : bool):
+	wind_visible = set_to
+
 func _ready() -> void:
 	timer.one_shot = true
 	add_child(timer)
@@ -12,18 +27,28 @@ func generate_wind():
 	var height = 1280
 	var point_step = 16
 	var current_step = 0
+	if(wind_speeds_rising && current_wind_speeds < max_wind_speed):
+		current_wind_speeds = current_wind_speeds + randf_range(250,500)
+	elif(!wind_speeds_rising && current_wind_speeds > min_wind_speed):
+		current_wind_speeds = current_wind_speeds - randf_range(250,500)
+	if(randf_range(0.0,1.0) - change_weight < 0.01):
+		wind_speeds_rising = !wind_speeds_rising
+		change_weight = 0.0
+	else: 
+		change_weight = change_weight + 0.002
 	while(current_step < height):
 		current_step = current_step + point_step
 		var particle = wind_particle.instantiate()
 		add_child(particle)
 		particle.global_position = global_position + (Vector2(0,global_position.y + current_step))
-		particle.launch(Vector2(10000,0))
+		particle.launch(Vector2(current_wind_speeds,0))
 	
 func handle_input():
-	if(Input.is_action_pressed("wind_right")):
-		generate_wind()
+	if(Input.is_action_just_pressed("dev_1")):
+		wind_visible = !wind_visible
 
 func _physics_process(delta: float) -> void:
+	handle_input()
 	if(timer.is_stopped()):
-		handle_input()
+		generate_wind()
 		timer.start(0.5)

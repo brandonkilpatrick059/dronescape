@@ -18,11 +18,12 @@ func launch(force_vect : Vector2):
 func get_energy() -> float:
 	var speed = linear_velocity.length()
 	return speed/top_speed
-	
+
 func _physics_process(delta: float) -> void:
 	var num_frames : float = float(animated_sprite.sprite_frames.get_frame_count("default"))
 	var current_frame : int = int(get_energy() * num_frames)
 	animated_sprite.frame = current_frame
+	visible = Wind_Manager.get_wind_visible()
 	var camera = get_tree().get_first_node_in_group("camera")
 	if(global_position.distance_to(camera.global_position) > 800):
 		queue_free()

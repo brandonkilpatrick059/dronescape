@@ -30,10 +30,12 @@ func set_animation(name : String):
 
 func set_stone_collision(name : String):
 	if(name.contains("center")):
+		$StaticBody2D/center.disabled = false
 		$StaticBody2D/top_left.disabled = true
 		$StaticBody2D/top_right.disabled = true
 		$StaticBody2D/bottom_left.disabled = true
 		$StaticBody2D/bottom_right.disabled = true
+		$StaticBody2D/center.visible = true
 		$StaticBody2D/top_left.visible = false
 		$StaticBody2D/top_right.visible = false
 		$StaticBody2D/bottom_left.visible = false
