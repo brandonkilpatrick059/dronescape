@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://clq5nv0qo1xmk" path="res://scenes/grid_base.tscn" id="1_qdhqp"]
 [ext_resource type="PackedScene" uid="uid://dp2sv2a17a7jy" path="res://entities/stones/purple_stone.tscn" id="2_n7rse"]
-[ext_resource type="Texture2D" uid="uid://bfkw8idcu5egc" path="res://sprites/backgrounds/white_teal_gradient.png" id="3_n7rse"]
+[ext_resource type="Texture2D" uid="uid://6q2qjpjla1ai" path="res://sprites/backgrounds/generic_gradient.png" id="3_pl366"]
 [ext_resource type="PackedScene" uid="uid://bwwo4l82msqi" path="res://interface/cursor.tscn" id="4_ohvtm"]
 [ext_resource type="Script" uid="uid://bvlxfcloxnkhx" path="res://scripts/main_camera.gd" id="5_l6vqa"]
 [ext_resource type="PackedScene" uid="uid://bql8nnwr3x1hq" path="res://entities/chimes/warm_vox_chime_root.tscn" id="6_f80ug"]
@@ -18,186 +18,20 @@ position = Vector2(-16, 32)
 [node name="PurpleStone2" parent="." instance=ExtResource("2_n7rse")]
 position = Vector2(-32, 32)
 
-[node name="PurpleStone9" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-48, 16)
-
-[node name="PurpleStone10" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-64, 16)
-
-[node name="PurpleStone11" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-80, 0)
-
-[node name="PurpleStone12" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-64, 0)
-
-[node name="PurpleStone13" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-48, 0)
-
-[node name="PurpleStone14" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-32, 16)
-
-[node name="PurpleStone15" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(32, 16)
-
-[node name="PurpleStone16" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(48, 0)
-
-[node name="PurpleStone17" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(64, 0)
-
-[node name="PurpleStone18" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(80, 16)
-
-[node name="PurpleStone19" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(96, 16)
-
-[node name="PurpleStone20" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(112, 0)
-
-[node name="PurpleStone21" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(128, -16)
-
-[node name="PurpleStone22" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(128, -32)
-
-[node name="PurpleStone23" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(112, -32)
-
-[node name="PurpleStone24" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-96, -16)
-
-[node name="PurpleStone25" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-112, -32)
-
-[node name="PurpleStone26" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-96, -32)
-
-[node name="PurpleStone27" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-80, -32)
-
-[node name="PurpleStone28" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-64, -32)
-
-[node name="PurpleStone29" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-64, -16)
-
-[node name="PurpleStone30" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-80, -16)
-
-[node name="PurpleStone31" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-48, -16)
-
-[node name="PurpleStone32" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-48, -32)
-
-[node name="PurpleStone33" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-32, -32)
-
-[node name="PurpleStone34" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-32, -16)
-
-[node name="PurpleStone35" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-32, 0)
-
-[node name="PurpleStone36" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-16, 16)
-
-[node name="PurpleStone37" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(16, 16)
-
-[node name="PurpleStone38" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(0, 16)
-
-[node name="PurpleStone39" parent="." instance=ExtResource("2_n7rse")]
-
-[node name="PurpleStone40" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-16, 0)
-
-[node name="PurpleStone41" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-16, -16)
-
-[node name="PurpleStone42" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-16, -32)
-
-[node name="PurpleStone43" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(0, -32)
-
-[node name="PurpleStone44" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(0, -16)
-
-[node name="PurpleStone45" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(16, 0)
-
-[node name="PurpleStone46" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(32, 0)
-
-[node name="PurpleStone47" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(32, -16)
-
-[node name="PurpleStone48" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(16, -16)
-
-[node name="PurpleStone49" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(16, -32)
-
-[node name="PurpleStone50" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(32, -32)
-
-[node name="PurpleStone51" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(48, -16)
-
-[node name="PurpleStone52" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(48, -32)
-
-[node name="PurpleStone53" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(96, -32)
-
-[node name="PurpleStone54" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(80, -32)
-
-[node name="PurpleStone55" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(64, -32)
-
-[node name="PurpleStone56" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(64, -16)
-
-[node name="PurpleStone57" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(80, 0)
-
-[node name="PurpleStone58" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(96, 0)
-
-[node name="PurpleStone59" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(96, -16)
-
-[node name="PurpleStone60" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(80, -16)
-
-[node name="PurpleStone61" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(112, -16)
-
 [node name="PurpleStone3" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-48, 32)
-
-[node name="PurpleStone4" parent="." instance=ExtResource("2_n7rse")]
 position = Vector2(0, 32)
 
+[node name="PurpleStone4" parent="." instance=ExtResource("2_n7rse")]
+position = Vector2(16, 32)
+
 [node name="PurpleStone5" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(0, 48)
+position = Vector2(16, 32)
 
 [node name="PurpleStone6" parent="." instance=ExtResource("2_n7rse")]
 position = Vector2(-16, 48)
 
 [node name="PurpleStone7" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-32, 48)
-
-[node name="PurpleStone8" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(16, 32)
-
-[node name="white_teal_gradient" type="Sprite2D" parent="."]
-modulate = Color(1, 0.858824, 1, 1)
-z_index = -10
-texture = ExtResource("3_n7rse")
+position = Vector2(0, 48)
 
 [node name="Cursor" parent="." instance=ExtResource("4_ohvtm")]
 z_index = 5
@@ -206,7 +40,25 @@ z_index = 5
 script = ExtResource("5_l6vqa")
 
 [node name="WarmVoxChimeRoot" parent="." instance=ExtResource("6_f80ug")]
-position = Vector2(-32, -48)
+position = Vector2(-16, 16)
 
 [node name="WindManager" parent="." instance=ExtResource("7_pl366")]
 position = Vector2(-320, -240)
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+
+[node name="sky_gradient" type="Sprite2D" parent="Parallax2D"]
+modulate = Color(1, 0.858824, 1, 1)
+z_index = -10
+position = Vector2(313.946, 164.397)
+rotation = -3.14159
+scale = Vector2(0.590541, 0.29437)
+texture = ExtResource("3_pl366")
+
+[node name="ground_gradient" type="Sprite2D" parent="Parallax2D"]
+modulate = Color(0.965098, 0.901828, 0.817787, 1)
+z_index = -10
+position = Vector2(313.946, 516.397)
+scale = Vector2(0.55625, 0.277277)
+texture = ExtResource("3_pl366")
