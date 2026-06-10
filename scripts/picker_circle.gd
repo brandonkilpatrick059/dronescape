@@ -5,6 +5,8 @@ var current_alpha = 0.0
 @onready var audio_player : AudioStreamPlayer = $AudioStreamPlayer
 
 @onready var display_items : Node = $display_items
+@onready var picker_web : Picker_Web = $PickerWeb
+var web_location = "picker_center"
 
 @onready var bubble_0 = $PickerBubble
 @onready var bubble_1 = $PickerBubble2
@@ -64,7 +66,12 @@ func set_inactive():
 	deactivate_bubbles()
 
 func update_display_items():
-	var items : Array[Node] = display_items.get_children()
+	for bubble : Picker_Bubble in picker_bubbles:
+		if(bubble != bubble_0):
+			bubble.clear_display()
+	
+	var web_node : Picker_Web_Node = get_tree().get_first_node_in_group(web_location)
+	var items : Array[Node] = web_node.get_display_items()
 	var index = 1
 	for item : Picker_Item in items:
 		if(index < picker_bubbles.size()):
@@ -72,9 +79,27 @@ func update_display_items():
 			var anim_path = item.get_display_sprite_frames()
 			var anim_name = item.get_display_animation()
 			var entity_path = item.get_item_path()
+			var tab_path = item.get_tab_path()
 			bubble.set_display(anim_path,anim_name) 
 			bubble.set_grid_entity_path(entity_path)
+			bubble.set_tab_path(tab_path)
 			index = index + 1
+
+func set_web_location(location : String):
+	web_location = location
+	var web_node : Picker_Web_Node = get_tree().get_first_node_in_group(web_location)
+	if(web_node.get_prev_web_location() != ""):
+		bubble_0.set_return_tab(true)
+	else:
+		bubble_0.set_return_tab(false)
+		#TODO: current placement item in bubble_0 of center circle
+	update_display_items()
+
+func location_to_prev():
+	var web_node : Picker_Web_Node = get_tree().get_first_node_in_group(web_location)
+	var prev_location = web_node.get_prev_web_location()
+	if(prev_location != ""):
+		set_web_location(prev_location)
 
 func _physics_process(delta: float) -> void:
 	handle_input()

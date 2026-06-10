@@ -1,14 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://5g0h50u7kjhn"]
+[gd_scene load_steps=5 format=3 uid="uid://5g0h50u7kjhn"]
 
 [ext_resource type="Texture2D" uid="uid://crtw4wgof37lk" path="res://sprites/interface/picker_circle.png" id="1_2cciy"]
 [ext_resource type="Script" uid="uid://b137ktfgvedwb" path="res://scripts/picker_circle.gd" id="1_yql5p"]
 [ext_resource type="PackedScene" uid="uid://deiwk01jhatgw" path="res://interface/picker/picker_bubble.tscn" id="3_yql5p"]
-[ext_resource type="PackedScene" uid="uid://ovqo2g168soa" path="res://interface/picker/picker_items/picker_item_purple_brick.tscn" id="4_tt1gk"]
-[ext_resource type="PackedScene" uid="uid://cvb73mxosh43m" path="res://interface/picker/picker_items/picker_item_purple_stone.tscn" id="5_1u0t2"]
-[ext_resource type="PackedScene" uid="uid://dsny6almr1dj5" path="res://interface/picker/picker_items/picker_item_warm_vox_root.tscn" id="6_1u0t2"]
-[ext_resource type="PackedScene" uid="uid://c46w710bxb65v" path="res://interface/picker/picker_items/picker_item_warm_vox_root_above.tscn" id="7_at04c"]
-[ext_resource type="PackedScene" uid="uid://8iaq1fk057go" path="res://interface/picker/picker_items/picker_item_warm_vox_fourth.tscn" id="8_vk21u"]
-[ext_resource type="PackedScene" uid="uid://xy2wugi2asd3" path="res://interface/picker/picker_items/picker_item_frog_machine.tscn" id="9_laoqe"]
+[ext_resource type="PackedScene" uid="uid://dro861wwj4abf" path="res://interface/picker/picker_web.tscn" id="4_8fbly"]
 
 [node name="PickerCircle" type="Node2D" groups=["picker_circle"]]
 z_index = 2
@@ -47,14 +42,5 @@ position = Vector2(-24, -24)
 
 [node name="display_items" type="Node2D" parent="."]
 
-[node name="PickerItemPurpleBrick" parent="display_items" instance=ExtResource("4_tt1gk")]
-
-[node name="PickerItemPurpleStone" parent="display_items" instance=ExtResource("5_1u0t2")]
-
-[node name="PickerItemWarmVoxRoot" parent="display_items" instance=ExtResource("6_1u0t2")]
-
-[node name="PickerItemWarmVoxRootAbove" parent="display_items" instance=ExtResource("7_at04c")]
-
-[node name="PickerItemWarmVoxFourth" parent="display_items" instance=ExtResource("8_vk21u")]
-
-[node name="PickerItemFrogMachine" parent="display_items" instance=ExtResource("9_laoqe")]
+[node name="PickerWeb" parent="." instance=ExtResource("4_8fbly")]
+visible = false

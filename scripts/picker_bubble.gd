@@ -1,3 +1,4 @@
+@tool
 class_name  Picker_Bubble extends Node2D
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
@@ -12,7 +13,10 @@ var retracting = false
 var expanded = false
 var retracted = true
 
+var return_tab : bool = false
+
 var grid_entity_path : String = ""
+var tab_path : String = ""
 
 func _ready() -> void:
 	retracted = true
@@ -21,12 +25,23 @@ func _ready() -> void:
 func handle_input():
 	if(Input.is_action_just_pressed("main_action")):
 		if(mouse_over):
-			audio_player.stream = load("res://audio/interface/click.ogg")
-			audio_player.play()
-			var cursor : Cursor = get_tree().get_first_node_in_group("cursor")
-			cursor.set_create_grid_entity_path(grid_entity_path)
-			var picker_circle : Picker_Circle = get_tree().get_first_node_in_group("picker_circle")
-			picker_circle.disappear()
+			if(return_tab):
+				var picker_circle : Picker_Circle = get_tree().get_first_node_in_group("picker_circle")
+				picker_circle.location_to_prev()
+				audio_player.stream = load("res://audio/interface/click.ogg")
+				audio_player.play()
+			elif(grid_entity_path != ""):
+				audio_player.stream = load("res://audio/interface/click.ogg")
+				audio_player.play()
+				var cursor : Cursor = get_tree().get_first_node_in_group("cursor")
+				cursor.set_create_grid_entity_path(grid_entity_path)
+				var picker_circle : Picker_Circle = get_tree().get_first_node_in_group("picker_circle")
+				picker_circle.disappear()
+			elif(tab_path != ""):
+				audio_player.stream = load("res://audio/interface/click.ogg")
+				audio_player.play()
+				var picker_circle : Picker_Circle = get_tree().get_first_node_in_group("picker_circle")
+				picker_circle.set_web_location(tab_path)
 
 func handle_animation():
 	if(active):
@@ -58,6 +73,12 @@ func set_display(animation_path : String, animation : String):
 	display.sprite_frames = load(animation_path)
 	display.play(animation)
 
+func clear_display():
+	grid_entity_path = ""
+	tab_path = ""
+	return_tab = false
+	display.sprite_frames = null
+
 func set_active():
 	active = true
 
@@ -70,12 +91,22 @@ func set_grid_entity_path(path : String):
 func get_grid_entity_path() -> String:
 	return grid_entity_path
 
+func set_tab_path(path : String):
+	tab_path = path
+
 func _physics_process(delta: float) -> void:
-	handle_animation()
-	handle_input()
+	if(!Engine.is_editor_hint()):
+		handle_animation()
+		handle_input()
 
 func _on_area_2d_mouse_entered() -> void:
 	mouse_over = true
 
 func _on_area_2d_mouse_exited() -> void:
 	mouse_over = false
+
+func set_return_tab(set_val : bool):
+	clear_display()
+	return_tab = set_val
+	if(return_tab):
+		set_display("res://sprites/interface/tabs.tres","return")

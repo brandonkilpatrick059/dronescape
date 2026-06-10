@@ -8,6 +8,8 @@ var active : bool = true
 
 var create_grid_entity_path : String = "res://entities/stones/purple_stone.tscn"
 
+var current_picker_node : Picker_Item = null
+
 func handle_input():
 	if(Input.is_action_just_pressed("main_action")):
 		spawn_grid_entity()
@@ -22,6 +24,9 @@ func set_create_grid_entity_path(path : String):
 func play_stream(stream_path : String):
 	audio_player.stream = load(stream_path)
 	audio_player.play()
+
+func get_picker_node() -> Picker_Item:
+	return current_picker_node
 
 func create_picker():
 	var num_pickers : int = get_tree().get_nodes_in_group("picker_circle").size()

@@ -1,0 +1,57 @@
+[gd_scene load_steps=12 format=3 uid="uid://dro861wwj4abf"]
+
+[ext_resource type="Script" uid="uid://bdec8x55j6u7g" path="res://scripts/picker_web.gd" id="1_gb7f4"]
+[ext_resource type="PackedScene" uid="uid://dveffq21xw1mh" path="res://interface/picker/picker_web_node.tscn" id="1_ilne7"]
+[ext_resource type="PackedScene" uid="uid://ovqo2g168soa" path="res://interface/picker/picker_items/picker_item_purple_brick.tscn" id="2_gb7f4"]
+[ext_resource type="PackedScene" uid="uid://u4wcf1073qs1" path="res://interface/picker/picker_items/picker_item_chime_tab.tscn" id="3_8d2d4"]
+[ext_resource type="PackedScene" uid="uid://cvb73mxosh43m" path="res://interface/picker/picker_items/picker_item_purple_stone.tscn" id="3_dquct"]
+[ext_resource type="PackedScene" uid="uid://dk6kqvhkl2l1n" path="res://interface/picker/picker_items/picker_item_stone_tab.tscn" id="4_eeast"]
+[ext_resource type="PackedScene" uid="uid://dsny6almr1dj5" path="res://interface/picker/picker_items/picker_item_warm_vox_root.tscn" id="4_owebj"]
+[ext_resource type="PackedScene" uid="uid://8iaq1fk057go" path="res://interface/picker/picker_items/picker_item_warm_vox_fourth.tscn" id="5_8d2d4"]
+[ext_resource type="PackedScene" uid="uid://c622pu0kj1wv2" path="res://interface/picker/picker_items/picker_item_machine_tab.tscn" id="5_m43hu"]
+[ext_resource type="PackedScene" uid="uid://c46w710bxb65v" path="res://interface/picker/picker_items/picker_item_warm_vox_root_above.tscn" id="6_eeast"]
+[ext_resource type="PackedScene" uid="uid://xy2wugi2asd3" path="res://interface/picker/picker_items/picker_item_frog_machine.tscn" id="7_m43hu"]
+
+[node name="PickerWeb" type="Node2D"]
+script = ExtResource("1_gb7f4")
+
+[node name="central_circle" parent="." groups=["picker_center"] instance=ExtResource("1_ilne7")]
+prev_web_node = ""
+
+[node name="display_items" type="Node2D" parent="central_circle"]
+
+[node name="PickerItemChimeTab" parent="central_circle/display_items" instance=ExtResource("3_8d2d4")]
+
+[node name="PickerItemStoneTab" parent="central_circle/display_items" instance=ExtResource("4_eeast")]
+
+[node name="PickerItemMachineTab" parent="central_circle/display_items" instance=ExtResource("5_m43hu")]
+
+[node name="stone_circle" parent="." groups=["picker_stone"] instance=ExtResource("1_ilne7")]
+position = Vector2(120, -108)
+prev_web_node = "picker_center"
+
+[node name="display_items" type="Node2D" parent="stone_circle"]
+
+[node name="PickerItemPurpleBrick" parent="stone_circle/display_items" instance=ExtResource("2_gb7f4")]
+
+[node name="PickerItemPurpleStone" parent="stone_circle/display_items" instance=ExtResource("3_dquct")]
+
+[node name="chime_circle" parent="." groups=["picker_chime"] instance=ExtResource("1_ilne7")]
+position = Vector2(2, -144)
+prev_web_node = "picker_center"
+
+[node name="display_items" type="Node2D" parent="chime_circle"]
+
+[node name="PickerItemWarmVoxRoot" parent="chime_circle/display_items" instance=ExtResource("4_owebj")]
+
+[node name="PickerItemWarmVoxRootAbove" parent="chime_circle/display_items" instance=ExtResource("6_eeast")]
+
+[node name="PickerItemWarmVoxFourth" parent="chime_circle/display_items" instance=ExtResource("5_8d2d4")]
+
+[node name="machine_circle" parent="." groups=["picker_machine"] instance=ExtResource("1_ilne7")]
+position = Vector2(162, 2)
+prev_web_node = "picker_center"
+
+[node name="display_items" type="Node2D" parent="machine_circle"]
+
+[node name="PickerItemFrogMachine" parent="machine_circle/display_items" instance=ExtResource("7_m43hu")]

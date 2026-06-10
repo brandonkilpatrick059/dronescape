@@ -1,0 +1,57 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://dee2d2dxl5vqj"]
+
+[ext_resource type="Texture2D" uid="uid://bmsyl118np2rd" path="res://sprites/interface/tabs/back.png" id="1_822i5"]
+[ext_resource type="Texture2D" uid="uid://cy6spqurwxaub" path="res://sprites/interface/tabs/chime_tab.png" id="1_fdfaa"]
+[ext_resource type="Texture2D" uid="uid://dhu0mce8b6djv" path="res://sprites/interface/tabs/machine_tab.png" id="2_j63e1"]
+[ext_resource type="Texture2D" uid="uid://diupavfvsorwp" path="res://sprites/interface/tabs/stone_tab.png" id="3_822i5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjyc6"]
+atlas = ExtResource("1_fdfaa")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjgu3"]
+atlas = ExtResource("2_j63e1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyocu"]
+atlas = ExtResource("1_822i5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt5kg"]
+atlas = ExtResource("3_822i5")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjyc6")
+}],
+"loop": true,
+"name": &"chime",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjgu3")
+}],
+"loop": true,
+"name": &"machine",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyocu")
+}],
+"loop": true,
+"name": &"return",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lt5kg")
+}],
+"loop": true,
+"name": &"stone",
+"speed": 5.0
+}]

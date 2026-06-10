@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://dveffq21xw1mh"]
+
+[ext_resource type="Script" uid="uid://ca1frxf5ca5ku" path="res://scripts/picker_web_node.gd" id="1_p5no0"]
+[ext_resource type="Texture2D" uid="uid://crtw4wgof37lk" path="res://sprites/interface/picker_circle.png" id="2_nrb80"]
+[ext_resource type="PackedScene" uid="uid://deiwk01jhatgw" path="res://interface/picker/picker_bubble.tscn" id="3_3ke6i"]
+
+[node name="PickerWebNode" type="Node2D"]
+z_index = 2
+script = ExtResource("1_p5no0")
+prev_web_node = null
+
+[node name="structure" type="Sprite2D" parent="."]
+texture = ExtResource("2_nrb80")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="PickerBubble" parent="." instance=ExtResource("3_3ke6i")]
+
+[node name="PickerBubble2" parent="." instance=ExtResource("3_3ke6i")]
+position = Vector2(0, -32)
+
+[node name="PickerBubble3" parent="." instance=ExtResource("3_3ke6i")]
+position = Vector2(24, -24)
+
+[node name="PickerBubble4" parent="." instance=ExtResource("3_3ke6i")]
+position = Vector2(32, 0)
+
+[node name="PickerBubble5" parent="." instance=ExtResource("3_3ke6i")]
+position = Vector2(24, 24)
+
+[node name="PickerBubble6" parent="." instance=ExtResource("3_3ke6i")]
+position = Vector2(0, 32)
+
+[node name="PickerBubble7" parent="." instance=ExtResource("3_3ke6i")]
+position = Vector2(-24, 24)
+
+[node name="PickerBubble8" parent="." instance=ExtResource("3_3ke6i")]
+position = Vector2(-32, 0)
+
+[node name="PickerBubble9" parent="." instance=ExtResource("3_3ke6i")]
+position = Vector2(-24, -24)

@@ -1,8 +1,10 @@
+@tool
 class_name Picker_Item extends Node2D
 
 @export var display_sprite_frames : String = ""
 @export var display_animation : String = ""
 @export var item_path : String = ""
+@export var tab_path : String = ""
 
 func get_display_sprite_frames() -> String:
 	return display_sprite_frames
@@ -12,3 +14,6 @@ func get_display_animation() -> String:
 
 func get_item_path() -> String:
 	return item_path
+
+func get_tab_path() -> String:
+	return tab_path
