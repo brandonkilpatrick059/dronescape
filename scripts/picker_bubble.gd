@@ -17,6 +17,7 @@ var return_tab : bool = false
 
 var grid_entity_path : String = ""
 var tab_path : String = ""
+var picker_item : Node
 
 func _ready() -> void:
 	retracted = true
@@ -35,6 +36,8 @@ func handle_input():
 				audio_player.play()
 				var cursor : Cursor = get_tree().get_first_node_in_group("cursor")
 				cursor.set_create_grid_entity_path(grid_entity_path)
+				var picker_item = get_picker_item().duplicate()
+				cursor.set_picker_node(picker_item)
 				var picker_circle : Picker_Circle = get_tree().get_first_node_in_group("picker_circle")
 				picker_circle.disappear()
 			elif(tab_path != ""):
@@ -104,6 +107,12 @@ func _on_area_2d_mouse_entered() -> void:
 
 func _on_area_2d_mouse_exited() -> void:
 	mouse_over = false
+
+func set_picker_item(node : Node):
+	picker_item = node
+
+func get_picker_item() -> Node:
+	return picker_item
 
 func set_return_tab(set_val : bool):
 	clear_display()

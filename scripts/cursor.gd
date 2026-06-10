@@ -10,6 +10,10 @@ var create_grid_entity_path : String = "res://entities/stones/purple_stone.tscn"
 
 var current_picker_node : Picker_Item = null
 
+func _ready() -> void:
+	var purple_stone_pick = load("res://interface/picker/picker_items/stones/picker_item_purple_stone.tscn")
+	current_picker_node = purple_stone_pick.instantiate()
+
 func handle_input():
 	if(Input.is_action_just_pressed("main_action")):
 		spawn_grid_entity()
@@ -27,6 +31,10 @@ func play_stream(stream_path : String):
 
 func get_picker_node() -> Picker_Item:
 	return current_picker_node
+
+func set_picker_node(picker_node : Picker_Item):
+	current_picker_node.queue_free()
+	current_picker_node = picker_node
 
 func create_picker():
 	var num_pickers : int = get_tree().get_nodes_in_group("picker_circle").size()

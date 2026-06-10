@@ -57,8 +57,8 @@ scale = Vector2(0.590541, 0.29437)
 texture = ExtResource("3_pl366")
 
 [node name="ground_gradient" type="Sprite2D" parent="Parallax2D"]
-modulate = Color(0.407135, 0.416134, 0.555241, 1)
+modulate = Color(0.784314, 0.792157, 0.698039, 1)
 z_index = -10
-position = Vector2(313.946, 516.397)
+position = Vector2(313.946, 464)
 scale = Vector2(0.55625, 0.277277)
 texture = ExtResource("3_pl366")

@@ -19,3 +19,9 @@ collision_layer = 5
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="spine"]
 polygon = PackedVector2Array(-8, 16, 8, 16, 3, -13, -4, -13)
+
+[node name="grid_item" type="StaticBody2D" parent="."]
+position = Vector2(0, -8)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="grid_item"]
+polygon = PackedVector2Array(-8, 16, 8, 16, 8, 6, -8, 6)

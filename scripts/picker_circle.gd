@@ -37,6 +37,7 @@ func _ready() -> void:
 		bubble_3, bubble_4, bubble_5,
 		bubble_6, bubble_7, bubble_8
 	]
+	set_web_location(web_location)
 
 func handle_input():
 	if(Input.is_action_just_pressed("third_action")):
@@ -83,6 +84,7 @@ func update_display_items():
 			bubble.set_display(anim_path,anim_name) 
 			bubble.set_grid_entity_path(entity_path)
 			bubble.set_tab_path(tab_path)
+			bubble.set_picker_item(item)
 			index = index + 1
 
 func set_web_location(location : String):
@@ -91,8 +93,17 @@ func set_web_location(location : String):
 	if(web_node.get_prev_web_location() != ""):
 		bubble_0.set_return_tab(true)
 	else:
+		var cursor : Cursor = get_tree().get_first_node_in_group("cursor")
+		var item = cursor.get_picker_node()
+		var anim_path = item.get_display_sprite_frames()
+		var anim_name = item.get_display_animation()
+		var entity_path = item.get_item_path()
+		var tab_path = item.get_tab_path()
 		bubble_0.set_return_tab(false)
-		#TODO: current placement item in bubble_0 of center circle
+		bubble_0.set_display(anim_path,anim_name) 
+		bubble_0.set_grid_entity_path(entity_path)
+		bubble_0.set_tab_path(tab_path)
+		bubble_0.set_picker_item(item)
 	update_display_items()
 
 func location_to_prev():
