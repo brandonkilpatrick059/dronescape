@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://ovqo2g168soa"]
 
-[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker_item.gd" id="1_4ixfm"]
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker_item.gd" id="1_hp3tl"]
 
 [node name="PickerItemPurpleBrick" type="Node2D"]
-script = ExtResource("1_4ixfm")
+script = ExtResource("1_hp3tl")
 display_sprite_frames = "res://sprites/stones/brick_purple/brick_purple.tres"
 display_animation = "center_center"
 item_path = "res://entities/stones/purple_brick.tscn"

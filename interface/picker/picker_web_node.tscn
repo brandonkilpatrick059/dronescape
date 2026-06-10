@@ -7,7 +7,6 @@
 [node name="PickerWebNode" type="Node2D"]
 z_index = 2
 script = ExtResource("1_p5no0")
-prev_web_node = null
 
 [node name="structure" type="Sprite2D" parent="."]
 texture = ExtResource("2_nrb80")
