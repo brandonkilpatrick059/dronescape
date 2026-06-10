@@ -9,7 +9,7 @@
 size = Vector2(16, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oj62h"]
-radius = 24.0
+radius = 16.0
 
 [node name="WarmVoxChimeRoot" type="Node2D" node_paths=PackedStringArray("wind_animations")]
 script = ExtResource("1_wwv5r")

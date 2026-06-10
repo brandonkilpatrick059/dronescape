@@ -4,7 +4,7 @@ var timer := Timer.new()
 
 var wind_particle = preload("res://wind/wind_particle.tscn")
 
-var min_wind_speed = 2000
+var min_wind_speed = 6000
 var max_wind_speed = 20000
 var current_wind_speeds = min_wind_speed
 var wind_speeds_rising = false
