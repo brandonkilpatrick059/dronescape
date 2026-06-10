@@ -10,6 +10,7 @@ class_name Chime extends Grid_Entity
 
 var activation_level : float = 0.0 #is 0.0 to 1.0
 static var zero_volume = -60
+var max_volume = -3
 
 func _ready() -> void:
 	grid_entity_init()
@@ -49,6 +50,8 @@ func update_audio():
 	var full_volume = -zero_volume
 	var volume_fraction = full_volume * activation_level
 	var current_volume = volume_fraction + zero_volume
+	if(current_volume > max_volume):
+		current_volume = max_volume
 	audio_player.volume_db = current_volume
 
 #func debug_input():

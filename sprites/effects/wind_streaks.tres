@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://by5ebnjl84jyk"]
+
+[ext_resource type="Texture2D" uid="uid://d2pwokinbpx4p" path="res://sprites/effects/wind_streaks.png" id="1_88s2p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t25no"]
+atlas = ExtResource("1_88s2p")
+region = Rect2(0, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x0fm"]
+atlas = ExtResource("1_88s2p")
+region = Rect2(0, 16, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h08ys"]
+atlas = ExtResource("1_88s2p")
+region = Rect2(0, 32, 64, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t25no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x0fm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h08ys")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

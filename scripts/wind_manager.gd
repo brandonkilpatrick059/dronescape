@@ -14,7 +14,7 @@ var change_weight = 0.0
 static var wind_visible = false
 
 var zero_volume = -60
-var max_volume = -12
+var max_volume = -6
 @onready var audio_player : AudioStreamPlayer = $AudioStreamPlayer
 
 static func get_wind_visible() -> bool:
