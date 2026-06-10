@@ -13,13 +13,6 @@ animation = &"retract"
 frame = 1
 frame_progress = 0.508713
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(0, -8)
-collision_layer = 5
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-8, 16, 8, 16, 0, 6)
-
 [node name="spine" type="StaticBody2D" parent="."]
 position = Vector2(0, -8)
 collision_layer = 5

@@ -17,6 +17,8 @@ var volume_set_point : float = 0.0
 
 var wind_affect_x_velocity : float = 0.0
 
+var speed_set_scale : float = 0.0
+
 func _ready() -> void:
 	grid_entity_init()
 	add_to_group("chime")
@@ -33,19 +35,24 @@ func initialize_wind_animation():
 		a_sprite.speed_scale = 0.0
 
 func update_wind_animation():
+	var new_scale : float = activation_level
+	if(wind_affect_x_velocity < 0.0):
+		new_scale = -activation_level
+	speed_set_scale = new_scale
 	for a_sprite : AnimatedSprite2D in wind_animations:
-		var new_scale : float = activation_level
-		if(wind_affect_x_velocity < 0.0):
-			new_scale = -activation_level
-		a_sprite.speed_scale = new_scale
+		if(a_sprite.speed_scale < speed_set_scale):
+			a_sprite.speed_scale = a_sprite.speed_scale + 0.1
+		elif(a_sprite.speed_scale > speed_set_scale):
+			a_sprite.speed_scale = a_sprite.speed_scale - 0.1
 
 func update_activation_level():
 	var winds = wind_activation_area.get_overlapping_bodies()
 	var highest_energy : float = 0.0
+	var new_wind_affect_x_velocity = 0.0
 	for wind : Wind_Particle in winds:
 		if(wind.get_energy() > highest_energy):
 			highest_energy = wind.get_energy()
-			wind_affect_x_velocity = wind.get_velocity_x()
+			new_wind_affect_x_velocity = wind.get_velocity_x()
 		var attenuation = wind_velocity_attenuation
 		if(wind_affect_x_velocity < 0):
 			attenuation = - wind_velocity_attenuation
@@ -53,6 +60,7 @@ func update_activation_level():
 	var new_activation = sensitivity * highest_energy
 	if(new_activation > activation_level):
 		activation_level = new_activation 
+		wind_affect_x_velocity = new_wind_affect_x_velocity
 	activation_level = activation_level - friction
 	if(activation_level > 1.0):
 		activation_level = 1.0
