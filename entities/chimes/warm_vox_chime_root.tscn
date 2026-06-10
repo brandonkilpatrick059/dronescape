@@ -25,12 +25,12 @@ texture = ExtResource("1_1qf4y")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -22)
 sprite_frames = ExtResource("2_oonc0")
-frame_progress = 0.836426
+frame_progress = 0.993098
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_oj62h")
-max_distance = 600.0
 attenuation = 12.5533
+panning_strength = 4.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

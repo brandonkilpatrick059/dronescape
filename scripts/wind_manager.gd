@@ -17,6 +17,11 @@ var zero_volume = -60
 var max_volume = -6
 @onready var audio_player : AudioStreamPlayer = $AudioStreamPlayer
 
+var height = 1280
+var width = 0
+var set_width = 640
+	
+
 static func get_wind_visible() -> bool:
 	return wind_visible
 
@@ -28,15 +33,21 @@ func _ready() -> void:
 	add_child(timer)
 	audio_player.volume_db = zero_volume
 	audio_player.play()
+	if(randf_range(0.0,1.0) < 0.5):
+		width = set_width
 
 func generate_wind():
-	var height = 1280
 	var point_step = 16
 	var current_step = 0
 	if(wind_speeds_rising && current_wind_speeds < max_wind_speed):
 		current_wind_speeds = current_wind_speeds + randf_range(250,500)
 	elif(!wind_speeds_rising && current_wind_speeds > min_wind_speed):
 		current_wind_speeds = current_wind_speeds - randf_range(250,500)
+	if(current_wind_speeds - min_wind_speed < 50):
+		if(width == 0):
+			width = 640
+		else:
+			width = 0
 	if(randf_range(0.0,1.0) - change_weight < 0.01):
 		wind_speeds_rising = !wind_speeds_rising
 		change_weight = 0.0
@@ -46,8 +57,11 @@ func generate_wind():
 		current_step = current_step + point_step
 		var particle = wind_particle.instantiate()
 		add_child(particle)
-		particle.global_position = global_position + (Vector2(0,global_position.y + current_step))
-		particle.launch(Vector2(current_wind_speeds,0))
+		particle.global_position = global_position + (Vector2(width,global_position.y + current_step))
+		var wind_launch_force = current_wind_speeds
+		if(width != 0):
+			wind_launch_force = -current_wind_speeds
+		particle.launch(Vector2(wind_launch_force,0))
 	
 func handle_input():
 	if(Input.is_action_just_pressed("dev_1")):
