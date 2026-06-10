@@ -20,7 +20,7 @@ var max_volume = -6
 var height = 1280
 var width = 0
 var set_width = 640
-	
+var switch_lock = false
 
 static func get_wind_visible() -> bool:
 	return wind_visible
@@ -43,11 +43,14 @@ func generate_wind():
 		current_wind_speeds = current_wind_speeds + randf_range(250,500)
 	elif(!wind_speeds_rising && current_wind_speeds > min_wind_speed):
 		current_wind_speeds = current_wind_speeds - randf_range(250,500)
-	if(current_wind_speeds - min_wind_speed < 50):
+	if(!switch_lock && current_wind_speeds - min_wind_speed < 50):
+		switch_lock = true
 		if(width == 0):
 			width = 640
 		else:
 			width = 0
+	elif(current_wind_speeds - min_wind_speed > 50):
+		switch_lock = false
 	if(randf_range(0.0,1.0) - change_weight < 0.01):
 		wind_speeds_rising = !wind_speeds_rising
 		change_weight = 0.0

@@ -10,6 +10,8 @@ func _ready() -> void:
 	max_alpha = randf_range(0.4,0.8)
 	animated_sprite = $AnimatedSprite2D
 	animated_sprite.play("default")
+	var scale_factor = randf_range(0.8,1.5)
+	scale = Vector2(scale_factor,scale_factor)
 
 func _physics_process(delta: float) -> void:
 	var alpha_step = 0.02 

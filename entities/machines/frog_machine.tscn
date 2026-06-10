@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dskehoq0700sv"]
+
+[ext_resource type="Script" uid="uid://bntfwtkkywdxs" path="res://scripts/frog_machine.gd" id="1_4qqou"]
+[ext_resource type="SpriteFrames" uid="uid://bmha0bux35ac3" path="res://sprites/machines/frog_machine.tres" id="1_t62i5"]
+
+[node name="FrogMachine" type="Node2D"]
+script = ExtResource("1_4qqou")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = ExtResource("1_t62i5")
+animation = &"retract"
+frame = 1
+frame_progress = 0.508713
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -8)
+collision_layer = 5
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-8, 16, 8, 16, 0, 6)
+
+[node name="spine" type="StaticBody2D" parent="."]
+position = Vector2(0, -8)
+collision_layer = 5
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="spine"]
+polygon = PackedVector2Array(-8, 16, 8, 16, 3, -13, -4, -13)

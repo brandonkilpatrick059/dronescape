@@ -24,6 +24,12 @@ func get_energy() -> float:
 	var speed = linear_velocity.length()
 	return speed/top_speed
 
+func get_velocity_x() -> float:
+	return linear_velocity.x
+
+func attenuate_velocity_x(amount : float):
+	linear_velocity.x = linear_velocity.x - amount
+
 func _physics_process(delta: float) -> void: 
 	var num_frames : float = float(animated_sprite.sprite_frames.get_frame_count("default"))
 	var current_frame : int = int(get_energy() * num_frames)
@@ -34,14 +40,15 @@ func _physics_process(delta: float) -> void:
 	!wind_streak_created && 
 	randf_range(0.0,1.0) < 0.0002): 
 		wind_streak_ref = wind_streak.instantiate()
-		var rotate = Vector2(1.0,0.0).angle_to(linear_velocity)
-		wind_streak_ref.rotation = rotate
+		#var rotate = Vector2(1.0,0.0).angle_to(linear_velocity)
+		#wind_streak_ref.rotation = rotate
 		get_parent().add_child(wind_streak_ref)
+		wind_streak_ref.global_position = global_position
 		wind_streak_created = true
 	if(wind_streak_created && wind_streak_ref != null):
-		wind_streak_ref.global_position = global_position
-		var rotate = Vector2(1.0,0.0).angle_to(linear_velocity)
-		wind_streak_ref.rotation = rotate
+		wind_streak_ref.global_position = Vector2(global_position.x,wind_streak_ref.global_position.y)
+		#var rotate = Vector2(1.0,0.0).angle_to(linear_velocity)
+		#wind_streak_ref.rotation = rotate
 	if(global_position.distance_to(camera.global_position) > 800):
 		queue_free()
 	if(life_timer.is_stopped()):
