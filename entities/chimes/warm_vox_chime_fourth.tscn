@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://clvy2nkvro5ce"]
 
-[ext_resource type="Script" uid="uid://bg5hqgdng0moh" path="res://scripts/chime.gd" id="1_qc8y1"]
+[ext_resource type="Script" uid="uid://bg5hqgdng0moh" path="res://scripts/entities/chime.gd" id="1_qc8y1"]
 [ext_resource type="Texture2D" uid="uid://dwe36kjr2284x" path="res://sprites/chimes/warm_vox_chime.png" id="2_p3xqe"]
 [ext_resource type="SpriteFrames" uid="uid://b5ii4svkamhwm" path="res://sprites/chimes/windmill_3.tres" id="3_qc8y1"]
 [ext_resource type="AudioStream" uid="uid://d0r2psihuhk6m" path="res://audio/chimes/warm_vox_up_fourth.ogg" id="4_qc8y1"]
-[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/place_criteria.gd" id="5_p3xqe"]
+[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="5_p3xqe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oj62h"]
 size = Vector2(16, 32)

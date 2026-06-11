@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://67eut8iwb5qi"]
 
-[ext_resource type="Script" uid="uid://bg5hqgdng0moh" path="res://scripts/chime.gd" id="1_130sj"]
+[ext_resource type="Script" uid="uid://bg5hqgdng0moh" path="res://scripts/entities/chime.gd" id="1_130sj"]
 [ext_resource type="Texture2D" uid="uid://dwe36kjr2284x" path="res://sprites/chimes/warm_vox_chime.png" id="2_ud487"]
 [ext_resource type="SpriteFrames" uid="uid://bypeashfqs6m5" path="res://sprites/chimes/windmill_2.tres" id="3_130sj"]
 [ext_resource type="AudioStream" uid="uid://kkx3pf28b07w" path="res://audio/chimes/warm_vox_root_above.ogg" id="4_130sj"]

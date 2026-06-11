@@ -1,15 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvfn8m6rprwus"]
+[gd_scene load_steps=13 format=3 uid="uid://bvfn8m6rprwus"]
 
 [ext_resource type="PackedScene" uid="uid://clq5nv0qo1xmk" path="res://scenes/grid_base.tscn" id="1_qdhqp"]
 [ext_resource type="PackedScene" uid="uid://dp2sv2a17a7jy" path="res://entities/stones/purple_stone.tscn" id="2_n7rse"]
 [ext_resource type="Texture2D" uid="uid://6q2qjpjla1ai" path="res://sprites/backgrounds/generic_gradient.png" id="3_pl366"]
 [ext_resource type="PackedScene" uid="uid://bwwo4l82msqi" path="res://interface/cursor.tscn" id="4_ohvtm"]
+[ext_resource type="Script" uid="uid://dpckoegnu6q24" path="res://scripts/skybox_manager.gd" id="5_jcsu2"]
 [ext_resource type="Script" uid="uid://bvlxfcloxnkhx" path="res://scripts/main_camera.gd" id="5_l6vqa"]
 [ext_resource type="PackedScene" uid="uid://cdyvb1d0a05c2" path="res://wind/wind_manager.tscn" id="7_pl366"]
 [ext_resource type="Texture2D" uid="uid://crtdro0e2ahr" path="res://sprites/dark_square.png" id="8_w5276"]
-[ext_resource type="Script" uid="uid://cuhtnyf41wxp5" path="res://scripts/fade_out_in_secs.gd" id="9_luqy6"]
+[ext_resource type="Script" uid="uid://cuhtnyf41wxp5" path="res://scripts/utility/fade_out_in_secs.gd" id="9_luqy6"]
 [ext_resource type="Texture2D" uid="uid://dj2ejelpo88gv" path="res://sprites/title.png" id="10_0q3eu"]
-[ext_resource type="Script" uid="uid://crncra6nnssso" path="res://scripts/fps_counter.gd" id="11_e3fxj"]
+[ext_resource type="Script" uid="uid://crncra6nnssso" path="res://scripts/utility/fps_counter.gd" id="11_e3fxj"]
 [ext_resource type="PackedScene" uid="uid://clvy2nkvro5ce" path="res://entities/chimes/warm_vox_chime_fourth.tscn" id="11_jcsu2"]
 
 [node name="GridSandbox" type="Node2D"]
@@ -27,9 +28,10 @@ position = Vector2(-320, -240)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
+script = ExtResource("5_jcsu2")
 
 [node name="sky_gradient" type="Sprite2D" parent="Parallax2D"]
-modulate = Color(1, 0.858824, 1, 1)
+modulate = Color(0.809954, 0.666127, 0.882969, 1)
 z_index = -10
 position = Vector2(313.946, 164.397)
 rotation = -3.14159
@@ -37,7 +39,7 @@ scale = Vector2(0.590541, 0.29437)
 texture = ExtResource("3_pl366")
 
 [node name="ground_gradient" type="Sprite2D" parent="Parallax2D"]
-modulate = Color(0.432789, 0.664541, 0.719371, 1)
+modulate = Color(0.353545, 0.572901, 0.624331, 1)
 z_index = -10
 position = Vector2(313.946, 464)
 scale = Vector2(0.55625, 0.277277)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dveffq21xw1mh"]
 
-[ext_resource type="Script" uid="uid://ca1frxf5ca5ku" path="res://scripts/picker_web_node.gd" id="1_p5no0"]
+[ext_resource type="Script" uid="uid://ca1frxf5ca5ku" path="res://scripts/picker/picker_web_node.gd" id="1_p5no0"]
 [ext_resource type="Texture2D" uid="uid://crtw4wgof37lk" path="res://sprites/interface/picker_circle.png" id="2_nrb80"]
 [ext_resource type="PackedScene" uid="uid://deiwk01jhatgw" path="res://interface/picker/picker_bubble.tscn" id="3_3ke6i"]
 

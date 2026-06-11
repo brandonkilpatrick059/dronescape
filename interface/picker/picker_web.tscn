@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://dro861wwj4abf"]
 
-[ext_resource type="Script" uid="uid://bdec8x55j6u7g" path="res://scripts/picker_web.gd" id="1_gb7f4"]
+[ext_resource type="Script" uid="uid://bdec8x55j6u7g" path="res://scripts/picker/picker_web.gd" id="1_gb7f4"]
 [ext_resource type="PackedScene" uid="uid://dveffq21xw1mh" path="res://interface/picker/picker_web_node.tscn" id="1_ilne7"]
 [ext_resource type="PackedScene" uid="uid://ovqo2g168soa" path="res://interface/picker/picker_items/stones/picker_item_purple_brick.tscn" id="2_gb7f4"]
 [ext_resource type="PackedScene" uid="uid://u4wcf1073qs1" path="res://interface/picker/picker_items/tabs/picker_item_chime_tab.tscn" id="3_8d2d4"]

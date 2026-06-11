@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdyvb1d0a05c2"]
 
-[ext_resource type="Script" uid="uid://dvvm8m7uf5jfv" path="res://scripts/wind_manager.gd" id="1_wme0a"]
+[ext_resource type="Script" uid="uid://dvvm8m7uf5jfv" path="res://scripts/wind/wind_manager.gd" id="1_wme0a"]
 [ext_resource type="AudioStream" uid="uid://kp00i6endtbs" path="res://audio/environment/wind_loop.ogg" id="2_vfniq"]
 
 [node name="WindManager" type="Node2D"]

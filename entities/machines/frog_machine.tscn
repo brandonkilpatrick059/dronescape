@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dskehoq0700sv"]
 
-[ext_resource type="Script" uid="uid://bntfwtkkywdxs" path="res://scripts/frog_machine.gd" id="1_4qqou"]
+[ext_resource type="Script" uid="uid://bntfwtkkywdxs" path="res://scripts/entities/placement_criteria/frog_machine.gd" id="1_4qqou"]
 [ext_resource type="SpriteFrames" uid="uid://bmha0bux35ac3" path="res://sprites/machines/frog_machine.tres" id="1_t62i5"]
 
 [node name="FrogMachine" type="Node2D"]

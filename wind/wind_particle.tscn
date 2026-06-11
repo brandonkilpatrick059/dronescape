@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://da7f3l2mwf816"]
 
 [ext_resource type="SpriteFrames" uid="uid://bg4gu5hfmlqgx" path="res://sprites/wind/wind_particle.tres" id="1_o7alq"]
-[ext_resource type="Script" uid="uid://dirj8l6pbqwy2" path="res://scripts/wind_particle.gd" id="1_yxsh1"]
+[ext_resource type="Script" uid="uid://dirj8l6pbqwy2" path="res://scripts/wind/wind_particle.gd" id="1_yxsh1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yxsh1"]
 bounce = 0.1

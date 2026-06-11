@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ibpgfx481rn2"]
 
 [ext_resource type="SpriteFrames" uid="uid://by5ebnjl84jyk" path="res://sprites/effects/wind_streaks.tres" id="1_75y6i"]
-[ext_resource type="Script" uid="uid://cshcuo8k6su54" path="res://scripts/wind_streak.gd" id="1_rjjf2"]
+[ext_resource type="Script" uid="uid://cshcuo8k6su54" path="res://scripts/wind/wind_streak.gd" id="1_rjjf2"]
 
 [node name="WindStreak" type="Node2D"]
 z_index = 1

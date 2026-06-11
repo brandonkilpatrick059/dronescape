@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://w5ckgmtkmrn5"]
 
-[ext_resource type="Script" uid="uid://bg5hqgdng0moh" path="res://scripts/chime.gd" id="1_yyk4f"]
+[ext_resource type="Script" uid="uid://bg5hqgdng0moh" path="res://scripts/entities/chime.gd" id="1_yyk4f"]
 [ext_resource type="Texture2D" uid="uid://dq8702atwmtx1" path="res://sprites/chimes/lattice.png" id="2_q5ilq"]
 [ext_resource type="SpriteFrames" uid="uid://ctlrquj07rmgs" path="res://sprites/chimes/windmill_4.tres" id="3_lbnga"]
 [ext_resource type="SpriteFrames" uid="uid://cgojio5lg17au" path="res://sprites/chimes/green_recorder_chime.tres" id="4_yyk4f"]

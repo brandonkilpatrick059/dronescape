@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ovqo2g168soa"]
 
-[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker_item.gd" id="1_hp3tl"]
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_hp3tl"]
 [ext_resource type="SpriteFrames" uid="uid://bucxh0thhdvey" path="res://sprites/stones/brick_purple/brick_purple.tres" id="2_eh2s1"]
 [ext_resource type="PackedScene" uid="uid://b0dmxqr3vwks0" path="res://entities/stones/purple_brick.tscn" id="3_li2a3"]
 

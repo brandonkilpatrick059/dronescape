@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://xy2wugi2asd3"]
 
-[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker_item.gd" id="1_o8iux"]
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_o8iux"]
 [ext_resource type="SpriteFrames" uid="uid://bmha0bux35ac3" path="res://sprites/machines/frog_machine.tres" id="2_163cn"]
 [ext_resource type="PackedScene" uid="uid://dskehoq0700sv" path="res://entities/machines/frog_machine.tscn" id="3_elk6p"]
-[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/place_criteria.gd" id="4_elk6p"]
+[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="4_elk6p"]
 
 [node name="PickerItemFrogMachine" type="Node2D" node_paths=PackedStringArray("place_criteria")]
 script = ExtResource("1_o8iux")

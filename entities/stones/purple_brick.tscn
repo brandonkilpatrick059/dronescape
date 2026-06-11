@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b0dmxqr3vwks0"]
 
-[ext_resource type="Script" uid="uid://bibtitfh7a7o6" path="res://scripts/stone.gd" id="1_rhnib"]
+[ext_resource type="Script" uid="uid://bibtitfh7a7o6" path="res://scripts/entities/stone.gd" id="1_rhnib"]
 [ext_resource type="SpriteFrames" uid="uid://bucxh0thhdvey" path="res://sprites/stones/brick_purple/brick_purple.tres" id="2_rhnib"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]

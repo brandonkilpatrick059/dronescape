@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5f3fqh1mgw81"]
 
-[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker_item.gd" id="1_78iep"]
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_78iep"]
 [ext_resource type="SpriteFrames" uid="uid://b24bcgt0jguxj" path="res://sprites/chimes/red_recorder_chime.tres" id="2_sp6td"]
 [ext_resource type="PackedScene" uid="uid://b50yd8b264gpk" path="res://entities/chimes/recorder_chime_root.tscn" id="3_vmm5d"]
-[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/place_criteria.gd" id="4_70vaj"]
+[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="4_70vaj"]
 
 [node name="PickerItemRecorderRoot" type="Node2D" node_paths=PackedStringArray("place_criteria")]
 script = ExtResource("1_78iep")

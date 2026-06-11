@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://1cway6yiukkh"]
 
-[ext_resource type="Script" uid="uid://bmlq2yi7wao2n" path="res://scripts/criteria_collider.gd" id="1_ukyte"]
+[ext_resource type="Script" uid="uid://bmlq2yi7wao2n" path="res://scripts/entities/placement_criteria/criteria_collider.gd" id="1_ukyte"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jrcvv"]
 radius = 5.0
