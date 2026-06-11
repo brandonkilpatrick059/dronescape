@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dro861wwj4abf"]
+[gd_scene load_steps=19 format=3 uid="uid://dro861wwj4abf"]
 
 [ext_resource type="Script" uid="uid://bdec8x55j6u7g" path="res://scripts/picker_web.gd" id="1_gb7f4"]
 [ext_resource type="PackedScene" uid="uid://dveffq21xw1mh" path="res://interface/picker/picker_web_node.tscn" id="1_ilne7"]
@@ -8,10 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://dk6kqvhkl2l1n" path="res://interface/picker/picker_items/tabs/picker_item_stone_tab.tscn" id="4_eeast"]
 [ext_resource type="PackedScene" uid="uid://dsny6almr1dj5" path="res://interface/picker/picker_items/chimes/picker_item_warm_vox_root.tscn" id="4_owebj"]
 [ext_resource type="PackedScene" uid="uid://8iaq1fk057go" path="res://interface/picker/picker_items/chimes/picker_item_warm_vox_fourth.tscn" id="5_8d2d4"]
+[ext_resource type="PackedScene" uid="uid://dwj51jhtm3ypm" path="res://interface/picker/picker_items/tabs/picker_item_stone_nonsolid_tab.tscn" id="5_lkjr6"]
 [ext_resource type="PackedScene" uid="uid://c622pu0kj1wv2" path="res://interface/picker/picker_items/tabs/picker_item_machine_tab.tscn" id="5_m43hu"]
 [ext_resource type="PackedScene" uid="uid://c46w710bxb65v" path="res://interface/picker/picker_items/chimes/picker_item_warm_vox_root_above.tscn" id="6_eeast"]
 [ext_resource type="PackedScene" uid="uid://basylvn7yrq27" path="res://interface/picker/picker_items/tabs/picker_item_purple_brick_tab.tscn" id="7_8d2d4"]
 [ext_resource type="PackedScene" uid="uid://xy2wugi2asd3" path="res://interface/picker/picker_items/machines/picker_item_frog_machine.tscn" id="7_m43hu"]
+[ext_resource type="PackedScene" uid="uid://cporbvsenaqic" path="res://interface/picker/picker_items/stones/picker_item_purple_stone_nonsolid.tscn" id="8_ef13l"]
 [ext_resource type="PackedScene" uid="uid://bjs5hp6chervd" path="res://interface/picker/picker_items/stones/picker_item_purple_brick_2.tscn" id="8_m43hu"]
 [ext_resource type="PackedScene" uid="uid://c5f3fqh1mgw81" path="res://interface/picker/picker_items/chimes/picker_item_recorder_root.tscn" id="13_ty46p"]
 [ext_resource type="PackedScene" uid="uid://bugu1vlagsedw" path="res://interface/picker/picker_items/chimes/picker_item_recorder_fourth.tscn" id="14_advcm"]
@@ -28,6 +30,8 @@ script = ExtResource("1_gb7f4")
 
 [node name="PickerItemStoneTab" parent="central_circle/display_items" instance=ExtResource("4_eeast")]
 
+[node name="PickerItemStoneNonsolidTab" parent="central_circle/display_items" instance=ExtResource("5_lkjr6")]
+
 [node name="PickerItemMachineTab" parent="central_circle/display_items" instance=ExtResource("5_m43hu")]
 
 [node name="stone_circle" parent="." groups=["picker_stone"] instance=ExtResource("1_ilne7")]
@@ -39,6 +43,14 @@ prev_web_node = "picker_center"
 [node name="PickerItemPurpleStone" parent="stone_circle/display_items" instance=ExtResource("3_dquct")]
 
 [node name="PickerItemPurpleBrickTab" parent="stone_circle/display_items" instance=ExtResource("7_8d2d4")]
+
+[node name="stone_nonsolid_circle" parent="." groups=["picker_stone_nonsolid"] instance=ExtResource("1_ilne7")]
+position = Vector2(162, -14)
+prev_web_node = "picker_center"
+
+[node name="display_items" type="Node2D" parent="stone_nonsolid_circle"]
+
+[node name="PickerItemPurpleStoneNonsolid" parent="stone_nonsolid_circle/display_items" instance=ExtResource("8_ef13l")]
 
 [node name="purple_brick_circle" parent="." groups=["picker_purple_brick"] instance=ExtResource("1_ilne7")]
 position = Vector2(204, -178)
@@ -71,7 +83,7 @@ prev_web_node = "picker_center"
 [node name="PickerItemRecorderFifth" parent="chime_circle/display_items" instance=ExtResource("14_xa0jl")]
 
 [node name="machine_circle" parent="." groups=["picker_machine"] instance=ExtResource("1_ilne7")]
-position = Vector2(162, 2)
+position = Vector2(164, 81)
 prev_web_node = "picker_center"
 
 [node name="display_items" type="Node2D" parent="machine_circle"]
@@ -103,6 +115,13 @@ default_color = Color(1, 0, 0, 1)
 [node name="Line2D4" type="Line2D" parent="helper_lines"]
 z_index = 2
 position = Vector2(-17, 157)
-points = PackedVector2Array(179, -155, 59, -157)
+points = PackedVector2Array(179, -170, 59, -157)
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Line2D5" type="Line2D" parent="helper_lines"]
+z_index = 2
+position = Vector2(-26, 188)
+points = PackedVector2Array(190, -108, 59, -157)
 width = 2.0
 default_color = Color(1, 0, 0, 1)

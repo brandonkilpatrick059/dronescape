@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhnib"]
 size = Vector2(16, 16)
 
-[node name="PurpleBrick2" type="Node2D"]
+[node name="PurpleBrick2" type="Node2D" groups=["solid"]]
 script = ExtResource("1_gpref")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -54,9 +54,9 @@ func update_activation_level():
 			highest_energy = wind.get_energy()
 			new_wind_affect_x_velocity = wind.get_velocity_x()
 		var attenuation = wind_velocity_attenuation
-		if(wind_affect_x_velocity < 0):
-			attenuation = - wind_velocity_attenuation
-		wind.attenuate_velocity_x(attenuation)
+		#if(wind_affect_x_velocity < 0):
+			#attenuation = - wind_velocity_attenuation
+		#wind.attenuate_velocity_x(attenuation)
 	var new_activation = sensitivity * highest_energy
 	if(new_activation > activation_level):
 		activation_level = new_activation 

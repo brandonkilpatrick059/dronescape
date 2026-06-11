@@ -1,19 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://dp2sv2a17a7jy"]
 
 [ext_resource type="Script" uid="uid://bibtitfh7a7o6" path="res://scripts/stone.gd" id="1_fb4wl"]
-[ext_resource type="SpriteFrames" uid="uid://snfd2j7601x0" path="res://sprites/stones/purple/stone_purple.tres" id="2_fb4wl"]
+[ext_resource type="SpriteFrames" uid="uid://snfd2j7601x0" path="res://sprites/stones/purple/stone_purple.tres" id="2_yk454"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yk454"]
 size = Vector2(16, 16)
 
-[node name="PurpleStone" type="Node2D"]
+[node name="PurpleStone" type="Node2D" groups=["solid"]]
 script = ExtResource("1_fb4wl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("2_fb4wl")
-animation = &"center_left"
+sprite_frames = ExtResource("2_yk454")
+animation = &"top_right"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 5

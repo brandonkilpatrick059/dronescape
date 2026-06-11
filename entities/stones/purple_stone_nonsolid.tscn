@@ -1,27 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0dmxqr3vwks0"]
+[gd_scene load_steps=5 format=3 uid="uid://cvo500rtpbl81"]
 
-[ext_resource type="Script" uid="uid://bibtitfh7a7o6" path="res://scripts/stone.gd" id="1_rhnib"]
-[ext_resource type="SpriteFrames" uid="uid://bucxh0thhdvey" path="res://sprites/stones/brick_purple/brick_purple.tres" id="2_rhnib"]
+[ext_resource type="Script" uid="uid://bibtitfh7a7o6" path="res://scripts/stone.gd" id="1_wlgh8"]
+[ext_resource type="SpriteFrames" uid="uid://dhm6b8rn8fst2" path="res://sprites/stones/purple_nonsolid/stone_purple_nonsolid.tres" id="2_fo7iq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhnib"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk454"]
 size = Vector2(16, 16)
 
-[node name="PurpleBrick" type="Node2D" groups=["solid"]]
-script = ExtResource("1_rhnib")
+[node name="PurpleStoneNonsolid" type="Node2D"]
+z_index = -1
+script = ExtResource("1_wlgh8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("2_rhnib")
+sprite_frames = ExtResource("2_fo7iq")
 animation = &"center_left"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 5
 input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_yk454")
 
 [node name="center" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_rhnib")
+shape = SubResource("RectangleShape2D_yk454")
 
 [node name="top_left" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-8, 8, 8, -8, 8, 8)

@@ -30,6 +30,21 @@ func get_velocity_x() -> float:
 func attenuate_velocity_x(amount : float):
 	linear_velocity.x = linear_velocity.x - amount
 
+func get_animated_sprite():
+	return animated_sprite
+
+func get_wind_streak_ref():
+	return wind_streak_ref
+
+func set_wind_streak_ref(ref : Node):
+	wind_streak_ref = ref
+
+func get_wind_streak_created():
+	return wind_streak_created
+
+func set_wind_streak_created():
+	wind_streak_created = true
+
 func _physics_process(delta: float) -> void: 
 	var num_frames : float = float(animated_sprite.sprite_frames.get_frame_count("default"))
 	var current_frame : int = int(get_energy() * num_frames)

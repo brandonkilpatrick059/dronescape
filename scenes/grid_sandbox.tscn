@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvfn8m6rprwus"]
+[gd_scene load_steps=12 format=3 uid="uid://bvfn8m6rprwus"]
 
 [ext_resource type="PackedScene" uid="uid://clq5nv0qo1xmk" path="res://scenes/grid_base.tscn" id="1_qdhqp"]
 [ext_resource type="PackedScene" uid="uid://dp2sv2a17a7jy" path="res://entities/stones/purple_stone.tscn" id="2_n7rse"]
@@ -7,6 +7,10 @@
 [ext_resource type="Script" uid="uid://bvlxfcloxnkhx" path="res://scripts/main_camera.gd" id="5_l6vqa"]
 [ext_resource type="PackedScene" uid="uid://bql8nnwr3x1hq" path="res://entities/chimes/warm_vox_chime_root.tscn" id="6_f80ug"]
 [ext_resource type="PackedScene" uid="uid://cdyvb1d0a05c2" path="res://wind/wind_manager.tscn" id="7_pl366"]
+[ext_resource type="Texture2D" uid="uid://crtdro0e2ahr" path="res://sprites/dark_square.png" id="8_w5276"]
+[ext_resource type="Script" uid="uid://cuhtnyf41wxp5" path="res://scripts/fade_out_in_secs.gd" id="9_luqy6"]
+[ext_resource type="Texture2D" uid="uid://dj2ejelpo88gv" path="res://sprites/title.png" id="10_0q3eu"]
+[ext_resource type="Script" uid="uid://crncra6nnssso" path="res://scripts/fps_counter.gd" id="11_e3fxj"]
 
 [node name="GridSandbox" type="Node2D"]
 
@@ -57,8 +61,33 @@ scale = Vector2(0.590541, 0.29437)
 texture = ExtResource("3_pl366")
 
 [node name="ground_gradient" type="Sprite2D" parent="Parallax2D"]
-modulate = Color(0.784314, 0.792157, 0.698039, 1)
+modulate = Color(0.432789, 0.664541, 0.719371, 1)
 z_index = -10
 position = Vector2(313.946, 464)
 scale = Vector2(0.55625, 0.277277)
 texture = ExtResource("3_pl366")
+
+[node name="screen_fade_to_black" type="Sprite2D" parent="."]
+visible = false
+z_index = 10
+position = Vector2(7.99997, -12)
+scale = Vector2(14.25, 9.625)
+texture = ExtResource("8_w5276")
+script = ExtResource("9_luqy6")
+wait_time_secs = 5.0
+sets_cursor_active = true
+
+[node name="title" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(0, -64)
+texture = ExtResource("10_0q3eu")
+script = ExtResource("9_luqy6")
+wait_time_secs = 10.0
+
+[node name="fps" type="Label" parent="."]
+offset_left = 256.0
+offset_top = 128.0
+offset_right = 296.0
+offset_bottom = 151.0
+text = "100"
+script = ExtResource("11_e3fxj")

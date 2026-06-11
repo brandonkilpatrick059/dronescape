@@ -19,6 +19,8 @@ var grid_entity_path : String = ""
 var tab_path : String = ""
 var picker_item : Node
 
+var last_frame : int = 0
+
 func _ready() -> void:
 	retracted = true
 	animated_sprite.play("retracted")
@@ -60,17 +62,20 @@ func handle_animation():
 			expanded = false
 			retracting = true
 		
-		var expanding_frames : int = animated_sprite.sprite_frames.get_frame_count("expand") - 1
-		if(expanding && animated_sprite.frame == expanding_frames):
-			animated_sprite.play("default")
-			expanding = false
-			expanded = true
-		
-		var retracting_frames : int = animated_sprite.sprite_frames.get_frame_count("retract") - 1
-		if(retracting && animated_sprite.frame == retracting_frames):
-			animated_sprite.play("retracted")
-			retracting = false
-			retracted = true
+	var expanding_frames : int = animated_sprite.sprite_frames.get_frame_count("expand") - 1
+	if(expanding && (animated_sprite.frame == expanding_frames ||
+	animated_sprite.frame < last_frame)):
+		animated_sprite.play("default")
+		expanding = false
+		expanded = true
+	
+	var retracting_frames : int = animated_sprite.sprite_frames.get_frame_count("retract") - 1
+	if(retracting && (animated_sprite.frame == retracting_frames||
+	animated_sprite.frame < last_frame)):
+		animated_sprite.play("retracted")
+		retracting = false
+		retracted = true
+	last_frame = animated_sprite.frame
 
 func set_display(animation_path : String, animation : String):
 	display.sprite_frames = load(animation_path)

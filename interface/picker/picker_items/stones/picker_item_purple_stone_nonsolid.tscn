@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cporbvsenaqic"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker_item.gd" id="1_b1bgx"]
+
+[node name="PickerItemPurpleStoneNonsolid" type="Node2D"]
+script = ExtResource("1_b1bgx")
+display_sprite_frames = "res://sprites/stones/purple_nonsolid/stone_purple_nonsolid.tres"
+display_animation = "center_center"
+item_path = "res://entities/stones/purple_stone_nonsolid.tscn"

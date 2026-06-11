@@ -11,10 +11,11 @@ config_version=5
 [application]
 
 config/name="Dronescaper"
+config/version="A.1.2"
 run/main_scene="uid://bvfn8m6rprwus"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://bhde3mh0vsaxv"
-config/icon="res://icon.svg"
+config/icon="uid://cs8ylh4i3skpx"
 
 [display]
 
@@ -50,6 +51,11 @@ wind_right={
 dev_1={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+dev_2={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":49,"key_label":0,"unicode":49,"location":0,"echo":false,"script":null)
 ]
 }
 

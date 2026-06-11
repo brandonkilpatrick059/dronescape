@@ -48,6 +48,8 @@ func disappear():
 	set_inactive()
 	fading_out = true
 	audio_player.play()
+	var cursor = get_tree().get_first_node_in_group("cursor")
+	cursor.set_active()
 
 func activate_bubbles():
 	for bubble in picker_bubbles:

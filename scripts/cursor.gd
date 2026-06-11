@@ -4,7 +4,7 @@ class_name Cursor extends Area2D
 
 var picker_circle_occlusion_distance = 128
 
-var active : bool = true
+var active : bool = false
 
 var create_grid_entity_path : String = "res://entities/stones/purple_stone.tscn"
 
@@ -37,11 +37,13 @@ func set_picker_node(picker_node : Picker_Item):
 	current_picker_node = picker_node
 
 func create_picker():
-	var num_pickers : int = get_tree().get_nodes_in_group("picker_circle").size()
-	if(num_pickers == 0):
-		var circle = load("res://interface/picker/picker_circle.tscn").instantiate()
-		get_parent().add_child(circle)
-		circle.global_position = global_position
+	if(active):
+		var num_pickers : int = get_tree().get_nodes_in_group("picker_circle").size()
+		if(num_pickers == 0):
+			var circle = load("res://interface/picker/picker_circle.tscn").instantiate()
+			get_parent().add_child(circle)
+			circle.global_position = global_position
+			set_inactive()
 
 func delete_targeted():
 	if(active):
@@ -59,8 +61,12 @@ func spawn_grid_entity():
 		if(bodies.size() == 0):
 			spawn_entity()
 		else:
-			delete_targeted()
-			spawn_entity()
+			var can_spawn : bool = true
+			for body in bodies:
+				if(body.is_in_group("solid")):
+					false
+			if(can_spawn):
+				spawn_entity()
 
 func spawn_entity():
 	var entity = load(create_grid_entity_path).instantiate()
@@ -102,17 +108,17 @@ func set_active():
 	visible = true
 	active = true
 
-func set_invisible_if_picker_circle_exists():
-	var picker_circle = get_tree().get_first_node_in_group("picker_circle")
-	if(picker_circle != null):
-		set_inactive() 
-	else:
-		set_active()
+#func set_invisible_if_picker_circle_exists():
+	#var picker_circle = get_tree().get_first_node_in_group("picker_circle")
+	#if(picker_circle != null):
+		#set_inactive() 
+	#else:
+		#set_active()
 
 func _physics_process(delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()
 	var grid_position = mouse_pos
 	var grid_size_vect : Vector2 = Vector2(Grid_Base.grid_size,Grid_Base.grid_size)
 	global_position = grid_position.snapped(grid_size_vect)
-	set_invisible_if_picker_circle_exists()
+	#set_invisible_if_picker_circle_exists()
 	handle_input()
