@@ -5,12 +5,12 @@ static var grid_size : int = 16
 
 var grid_entities : Array[Node]
 var stones : Array[Node]
+var stones_nonsolid : Array[Node]
 
 var initialized = false
 
 func _ready() -> void:
 	pass
-
 
 func initialize_grid():
 	grid_entities = get_tree().get_nodes_in_group("grid_entity")
@@ -18,10 +18,18 @@ func initialize_grid():
 
 func update():
 	update_stones()
+	var nonsolid : bool = true
+	update_stones(nonsolid)
 
-func update_stones():
-	stones = get_tree().get_nodes_in_group("stone")
-	for stone : Stone in stones:
+func update_stones(nonsolid : bool = false):
+	var update_stones : Array[Node] = []
+	if(nonsolid):
+		stones_nonsolid = get_tree().get_nodes_in_group("stone_nonsolid")
+		update_stones.append_array(stones_nonsolid)
+	else:
+		stones = get_tree().get_nodes_in_group("stone")
+		update_stones.append_array(stones)
+	for stone : Stone in update_stones:
 		var pos_above :Vector2 = stone.global_position + Vector2(0,-grid_size)
 		var pos_below :Vector2 = stone.global_position + Vector2(0,grid_size)
 		var pos_left :Vector2 = stone.global_position + Vector2(-grid_size,0)
@@ -30,7 +38,7 @@ func update_stones():
 		var stone_below : bool = false
 		var stone_right : bool = false
 		var stone_left : bool = false
-		for check_stone in stones:
+		for check_stone in update_stones:
 			if(check_stone.global_position == pos_above):
 				stone_above = true
 			elif(check_stone.global_position == pos_below):

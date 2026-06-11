@@ -5,46 +5,22 @@
 [ext_resource type="Texture2D" uid="uid://6q2qjpjla1ai" path="res://sprites/backgrounds/generic_gradient.png" id="3_pl366"]
 [ext_resource type="PackedScene" uid="uid://bwwo4l82msqi" path="res://interface/cursor.tscn" id="4_ohvtm"]
 [ext_resource type="Script" uid="uid://bvlxfcloxnkhx" path="res://scripts/main_camera.gd" id="5_l6vqa"]
-[ext_resource type="PackedScene" uid="uid://bql8nnwr3x1hq" path="res://entities/chimes/warm_vox_chime_root.tscn" id="6_f80ug"]
 [ext_resource type="PackedScene" uid="uid://cdyvb1d0a05c2" path="res://wind/wind_manager.tscn" id="7_pl366"]
 [ext_resource type="Texture2D" uid="uid://crtdro0e2ahr" path="res://sprites/dark_square.png" id="8_w5276"]
 [ext_resource type="Script" uid="uid://cuhtnyf41wxp5" path="res://scripts/fade_out_in_secs.gd" id="9_luqy6"]
 [ext_resource type="Texture2D" uid="uid://dj2ejelpo88gv" path="res://sprites/title.png" id="10_0q3eu"]
 [ext_resource type="Script" uid="uid://crncra6nnssso" path="res://scripts/fps_counter.gd" id="11_e3fxj"]
+[ext_resource type="PackedScene" uid="uid://clvy2nkvro5ce" path="res://entities/chimes/warm_vox_chime_fourth.tscn" id="11_jcsu2"]
 
 [node name="GridSandbox" type="Node2D"]
 
 [node name="GridBase" parent="." instance=ExtResource("1_qdhqp")]
-
-[node name="PurpleStone" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-16, 32)
-
-[node name="PurpleStone2" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-32, 32)
-
-[node name="PurpleStone3" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(0, 32)
-
-[node name="PurpleStone4" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(16, 32)
-
-[node name="PurpleStone5" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(16, 32)
-
-[node name="PurpleStone6" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-16, 48)
-
-[node name="PurpleStone7" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(0, 48)
 
 [node name="Cursor" parent="." instance=ExtResource("4_ohvtm")]
 z_index = 5
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["camera"]]
 script = ExtResource("5_l6vqa")
-
-[node name="WarmVoxChimeRoot" parent="." instance=ExtResource("6_f80ug")]
-position = Vector2(-16, 16)
 
 [node name="WindManager" parent="." instance=ExtResource("7_pl366")]
 position = Vector2(-320, -240)
@@ -91,3 +67,23 @@ offset_right = 296.0
 offset_bottom = 151.0
 text = "100"
 script = ExtResource("11_e3fxj")
+
+[node name="PurpleStone" parent="." instance=ExtResource("2_n7rse")]
+
+[node name="PurpleStone2" parent="." instance=ExtResource("2_n7rse")]
+position = Vector2(-16, 0)
+
+[node name="PurpleStone3" parent="." instance=ExtResource("2_n7rse")]
+position = Vector2(16, 0)
+
+[node name="PurpleStone4" parent="." instance=ExtResource("2_n7rse")]
+position = Vector2(32, 0)
+
+[node name="PurpleStone5" parent="." instance=ExtResource("2_n7rse")]
+position = Vector2(16, 16)
+
+[node name="PurpleStone6" parent="." instance=ExtResource("2_n7rse")]
+position = Vector2(0, 16)
+
+[node name="WarmVoxChimeFourth" parent="." instance=ExtResource("11_jcsu2")]
+position = Vector2(0, -16)

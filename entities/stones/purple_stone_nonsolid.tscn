@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yk454"]
 size = Vector2(16, 16)
 
-[node name="PurpleStoneNonsolid" type="Node2D"]
+[node name="PurpleStoneNonsolid" type="Node2D" groups=["stone_nonsolid"]]
 z_index = -1
 script = ExtResource("1_wlgh8")
 

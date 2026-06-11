@@ -10,7 +10,6 @@ var mouse_over : bool = false
 
 func _ready() -> void:
 	grid_entity_init()
-	add_to_group("stone")
 
 func set_grid_pos(x : int, y : int):
 	grid_x = x
