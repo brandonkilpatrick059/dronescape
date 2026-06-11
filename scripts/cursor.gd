@@ -6,7 +6,7 @@ var picker_circle_occlusion_distance = 128
 
 var active : bool = false
 
-var create_grid_entity_path : String = "res://entities/stones/purple_stone.tscn"
+var create_grid_entity : PackedScene = load("res://entities/stones/purple_stone.tscn")
 
 var current_picker_node : Picker_Item = null
 
@@ -22,8 +22,8 @@ func handle_input():
 	elif(Input.is_action_just_pressed("third_action")):
 		create_picker()
 
-func set_create_grid_entity_path(path : String):
-	create_grid_entity_path = path
+func set_create_grid_entity(scene : PackedScene):
+	create_grid_entity = scene
 
 func play_stream(stream_path : String):
 	audio_player.stream = load(stream_path)
@@ -69,7 +69,7 @@ func spawn_grid_entity():
 				spawn_entity()
 
 func spawn_entity():
-	var entity = load(create_grid_entity_path).instantiate()
+	var entity = create_grid_entity.instantiate()
 	get_parent().add_child(entity)
 	entity.global_position = global_position
 	update_grid_base()

@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cporbvsenaqic"]
+[gd_scene load_steps=4 format=3 uid="uid://cporbvsenaqic"]
 
 [ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker_item.gd" id="1_b1bgx"]
+[ext_resource type="SpriteFrames" uid="uid://dhm6b8rn8fst2" path="res://sprites/stones/purple_nonsolid/stone_purple_nonsolid.tres" id="2_t6pak"]
+[ext_resource type="PackedScene" uid="uid://cvo500rtpbl81" path="res://entities/stones/purple_stone_nonsolid.tscn" id="3_5d3vn"]
 
 [node name="PickerItemPurpleStoneNonsolid" type="Node2D"]
 script = ExtResource("1_b1bgx")
-display_sprite_frames = "res://sprites/stones/purple_nonsolid/stone_purple_nonsolid.tres"
+display_sprite_frames = ExtResource("2_t6pak")
 display_animation = "center_center"
-item_path = "res://entities/stones/purple_stone_nonsolid.tscn"
+item = ExtResource("3_5d3vn")

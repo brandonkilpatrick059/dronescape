@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://xy2wugi2asd3"]
+[gd_scene load_steps=4 format=3 uid="uid://xy2wugi2asd3"]
 
 [ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker_item.gd" id="1_o8iux"]
+[ext_resource type="SpriteFrames" uid="uid://bmha0bux35ac3" path="res://sprites/machines/frog_machine.tres" id="2_163cn"]
+[ext_resource type="PackedScene" uid="uid://dskehoq0700sv" path="res://entities/machines/frog_machine.tscn" id="3_elk6p"]
 
 [node name="PickerItemFrogMachine" type="Node2D"]
 script = ExtResource("1_o8iux")
-display_sprite_frames = "res://sprites/machines/frog_machine.tres"
+display_sprite_frames = ExtResource("2_163cn")
 display_animation = "picker"
-item_path = "res://entities/machines/frog_machine.tscn"
+item = ExtResource("3_elk6p")

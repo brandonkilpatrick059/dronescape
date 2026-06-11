@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c46w710bxb65v"]
+[gd_scene load_steps=4 format=3 uid="uid://c46w710bxb65v"]
 
 [ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker_item.gd" id="1_yi4fp"]
+[ext_resource type="SpriteFrames" uid="uid://bypeashfqs6m5" path="res://sprites/chimes/windmill_2.tres" id="2_muv7y"]
+[ext_resource type="PackedScene" uid="uid://67eut8iwb5qi" path="res://entities/chimes/warm_vox_chime_root_above.tscn" id="3_jqwai"]
 
 [node name="PickerItemWarmVoxRootAbove" type="Node2D"]
 script = ExtResource("1_yi4fp")
-display_sprite_frames = "res://sprites/chimes/windmill_2.tres"
+display_sprite_frames = ExtResource("2_muv7y")
 display_animation = "picker"
-item_path = "res://entities/chimes/warm_vox_chime_root_above.tscn"
+item = ExtResource("3_jqwai")

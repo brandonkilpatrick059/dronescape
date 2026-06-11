@@ -1,9 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dk6kqvhkl2l1n"]
+[gd_scene load_steps=3 format=3 uid="uid://dk6kqvhkl2l1n"]
 
 [ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker_item.gd" id="1_wvkpf"]
+[ext_resource type="SpriteFrames" uid="uid://dee2d2dxl5vqj" path="res://sprites/interface/tabs.tres" id="2_mbgtu"]
 
 [node name="PickerItemStoneTab" type="Node2D"]
 script = ExtResource("1_wvkpf")
-display_sprite_frames = "res://sprites/interface/tabs.tres"
+display_sprite_frames = ExtResource("2_mbgtu")
 display_animation = "stone"
 tab_path = "picker_stone"

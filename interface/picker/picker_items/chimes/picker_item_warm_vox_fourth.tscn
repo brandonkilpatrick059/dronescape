@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://8iaq1fk057go"]
+[gd_scene load_steps=4 format=3 uid="uid://8iaq1fk057go"]
 
 [ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker_item.gd" id="1_by1j2"]
+[ext_resource type="SpriteFrames" uid="uid://b5ii4svkamhwm" path="res://sprites/chimes/windmill_3.tres" id="2_gjfww"]
+[ext_resource type="PackedScene" uid="uid://clvy2nkvro5ce" path="res://entities/chimes/warm_vox_chime_fourth.tscn" id="3_gjfww"]
 
 [node name="PickerItemWarmVoxFourth" type="Node2D"]
 script = ExtResource("1_by1j2")
-display_sprite_frames = "res://sprites/chimes/windmill_3.tres"
+display_sprite_frames = ExtResource("2_gjfww")
 display_animation = "picker"
-item_path = "res://entities/chimes/warm_vox_chime_fourth.tscn"
+item = ExtResource("3_gjfww")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwj51jhtm3ypm"]
+[gd_scene load_steps=3 format=3 uid="uid://dwj51jhtm3ypm"]
 
 [ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker_item.gd" id="1_es1ga"]
+[ext_resource type="SpriteFrames" uid="uid://dee2d2dxl5vqj" path="res://sprites/interface/tabs.tres" id="2_fs8ra"]
 
 [node name="PickerItemStoneNonsolidTab" type="Node2D"]
 script = ExtResource("1_es1ga")
-display_sprite_frames = "res://sprites/interface/tabs.tres"
+display_sprite_frames = ExtResource("2_fs8ra")
 display_animation = "stone_nonsolid"
 tab_path = "picker_stone_nonsolid"

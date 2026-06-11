@@ -79,12 +79,12 @@ func update_display_items():
 	for item : Picker_Item in items:
 		if(index < picker_bubbles.size()):
 			var bubble : Picker_Bubble = picker_bubbles[index]
-			var anim_path = item.get_display_sprite_frames()
+			var animation = item.get_display_sprite_frames()
 			var anim_name = item.get_display_animation()
-			var entity_path = item.get_item_path()
+			var entity = item.get_item()
 			var tab_path = item.get_tab_path()
-			bubble.set_display(anim_path,anim_name) 
-			bubble.set_grid_entity_path(entity_path)
+			bubble.set_display(animation,anim_name) 
+			bubble.set_grid_entity(entity)
 			bubble.set_tab_path(tab_path)
 			bubble.set_picker_item(item)
 			index = index + 1
@@ -99,11 +99,11 @@ func set_web_location(location : String):
 		var item = cursor.get_picker_node()
 		var anim_path = item.get_display_sprite_frames()
 		var anim_name = item.get_display_animation()
-		var entity_path = item.get_item_path()
+		var entity_path = item.get_item()
 		var tab_path = item.get_tab_path()
 		bubble_0.set_return_tab(false)
 		bubble_0.set_display(anim_path,anim_name) 
-		bubble_0.set_grid_entity_path(entity_path)
+		bubble_0.set_grid_entity(entity_path)
 		bubble_0.set_tab_path(tab_path)
 		bubble_0.set_picker_item(item)
 	update_display_items()
