@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://1cway6yiukkh"]
+
+[ext_resource type="Script" uid="uid://bmlq2yi7wao2n" path="res://scripts/criteria_collider.gd" id="1_ukyte"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jrcvv"]
+radius = 5.0
+
+[node name="criteria_collider" type="Node2D"]
+script = ExtResource("1_ukyte")
+
+[node name="above" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="above"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_jrcvv")
+
+[node name="below" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="below"]
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_jrcvv")
+
+[node name="left" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left"]
+position = Vector2(-16, 0)
+shape = SubResource("CircleShape2D_jrcvv")
+
+[node name="right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
+position = Vector2(16, 0)
+shape = SubResource("CircleShape2D_jrcvv")

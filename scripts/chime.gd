@@ -19,11 +19,19 @@ var wind_affect_x_velocity : float = 0.0
 
 var speed_set_scale : float = 0.0
 
+var criteria_lock_timer := Timer.new()
+
 func _ready() -> void:
 	grid_entity_init()
 	add_to_group("chime")
 	initialize_audio()
 	initialize_wind_animation()
+	
+	#locks criteria checks to prevent
+	#queue_freeing during loading
+	criteria_lock_timer.one_shot = true
+	add_child(criteria_lock_timer)
+	criteria_lock_timer.start(1.0)
 
 func initialize_audio():
 	audio_player.volume_db = zero_volume
@@ -96,5 +104,7 @@ func _physics_process(delta: float) -> void:
 	update_activation_level()
 	update_wind_animation()
 	update_audio()
+	if(criteria_lock_timer.is_stopped()):
+		queue_free_on_failed_placement_criteria()
 	#debug_input()
 	

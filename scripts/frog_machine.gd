@@ -19,6 +19,7 @@ func _ready() -> void:
 	#timer.start(3.0)
 
 func _physics_process(delta: float) -> void:
+	queue_free_on_failed_placement_criteria()
 	if(!spine_extended && !spine_extending):
 		animated_sprite.play("retracted")
 		spine.disabled = true

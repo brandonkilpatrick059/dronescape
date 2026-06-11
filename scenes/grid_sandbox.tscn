@@ -69,21 +69,22 @@ text = "100"
 script = ExtResource("11_e3fxj")
 
 [node name="PurpleStone" parent="." instance=ExtResource("2_n7rse")]
+position = Vector2(-16, 16)
 
 [node name="PurpleStone2" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-16, 0)
+position = Vector2(-32, 16)
 
 [node name="PurpleStone3" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(16, 0)
-
-[node name="PurpleStone4" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(32, 0)
-
-[node name="PurpleStone5" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(16, 16)
-
-[node name="PurpleStone6" parent="." instance=ExtResource("2_n7rse")]
 position = Vector2(0, 16)
 
+[node name="PurpleStone4" parent="." instance=ExtResource("2_n7rse")]
+position = Vector2(16, 16)
+
+[node name="PurpleStone5" parent="." instance=ExtResource("2_n7rse")]
+position = Vector2(0, 32)
+
+[node name="PurpleStone6" parent="." instance=ExtResource("2_n7rse")]
+position = Vector2(-16, 32)
+
 [node name="WarmVoxChimeFourth" parent="." instance=ExtResource("11_jcsu2")]
-position = Vector2(0, -16)
+position = Vector2(-16, 0)

@@ -6,6 +6,7 @@ class_name Cursor extends Area2D
 @onready var left_collider : Area2D = $left
 @onready var below_collider : Area2D = $below
 @onready var right_collider : Area2D = $right
+@onready var criteria_collider : Criteria_Collider = $criteria_collider
 
 var picker_circle_occlusion_distance = 128
 
@@ -79,8 +80,12 @@ func spawn_grid_entity():
 			play_stream("res://audio/interface/click.ogg")
 
 func spawn_entity():
-	var entity = create_grid_entity.instantiate()
+	var entity : Grid_Entity = create_grid_entity.instantiate()
 	get_parent().add_child(entity)
+	if(current_picker_node.get_place_criteria() != null &&
+		entity.get_placement_criteria() == null):
+		var criteria = current_picker_node.get_place_criteria().duplicate()
+		entity.set_placement_criteria(criteria)
 	entity.global_position = global_position
 	update_grid_base()
 	var drum = randi_range(1,3)
@@ -120,13 +125,13 @@ func set_active():
 
 func update_can_place_entity():
 	var above : Array[Node2D] =  []
-	above.append_array(above_collider.get_overlapping_bodies())
+	above.append_array(criteria_collider.get_above_overlapping())
 	var left : Array[Node2D] =  []
-	left.append_array(left_collider.get_overlapping_bodies())
+	left.append_array(criteria_collider.get_left_overlapping())
 	var below : Array[Node2D] =  []
-	below.append_array(below_collider.get_overlapping_bodies())
+	below.append_array(criteria_collider.get_below_overlapping())
 	var right : Array[Node2D] =  []
-	right.append_array(right_collider.get_overlapping_bodies())
+	right.append_array(criteria_collider.get_right_overlapping())
 	can_place_entity = current_picker_node.check_criteria(above,left,below,right)
 
 func _physics_process(delta: float) -> void:

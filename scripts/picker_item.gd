@@ -19,6 +19,9 @@ func get_item() -> PackedScene:
 func get_tab_path() -> String:
 	return tab_path
 
+func get_place_criteria() -> Place_Criteria:
+	return place_criteria
+
 func check_criteria(above : Array[Node2D], left : Array[Node2D],
 below : Array[Node2D], right : Array[Node2D]) -> bool:
 	if(place_criteria == null):
