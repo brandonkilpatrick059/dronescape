@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bvfn8m6rprwus"]
+[gd_scene load_steps=17 format=3 uid="uid://bvfn8m6rprwus"]
 
 [ext_resource type="PackedScene" uid="uid://clq5nv0qo1xmk" path="res://scenes/grid_base.tscn" id="1_qdhqp"]
 [ext_resource type="PackedScene" uid="uid://dp2sv2a17a7jy" path="res://entities/stones/purple_stone.tscn" id="2_n7rse"]
@@ -8,7 +8,9 @@
 [ext_resource type="Script" uid="uid://bvlxfcloxnkhx" path="res://scripts/main_camera.gd" id="5_l6vqa"]
 [ext_resource type="PackedScene" uid="uid://cdyvb1d0a05c2" path="res://wind/wind_manager.tscn" id="7_pl366"]
 [ext_resource type="Texture2D" uid="uid://caugrfinjyvm8" path="res://sprites/backgrounds/starfield.png" id="7_u1qyx"]
+[ext_resource type="Texture2D" uid="uid://b8o7m1ebusj1g" path="res://sprites/backgrounds/planet.png" id="8_2pvaq"]
 [ext_resource type="Texture2D" uid="uid://crtdro0e2ahr" path="res://sprites/dark_square.png" id="8_w5276"]
+[ext_resource type="Script" uid="uid://bgmndcath8lhk" path="res://scripts/planet.gd" id="9_0sty0"]
 [ext_resource type="Script" uid="uid://cuhtnyf41wxp5" path="res://scripts/utility/fade_out_in_secs.gd" id="9_luqy6"]
 [ext_resource type="Texture2D" uid="uid://dj2ejelpo88gv" path="res://sprites/title.png" id="10_0q3eu"]
 [ext_resource type="Script" uid="uid://crncra6nnssso" path="res://scripts/utility/fps_counter.gd" id="11_e3fxj"]
@@ -55,6 +57,12 @@ material = SubResource("CanvasItemMaterial_u1qyx")
 position = Vector2(320, 360)
 texture = ExtResource("7_u1qyx")
 
+[node name="planet" type="Sprite2D" parent="Parallax2D"]
+z_index = -11
+position = Vector2(-384, 640)
+texture = ExtResource("8_2pvaq")
+script = ExtResource("9_0sty0")
+
 [node name="screen_fade_to_black" type="Sprite2D" parent="."]
 visible = false
 z_index = 10
@@ -91,6 +99,12 @@ position = Vector2(0, 16)
 
 [node name="PurpleStone4" parent="." instance=ExtResource("2_n7rse")]
 position = Vector2(16, 16)
+
+[node name="PurpleStone7" parent="." instance=ExtResource("2_n7rse")]
+position = Vector2(32, 16)
+
+[node name="PurpleStone8" parent="." instance=ExtResource("2_n7rse")]
+position = Vector2(16, 32)
 
 [node name="PurpleStone5" parent="." instance=ExtResource("2_n7rse")]
 position = Vector2(0, 32)

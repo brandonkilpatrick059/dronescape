@@ -1,6 +1,7 @@
 [gd_resource type="SpriteFrames" load_steps=19 format=3 uid="uid://bmha0bux35ac3"]
 
 [ext_resource type="Texture2D" uid="uid://cuakic2v1b640" path="res://sprites/machines/frog.png" id="1_5hrq5"]
+[ext_resource type="Texture2D" uid="uid://bymfe7woe3d0x" path="res://sprites/machines/frog_picker.png" id="2_uuc0k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uuc0k"]
 atlas = ExtResource("1_5hrq5")
@@ -33,10 +34,6 @@ region = Rect2(0, 0, 16, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_02w3x"]
 atlas = ExtResource("1_5hrq5")
 region = Rect2(0, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5hrq5"]
-atlas = ExtResource("1_5hrq5")
-region = Rect2(96, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ji5cx"]
 atlas = ExtResource("1_5hrq5")
@@ -108,7 +105,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5hrq5")
+"texture": ExtResource("2_uuc0k")
 }],
 "loop": true,
 "name": &"picker",
