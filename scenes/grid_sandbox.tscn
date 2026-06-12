@@ -59,7 +59,7 @@ texture = ExtResource("7_u1qyx")
 
 [node name="planet" type="Sprite2D" parent="Parallax2D"]
 z_index = -11
-position = Vector2(-384, 640)
+position = Vector2(-512, 640)
 texture = ExtResource("8_2pvaq")
 script = ExtResource("9_0sty0")
 

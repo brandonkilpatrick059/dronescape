@@ -9,5 +9,5 @@ func _physics_process(delta: float) -> void:
 	var speed : float = 0.006
 
 	position = position + Vector2(speed*2,-speed)
-	if(position.distance_to(origin_point) > 1280):
+	if(position.distance_to(origin_point) > 1545):
 		position = origin_point
