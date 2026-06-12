@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dro861wwj4abf"]
+[gd_scene load_steps=20 format=3 uid="uid://dro861wwj4abf"]
 
 [ext_resource type="Script" uid="uid://bdec8x55j6u7g" path="res://scripts/picker/picker_web.gd" id="1_gb7f4"]
 [ext_resource type="PackedScene" uid="uid://dveffq21xw1mh" path="res://interface/picker/picker_web_node.tscn" id="1_ilne7"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c5f3fqh1mgw81" path="res://interface/picker/picker_items/chimes/picker_item_recorder_root.tscn" id="13_ty46p"]
 [ext_resource type="PackedScene" uid="uid://bugu1vlagsedw" path="res://interface/picker/picker_items/chimes/picker_item_recorder_fourth.tscn" id="14_advcm"]
 [ext_resource type="PackedScene" uid="uid://6wcjdabwhyfd" path="res://interface/picker/picker_items/chimes/picker_item_recorder_fifth.tscn" id="14_xa0jl"]
+[ext_resource type="PackedScene" uid="uid://dbs02evi70cmo" path="res://interface/picker/picker_items/musicians/picker_item_guitar_root_chord.tscn" id="18_epfp3"]
 
 [node name="PickerWeb" type="Node2D"]
 script = ExtResource("1_gb7f4")
@@ -81,6 +82,8 @@ prev_web_node = "picker_center"
 [node name="PickerItemRecorderFourth" parent="chime_circle/display_items" instance=ExtResource("14_advcm")]
 
 [node name="PickerItemRecorderFifth" parent="chime_circle/display_items" instance=ExtResource("14_xa0jl")]
+
+[node name="PickerItemGuitarRootChord" parent="chime_circle/display_items" instance=ExtResource("18_epfp3")]
 
 [node name="machine_circle" parent="." groups=["picker_machine"] instance=ExtResource("1_ilne7")]
 position = Vector2(164, 81)

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://y07eptojel4s"]
+
+[ext_resource type="Script" uid="uid://cvnmuoy7dblhl" path="res://scripts/musician_manager.gd" id="1_yjgsl"]
+
+[node name="MusicianManager" type="Node2D" groups=["musician_manager"]]
+script = ExtResource("1_yjgsl")

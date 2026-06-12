@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bvfn8m6rprwus"]
+[gd_scene load_steps=18 format=3 uid="uid://bvfn8m6rprwus"]
 
 [ext_resource type="PackedScene" uid="uid://clq5nv0qo1xmk" path="res://scenes/grid_base.tscn" id="1_qdhqp"]
 [ext_resource type="PackedScene" uid="uid://dp2sv2a17a7jy" path="res://entities/stones/purple_stone.tscn" id="2_n7rse"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dj2ejelpo88gv" path="res://sprites/title.png" id="10_0q3eu"]
 [ext_resource type="Script" uid="uid://crncra6nnssso" path="res://scripts/utility/fps_counter.gd" id="11_e3fxj"]
 [ext_resource type="PackedScene" uid="uid://clvy2nkvro5ce" path="res://entities/chimes/warm_vox_chime_fourth.tscn" id="11_jcsu2"]
+[ext_resource type="PackedScene" uid="uid://y07eptojel4s" path="res://entities/musicians/musician_manager.tscn" id="16_43cbu"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u1qyx"]
 blend_mode = 1
@@ -114,3 +115,5 @@ position = Vector2(-16, 32)
 
 [node name="WarmVoxChimeFourth" parent="." instance=ExtResource("11_jcsu2")]
 position = Vector2(-16, 0)
+
+[node name="MusicianManager" parent="." instance=ExtResource("16_43cbu")]

@@ -20,6 +20,8 @@ func update():
 	update_stones()
 	var nonsolid : bool = true
 	update_stones(nonsolid)
+	var musician_manager : Musician_Manager = get_tree().get_first_node_in_group("musician_manager")
+	musician_manager.update_musicians()
 
 func update_stones(nonsolid : bool = false):
 	var update_stones : Array[Node] = []
