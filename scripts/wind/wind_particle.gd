@@ -64,7 +64,7 @@ func _physics_process(delta: float) -> void:
 		wind_streak_ref.global_position = Vector2(global_position.x,wind_streak_ref.global_position.y)
 		#var rotate = Vector2(1.0,0.0).angle_to(linear_velocity)
 		#wind_streak_ref.rotation = rotate
-	if(global_position.distance_to(camera.global_position) > 800):
+	if(global_position.distance_to(camera.global_position) > 400):
 		queue_free()
 	if(life_timer.is_stopped()):
 		queue_free()
