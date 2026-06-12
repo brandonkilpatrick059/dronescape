@@ -4,7 +4,7 @@ class_name Musician extends Grid_Entity
 @onready var audio_player : AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 static var zero_volume : float = -80
-var max_volume : float = -9.0
+var max_volume : float = -6.0
 
 var criteria_lock_timer := Timer.new()
 var update_manager_lock = false

@@ -1,13 +1,19 @@
-[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://dee2d2dxl5vqj"]
+[gd_resource type="SpriteFrames" load_steps=15 format=3 uid="uid://dee2d2dxl5vqj"]
 
 [ext_resource type="Texture2D" uid="uid://bmsyl118np2rd" path="res://sprites/interface/tabs/back.png" id="1_822i5"]
 [ext_resource type="Texture2D" uid="uid://cy6spqurwxaub" path="res://sprites/interface/tabs/chime_tab.png" id="1_fdfaa"]
 [ext_resource type="Texture2D" uid="uid://dhu0mce8b6djv" path="res://sprites/interface/tabs/machine_tab.png" id="2_j63e1"]
+[ext_resource type="Texture2D" uid="uid://bha2shdsxrnnl" path="res://sprites/musicians/guitar_picker.png" id="2_pyocu"]
 [ext_resource type="Texture2D" uid="uid://diupavfvsorwp" path="res://sprites/interface/tabs/stone_tab.png" id="3_822i5"]
 [ext_resource type="Texture2D" uid="uid://dn6rg8tv1h0yd" path="res://sprites/interface/tabs/stone_nonsolid_tab.png" id="5_gjgu3"]
+[ext_resource type="Texture2D" uid="uid://dwsy73gr6h2yy" path="res://sprites/chimes/warm_vox_picker.png" id="6_lt5kg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xjyc6"]
 atlas = ExtResource("1_fdfaa")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etp7o"]
+atlas = ExtResource("2_pyocu")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gjgu3"]
@@ -26,6 +32,10 @@ region = Rect2(0, 0, 16, 16)
 atlas = ExtResource("5_gjgu3")
 region = Rect2(0, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a5hc"]
+atlas = ExtResource("6_lt5kg")
+region = Rect2(0, 0, 16, 16)
+
 [resource]
 animations = [{
 "frames": [{
@@ -34,6 +44,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"chime",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etp7o")
+}],
+"loop": true,
+"name": &"guitar",
 "speed": 5.0
 }, {
 "frames": [{
@@ -66,5 +84,13 @@ animations = [{
 }],
 "loop": true,
 "name": &"stone_nonsolid",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a5hc")
+}],
+"loop": true,
+"name": &"warm_vox",
 "speed": 5.0
 }]

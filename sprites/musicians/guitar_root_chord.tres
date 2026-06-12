@@ -1,7 +1,7 @@
 [gd_resource type="SpriteFrames" load_steps=17 format=3 uid="uid://biorspgj7gqjp"]
 
 [ext_resource type="Texture2D" uid="uid://dfornltevy8tv" path="res://sprites/musicians/guitar.png" id="1_8ejal"]
-[ext_resource type="Texture2D" uid="uid://bha2shdsxrnnl" path="res://sprites/musicians/guitar_picker.png" id="2_mmbnw"]
+[ext_resource type="Texture2D" uid="uid://cycjbkfvug1kt" path="res://sprites/musicians/guitar_root_picker.png" id="2_mmbnw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mmbnw"]
 atlas = ExtResource("1_8ejal")

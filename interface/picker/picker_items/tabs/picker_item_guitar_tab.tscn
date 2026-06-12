@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpm2fvmjcgbam"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_67fm7"]
+[ext_resource type="SpriteFrames" uid="uid://dee2d2dxl5vqj" path="res://sprites/interface/tabs.tres" id="2_s3qyc"]
+
+[node name="PickerItemGuitarTab" type="Node2D"]
+script = ExtResource("1_67fm7")
+display_sprite_frames = ExtResource("2_s3qyc")
+display_animation = "guitar"
+tab_path = "picker_guitar"
