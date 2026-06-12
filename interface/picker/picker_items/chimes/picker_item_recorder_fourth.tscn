@@ -3,16 +3,13 @@
 [ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_67rey"]
 [ext_resource type="SpriteFrames" uid="uid://cgojio5lg17au" path="res://sprites/chimes/green_recorder_chime.tres" id="2_rj3jn"]
 [ext_resource type="PackedScene" uid="uid://w5ckgmtkmrn5" path="res://entities/chimes/recorder_chime_fourth.tscn" id="3_ombtf"]
-[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="4_ombtf"]
+[ext_resource type="PackedScene" uid="uid://dw4b0byau8het" path="res://entities/criteria/two_tall_flat_stone.tscn" id="4_ombtf"]
 
 [node name="PickerItemRecorderFourth" type="Node2D" node_paths=PackedStringArray("place_criteria")]
 script = ExtResource("1_67rey")
 display_sprite_frames = ExtResource("2_rj3jn")
 display_animation = "picker"
 item = ExtResource("3_ombtf")
-place_criteria = NodePath("placement_criteria")
+place_criteria = NodePath("two_tall_flat_stone")
 
-[node name="placement_criteria" type="Node" parent="."]
-script = ExtResource("4_ombtf")
-below_requires_groups = Array[String](["stone"])
-above_excludes_groups = Array[String](["stone"])
+[node name="two_tall_flat_stone" parent="." instance=ExtResource("4_ombtf")]

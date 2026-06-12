@@ -3,16 +3,13 @@
 [ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_yi4fp"]
 [ext_resource type="SpriteFrames" uid="uid://bypeashfqs6m5" path="res://sprites/chimes/windmill_2.tres" id="2_muv7y"]
 [ext_resource type="PackedScene" uid="uid://67eut8iwb5qi" path="res://entities/chimes/warm_vox_chime_root_above.tscn" id="3_jqwai"]
-[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="4_jqwai"]
+[ext_resource type="PackedScene" uid="uid://dw4b0byau8het" path="res://entities/criteria/two_tall_flat_stone.tscn" id="4_jqwai"]
 
 [node name="PickerItemWarmVoxRootAbove" type="Node2D" node_paths=PackedStringArray("place_criteria")]
 script = ExtResource("1_yi4fp")
 display_sprite_frames = ExtResource("2_muv7y")
 display_animation = "picker"
 item = ExtResource("3_jqwai")
-place_criteria = NodePath("placement_criteria")
+place_criteria = NodePath("two_tall_flat_stone")
 
-[node name="placement_criteria" type="Node" parent="."]
-script = ExtResource("4_jqwai")
-below_requires_groups = Array[String](["stone"])
-above_excludes_groups = Array[String](["stone"])
+[node name="two_tall_flat_stone" parent="." instance=ExtResource("4_jqwai")]

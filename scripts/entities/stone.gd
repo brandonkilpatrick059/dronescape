@@ -29,6 +29,7 @@ func set_animation(name : String):
 
 func set_stone_collision(name : String):
 	if(name.contains("center")):
+		add_to_group("flat")
 		$StaticBody2D/center.disabled = false
 		$StaticBody2D/top_left.disabled = true
 		$StaticBody2D/top_right.disabled = true
@@ -42,6 +43,7 @@ func set_stone_collision(name : String):
 	else:
 		match(name):
 			"top_left":
+				remove_from_group("flat")
 				$StaticBody2D/center.disabled = true
 				$StaticBody2D/top_left.disabled = false
 				$StaticBody2D/top_right.disabled = true
@@ -53,6 +55,7 @@ func set_stone_collision(name : String):
 				$StaticBody2D/bottom_left.visible = false
 				$StaticBody2D/bottom_right.visible = false
 			"top_right":
+				remove_from_group("flat")
 				$StaticBody2D/center.disabled = true
 				$StaticBody2D/top_left.disabled = true
 				$StaticBody2D/top_right.disabled = false
@@ -64,6 +67,7 @@ func set_stone_collision(name : String):
 				$StaticBody2D/bottom_left.visible = false
 				$StaticBody2D/bottom_right.visible = false
 			"bottom_right":
+				remove_from_group("flat")
 				$StaticBody2D/center.disabled = true
 				$StaticBody2D/top_left.disabled = true
 				$StaticBody2D/top_right.disabled = true
@@ -75,6 +79,7 @@ func set_stone_collision(name : String):
 				$StaticBody2D/bottom_left.visible = false
 				$StaticBody2D/bottom_right.visible = true
 			"bottom_left":
+				remove_from_group("flat")
 				$StaticBody2D/center.disabled = true
 				$StaticBody2D/top_left.disabled = true
 				$StaticBody2D/top_right.disabled = true

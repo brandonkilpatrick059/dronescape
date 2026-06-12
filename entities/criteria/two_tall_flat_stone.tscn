@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw4b0byau8het"]
+
+[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="1_v5gdd"]
+
+[node name="two_tall_flat_stone" type="Node"]
+script = ExtResource("1_v5gdd")
+below_requires_groups = Array[String](["stone", "flat"])
+above_excludes_groups = Array[String](["stone"])

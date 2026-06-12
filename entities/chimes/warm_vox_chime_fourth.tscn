@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dwe36kjr2284x" path="res://sprites/chimes/warm_vox_chime.png" id="2_p3xqe"]
 [ext_resource type="SpriteFrames" uid="uid://b5ii4svkamhwm" path="res://sprites/chimes/windmill_3.tres" id="3_qc8y1"]
 [ext_resource type="AudioStream" uid="uid://d0r2psihuhk6m" path="res://audio/chimes/warm_vox_up_fourth.ogg" id="4_qc8y1"]
-[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="5_p3xqe"]
+[ext_resource type="PackedScene" uid="uid://dw4b0byau8het" path="res://entities/criteria/two_tall_flat_stone.tscn" id="5_p3xqe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oj62h"]
 size = Vector2(16, 32)
@@ -18,7 +18,7 @@ wind_animations = [NodePath("AnimatedSprite2D")]
 sensitivity = 1.5
 sensitivity_fraction = 1.0
 friction = 0.004
-placement_criteria = NodePath("placement_criteria")
+placement_criteria = NodePath("two_tall_flat_stone")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
@@ -48,7 +48,4 @@ position = Vector2(0, -24)
 shape = SubResource("CircleShape2D_oj62h")
 debug_color = Color(1.82897e-06, 0.645261, 0.263897, 0.42)
 
-[node name="placement_criteria" type="Node" parent="."]
-script = ExtResource("5_p3xqe")
-below_requires_groups = Array[String](["stone"])
-above_excludes_groups = Array[String](["stone"])
+[node name="two_tall_flat_stone" parent="." instance=ExtResource("5_p3xqe")]

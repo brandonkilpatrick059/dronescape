@@ -63,6 +63,8 @@ func check_required_groups(nodes : Array[Node2D], requires_groups : Array[String
 				if(node.get_parent().is_in_group(group)):
 					group_found = true
 			meets_requirements = meets_requirements && group_found
+	if(!meets_requirements):
+		var test = 0
 	return meets_requirements
 
 func check_excluded_groups(nodes : Array[Node2D], excludes_groups : Array[String]) -> bool:
@@ -74,4 +76,6 @@ func check_excluded_groups(nodes : Array[Node2D], excludes_groups : Array[String
 				break
 		if(!meets_requirements):
 			break
+	if(!meets_requirements):
+		var test = 0
 	return meets_requirements
