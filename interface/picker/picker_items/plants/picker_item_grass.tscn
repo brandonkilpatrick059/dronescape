@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtsnltqhbkq1j"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_e0dal"]
+[ext_resource type="SpriteFrames" uid="uid://bn70pfhr738cl" path="res://sprites/plants/grass.tres" id="2_e0dal"]
+[ext_resource type="PackedScene" uid="uid://bid74wmwj8ih" path="res://entities/plants/grass.tscn" id="3_r2dn4"]
+[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="4_jvcjp"]
+
+[node name="PickerItemGrass" type="Node2D" node_paths=PackedStringArray("place_criteria")]
+script = ExtResource("1_e0dal")
+display_sprite_frames = ExtResource("2_e0dal")
+display_animation = "center_center"
+item = ExtResource("3_r2dn4")
+place_criteria = NodePath("grass_criteria")
+
+[node name="grass_criteria" type="Node" parent="."]
+script = ExtResource("4_jvcjp")
+center_requires_groups = Array[String](["stone", "flat"])
+above_excludes_groups = Array[String](["stone"])
+center_excludes_groups = Array[String](["grass"])

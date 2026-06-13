@@ -1,18 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl2e3h7muek6d"]
+[gd_scene load_steps=5 format=3 uid="uid://bid74wmwj8ih"]
 
-[ext_resource type="Script" uid="uid://ctfuxgky4l6nh" path="res://scripts/vine.gd" id="1_ubpqk"]
-[ext_resource type="SpriteFrames" uid="uid://lfuh2c21x8w7" path="res://sprites/plants/vine.tres" id="2_ubpqk"]
+[ext_resource type="Script" uid="uid://ctfuxgky4l6nh" path="res://scripts/vine.gd" id="1_eved2"]
+[ext_resource type="SpriteFrames" uid="uid://bn70pfhr738cl" path="res://sprites/plants/grass.tres" id="2_eved2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhnib"]
 size = Vector2(16, 16)
 
-[node name="Vine" type="Node2D" groups=["plant", "vine"]]
-script = ExtResource("1_ubpqk")
+[node name="Grass" type="Node2D" groups=["grass", "plant"]]
+z_index = 1
+script = ExtResource("1_eved2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("2_ubpqk")
+position = Vector2(0, -8)
+sprite_frames = ExtResource("2_eved2")
 animation = &"center_center"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
