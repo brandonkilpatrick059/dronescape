@@ -58,7 +58,7 @@ func set_stone_collision(name : String):
 				$StaticBody2D/bottom_left.visible = false
 				$StaticBody2D/bottom_right.visible = false
 			"bottom_right":
-				remove_from_group("flat")
+				add_to_group("flat")
 				$StaticBody2D/center.disabled = true
 				$StaticBody2D/top_left.disabled = true
 				$StaticBody2D/top_right.disabled = true
@@ -70,7 +70,7 @@ func set_stone_collision(name : String):
 				$StaticBody2D/bottom_left.visible = false
 				$StaticBody2D/bottom_right.visible = true
 			"bottom_left":
-				remove_from_group("flat")
+				add_to_group("flat")
 				$StaticBody2D/center.disabled = true
 				$StaticBody2D/top_left.disabled = true
 				$StaticBody2D/top_right.disabled = true

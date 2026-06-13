@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0dmxqr3vwks0"]
+[gd_scene load_steps=6 format=3 uid="uid://b0dmxqr3vwks0"]
 
 [ext_resource type="Script" uid="uid://bibtitfh7a7o6" path="res://scripts/entities/stone.gd" id="1_rhnib"]
 [ext_resource type="SpriteFrames" uid="uid://bucxh0thhdvey" path="res://sprites/stones/brick_purple/brick_purple.tres" id="2_rhnib"]
@@ -6,6 +6,9 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhnib"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ll45p"]
 size = Vector2(16, 16)
 
 [node name="PurpleBrick" type="Node2D" groups=["solid", "stone"]]
@@ -16,7 +19,8 @@ sprite_frames = ExtResource("2_rhnib")
 animation = &"center_left"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 5
+collision_layer = 4
+collision_mask = 0
 input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_yk454")
 
@@ -34,6 +38,11 @@ polygon = PackedVector2Array(-8, -8, 8, 8, 8, -8)
 
 [node name="bottom_right" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-8, 8, 8, -8, -8, -8)
+
+[node name="grid_collision" type="StaticBody2D" parent="."]
+
+[node name="center" type="CollisionShape2D" parent="grid_collision"]
+shape = SubResource("RectangleShape2D_ll45p")
 
 [connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
 [connection signal="mouse_exited" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_exited"]

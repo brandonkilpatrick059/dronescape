@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dro861wwj4abf"]
+[gd_scene load_steps=27 format=3 uid="uid://dro861wwj4abf"]
 
 [ext_resource type="Script" uid="uid://bdec8x55j6u7g" path="res://scripts/picker/picker_web.gd" id="1_gb7f4"]
 [ext_resource type="PackedScene" uid="uid://dveffq21xw1mh" path="res://interface/picker/picker_web_node.tscn" id="1_ilne7"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dwj51jhtm3ypm" path="res://interface/picker/picker_items/tabs/picker_item_stone_nonsolid_tab.tscn" id="5_lkjr6"]
 [ext_resource type="PackedScene" uid="uid://c622pu0kj1wv2" path="res://interface/picker/picker_items/tabs/picker_item_machine_tab.tscn" id="5_m43hu"]
 [ext_resource type="PackedScene" uid="uid://c46w710bxb65v" path="res://interface/picker/picker_items/chimes/picker_item_warm_vox_root_above.tscn" id="6_eeast"]
+[ext_resource type="PackedScene" uid="uid://b84v8dd2u6j8p" path="res://interface/picker/picker_items/tabs/picker_item_plant_tab.tscn" id="6_lduwx"]
 [ext_resource type="PackedScene" uid="uid://basylvn7yrq27" path="res://interface/picker/picker_items/tabs/picker_item_purple_brick_tab.tscn" id="7_8d2d4"]
 [ext_resource type="PackedScene" uid="uid://de7ivceltci2d" path="res://interface/picker/picker_items/plants/picker_item_vine.tscn" id="7_33bpc"]
 [ext_resource type="PackedScene" uid="uid://xy2wugi2asd3" path="res://sprites/picker_item_frog_machine.tscn" id="7_m43hu"]
@@ -39,6 +40,8 @@ script = ExtResource("1_gb7f4")
 
 [node name="PickerItemStoneNonsolidTab" parent="central_circle/display_items" instance=ExtResource("5_lkjr6")]
 
+[node name="PickerItemPlantTab" parent="central_circle/display_items" instance=ExtResource("6_lduwx")]
+
 [node name="PickerItemMachineTab" parent="central_circle/display_items" instance=ExtResource("5_m43hu")]
 
 [node name="stone_circle" parent="." groups=["picker_stone"] instance=ExtResource("1_ilne7")]
@@ -50,8 +53,6 @@ prev_web_node = "picker_center"
 [node name="PickerItemPurpleStone" parent="stone_circle/display_items" instance=ExtResource("3_dquct")]
 
 [node name="PickerItemPurpleBrickTab" parent="stone_circle/display_items" instance=ExtResource("7_8d2d4")]
-
-[node name="PickerItemVine" parent="stone_circle/display_items" instance=ExtResource("7_33bpc")]
 
 [node name="stone_nonsolid_circle" parent="." groups=["picker_stone_nonsolid"] instance=ExtResource("1_ilne7")]
 position = Vector2(162, -14)
@@ -124,12 +125,20 @@ prev_web_node = "picker_chime"
 [node name="PickerItemWarmVoxFourth" parent="warm_vox_circle/display_items" instance=ExtResource("5_8d2d4")]
 
 [node name="machine_circle" parent="." groups=["picker_machine"] instance=ExtResource("1_ilne7")]
-position = Vector2(164, 81)
+position = Vector2(40, 175)
 prev_web_node = "picker_center"
 
 [node name="display_items" type="Node2D" parent="machine_circle"]
 
 [node name="PickerItemFrogMachine" parent="machine_circle/display_items" instance=ExtResource("7_m43hu")]
+
+[node name="plant_circle" parent="." groups=["picker_plant"] instance=ExtResource("1_ilne7")]
+position = Vector2(132, 96)
+prev_web_node = "picker_center"
+
+[node name="display_items" type="Node2D" parent="plant_circle"]
+
+[node name="PickerItemVine" parent="plant_circle/display_items" instance=ExtResource("7_33bpc")]
 
 [node name="helper_lines" type="Node2D" parent="."]
 
@@ -184,6 +193,13 @@ default_color = Color(1, 0, 0, 1)
 [node name="Line2D5" type="Line2D" parent="helper_lines"]
 z_index = 2
 position = Vector2(-26, 188)
-points = PackedVector2Array(190, -108, 59, -157)
+points = PackedVector2Array(66, -14, 27, -147)
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Line2D9" type="Line2D" parent="helper_lines"]
+z_index = 2
+position = Vector2(5, 177)
+points = PackedVector2Array(127, -80, 27, -147)
 width = 2.0
 default_color = Color(1, 0, 0, 1)
