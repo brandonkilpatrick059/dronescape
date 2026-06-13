@@ -11,21 +11,12 @@ var mouse_over : bool = false
 func _ready() -> void:
 	grid_entity_init()
 
-func set_grid_pos(x : int, y : int):
-	grid_x = x
-	grid_y = y
-
-func get_grid_x() -> int:
-	return grid_x
-
-func get_grid_y() -> int:
-	return grid_y
-
 func get_grid_vector() -> Vector2:
 	return Vector2(grid_x, grid_y)
 
-func set_animation(name : String):
+func set_orientation(name : String):
 	sprite.play(name)
+	set_stone_collision(name)
 
 func set_stone_collision(name : String):
 	if(name.contains("center")):
@@ -92,9 +83,6 @@ func set_stone_collision(name : String):
 				$StaticBody2D/bottom_right.visible = false
 
 func _on_static_body_2d_mouse_entered() -> void:
-	#var cursor = get_tree().get_first_node_in_group("cursor")
-	#cursor.global_position = global_position
-	#cursor.visible = true
 	mouse_over = true
 
 func cursor_destroy():

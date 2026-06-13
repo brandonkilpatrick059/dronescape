@@ -19,6 +19,8 @@ var current_picker_node : Picker_Item = null
 var can_place_entity : bool = true
 
 const delete_target_order : Array[String] = [
+		"plant",
+		"machine",
 		"musician",
 		"chime",
 		"stone",
@@ -65,7 +67,7 @@ func delete_targeted():
 		var bodies: Array[Node2D] = get_overlapping_bodies()
 		if(bodies.size() > 0):
 			var target = get_delete_target(bodies)
-			if(target.is_in_group("grid_entity")):
+			if(target != null && target.is_in_group("grid_entity")):
 				target.cursor_destroy()
 				update_grid_base()
 				play_stream("res://audio/interface/brush_snare.ogg")

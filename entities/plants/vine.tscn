@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl2e3h7muek6d"]
+
+[ext_resource type="Script" uid="uid://ctfuxgky4l6nh" path="res://scripts/vine.gd" id="1_ubpqk"]
+[ext_resource type="SpriteFrames" uid="uid://bwddiitrhf5lm" path="res://sprites/plants/vine.tres" id="2_ubpqk"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhnib"]
+size = Vector2(16, 16)
+
+[node name="Vine" type="Node2D" groups=["plant", "vine"]]
+script = ExtResource("1_ubpqk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_ubpqk")
+animation = &"center_center"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_yk454")
+
+[node name="center" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_rhnib")
+
+[connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_exited"]

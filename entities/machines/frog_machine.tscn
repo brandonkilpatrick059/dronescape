@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bntfwtkkywdxs" path="res://scripts/entities/placement_criteria/frog_machine.gd" id="1_4qqou"]
 [ext_resource type="SpriteFrames" uid="uid://bmha0bux35ac3" path="res://sprites/machines/frog_machine.tres" id="1_t62i5"]
 
-[node name="FrogMachine" type="Node2D"]
+[node name="FrogMachine" type="Node2D" groups=["machine"]]
 script = ExtResource("1_4qqou")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -18,7 +18,7 @@ position = Vector2(0, -8)
 collision_layer = 5
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="spine"]
-polygon = PackedVector2Array(-8, 16, 8, 16, 3, -13, -4, -13)
+polygon = PackedVector2Array(-8, 16, 8, 16, 8, -16, -8, -16)
 
 [node name="grid_item" type="StaticBody2D" parent="."]
 position = Vector2(0, -8)

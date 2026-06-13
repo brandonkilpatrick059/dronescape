@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://de7ivceltci2d"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_hihb8"]
+[ext_resource type="SpriteFrames" uid="uid://bwddiitrhf5lm" path="res://sprites/plants/vine.tres" id="2_crdvr"]
+[ext_resource type="PackedScene" uid="uid://dl2e3h7muek6d" path="res://entities/plants/vine.tscn" id="3_hp507"]
+[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="4_hihb8"]
+
+[node name="PickerItemVine" type="Node2D" node_paths=PackedStringArray("place_criteria")]
+script = ExtResource("1_hihb8")
+display_sprite_frames = ExtResource("2_crdvr")
+display_animation = "center_center"
+item = ExtResource("3_hp507")
+place_criteria = NodePath("vine_criteria")
+
+[node name="vine_criteria" type="Node" parent="."]
+script = ExtResource("4_hihb8")
+center_requires_groups = Array[String](["stone"])
+center_excludes_groups = Array[String](["vine"])
