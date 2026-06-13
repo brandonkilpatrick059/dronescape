@@ -76,7 +76,7 @@ func get_delete_target(bodies : Array[Node2D]):
 		for body in bodies:
 			if(body.get_parent().is_in_group(group)):
 				return_body = body.get_parent()
-			break
+				break
 		if(return_body != null):
 			break
 	return return_body
