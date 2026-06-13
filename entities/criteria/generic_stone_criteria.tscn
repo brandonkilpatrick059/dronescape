@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c51gseuu104ko"]
+
+[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="1_aqhcy"]
+
+[node name="generic_stone_criteria" type="Node"]
+script = ExtResource("1_aqhcy")
+center_excludes_groups = Array[String](["chime", "musician", "machine", "stone"])

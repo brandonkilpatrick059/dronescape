@@ -45,4 +45,10 @@ func check_criteria() -> bool:
 		below.append_array(criteria_collider.get_below_overlapping())
 		var right : Array[Node2D] =  []
 		right.append_array(criteria_collider.get_right_overlapping())
-		return placement_criteria.check_criteria(above,left,below,right)
+		var center : Array[Node2D] = []
+		center.append_array(criteria_collider.get_center_overlapping())
+		for node in center:
+			if(node.get_parent() == self):
+				center.erase(node)
+				break
+		return placement_criteria.check_criteria(above,left,below,right,center)

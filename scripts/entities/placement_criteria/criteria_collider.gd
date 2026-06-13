@@ -4,6 +4,7 @@ class_name Criteria_Collider extends Node2D
 @onready var left_collider : Area2D = $left
 @onready var below_collider : Area2D = $below
 @onready var right_collider : Area2D = $right
+@onready var center_collider : Area2D = $center
 
 func get_above_overlapping() -> Array[Node2D]:
 	return above_collider.get_overlapping_bodies()
@@ -16,3 +17,6 @@ func get_below_overlapping() -> Array[Node2D]:
 	
 func get_right_overlapping() -> Array[Node2D]:
 	return right_collider.get_overlapping_bodies()
+
+func get_center_overlapping() -> Array[Node2D]:
+	return center_collider.get_overlapping_bodies()

@@ -18,6 +18,13 @@ var current_picker_node : Picker_Item = null
 
 var can_place_entity : bool = true
 
+const delete_target_order : Array[String] = [
+		"musician",
+		"chime",
+		"stone",
+		"stone_nonsolid"
+	]
+
 func _ready() -> void:
 	var purple_stone_pick = load("res://interface/picker/picker_items/stones/picker_item_purple_stone.tscn")
 	current_picker_node = purple_stone_pick.instantiate()
@@ -57,11 +64,22 @@ func delete_targeted():
 	if(active):
 		var bodies: Array[Node2D] = get_overlapping_bodies()
 		if(bodies.size() > 0):
-			var target = bodies[0].get_parent() #body is child of grid_entity
+			var target = get_delete_target(bodies)
 			if(target.is_in_group("grid_entity")):
 				target.cursor_destroy()
 				update_grid_base()
 				play_stream("res://audio/interface/brush_snare.ogg")
+
+func get_delete_target(bodies : Array[Node2D]):
+	var return_body : Node2D = null
+	for group in delete_target_order:
+		for body in bodies:
+			if(body.get_parent().is_in_group(group)):
+				return_body = body.get_parent()
+			break
+		if(return_body != null):
+			break
+	return return_body
 
 func spawn_grid_entity():
 	if(active):
@@ -73,7 +91,7 @@ func spawn_grid_entity():
 				var can_spawn : bool = true
 				for body in bodies:
 					if(body.is_in_group("solid")):
-						false
+						can_spawn = false
 				if(can_spawn):
 					spawn_entity()
 		else:
@@ -132,7 +150,9 @@ func update_can_place_entity():
 	below.append_array(criteria_collider.get_below_overlapping())
 	var right : Array[Node2D] =  []
 	right.append_array(criteria_collider.get_right_overlapping())
-	can_place_entity = current_picker_node.check_criteria(above,left,below,right)
+	var center : Array[Node2D] =  []
+	center.append_array(criteria_collider.get_center_overlapping())
+	can_place_entity = current_picker_node.check_criteria(above,left,below,right,center)
 
 func _physics_process(delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()

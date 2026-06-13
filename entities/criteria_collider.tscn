@@ -31,3 +31,8 @@ shape = SubResource("CircleShape2D_jrcvv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
 position = Vector2(16, 0)
 shape = SubResource("CircleShape2D_jrcvv")
+
+[node name="center" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="center"]
+shape = SubResource("CircleShape2D_jrcvv")

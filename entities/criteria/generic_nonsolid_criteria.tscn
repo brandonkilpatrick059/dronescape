@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://onxtvmsejgun"]
+
+[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="1_tscy6"]
+
+[node name="generic_nonsolid_stone_criteria" type="Node"]
+script = ExtResource("1_tscy6")
+center_excludes_groups = Array[String](["stone_nonsolid"])

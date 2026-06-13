@@ -6,3 +6,4 @@
 script = ExtResource("1_v5gdd")
 below_requires_groups = Array[String](["stone", "flat"])
 above_excludes_groups = Array[String](["stone"])
+center_excludes_groups = Array[String](["solid", "chime", "musician", "machine"])

@@ -14,7 +14,7 @@ var change_weight = 0.0
 static var wind_visible = false
 
 var zero_volume = -60
-var max_volume = -6
+var max_volume = -12
 @onready var audio_player : AudioStreamPlayer = $AudioStreamPlayer
 
 var height = 640

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bvfn8m6rprwus"]
+[gd_scene load_steps=19 format=3 uid="uid://bvfn8m6rprwus"]
 
 [ext_resource type="PackedScene" uid="uid://clq5nv0qo1xmk" path="res://scenes/grid_base.tscn" id="1_qdhqp"]
 [ext_resource type="PackedScene" uid="uid://dp2sv2a17a7jy" path="res://entities/stones/purple_stone.tscn" id="2_n7rse"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://bgmndcath8lhk" path="res://scripts/planet.gd" id="9_0sty0"]
 [ext_resource type="Script" uid="uid://cuhtnyf41wxp5" path="res://scripts/utility/fade_out_in_secs.gd" id="9_luqy6"]
 [ext_resource type="Texture2D" uid="uid://dj2ejelpo88gv" path="res://sprites/title.png" id="10_0q3eu"]
+[ext_resource type="Texture2D" uid="uid://hw06nn85q1ms" path="res://sprites/backgrounds/mountains.png" id="10_1n5ut"]
 [ext_resource type="Script" uid="uid://crncra6nnssso" path="res://scripts/utility/fps_counter.gd" id="11_e3fxj"]
 [ext_resource type="PackedScene" uid="uid://clvy2nkvro5ce" path="res://entities/chimes/warm_vox_chime_fourth.tscn" id="11_jcsu2"]
 [ext_resource type="PackedScene" uid="uid://y07eptojel4s" path="res://entities/musicians/musician_manager.tscn" id="16_43cbu"]
@@ -64,6 +65,11 @@ position = Vector2(-512, 640)
 texture = ExtResource("8_2pvaq")
 script = ExtResource("9_0sty0")
 
+[node name="mountains" type="Sprite2D" parent="Parallax2D"]
+z_index = -10
+position = Vector2(224, 160)
+texture = ExtResource("10_1n5ut")
+
 [node name="screen_fade_to_black" type="Sprite2D" parent="."]
 visible = false
 z_index = 10
@@ -82,6 +88,7 @@ script = ExtResource("9_luqy6")
 wait_time_secs = 10.0
 
 [node name="fps" type="Label" parent="."]
+z_index = 70
 offset_left = 256.0
 offset_top = 128.0
 offset_right = 296.0

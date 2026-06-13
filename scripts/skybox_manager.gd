@@ -4,6 +4,7 @@ extends Parallax2D
 @onready var ground_gradient : Sprite2D = $ground_gradient
 @onready var starfield : Sprite2D = $starfield
 @onready var planet : Sprite2D = $planet
+@onready var mountains : Sprite2D = $mountains
 
 var interpolation_gradient = Gradient.new()
 var ground_interpolation_gradient = Gradient.new()
@@ -154,6 +155,8 @@ func _physics_process(delta: float) -> void:
 		timer_clock.start(hour_length_seconds)
 	var day_ratio = get_time_as_ratio_of_full_day()
 	sky_gradient.modulate = interpolation_gradient.sample(day_ratio)
-	ground_gradient.modulate = ground_interpolation_gradient.sample(day_ratio)
+	var ground_color : Color = ground_interpolation_gradient.sample(day_ratio)
+	ground_gradient.modulate = ground_color
+	mountains.modulate = ground_color
 	starfield.modulate = starfield_interpolation_gradient.sample(day_ratio)
 	planet.modulate = planet_interpolation_gradient.sample(day_ratio)
