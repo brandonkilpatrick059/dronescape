@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cshcuo8k6su54" path="res://scripts/wind/wind_streak.gd" id="1_rjjf2"]
 
 [node name="WindStreak" type="Node2D"]
-z_index = 1
+z_index = 2
 script = ExtResource("1_rjjf2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

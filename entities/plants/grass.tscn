@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bid74wmwj8ih"]
 
-[ext_resource type="Script" uid="uid://ctfuxgky4l6nh" path="res://scripts/vine.gd" id="1_eved2"]
+[ext_resource type="Script" uid="uid://b81apvab5biep" path="res://scripts/grass.gd" id="1_eved2"]
 [ext_resource type="SpriteFrames" uid="uid://bn70pfhr738cl" path="res://sprites/plants/grass.tres" id="2_eved2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]

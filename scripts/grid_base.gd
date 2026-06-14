@@ -20,6 +20,7 @@ func update():
 	update_orientations("stone")
 	update_orientations("stone_nonsolid")
 	update_orientations("vine")
+	update_orientations("grass")
 	var musician_manager : Musician_Manager = get_tree().get_first_node_in_group("musician_manager")
 	musician_manager.update_musicians()
 

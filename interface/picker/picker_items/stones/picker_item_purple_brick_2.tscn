@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_l07uq"]
 [ext_resource type="SpriteFrames" uid="uid://bli2nqt61ywv6" path="res://sprites/stones/brick_purple/brick_purple_2.tres" id="2_4lsaq"]
 [ext_resource type="PackedScene" uid="uid://b68pplycaxfk0" path="res://entities/stones/purple_brick_2.tscn" id="3_xlrxr"]
-[ext_resource type="PackedScene" uid="uid://onxtvmsejgun" path="res://entities/criteria/generic_nonsolid_criteria.tscn" id="4_b7goj"]
+[ext_resource type="PackedScene" uid="uid://c51gseuu104ko" path="res://entities/criteria/generic_stone_criteria.tscn" id="4_b7goj"]
 
 [node name="PickerItemPurpleBrick2" type="Node2D" node_paths=PackedStringArray("place_criteria")]
 script = ExtResource("1_l07uq")

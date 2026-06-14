@@ -5,10 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://b0dmxqr3vwks0" path="res://entities/stones/purple_brick.tscn" id="3_li2a3"]
 [ext_resource type="PackedScene" uid="uid://c51gseuu104ko" path="res://entities/criteria/generic_stone_criteria.tscn" id="4_li2a3"]
 
-[node name="PickerItemPurpleBrick" type="Node2D"]
+[node name="PickerItemPurpleBrick" type="Node2D" node_paths=PackedStringArray("place_criteria")]
 script = ExtResource("1_hp3tl")
 display_sprite_frames = ExtResource("2_eh2s1")
 display_animation = "center_center"
 item = ExtResource("3_li2a3")
+place_criteria = NodePath("generic_stone_criteria")
 
 [node name="generic_stone_criteria" parent="." instance=ExtResource("4_li2a3")]
