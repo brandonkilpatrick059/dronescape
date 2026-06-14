@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://der32av1a4uer"]
+
+[ext_resource type="Script" uid="uid://binhjxo0iko45" path="res://scripts/vine_flower.gd" id="1_7gglr"]
+[ext_resource type="SpriteFrames" uid="uid://qj5vs33obkk" path="res://sprites/plants/vine_flower.tres" id="2_7gglr"]
+[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="3_wiadn"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhnib"]
+size = Vector2(16, 16)
+
+[node name="VineFlower" type="Node2D" groups=["plant", "vine_flower"]]
+z_index = 1
+script = ExtResource("1_7gglr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_7gglr")
+animation = &"1"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_yk454")
+
+[node name="center" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_rhnib")
+
+[node name="needs_vines_behind" type="Node" parent="."]
+script = ExtResource("3_wiadn")
+center_requires_groups = Array[String](["vine"])
+
+[connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_exited"]

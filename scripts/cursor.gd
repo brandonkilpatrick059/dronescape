@@ -19,6 +19,7 @@ var current_picker_node : Picker_Item = null
 var can_place_entity : bool = true
 
 const delete_target_order : Array[String] = [
+		"water",
 		"plant",
 		"machine",
 		"musician",

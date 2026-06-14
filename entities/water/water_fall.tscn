@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmbakmd8qfd52"]
+
+[ext_resource type="Script" uid="uid://dngdxecgbjuog" path="res://scripts/water_fall.gd" id="1_p2xnq"]
+[ext_resource type="SpriteFrames" uid="uid://c7f0fa5gkmev7" path="res://sprites/water/water.tres" id="2_yj6pg"]
+[ext_resource type="AudioStream" uid="uid://yxdy7uevm2o1" path="res://audio/environment/pink_noise.wav" id="3_yj6pg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhnib"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p2xnq"]
+radius = 5.0
+
+[node name="WaterFall" type="Node2D" groups=["water", "water_fall"]]
+script = ExtResource("1_p2xnq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_yj6pg")
+animation = &"top"
+
+[node name="top" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+sprite_frames = ExtResource("2_yj6pg")
+animation = &"top"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_yk454")
+
+[node name="center" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_rhnib")
+
+[node name="solid_detector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="solid_detector"]
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_p2xnq")
+
+[node name="water_detector" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="water_detector"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_p2xnq")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_yj6pg")
+volume_db = -32.0
+attenuation = 12.5533
+panning_strength = 4.0
+
+[connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_exited"]

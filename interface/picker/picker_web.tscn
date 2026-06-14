@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dro861wwj4abf"]
+[gd_scene load_steps=29 format=3 uid="uid://dro861wwj4abf"]
 
 [ext_resource type="Script" uid="uid://bdec8x55j6u7g" path="res://scripts/picker/picker_web.gd" id="1_gb7f4"]
 [ext_resource type="PackedScene" uid="uid://dveffq21xw1mh" path="res://interface/picker/picker_web_node.tscn" id="1_ilne7"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://de7ivceltci2d" path="res://interface/picker/picker_items/plants/picker_item_vine.tscn" id="7_33bpc"]
 [ext_resource type="PackedScene" uid="uid://xy2wugi2asd3" path="res://sprites/picker_item_frog_machine.tscn" id="7_m43hu"]
 [ext_resource type="PackedScene" uid="uid://cporbvsenaqic" path="res://interface/picker/picker_items/stones/picker_item_purple_stone_nonsolid.tscn" id="8_ef13l"]
+[ext_resource type="PackedScene" uid="uid://csm108dk4wrdc" path="res://interface/picker/picker_items/water/picker_item_water.tscn" id="8_g8c2t"]
 [ext_resource type="PackedScene" uid="uid://bjs5hp6chervd" path="res://interface/picker/picker_items/stones/picker_item_purple_brick_2.tscn" id="8_m43hu"]
 [ext_resource type="PackedScene" uid="uid://v28srr47xir" path="res://interface/picker/picker_items/tabs/picker_item_warm_vox_tab.tscn" id="12_jcx7x"]
 [ext_resource type="PackedScene" uid="uid://be6whw707w8cr" path="res://interface/picker/picker_items/tabs/picker_item_recorder_tab.tscn" id="13_6403v"]
@@ -44,6 +45,8 @@ script = ExtResource("1_gb7f4")
 [node name="PickerItemPlantTab" parent="central_circle/display_items" instance=ExtResource("6_lduwx")]
 
 [node name="PickerItemMachineTab" parent="central_circle/display_items" instance=ExtResource("5_m43hu")]
+
+[node name="PickerItemWater" parent="central_circle/display_items" instance=ExtResource("8_g8c2t")]
 
 [node name="stone_circle" parent="." groups=["picker_stone"] instance=ExtResource("1_ilne7")]
 position = Vector2(120, -108)

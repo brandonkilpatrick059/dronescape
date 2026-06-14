@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://qj5vs33obkk"]
+
+[ext_resource type="Texture2D" uid="uid://bidylp5n1aiu4" path="res://sprites/plants/vine_flower.png" id="1_1yfi8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyx7c"]
+atlas = ExtResource("1_1yfi8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j48mb"]
+atlas = ExtResource("1_1yfi8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tef1"]
+atlas = ExtResource("1_1yfi8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brhav"]
+atlas = ExtResource("1_1yfi8")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyx7c")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j48mb")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tef1")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brhav")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}]
