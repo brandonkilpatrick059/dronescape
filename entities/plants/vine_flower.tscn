@@ -9,9 +9,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhnib"]
 size = Vector2(16, 16)
 
-[node name="VineFlower" type="Node2D" groups=["plant", "vine_flower"]]
+[node name="VineFlower" type="Node2D" node_paths=PackedStringArray("placement_criteria") groups=["plant", "plant_growth", "vine_flower"]]
 z_index = 1
 script = ExtResource("1_7gglr")
+placement_criteria = NodePath("needs_vines_behind")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_7gglr")

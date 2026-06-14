@@ -20,6 +20,7 @@ var can_place_entity : bool = true
 
 const delete_target_order : Array[String] = [
 		"water",
+		"plant_growth",
 		"plant",
 		"machine",
 		"musician",
@@ -98,7 +99,7 @@ func spawn_grid_entity():
 				if(can_spawn):
 					spawn_entity()
 		else:
-			play_stream("res://audio/interface/click.ogg")
+			play_stream("res://audio/interface/no_place.ogg")
 
 func spawn_entity():
 	var entity : Grid_Entity = create_grid_entity.instantiate()

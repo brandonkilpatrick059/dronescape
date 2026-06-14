@@ -12,7 +12,7 @@ size = Vector2(16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_0wvn4"]
 radius = 16.0312
 
-[node name="TallGrass" type="Node2D" node_paths=PackedStringArray("placement_criteria") groups=["plant", "tall_grass"]]
+[node name="TallGrass" type="Node2D" node_paths=PackedStringArray("placement_criteria") groups=["plant", "plant_growth", "tall_grass"]]
 z_index = 1
 script = ExtResource("1_0wvn4")
 placement_criteria = NodePath("needs_grass_underneath")
