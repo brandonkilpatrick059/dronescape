@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dro861wwj4abf"]
+[gd_scene load_steps=30 format=3 uid="uid://dro861wwj4abf"]
 
 [ext_resource type="Script" uid="uid://bdec8x55j6u7g" path="res://scripts/picker/picker_web.gd" id="1_gb7f4"]
 [ext_resource type="PackedScene" uid="uid://dveffq21xw1mh" path="res://interface/picker/picker_web_node.tscn" id="1_ilne7"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://cegrqao13clup" path="res://interface/picker/picker_items/musicians/picker_item_guitar_fourth_chord.tscn" id="18_nyo6y"]
 [ext_resource type="PackedScene" uid="uid://duv54i0175m33" path="res://interface/picker/picker_items/musicians/picker_item_guitar_sixth_chord.tscn" id="19_lntgu"]
 [ext_resource type="PackedScene" uid="uid://dtsnltqhbkq1j" path="res://interface/picker/picker_items/plants/picker_item_grass.tscn" id="27_xfmo8"]
+[ext_resource type="PackedScene" uid="uid://cd8oenvad7l7c" path="res://interface/picker/picker_items/plants/picker_item_tree_1.tscn" id="29_us33i"]
 
 [node name="PickerWeb" type="Node2D"]
 script = ExtResource("1_gb7f4")
@@ -145,6 +146,8 @@ prev_web_node = "picker_center"
 [node name="PickerItemVine" parent="plant_circle/display_items" instance=ExtResource("7_33bpc")]
 
 [node name="PickerItemGrass" parent="plant_circle/display_items" instance=ExtResource("27_xfmo8")]
+
+[node name="PickerItemTree1" parent="plant_circle/display_items" instance=ExtResource("29_us33i")]
 
 [node name="helper_lines" type="Node2D" parent="."]
 

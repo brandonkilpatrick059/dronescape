@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd8oenvad7l7c"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_keevp"]
+[ext_resource type="SpriteFrames" uid="uid://bqdqvyl3ks24n" path="res://sprites/plants/tree_1.tres" id="2_keevp"]
+[ext_resource type="PackedScene" uid="uid://bu0qpycml72v6" path="res://entities/plants/tree_1.tscn" id="3_keevp"]
+[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="4_ntyb3"]
+
+[node name="PickerItemTree1" type="Node2D" node_paths=PackedStringArray("place_criteria")]
+script = ExtResource("1_keevp")
+display_sprite_frames = ExtResource("2_keevp")
+display_animation = "branch_fork_up"
+item = ExtResource("3_keevp")
+place_criteria = NodePath("tree_criteria")
+
+[node name="tree_criteria" type="Node" parent="."]
+script = ExtResource("4_ntyb3")
+below_requires_groups = Array[String](["stone", "flat"])
+above_excludes_groups = Array[String](["stone"])
+center_excludes_groups = Array[String](["grass", "water"])
