@@ -1,5 +1,7 @@
 class_name Plant_Tree extends Grid_Entity
 
+@export var max_height = 1
+
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var branch : PackedScene = preload("res://entities/plants/tree_1.tscn")
 @onready var leaves_small : PackedScene = preload("res://entities/plants/leaves_1_small.tscn")
@@ -27,6 +29,13 @@ var distance_from_root = 0
 
 var leaves_ref = null
 
+var growth_wait_secs = 0.05
+
+var trunk_ref : Plant_Tree = null
+
+var num_forks = 0
+var max_forks = 2
+
 const branch_types : Array[String] =[
 		"branch_fork_right",
 		"branch_fork_inv_from_left",
@@ -37,28 +46,34 @@ const branch_types : Array[String] =[
 		"branch_bend_right",
 		"branch_inv_bend_left",
 		"branch_inv_bend_right",
+		"branc_straight_up",
 		"branch_end",
 ]
+
+func add_forks():
+	num_forks = num_forks + 1
+
+func get_forks():
+	return num_forks
 
 func _ready() -> void:
 	grid_entity_init()
 	timer.one_shot = true
 	add_child(timer)
-	timer.start(1.0)
+	timer.start(growth_wait_secs)
 	if(is_trunk):
 		branch_points.append("up")
 		sprite.play("trunk_ground")
-		#var branch_end : Plant_Tree = branch.instantiate()
-		#branch_end.set_is_branch(0)
-		#get_parent().add_child(branch_end)
-		#branch_end.global_position = global_position + Vector2(0,-16)
-		#branch_end.branch_end()
-		#branches.append(branch_end)
+		trunk_ref = self
 
-func set_is_branch(in_distance : int, parent : Plant_Tree):
+func set_trunk_ref (ref : Plant_Tree):
+	trunk_ref = ref
+
+func set_is_branch(in_distance : int, parent : Plant_Tree, trunk : Plant_Tree):
 	distance_from_root = in_distance + 1
 	is_trunk = false
 	parent_branch = parent
+	trunk_ref = trunk
 
 func has_solid_bodies(bodies : Array[Node2D]):
 	for body in bodies:
@@ -77,17 +92,22 @@ func get_branch(new_root : String):
 	var possible_branch_types : Array[String] = []
 	if(root_point == "right"):
 		possible_branch_types.append("branch_inv_bend_right")
-		possible_branch_types.append("branch_fork_inv_from_right")
+		if(trunk_ref.get_forks() < max_forks):
+			possible_branch_types.append("branch_fork_inv_from_right")
 	elif(root_point == "left"):
 		possible_branch_types.append("branch_inv_bend_left")
-		possible_branch_types.append("branch_fork_inv_from_left")
+		if(trunk_ref.get_forks() < max_forks):
+			possible_branch_types.append("branch_fork_inv_from_left")
 	elif(root_point == "down"):
 		possible_branch_types.append("branch_bend_left")
 		possible_branch_types.append("branch_bend_right")
-		possible_branch_types.append("branch_fork_up")
-		possible_branch_types.append("branch_fork_left")
-		possible_branch_types.append("branch_fork_right")
+		if(trunk_ref.get_forks() < max_forks):
+			possible_branch_types.append("branch_fork_up")
+			possible_branch_types.append("branch_fork_left")
+			possible_branch_types.append("branch_fork_right")
 		possible_branch_types.append("branch_end")
+		possible_branch_types.append("branch_straight_up")
+		possible_branch_types.append("branch_straight_up") #to make it more likely
 	if(solid_up):
 		possible_branch_types = ["branch_end"]
 	if(solid_left):
@@ -102,9 +122,12 @@ func get_branch(new_root : String):
 		possible_branch_types.erase("branch_fork_right")
 	var num_possible : int = possible_branch_types.size() - 1
 	var chosen_type : String = possible_branch_types[randi_range(0,num_possible)]
-	if(possible_branch_types.has("branch_end") && distance_from_root >= 2):
+	if(possible_branch_types.has("branch_end") && distance_from_root >= trunk_ref.get_max_height()):
 		chosen_type = "branch_end"
 	match_branch_code(chosen_type)
+
+func get_max_height():
+	return max_height
 
 func match_branch_code(code : String):
 	match(code):
@@ -126,6 +149,8 @@ func match_branch_code(code : String):
 			branch_inv_bend_left()
 		"branch_inv_bend_right":
 			branch_inv_bend_right()
+		"branch_straight_up":
+			branch_straight_up()
 		"branch_end":
 			branch_end()
 
@@ -133,26 +158,31 @@ func branch_fork_right():
 	sprite.play("branch_fork_right")
 	root_point = "down"
 	branch_points = ["up","right"]
+	trunk_ref.add_forks()
 
 func branch_fork_inv_from_left():
 	sprite.play("branch_fork_inv")
 	root_point = "left"
 	branch_points = ["up","right"]
+	trunk_ref.add_forks()
 
 func branch_fork_inv_from_right():
 	sprite.play("branch_fork_inv")
 	root_point = "right"
 	branch_points = ["up","right"]
+	trunk_ref.add_forks()
 
 func branch_fork_left():
 	sprite.play("branch_fork_left")
 	root_point = "down"
 	branch_points = ["up","left"]
+	trunk_ref.add_forks()
 
 func branch_fork_up():
 	sprite.play("branch_fork_up")
 	root_point = "down"
 	branch_points = ["right","left"]
+	trunk_ref.add_forks()
 
 func branch_bend_left():
 	sprite.play("branch_bend_left")
@@ -174,16 +204,21 @@ func branch_inv_bend_right():
 	root_point = "right"
 	branch_points = ["up"]
 
+func branch_straight_up():
+	sprite.play("branch_straight_up")
+	root_point = "down"
+	branch_points = ["up"]
+
 func branch_end():
 	sprite.play("branch_end")
 	root_point = "down"
 	branch_points = []
 	if(leaves_ref == null):
 		if(randf_range(0.0,1.0) < 0.5):
-			leaves_ref = leaves_small.instantiate()
+			leaves_ref = leaves_large.instantiate()
 			add_child(leaves_ref)
 		elif(randf_range(0.0,1.0) < 0.5):
-			leaves_ref = leaves_large.instantiate()
+			leaves_ref = leaves_small.instantiate()
 			add_child(leaves_ref)
 
 func set_orientation(name : String):
@@ -242,7 +277,7 @@ func grow_branches():
 			grow_points.append(point)
 	for point in grow_points:
 		var new_branch : Plant_Tree = branch.instantiate()
-		new_branch.set_is_branch(distance_from_root,self)
+		new_branch.set_is_branch(distance_from_root,self,trunk_ref)
 		get_parent().add_child(new_branch)
 		if(point == "left"):
 			new_branch.global_position = global_position + Vector2(-16,0)
@@ -258,7 +293,7 @@ func _physics_process(delta: float) -> void:
 	queue_free_on_failed_placement_criteria()
 	if(timer.is_stopped() && is_trunk):
 		propogate_growth()
-		timer.start(1.0)
+		timer.start(growth_wait_secs)
 		#if(grass_created):
 			#grass_created = false
 			#timer.start(randf_range(min_growth_time,max_growth_time))

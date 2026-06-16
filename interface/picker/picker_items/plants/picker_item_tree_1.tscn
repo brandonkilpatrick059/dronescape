@@ -8,7 +8,7 @@
 [node name="PickerItemTree1" type="Node2D" node_paths=PackedStringArray("place_criteria")]
 script = ExtResource("1_keevp")
 display_sprite_frames = ExtResource("2_keevp")
-display_animation = "branch_fork_up"
+display_animation = "picker_1"
 item = ExtResource("3_keevp")
 place_criteria = NodePath("tree_criteria")
 
@@ -16,4 +16,4 @@ place_criteria = NodePath("tree_criteria")
 script = ExtResource("4_ntyb3")
 below_requires_groups = Array[String](["stone", "flat"])
 above_excludes_groups = Array[String](["stone"])
-center_excludes_groups = Array[String](["grass", "water"])
+center_excludes_groups = Array[String](["solid", "tree"])
