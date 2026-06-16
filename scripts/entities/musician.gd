@@ -9,6 +9,9 @@ var max_volume : float = -6.0
 var criteria_lock_timer := Timer.new()
 var update_manager_lock = false
 
+var finished_timer := Timer.new()
+@export var finished_after_secs = 0.0
+
 func _ready() -> void:
 	grid_entity_init()
 	add_to_group("musician")
@@ -20,6 +23,9 @@ func _ready() -> void:
 	criteria_lock_timer.one_shot = true
 	add_child(criteria_lock_timer)
 	criteria_lock_timer.start(1.0)
+	
+	finished_timer.one_shot = true
+	add_child(finished_timer)
 
 func initialize_audio():
 	audio_player.volume_db = max_volume
@@ -28,9 +34,16 @@ func play_music():
 	audio_player.play()
 	animated_sprite.play("playing")
 	update_manager_lock = false
+	finished_timer.start(finished_after_secs)
 
 func finished_playing():
-	return !audio_player.playing
+	if(finished_after_secs > 0.0):
+		if(finished_timer.is_stopped()):
+			return true
+		else:
+			return false
+	else:
+		return !audio_player.playing
 
 func _physics_process(delta: float) -> void:
 	var finished = audio_player.get_playback_position() >= audio_player.stream.get_length()
