@@ -60,15 +60,20 @@ func set_speed_scales(new_scale : float):
 func update_speed_scales():
 	var leaves = $leaves.get_children()
 	var index = 0
-	for leaf in leaves:
-		#if(speed_set_scale < 0.0):
+	for leaf : AnimatedSprite2D in leaves:
+		#if(speed_set_scale < 0.0): 
 			#leaf.speed_scale = 0.0 
 			#leaf.frame = 0 
-		var mult = speed_scale_mults[index]
-		if(leaf.speed_scale < speed_set_scale * mult):
-			leaf.speed_scale = leaf.speed_scale + randf_range(0.005,0.03)
-		elif(leaf.speed_scale > speed_set_scale * mult):
-			leaf.speed_scale = leaf.speed_scale - 0.001
+		if(leaf.speed_scale <= 0.35 &&
+		speed_set_scale <= 0.2 &&
+		leaf.frame == 0):
+			leaf.speed_scale = 0.0
+		else:
+			var mult = speed_scale_mults[index]
+			if(leaf.speed_scale < speed_set_scale * mult):
+				leaf.speed_scale = leaf.speed_scale + randf_range(0.005,0.03)
+			elif(leaf.speed_scale > speed_set_scale * mult):
+				leaf.speed_scale = leaf.speed_scale - 0.001
 		index = index + 1
 
 func update_activation_level():
