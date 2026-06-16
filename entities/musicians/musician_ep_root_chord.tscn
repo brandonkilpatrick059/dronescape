@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvj35uf080am0"]
+
+[ext_resource type="Script" uid="uid://dcpksnbji5uwx" path="res://scripts/entities/musician.gd" id="1_5rlt5"]
+[ext_resource type="SpriteFrames" uid="uid://cl84jwrpwn04r" path="res://sprites/musicians/ep_root_chord.tres" id="2_5rlt5"]
+[ext_resource type="AudioStream" uid="uid://dtk3y8c6l0ojd" path="res://audio/chimes/ep_root.ogg" id="3_5rlt5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sk7n0"]
+size = Vector2(16, 16)
+
+[node name="EPRootChord" type="Node2D"]
+script = ExtResource("1_5rlt5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = ExtResource("2_5rlt5")
+animation = &"playing"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5rlt5")
+attenuation = 12.5533
+panning_strength = 4.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_sk7n0")

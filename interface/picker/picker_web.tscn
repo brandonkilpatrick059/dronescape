@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dro861wwj4abf"]
+[gd_scene load_steps=39 format=3 uid="uid://dro861wwj4abf"]
 
 [ext_resource type="Script" uid="uid://bdec8x55j6u7g" path="res://scripts/picker/picker_web.gd" id="1_gb7f4"]
 [ext_resource type="PackedScene" uid="uid://dveffq21xw1mh" path="res://interface/picker/picker_web_node.tscn" id="1_ilne7"]
@@ -24,9 +24,14 @@
 [ext_resource type="PackedScene" uid="uid://bugu1vlagsedw" path="res://interface/picker/picker_items/chimes/picker_item_recorder_fourth.tscn" id="14_advcm"]
 [ext_resource type="PackedScene" uid="uid://bpm2fvmjcgbam" path="res://interface/picker/picker_items/tabs/picker_item_guitar_tab.tscn" id="14_lntgu"]
 [ext_resource type="PackedScene" uid="uid://6wcjdabwhyfd" path="res://interface/picker/picker_items/chimes/picker_item_recorder_fifth.tscn" id="14_xa0jl"]
+[ext_resource type="PackedScene" uid="uid://suymi8jnwdlu" path="res://interface/picker/picker_items/tabs/picker_item_ep_tab.tscn" id="17_56wr2"]
 [ext_resource type="PackedScene" uid="uid://dbs02evi70cmo" path="res://interface/picker/picker_items/musicians/picker_item_guitar_root_chord.tscn" id="18_epfp3"]
 [ext_resource type="PackedScene" uid="uid://cegrqao13clup" path="res://interface/picker/picker_items/musicians/picker_item_guitar_fourth_chord.tscn" id="18_nyo6y"]
 [ext_resource type="PackedScene" uid="uid://duv54i0175m33" path="res://interface/picker/picker_items/musicians/picker_item_guitar_sixth_chord.tscn" id="19_lntgu"]
+[ext_resource type="PackedScene" uid="uid://kl5vnbi5a1gq" path="res://interface/picker/picker_items/musicians/picker_item_ep_fourth_chord.tscn" id="24_0m7v4"]
+[ext_resource type="PackedScene" uid="uid://dalmbhpud7moj" path="res://interface/picker/picker_items/musicians/picker_item_ep_root_chord.tscn" id="25_y3nep"]
+[ext_resource type="PackedScene" uid="uid://vs4dw08oaqmu" path="res://interface/picker/picker_items/musicians/picker_item_ep_sixth_chord.tscn" id="26_7am4d"]
+[ext_resource type="PackedScene" uid="uid://ihoj7ree1gay" path="res://interface/picker/picker_items/musicians/picker_item_ep_silent.tscn" id="27_0m7v4"]
 [ext_resource type="PackedScene" uid="uid://dtsnltqhbkq1j" path="res://interface/picker/picker_items/plants/picker_item_grass.tscn" id="27_xfmo8"]
 [ext_resource type="PackedScene" uid="uid://bgmx1i8qfpfam" path="res://interface/picker/picker_items/plants/picker_item_tree_tab.tscn" id="29_0bedl"]
 [ext_resource type="PackedScene" uid="uid://cd8oenvad7l7c" path="res://interface/picker/picker_items/plants/picker_item_tree_1.tscn" id="29_us33i"]
@@ -96,6 +101,8 @@ position = Vector2(0, -113)
 
 [node name="PickerItemGuitarTab" parent="chime_circle/display_items" instance=ExtResource("14_lntgu")]
 
+[node name="PickerItemEpTab" parent="chime_circle/display_items" instance=ExtResource("17_56wr2")]
+
 [node name="recorder_circle" parent="." groups=["picker_recorder"] instance=ExtResource("1_ilne7")]
 position = Vector2(102, -252)
 prev_web_node = "picker_chime"
@@ -120,6 +127,20 @@ position = Vector2(-203, 140)
 [node name="PickerItemGuitarFourthChord" parent="guitar_circle/display_items" instance=ExtResource("18_nyo6y")]
 
 [node name="PickerItemGuitarSixthChord" parent="guitar_circle/display_items" instance=ExtResource("19_lntgu")]
+
+[node name="ep_circle" parent="." groups=["picker_ep"] instance=ExtResource("1_ilne7")]
+position = Vector2(295, -255)
+prev_web_node = "picker_chime"
+
+[node name="display_items" type="Node2D" parent="ep_circle"]
+
+[node name="PickerItemEPFourthChord" parent="ep_circle/display_items" instance=ExtResource("24_0m7v4")]
+
+[node name="PickerItemEPRootChord" parent="ep_circle/display_items" instance=ExtResource("25_y3nep")]
+
+[node name="PickerItemEPSixthChord" parent="ep_circle/display_items" instance=ExtResource("26_7am4d")]
+
+[node name="PickerItemEPSilent" parent="ep_circle/display_items" instance=ExtResource("27_0m7v4")]
 
 [node name="warm_vox_circle" parent="." groups=["picker_warm_vox"] instance=ExtResource("1_ilne7")]
 position = Vector2(2, -257)
@@ -208,6 +229,13 @@ default_color = Color(1, 0, 0, 1)
 z_index = 2
 position = Vector2(-14, -92)
 points = PackedVector2Array(57, -55, 130, -90, 220, -192)
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Line2D11" type="Line2D" parent="helper_lines"]
+z_index = 2
+position = Vector2(-20, -67)
+points = PackedVector2Array(57, -55, 130, -90, 203, -165, 314, -188)
 width = 2.0
 default_color = Color(1, 0, 0, 1)
 
