@@ -224,6 +224,10 @@ func branch_end():
 func set_orientation(name : String):
 	sprite.play(name)
 
+func queue_free_on_failed_placement_criteria():
+	if(!check_criteria()):
+		destroy_self_and_all_branches()
+
 func is_branch_end() -> bool:
 	if(branch_points.size() > 0):
 		return false

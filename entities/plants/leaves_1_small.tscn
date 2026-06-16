@@ -1,9 +1,113 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctvutq1fw1qpm"]
+[gd_scene load_steps=7 format=3 uid="uid://ctvutq1fw1qpm"]
 
 [ext_resource type="Texture2D" uid="uid://wccxj47ccgxw" path="res://sprites/plants/leaves_1.png" id="1_n3onn"]
+[ext_resource type="Script" uid="uid://darcrssbwah45" path="res://scripts/leaves.gd" id="1_pgbw8"]
+[ext_resource type="SpriteFrames" uid="uid://dfdsxsfw70ou1" path="res://sprites/plants/leaf_c.tres" id="3_f727o"]
+[ext_resource type="SpriteFrames" uid="uid://cm4v6dcg8vulu" path="res://sprites/plants/leaf_b.tres" id="4_gtvsx"]
+[ext_resource type="SpriteFrames" uid="uid://mwvlcnxcfrrd" path="res://sprites/plants/leaf_a.tres" id="5_021s1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f727o"]
+size = Vector2(15, 11)
 
 [node name="Leaves1Small" type="Node2D"]
 z_index = 1
+script = ExtResource("1_pgbw8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.384314)
 texture = ExtResource("1_n3onn")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_f727o")
+
+[node name="leaves" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-2, 2)
+sprite_frames = ExtResource("3_f727o")
+animation = &"left"
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(2, 2)
+sprite_frames = ExtResource("3_f727o")
+animation = &"left"
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-4, 5)
+sprite_frames = ExtResource("3_f727o")
+animation = &"left"
+
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(0, 5)
+sprite_frames = ExtResource("3_f727o")
+animation = &"left"
+
+[node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(4, 5)
+sprite_frames = ExtResource("3_f727o")
+animation = &"left"
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-6, 5)
+sprite_frames = ExtResource("4_gtvsx")
+animation = &"left"
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-4, 0)
+sprite_frames = ExtResource("4_gtvsx")
+animation = &"left"
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="leaves"]
+sprite_frames = ExtResource("4_gtvsx")
+animation = &"left"
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(4, 0)
+sprite_frames = ExtResource("4_gtvsx")
+animation = &"left"
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-2, 5)
+sprite_frames = ExtResource("4_gtvsx")
+animation = &"left"
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(2, 5)
+sprite_frames = ExtResource("4_gtvsx")
+animation = &"left"
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(6, 5)
+sprite_frames = ExtResource("4_gtvsx")
+animation = &"left"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-2, -2)
+sprite_frames = ExtResource("5_021s1")
+animation = &"left"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(2, -2)
+sprite_frames = ExtResource("5_021s1")
+animation = &"left"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-4, 3)
+sprite_frames = ExtResource("5_021s1")
+animation = &"left"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(0, 3)
+sprite_frames = ExtResource("5_021s1")
+animation = &"left"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(4, 3)
+sprite_frames = ExtResource("5_021s1")
+animation = &"left"
