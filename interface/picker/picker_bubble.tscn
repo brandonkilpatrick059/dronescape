@@ -13,6 +13,7 @@ script = ExtResource("1_twwt7")
 z_index = 1
 sprite_frames = ExtResource("1_uxkh3")
 animation = &"retracted"
+frame_progress = 0.251498
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -20,7 +21,7 @@ animation = &"retracted"
 shape = SubResource("CircleShape2D_uxkh3")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -9.0
+volume_db = -3.0
 
 [node name="display" type="AnimatedSprite2D" parent="."]
 

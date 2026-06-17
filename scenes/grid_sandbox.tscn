@@ -15,10 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://dj2ejelpo88gv" path="res://sprites/title.png" id="10_0q3eu"]
 [ext_resource type="Texture2D" uid="uid://hw06nn85q1ms" path="res://sprites/backgrounds/mountains.png" id="10_1n5ut"]
 [ext_resource type="Script" uid="uid://crncra6nnssso" path="res://scripts/utility/fps_counter.gd" id="11_e3fxj"]
-[ext_resource type="PackedScene" uid="uid://clvy2nkvro5ce" path="res://entities/chimes/warm_vox_chime_fourth.tscn" id="11_jcsu2"]
 [ext_resource type="PackedScene" uid="uid://y07eptojel4s" path="res://entities/musicians/musician_manager.tscn" id="16_43cbu"]
 [ext_resource type="Script" uid="uid://clcns2u7rioq3" path="res://scripts/version_number.gd" id="18_f5rqd"]
 [ext_resource type="FontFile" uid="uid://ddj14a5wud451" path="res://Tiny5-Regular.ttf" id="18_or136"]
+[ext_resource type="PackedScene" uid="uid://b36bp3j4d06bf" path="res://entities/chimes/sndtrk_chime_sixth_below.tscn" id="19_f5rqd"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u1qyx"]
 blend_mode = 1
@@ -127,9 +127,6 @@ position = Vector2(0, 32)
 [node name="PurpleStone6" parent="." instance=ExtResource("2_n7rse")]
 position = Vector2(-16, 32)
 
-[node name="WarmVoxChimeFourth" parent="." instance=ExtResource("11_jcsu2")]
-position = Vector2(-16, 0)
-
 [node name="MusicianManager" parent="." instance=ExtResource("16_43cbu")]
 
 [node name="version_number" type="Node2D" parent="."]
@@ -145,3 +142,6 @@ offset_bottom = 183.0
 label_settings = SubResource("LabelSettings_f5rqd")
 horizontal_alignment = 1
 script = ExtResource("18_f5rqd")
+
+[node name="SndtrkChimeSixthBelow" parent="." instance=ExtResource("19_f5rqd")]
+position = Vector2(-16, 0)

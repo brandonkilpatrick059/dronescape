@@ -1,20 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvo500rtpbl81"]
+[gd_scene load_steps=5 format=3 uid="uid://cntwn12ub6ucm"]
 
-[ext_resource type="Script" uid="uid://bibtitfh7a7o6" path="res://scripts/entities/stone.gd" id="1_wlgh8"]
-[ext_resource type="SpriteFrames" uid="uid://dhm6b8rn8fst2" path="res://sprites/stones/purple_nonsolid/stone_purple_nonsolid.tres" id="2_fo7iq"]
+[ext_resource type="Script" uid="uid://bibtitfh7a7o6" path="res://scripts/entities/stone.gd" id="1_y444w"]
+[ext_resource type="SpriteFrames" uid="uid://wmf7nshf170x" path="res://sprites/stones/brick_purple_nonsolid/brick_purple_nonsolid_2.tres" id="2_y444w"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yk454"]
 size = Vector2(16, 16)
 
-[node name="PurpleStoneNonsolid" type="Node2D" groups=["stone_nonsolid"]]
+[node name="PurpleBrickNonsolid2" type="Node2D" groups=["stone_nonsolid"]]
 z_index = -2
-script = ExtResource("1_wlgh8")
+script = ExtResource("1_y444w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("2_fo7iq")
-animation = &"center_left"
+sprite_frames = ExtResource("2_y444w")
+animation = &"center_center"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 input_pickable = true

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1ntje66r1p8t"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_mxcx2"]
+[ext_resource type="SpriteFrames" uid="uid://ctlkxvio4lffp" path="res://sprites/stones/brick_purple_nonsolid/brick_purple_nonsolid.tres" id="2_mxcx2"]
+
+[node name="PickerItemPurpleBrickNonsolidTab" type="Node2D"]
+script = ExtResource("1_mxcx2")
+display_sprite_frames = ExtResource("2_mxcx2")
+display_animation = "center_center"
+tab_path = "picker_purple_brick_nonsolid"
