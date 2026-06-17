@@ -1,0 +1,34 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://cn8dh8xhcggiy"]
+
+[ext_resource type="Texture2D" uid="uid://di2w6sp0q2ykp" path="res://sprites/chimes/sndtrk_chime_green.png" id="1_5vrnc"]
+[ext_resource type="Texture2D" uid="uid://buqlxikdlaj1c" path="res://sprites/chimes/sndtrk_chime_green_picker.png" id="2_na8vu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_na8vu"]
+atlas = ExtResource("1_5vrnc")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ldgh"]
+atlas = ExtResource("1_5vrnc")
+region = Rect2(16, 0, 16, 24)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na8vu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ldgh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_na8vu")
+}],
+"loop": true,
+"name": &"picker",
+"speed": 5.0
+}]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://k8qii01y6ejf"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_r5w8r"]
+[ext_resource type="SpriteFrames" uid="uid://cn8dh8xhcggiy" path="res://sprites/chimes/green_sndtrk_chime.tres" id="2_r5w8r"]
+[ext_resource type="PackedScene" uid="uid://cmmjevcx0w5kc" path="res://entities/chimes/sndtrk_chime_third.tscn" id="3_kqo6w"]
+[ext_resource type="PackedScene" uid="uid://dw4b0byau8het" path="res://entities/criteria/two_tall_flat_stone.tscn" id="4_lapei"]
+
+[node name="PickerItemSndtrkThird" type="Node2D" node_paths=PackedStringArray("place_criteria")]
+script = ExtResource("1_r5w8r")
+display_sprite_frames = ExtResource("2_r5w8r")
+display_animation = "picker"
+item = ExtResource("3_kqo6w")
+place_criteria = NodePath("two_tall_flat_stone")
+
+[node name="two_tall_flat_stone" parent="." instance=ExtResource("4_lapei")]

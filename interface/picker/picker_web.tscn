@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dro861wwj4abf"]
+[gd_scene load_steps=45 format=3 uid="uid://dro861wwj4abf"]
 
 [ext_resource type="Script" uid="uid://bdec8x55j6u7g" path="res://scripts/picker/picker_web.gd" id="1_gb7f4"]
 [ext_resource type="PackedScene" uid="uid://dveffq21xw1mh" path="res://interface/picker/picker_web_node.tscn" id="1_ilne7"]
@@ -24,11 +24,17 @@
 [ext_resource type="PackedScene" uid="uid://bugu1vlagsedw" path="res://interface/picker/picker_items/chimes/picker_item_recorder_fourth.tscn" id="14_advcm"]
 [ext_resource type="PackedScene" uid="uid://bpm2fvmjcgbam" path="res://interface/picker/picker_items/tabs/picker_item_guitar_tab.tscn" id="14_lntgu"]
 [ext_resource type="PackedScene" uid="uid://6wcjdabwhyfd" path="res://interface/picker/picker_items/chimes/picker_item_recorder_fifth.tscn" id="14_xa0jl"]
+[ext_resource type="PackedScene" uid="uid://btd1bwtfss8wn" path="res://interface/picker/picker_items/tabs/picker_item_sndtrk_tab.tscn" id="16_4qrvy"]
 [ext_resource type="PackedScene" uid="uid://suymi8jnwdlu" path="res://interface/picker/picker_items/tabs/picker_item_ep_tab.tscn" id="17_56wr2"]
 [ext_resource type="PackedScene" uid="uid://dbs02evi70cmo" path="res://interface/picker/picker_items/musicians/picker_item_guitar_root_chord.tscn" id="18_epfp3"]
 [ext_resource type="PackedScene" uid="uid://cegrqao13clup" path="res://interface/picker/picker_items/musicians/picker_item_guitar_fourth_chord.tscn" id="18_nyo6y"]
 [ext_resource type="PackedScene" uid="uid://duv54i0175m33" path="res://interface/picker/picker_items/musicians/picker_item_guitar_sixth_chord.tscn" id="19_lntgu"]
+[ext_resource type="PackedScene" uid="uid://dl4b3qemdfhpl" path="res://interface/picker/picker_items/chimes/picker_item_sndtrk_fourth.tscn" id="21_yc0gq"]
+[ext_resource type="PackedScene" uid="uid://d0aemkxlhypos" path="res://interface/picker/picker_items/chimes/picker_item_sndtrk_root.tscn" id="22_4qrvy"]
+[ext_resource type="PackedScene" uid="uid://b7q1bccm7lhsn" path="res://interface/picker/picker_items/chimes/picker_item_sndtrk_sixth_above.tscn" id="23_31mcq"]
 [ext_resource type="PackedScene" uid="uid://kl5vnbi5a1gq" path="res://interface/picker/picker_items/musicians/picker_item_ep_fourth_chord.tscn" id="24_0m7v4"]
+[ext_resource type="PackedScene" uid="uid://c6sxgh2ev0aa1" path="res://interface/picker/picker_items/chimes/picker_item_sndtrk_sixth_below.tscn" id="24_a6itp"]
+[ext_resource type="PackedScene" uid="uid://k8qii01y6ejf" path="res://interface/picker/picker_items/chimes/picker_item_sndtrk_third.tscn" id="25_2fgbo"]
 [ext_resource type="PackedScene" uid="uid://dalmbhpud7moj" path="res://interface/picker/picker_items/musicians/picker_item_ep_root_chord.tscn" id="25_y3nep"]
 [ext_resource type="PackedScene" uid="uid://vs4dw08oaqmu" path="res://interface/picker/picker_items/musicians/picker_item_ep_sixth_chord.tscn" id="26_7am4d"]
 [ext_resource type="PackedScene" uid="uid://ihoj7ree1gay" path="res://interface/picker/picker_items/musicians/picker_item_ep_silent.tscn" id="27_0m7v4"]
@@ -99,6 +105,8 @@ position = Vector2(0, -113)
 
 [node name="PickerItemRecorderTab" parent="chime_circle/display_items" instance=ExtResource("13_6403v")]
 
+[node name="PickerItemSndtrkTab" parent="chime_circle/display_items" instance=ExtResource("16_4qrvy")]
+
 [node name="PickerItemGuitarTab" parent="chime_circle/display_items" instance=ExtResource("14_lntgu")]
 
 [node name="PickerItemEpTab" parent="chime_circle/display_items" instance=ExtResource("17_56wr2")]
@@ -114,6 +122,27 @@ prev_web_node = "picker_chime"
 [node name="PickerItemRecorderFourth" parent="recorder_circle/display_items" instance=ExtResource("14_advcm")]
 
 [node name="PickerItemRecorderFifth" parent="recorder_circle/display_items" instance=ExtResource("14_xa0jl")]
+
+[node name="sndtrk_circle" parent="." groups=["picker_sndtrk"] instance=ExtResource("1_ilne7")]
+position = Vector2(176, -380)
+prev_web_node = "picker_chime"
+
+[node name="display_items" type="Node2D" parent="sndtrk_circle"]
+
+[node name="PickerItemSndtrkSixthBelow" parent="sndtrk_circle/display_items" instance=ExtResource("24_a6itp")]
+position = Vector2(2.60501, 269.678)
+
+[node name="PickerItemSndtrkRoot" parent="sndtrk_circle/display_items" instance=ExtResource("22_4qrvy")]
+position = Vector2(2.60501, 269.678)
+
+[node name="PickerItemSndtrkThird" parent="sndtrk_circle/display_items" instance=ExtResource("25_2fgbo")]
+position = Vector2(2.60501, 269.678)
+
+[node name="PickerItemSndtrkFourth" parent="sndtrk_circle/display_items" instance=ExtResource("21_yc0gq")]
+position = Vector2(2.60501, 269.678)
+
+[node name="PickerItemSndtrkSixthAbove" parent="sndtrk_circle/display_items" instance=ExtResource("23_31mcq")]
+position = Vector2(2.60501, 269.678)
 
 [node name="guitar_circle" parent="." groups=["picker_guitar"] instance=ExtResource("1_ilne7")]
 position = Vector2(205, -284)
@@ -228,14 +257,21 @@ default_color = Color(1, 0, 0, 1)
 [node name="Line2D8" type="Line2D" parent="helper_lines"]
 z_index = 2
 position = Vector2(-14, -92)
-points = PackedVector2Array(57, -55, 130, -90, 220, -192)
+points = PackedVector2Array(48, -30, 135, -83, 220, -192)
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Line2D12" type="Line2D" parent="helper_lines"]
+z_index = 2
+position = Vector2(-5, -121)
+points = PackedVector2Array(48, -30, 135, -83, 162, -141, 159, -190, 180, -261)
 width = 2.0
 default_color = Color(1, 0, 0, 1)
 
 [node name="Line2D11" type="Line2D" parent="helper_lines"]
 z_index = 2
 position = Vector2(-20, -67)
-points = PackedVector2Array(57, -55, 130, -90, 203, -165, 314, -188)
+points = PackedVector2Array(30, -38, 57.1879, -33.3127, 100, -75, 160, -108, 203, -165, 314, -188)
 width = 2.0
 default_color = Color(1, 0, 0, 1)
 
