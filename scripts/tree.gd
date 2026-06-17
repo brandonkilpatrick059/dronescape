@@ -6,11 +6,9 @@ class_name Plant_Tree extends Grid_Entity
 @onready var branch : PackedScene = preload("res://entities/plants/tree_1.tscn")
 @onready var leaves_small : PackedScene = preload("res://entities/plants/leaves_1_small.tscn")
 @onready var leaves_large : PackedScene = preload("res://entities/plants/leaves_1_large.tscn")
+@onready var process_node : PackedScene = preload("res://entities/plants/tree_process.tscn")
 @onready var growth_check_collider : Criteria_Collider = $criteria_collider
 var timer := Timer.new()
-
-var min_growth_time : float = 10.0
-var max_growth_time : float = 60.0
 
 var growth_level : int = 0
 var is_trunk : bool = true
@@ -65,6 +63,8 @@ func _ready() -> void:
 		branch_points.append("up")
 		sprite.play("trunk_ground")
 		trunk_ref = self
+		var start_process = process_node.instantiate()
+		add_child(start_process)
 
 func set_trunk_ref (ref : Plant_Tree):
 	trunk_ref = ref
@@ -293,11 +293,11 @@ func grow_branches():
 		branches.append(new_branch)
 		used_branch_points.append(point)
 
-func _physics_process(delta: float) -> void:
-	queue_free_on_failed_placement_criteria()
-	if(timer.is_stopped() && is_trunk):
-		propogate_growth()
-		timer.start(growth_wait_secs)
+#func _physics_process(delta: float) -> void:
+	#queue_free_on_failed_placement_criteria()
+	#if(timer.is_stopped() && is_trunk):
+		#propogate_growth()
+		#timer.start(growth_wait_secs)
 		#if(grass_created):
 			#grass_created = false
 			#timer.start(randf_range(min_growth_time,max_growth_time))

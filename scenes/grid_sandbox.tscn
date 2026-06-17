@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bvfn8m6rprwus"]
+[gd_scene load_steps=22 format=3 uid="uid://bvfn8m6rprwus"]
 
 [ext_resource type="PackedScene" uid="uid://clq5nv0qo1xmk" path="res://scenes/grid_base.tscn" id="1_qdhqp"]
 [ext_resource type="PackedScene" uid="uid://dp2sv2a17a7jy" path="res://entities/stones/purple_stone.tscn" id="2_n7rse"]
@@ -17,9 +17,16 @@
 [ext_resource type="Script" uid="uid://crncra6nnssso" path="res://scripts/utility/fps_counter.gd" id="11_e3fxj"]
 [ext_resource type="PackedScene" uid="uid://clvy2nkvro5ce" path="res://entities/chimes/warm_vox_chime_fourth.tscn" id="11_jcsu2"]
 [ext_resource type="PackedScene" uid="uid://y07eptojel4s" path="res://entities/musicians/musician_manager.tscn" id="16_43cbu"]
+[ext_resource type="Script" uid="uid://clcns2u7rioq3" path="res://scripts/version_number.gd" id="18_f5rqd"]
+[ext_resource type="FontFile" uid="uid://ddj14a5wud451" path="res://Tiny5-Regular.ttf" id="18_or136"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u1qyx"]
 blend_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_f5rqd"]
+font = ExtResource("18_or136")
+font_size = 8
+font_color = Color(0.835294, 0.231373, 0.356863, 1)
 
 [node name="GridSandbox" type="Node2D"]
 
@@ -124,3 +131,17 @@ position = Vector2(-16, 32)
 position = Vector2(-16, 0)
 
 [node name="MusicianManager" parent="." instance=ExtResource("16_43cbu")]
+
+[node name="version_number" type="Node2D" parent="."]
+z_index = 10
+script = ExtResource("9_luqy6")
+wait_time_secs = 10.0
+
+[node name="Label" type="Label" parent="version_number"]
+offset_left = -16.0
+offset_top = 160.0
+offset_right = 24.0
+offset_bottom = 183.0
+label_settings = SubResource("LabelSettings_f5rqd")
+horizontal_alignment = 1
+script = ExtResource("18_f5rqd")
