@@ -121,12 +121,12 @@ prev_web_node = "picker_chime"
 
 [node name="display_items" type="Node2D" parent="guitar_circle"]
 
+[node name="PickerItemGuitarSixthChord" parent="guitar_circle/display_items" instance=ExtResource("19_lntgu")]
+
 [node name="PickerItemGuitarRootChord" parent="guitar_circle/display_items" instance=ExtResource("18_epfp3")]
 position = Vector2(-203, 140)
 
 [node name="PickerItemGuitarFourthChord" parent="guitar_circle/display_items" instance=ExtResource("18_nyo6y")]
-
-[node name="PickerItemGuitarSixthChord" parent="guitar_circle/display_items" instance=ExtResource("19_lntgu")]
 
 [node name="ep_circle" parent="." groups=["picker_ep"] instance=ExtResource("1_ilne7")]
 position = Vector2(295, -255)
@@ -134,11 +134,11 @@ prev_web_node = "picker_chime"
 
 [node name="display_items" type="Node2D" parent="ep_circle"]
 
-[node name="PickerItemEPFourthChord" parent="ep_circle/display_items" instance=ExtResource("24_0m7v4")]
+[node name="PickerItemEPSixthChord" parent="ep_circle/display_items" instance=ExtResource("26_7am4d")]
 
 [node name="PickerItemEPRootChord" parent="ep_circle/display_items" instance=ExtResource("25_y3nep")]
 
-[node name="PickerItemEPSixthChord" parent="ep_circle/display_items" instance=ExtResource("26_7am4d")]
+[node name="PickerItemEPFourthChord" parent="ep_circle/display_items" instance=ExtResource("24_0m7v4")]
 
 [node name="PickerItemEPSilent" parent="ep_circle/display_items" instance=ExtResource("27_0m7v4")]
 
@@ -150,9 +150,9 @@ prev_web_node = "picker_chime"
 
 [node name="PickerItemWarmVoxRoot" parent="warm_vox_circle/display_items" instance=ExtResource("4_owebj")]
 
-[node name="PickerItemWarmVoxRootAbove" parent="warm_vox_circle/display_items" instance=ExtResource("6_eeast")]
-
 [node name="PickerItemWarmVoxFourth" parent="warm_vox_circle/display_items" instance=ExtResource("5_8d2d4")]
+
+[node name="PickerItemWarmVoxRootAbove" parent="warm_vox_circle/display_items" instance=ExtResource("6_eeast")]
 
 [node name="machine_circle" parent="." groups=["picker_machine"] instance=ExtResource("1_ilne7")]
 position = Vector2(40, 175)
