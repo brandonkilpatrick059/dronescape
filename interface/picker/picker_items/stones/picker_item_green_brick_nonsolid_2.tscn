@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://hw7rytj4ku80"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_o3vkk"]
+[ext_resource type="SpriteFrames" uid="uid://bg78y31v1srby" path="res://sprites/stones/brick_green_nonsolid/brick_green_nonsolid_2.tres" id="2_o3vkk"]
+[ext_resource type="PackedScene" uid="uid://bjgmwhokfd2e5" path="res://entities/stones/green_brick_nonsolid_2.tscn" id="3_o3vkk"]
+[ext_resource type="PackedScene" uid="uid://onxtvmsejgun" path="res://entities/criteria/generic_nonsolid_criteria.tscn" id="4_d40xk"]
+
+[node name="PickerItemGreenBrickNonsolid2" type="Node2D"]
+script = ExtResource("1_o3vkk")
+display_sprite_frames = ExtResource("2_o3vkk")
+display_animation = "center_center"
+item = ExtResource("3_o3vkk")
+
+[node name="generic_nonsolid_stone_criteria" parent="." instance=ExtResource("4_d40xk")]

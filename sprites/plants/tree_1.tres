@@ -1,7 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=25 format=3 uid="uid://bqdqvyl3ks24n"]
+[gd_resource type="SpriteFrames" load_steps=24 format=3 uid="uid://bqdqvyl3ks24n"]
 
 [ext_resource type="Texture2D" uid="uid://bmj33h03efyul" path="res://sprites/plants/tree_branches_1.png" id="1_t58al"]
-[ext_resource type="Texture2D" uid="uid://wccxj47ccgxw" path="res://sprites/plants/leaves_1.png" id="2_8j5lq"]
+[ext_resource type="Texture2D" uid="uid://bg0q3dhpqon07" path="res://sprites/plants/tree_green_picker.png" id="2_8j5lq"]
 [ext_resource type="Texture2D" uid="uid://01ujq1c67sct" path="res://sprites/plants/one_tab.png" id="3_gk63i"]
 [ext_resource type="Texture2D" uid="uid://drfvf14xfa23v" path="res://sprites/plants/two_tab.png" id="4_aitui"]
 [ext_resource type="Texture2D" uid="uid://3a1py3wjfhfi" path="res://sprites/plants/three_tab.png" id="5_crcuw"]
@@ -46,10 +46,6 @@ region = Rect2(0, 16, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_t58al"]
 atlas = ExtResource("1_t58al")
 region = Rect2(64, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_170j4"]
-atlas = ExtResource("2_8j5lq")
-region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ql4i"]
 atlas = ExtResource("3_gk63i")
@@ -163,7 +159,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_170j4")
+"texture": ExtResource("2_8j5lq")
 }],
 "loop": true,
 "name": &"picker",

@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://bn70pfhr738cl"]
+[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://bn70pfhr738cl"]
 
 [ext_resource type="Texture2D" uid="uid://dayjdiijrhchb" path="res://sprites/plants/green_grass.png" id="1_hiqkm"]
+[ext_resource type="Texture2D" uid="uid://dwge2knrpgwjt" path="res://sprites/plants/green_grass_picker.png" id="2_saee2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_saee2"]
 atlas = ExtResource("1_hiqkm")
@@ -86,6 +87,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"center_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_saee2")
+}],
+"loop": true,
+"name": &"picker",
 "speed": 5.0
 }, {
 "frames": [{

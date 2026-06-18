@@ -14,7 +14,7 @@ var planet_interpolation_gradient = Gradient.new()
 var hour_length_seconds : float = 10.0
 var timer_clock := Timer.new()
 
-var clock = 17
+var clock = 12
 
 var colors := {
 	0.0:      Color(0.314, 0.322, 0.467), #12:00am

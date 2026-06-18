@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8qjpgxg5n8sv"
-path="res://.godot/imported/default_stone.png-f82faa87a3a535b25df941587775bf20.ctex"
+uid="uid://njgsdb4qqwuo"
+path="res://.godot/imported/brick_green_no_shadow.png-547ce084cb407ebf79c1aae3d0fb80d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/stones/default_stone.png"
-dest_files=["res://.godot/imported/default_stone.png-f82faa87a3a535b25df941587775bf20.ctex"]
+source_file="res://sprites/stones/brick_green/brick_green_no_shadow.png"
+dest_files=["res://.godot/imported/brick_green_no_shadow.png-547ce084cb407ebf79c1aae3d0fb80d6.ctex"]
 
 [params]
 

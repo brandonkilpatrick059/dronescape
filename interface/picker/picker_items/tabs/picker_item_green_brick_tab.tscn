@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjh422rhfe4yu"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_ee58i"]
+[ext_resource type="SpriteFrames" uid="uid://b2s5gv7d6se74" path="res://sprites/stones/brick_green/brick_green.tres" id="2_ee58i"]
+
+[node name="PickerItemGreenBrickTab" type="Node2D"]
+script = ExtResource("1_ee58i")
+display_sprite_frames = ExtResource("2_ee58i")
+display_animation = "center_center"
+tab_path = "picker_green_brick"

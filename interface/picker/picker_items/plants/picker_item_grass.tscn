@@ -8,7 +8,7 @@
 [node name="PickerItemGrass" type="Node2D" node_paths=PackedStringArray("place_criteria")]
 script = ExtResource("1_e0dal")
 display_sprite_frames = ExtResource("2_e0dal")
-display_animation = "center_center"
+display_animation = "picker"
 item = ExtResource("3_r2dn4")
 place_criteria = NodePath("grass_criteria")
 
