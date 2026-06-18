@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=21 format=3 uid="uid://dee2d2dxl5vqj"]
+[gd_resource type="SpriteFrames" load_steps=23 format=3 uid="uid://dee2d2dxl5vqj"]
 
 [ext_resource type="Texture2D" uid="uid://bmsyl118np2rd" path="res://sprites/interface/tabs/back.png" id="1_822i5"]
 [ext_resource type="Texture2D" uid="uid://cy6spqurwxaub" path="res://sprites/interface/tabs/chime_tab.png" id="1_fdfaa"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dl1ms75ogxyrs" path="res://sprites/plants/plant_picker_tab.png" id="4_hb7sh"]
 [ext_resource type="Texture2D" uid="uid://dn6rg8tv1h0yd" path="res://sprites/interface/tabs/stone_nonsolid_tab.png" id="5_gjgu3"]
 [ext_resource type="Texture2D" uid="uid://dwsy73gr6h2yy" path="res://sprites/chimes/warm_vox_picker.png" id="6_lt5kg"]
+[ext_resource type="Texture2D" uid="uid://dgjgm5ubx15b5" path="res://sprites/interface/tabs/prop_tab.png" id="6_wkyja"]
 [ext_resource type="Texture2D" uid="uid://be8ku1d6j4tdg" path="res://sprites/musicians/ep_picker.png" id="7_etp7o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xjyc6"]
@@ -29,6 +30,10 @@ region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wkyja"]
 atlas = ExtResource("4_hb7sh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aa1jp"]
+atlas = ExtResource("6_wkyja")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pyocu"]
@@ -91,6 +96,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"plant",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa1jp")
+}],
+"loop": true,
+"name": &"prop",
 "speed": 5.0
 }, {
 "frames": [{

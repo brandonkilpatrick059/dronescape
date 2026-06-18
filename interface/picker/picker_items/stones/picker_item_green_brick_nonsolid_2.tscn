@@ -5,10 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://bjgmwhokfd2e5" path="res://entities/stones/green_brick_nonsolid_2.tscn" id="3_o3vkk"]
 [ext_resource type="PackedScene" uid="uid://onxtvmsejgun" path="res://entities/criteria/generic_nonsolid_criteria.tscn" id="4_d40xk"]
 
-[node name="PickerItemGreenBrickNonsolid2" type="Node2D"]
+[node name="PickerItemGreenBrickNonsolid2" type="Node2D" node_paths=PackedStringArray("place_criteria")]
 script = ExtResource("1_o3vkk")
 display_sprite_frames = ExtResource("2_o3vkk")
 display_animation = "center_center"
 item = ExtResource("3_o3vkk")
+place_criteria = NodePath("generic_nonsolid_stone_criteria")
 
 [node name="generic_nonsolid_stone_criteria" parent="." instance=ExtResource("4_d40xk")]

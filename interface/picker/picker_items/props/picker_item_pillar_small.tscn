@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://qywoyqlvu0t8"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_g8mfm"]
+[ext_resource type="SpriteFrames" uid="uid://bcpoqxgj62j3a" path="res://sprites/props/picker_props.tres" id="2_jtv2p"]
+[ext_resource type="PackedScene" uid="uid://bj8io3xackyly" path="res://entities/prop/pillar_small.tscn" id="3_3dbde"]
+
+[node name="PickerItemPillarSmall" type="Node2D" node_paths=PackedStringArray("place_criteria")]
+script = ExtResource("1_g8mfm")
+display_sprite_frames = ExtResource("2_jtv2p")
+display_animation = "pillar_small"
+item = ExtResource("3_3dbde")
+place_criteria = NodePath("")

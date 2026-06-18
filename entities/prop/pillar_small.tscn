@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj8io3xackyly"]
+
+[ext_resource type="Texture2D" uid="uid://dfbx1eqhq1sh6" path="res://sprites/props/pillar_small.png" id="1_nwsw7"]
+[ext_resource type="Script" uid="uid://rehp23qvb8vr" path="res://scripts/entities/grid_entity.gd" id="1_wvjqp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvjqp"]
+size = Vector2(16, 16)
+
+[node name="PillarSmall" type="Node2D" groups=["grid_entity", "prop"]]
+script = ExtResource("1_wvjqp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("1_nwsw7")
+
+[node name="grid_collider" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grid_collider"]
+shape = SubResource("RectangleShape2D_wvjqp")
