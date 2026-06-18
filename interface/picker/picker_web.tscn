@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dro861wwj4abf"]
+[gd_scene load_steps=59 format=3 uid="uid://dro861wwj4abf"]
 
 [ext_resource type="Script" uid="uid://bdec8x55j6u7g" path="res://scripts/picker/picker_web.gd" id="1_gb7f4"]
 [ext_resource type="PackedScene" uid="uid://dveffq21xw1mh" path="res://interface/picker/picker_web_node.tscn" id="1_ilne7"]
@@ -22,7 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://d1ntje66r1p8t" path="res://interface/picker/picker_items/tabs/picker_item_purple_brick_nonsolid_tab.tscn" id="12_2fgbo"]
 [ext_resource type="PackedScene" uid="uid://v28srr47xir" path="res://interface/picker/picker_items/tabs/picker_item_warm_vox_tab.tscn" id="12_jcx7x"]
 [ext_resource type="PackedScene" uid="uid://cjh422rhfe4yu" path="res://interface/picker/picker_items/tabs/picker_item_green_brick_tab.tscn" id="12_ysruc"]
+[ext_resource type="PackedScene" uid="uid://bvqri34bs0lqp" path="res://interface/picker/picker_items/stones/picker_item_blue_stone_2.tscn" id="13_0dkkk"]
 [ext_resource type="PackedScene" uid="uid://be6whw707w8cr" path="res://interface/picker/picker_items/tabs/picker_item_recorder_tab.tscn" id="13_6403v"]
+[ext_resource type="PackedScene" uid="uid://dr22r81ocqykk" path="res://interface/picker/picker_items/stones/picker_item_blue_stone.tscn" id="13_jv2pm"]
+[ext_resource type="PackedScene" uid="uid://kxsfwwroyqmr" path="res://interface/picker/picker_items/tabs/picker_item_blue_stone_tab.tscn" id="13_pe014"]
 [ext_resource type="PackedScene" uid="uid://c5f3fqh1mgw81" path="res://interface/picker/picker_items/chimes/picker_item_recorder_root.tscn" id="13_ty46p"]
 [ext_resource type="PackedScene" uid="uid://dhvqy6tv5gva6" path="res://interface/picker/picker_items/stones/picker_item_purple_brick_nonsolid.tscn" id="14_a6itp"]
 [ext_resource type="PackedScene" uid="uid://bugu1vlagsedw" path="res://interface/picker/picker_items/chimes/picker_item_recorder_fourth.tscn" id="14_advcm"]
@@ -89,6 +92,8 @@ prev_web_node = "picker_center"
 
 [node name="PickerItemGreenBrickTab" parent="stone_circle/display_items" instance=ExtResource("12_ysruc")]
 
+[node name="PickerItemBlueStoneTab" parent="stone_circle/display_items" instance=ExtResource("13_pe014")]
+
 [node name="stone_nonsolid_circle" parent="." groups=["picker_stone_nonsolid"] instance=ExtResource("1_ilne7")]
 position = Vector2(162, -14)
 prev_web_node = "picker_center"
@@ -125,6 +130,17 @@ prev_web_node = "picker_stone"
 [node name="PickerItemGreenBrick" parent="green_brick_circle/display_items" instance=ExtResource("16_g5n8b")]
 
 [node name="PickerItemGreenBrick2" parent="green_brick_circle/display_items" instance=ExtResource("17_ysruc")]
+
+[node name="blue_stone_circle" parent="." groups=["picker_blue_stone"] instance=ExtResource("1_ilne7")]
+position = Vector2(414, -88)
+prev_web_node = "picker_stone"
+
+[node name="display_items" type="Node2D" parent="blue_stone_circle"]
+
+[node name="PickerItemBlueStone" parent="blue_stone_circle/display_items" instance=ExtResource("13_jv2pm")]
+position = Vector2(-294, -20)
+
+[node name="PickerItemBlueStone2" parent="blue_stone_circle/display_items" instance=ExtResource("13_0dkkk")]
 
 [node name="purple_brick_nonsolid_circle" parent="." groups=["picker_purple_brick_nonsolid"] instance=ExtResource("1_ilne7")]
 position = Vector2(285, -48)
@@ -282,6 +298,13 @@ default_color = Color(1, 0, 0, 1)
 z_index = 2
 position = Vector2(120, -52)
 points = PackedVector2Array(33, -30, 203, -102)
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Line2D16" type="Line2D" parent="helper_lines"]
+z_index = 2
+position = Vector2(90, -37)
+points = PackedVector2Array(33, -30, 70, -31, 92.0902, -47.3195, 149, -64, 242, -63, 324, -51)
 width = 2.0
 default_color = Color(1, 0, 0, 1)
 
