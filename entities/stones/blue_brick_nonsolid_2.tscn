@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://p4fflr6fl54d"]
+
+[ext_resource type="Script" uid="uid://bibtitfh7a7o6" path="res://scripts/entities/stone.gd" id="1_ryira"]
+[ext_resource type="SpriteFrames" uid="uid://hki7bfavmlri" path="res://sprites/stones/brick_blue_nonsolid/brick_blue_nonsolid_2.tres" id="2_ryira"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk454"]
+size = Vector2(16, 16)
+
+[node name="BlueBrickNonsolid2" type="Node2D" groups=["stone_nonsolid"]]
+z_index = -2
+script = ExtResource("1_ryira")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_ryira")
+animation = &"bottom_left"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_yk454")
+
+[node name="center" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_yk454")
+
+[node name="top_left" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-8, 8, 8, -8, 8, 8)
+
+[node name="top_right" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-8, -8, 8, 8, -8, 8)
+
+[node name="bottom_left" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-8, -8, 8, 8, 8, -8)
+
+[node name="bottom_right" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-8, 8, 8, -8, -8, -8)
+
+[connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_exited"]

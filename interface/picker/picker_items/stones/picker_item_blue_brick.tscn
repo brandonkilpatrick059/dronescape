@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7fhe2hc2ktm"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_jsrjr"]
+[ext_resource type="SpriteFrames" uid="uid://bbmohei7y13bh" path="res://sprites/stones/brick_blue/brick_blue.tres" id="2_jsrjr"]
+[ext_resource type="PackedScene" uid="uid://bosawtbletjss" path="res://entities/stones/blue_brick.tscn" id="3_jsrjr"]
+[ext_resource type="PackedScene" uid="uid://c51gseuu104ko" path="res://entities/criteria/generic_stone_criteria.tscn" id="4_8sa16"]
+
+[node name="PickerItemBlueBrick" type="Node2D" node_paths=PackedStringArray("place_criteria")]
+script = ExtResource("1_jsrjr")
+display_sprite_frames = ExtResource("2_jsrjr")
+display_animation = "center_center"
+item = ExtResource("3_jsrjr")
+place_criteria = NodePath("generic_stone_criteria")
+
+[node name="generic_stone_criteria" parent="." instance=ExtResource("4_8sa16")]

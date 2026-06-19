@@ -1,41 +1,41 @@
-[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://bn81ncuogd1m"]
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://bbmohei7y13bh"]
 
-[ext_resource type="Texture2D" uid="uid://bxb2bwqhmd3e1" path="res://sprites/stones/blue_nonsolid/stone_blue_nonsolid.png" id="2_a2hbj"]
+[ext_resource type="Texture2D" uid="uid://be688j8ylvyyf" path="res://sprites/stones/brick_blue/brick_blue.png" id="2_ev5g1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u01ok"]
-atlas = ExtResource("2_a2hbj")
+atlas = ExtResource("2_ev5g1")
 region = Rect2(16, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17upm"]
-atlas = ExtResource("2_a2hbj")
+atlas = ExtResource("2_ev5g1")
 region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pvpxk"]
-atlas = ExtResource("2_a2hbj")
+atlas = ExtResource("2_ev5g1")
 region = Rect2(32, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e7qcv"]
-atlas = ExtResource("2_a2hbj")
+[sub_resource type="AtlasTexture" id="AtlasTexture_pogir"]
+atlas = ExtResource("2_ev5g1")
 region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6eye7"]
-atlas = ExtResource("2_a2hbj")
+atlas = ExtResource("2_ev5g1")
 region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7t8wm"]
-atlas = ExtResource("2_a2hbj")
+atlas = ExtResource("2_ev5g1")
 region = Rect2(32, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c13w8"]
-atlas = ExtResource("2_a2hbj")
+atlas = ExtResource("2_ev5g1")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t78lx"]
-atlas = ExtResource("2_a2hbj")
+atlas = ExtResource("2_ev5g1")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5eigs"]
-atlas = ExtResource("2_a2hbj")
+atlas = ExtResource("2_ev5g1")
 region = Rect2(32, 0, 16, 16)
 
 [resource]
@@ -66,7 +66,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e7qcv")
+"texture": SubResource("AtlasTexture_pogir")
 }],
 "loop": true,
 "name": &"center_center",
