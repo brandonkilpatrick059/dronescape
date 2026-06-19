@@ -1,0 +1,132 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdn4d0eqtmwi5"]
+
+[ext_resource type="Script" uid="uid://darcrssbwah45" path="res://scripts/leaves.gd" id="1_04ho4"]
+[ext_resource type="Texture2D" uid="uid://wccxj47ccgxw" path="res://sprites/plants/leaves_1.png" id="2_krdxh"]
+[ext_resource type="Texture2D" uid="uid://uj3qojpoxdx2" path="res://sprites/plants/bush_branches.png" id="3_3c1s3"]
+[ext_resource type="SpriteFrames" uid="uid://dfdsxsfw70ou1" path="res://sprites/plants/leaf_c.tres" id="3_lu4lc"]
+[ext_resource type="SpriteFrames" uid="uid://cm4v6dcg8vulu" path="res://sprites/plants/leaf_b.tres" id="4_3c1s3"]
+[ext_resource type="Script" uid="uid://rehp23qvb8vr" path="res://scripts/entities/grid_entity.gd" id="4_8xf25"]
+[ext_resource type="SpriteFrames" uid="uid://mwvlcnxcfrrd" path="res://sprites/plants/leaf_a.tres" id="5_8xf25"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f727o"]
+size = Vector2(15, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lu4lc"]
+size = Vector2(16, 16)
+
+[node name="bush" type="Node2D" groups=["bush", "grid_entity", "plant"]]
+z_index = 1
+script = ExtResource("4_8xf25")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.384314)
+texture = ExtResource("2_krdxh")
+
+[node name="branches" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("3_3c1s3")
+script = ExtResource("4_8xf25")
+
+[node name="leaves2" type="Node2D" parent="."]
+position = Vector2(0, -1)
+script = ExtResource("1_04ho4")
+
+[node name="Area2D" type="Area2D" parent="leaves2"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leaves2/Area2D"]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_f727o")
+
+[node name="leaves" type="Node2D" parent="leaves2"]
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(-2, 2)
+sprite_frames = ExtResource("3_lu4lc")
+animation = &"left"
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(2, 2)
+sprite_frames = ExtResource("3_lu4lc")
+animation = &"left"
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(-4, 5)
+sprite_frames = ExtResource("3_lu4lc")
+animation = &"left"
+
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(0, 5)
+sprite_frames = ExtResource("3_lu4lc")
+animation = &"left"
+
+[node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(4, 5)
+sprite_frames = ExtResource("3_lu4lc")
+animation = &"left"
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(-6, 5)
+sprite_frames = ExtResource("4_3c1s3")
+animation = &"left"
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(-4, 0)
+sprite_frames = ExtResource("4_3c1s3")
+animation = &"left"
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="leaves2/leaves"]
+sprite_frames = ExtResource("4_3c1s3")
+animation = &"left"
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(4, 0)
+sprite_frames = ExtResource("4_3c1s3")
+animation = &"left"
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(-2, 5)
+sprite_frames = ExtResource("4_3c1s3")
+animation = &"left"
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(2, 5)
+sprite_frames = ExtResource("4_3c1s3")
+animation = &"left"
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(6, 5)
+sprite_frames = ExtResource("4_3c1s3")
+animation = &"left"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(-2, -2)
+sprite_frames = ExtResource("5_8xf25")
+animation = &"left"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(2, -2)
+sprite_frames = ExtResource("5_8xf25")
+animation = &"left"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(-4, 3)
+sprite_frames = ExtResource("5_8xf25")
+animation = &"left"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(0, 3)
+sprite_frames = ExtResource("5_8xf25")
+animation = &"left"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(4, 3)
+sprite_frames = ExtResource("5_8xf25")
+animation = &"left"
+
+[node name="grid_collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grid_collision"]
+shape = SubResource("RectangleShape2D_lu4lc")
