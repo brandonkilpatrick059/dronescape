@@ -1,41 +1,41 @@
-[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://co5kn1o8y76xd"]
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://dli1md3nmm754"]
 
-[ext_resource type="Texture2D" uid="uid://by3uhxx8xt1j5" path="res://sprites/stones/stone_blue/stone_blue.png" id="2_k4p6i"]
+[ext_resource type="Texture2D" uid="uid://cc77ddjsrvv4y" path="res://sprites/stones/blue_nonsolid/stone_blue_nonsolid_2.png" id="2_w1hwq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u01ok"]
-atlas = ExtResource("2_k4p6i")
+atlas = ExtResource("2_w1hwq")
 region = Rect2(16, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_17upm"]
-atlas = ExtResource("2_k4p6i")
+atlas = ExtResource("2_w1hwq")
 region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pvpxk"]
-atlas = ExtResource("2_k4p6i")
+atlas = ExtResource("2_w1hwq")
 region = Rect2(32, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vsxp5"]
-atlas = ExtResource("2_k4p6i")
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8qkf"]
+atlas = ExtResource("2_w1hwq")
 region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6eye7"]
-atlas = ExtResource("2_k4p6i")
+atlas = ExtResource("2_w1hwq")
 region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7t8wm"]
-atlas = ExtResource("2_k4p6i")
+atlas = ExtResource("2_w1hwq")
 region = Rect2(32, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c13w8"]
-atlas = ExtResource("2_k4p6i")
+atlas = ExtResource("2_w1hwq")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t78lx"]
-atlas = ExtResource("2_k4p6i")
+atlas = ExtResource("2_w1hwq")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5eigs"]
-atlas = ExtResource("2_k4p6i")
+atlas = ExtResource("2_w1hwq")
 region = Rect2(32, 0, 16, 16)
 
 [resource]
@@ -66,7 +66,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vsxp5")
+"texture": SubResource("AtlasTexture_i8qkf")
 }],
 "loop": true,
 "name": &"center_center",

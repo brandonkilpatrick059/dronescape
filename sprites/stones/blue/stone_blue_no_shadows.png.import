@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by3uhxx8xt1j5"
-path="res://.godot/imported/stone_blue.png-df9456fd00239cb039d971e9ce208359.ctex"
+uid="uid://c23rui2lyvtsu"
+path="res://.godot/imported/stone_blue_no_shadows.png-6602ae57c0ca985f323247176f088977.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/stones/stone_blue/stone_blue.png"
-dest_files=["res://.godot/imported/stone_blue.png-df9456fd00239cb039d971e9ce208359.ctex"]
+source_file="res://sprites/stones/blue/stone_blue_no_shadows.png"
+dest_files=["res://.godot/imported/stone_blue_no_shadows.png-6602ae57c0ca985f323247176f088977.ctex"]
 
 [params]
 

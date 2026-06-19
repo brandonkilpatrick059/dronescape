@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://kxsfwwroyqmr"]
 
 [ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_k2yd6"]
-[ext_resource type="SpriteFrames" uid="uid://co5kn1o8y76xd" path="res://sprites/stones/stone_blue/stone_blue.tres" id="2_k2yd6"]
+[ext_resource type="SpriteFrames" uid="uid://co5kn1o8y76xd" path="res://sprites/stones/blue/stone_blue.tres" id="2_k2yd6"]
 
 [node name="PickerItemBlueStoneTab" type="Node2D"]
 script = ExtResource("1_k2yd6")

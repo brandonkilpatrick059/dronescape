@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://criyf236ka8s0"]
 
 [ext_resource type="Script" uid="uid://bibtitfh7a7o6" path="res://scripts/entities/stone.gd" id="1_i4xu4"]
-[ext_resource type="SpriteFrames" uid="uid://c80ihioq0lqgx" path="res://sprites/stones/stone_blue/stone_blue_2.tres" id="2_i4xu4"]
+[ext_resource type="SpriteFrames" uid="uid://c80ihioq0lqgx" path="res://sprites/stones/blue/stone_blue_2.tres" id="2_i4xu4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
 
