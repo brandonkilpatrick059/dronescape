@@ -10,19 +10,22 @@ config_version=5
 
 [application]
 
-config/name="Dronescaper"
+config/name="Aeroscape"
 config/version="A.3.0"
 run/main_scene="uid://bvfn8m6rprwus"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://bhde3mh0vsaxv"
 config/icon="uid://cs8ylh4i3skpx"
 
+[audio]
+
+general/default_playback_type.web=0
+
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/mode=4
-window/size/resizable=false
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [input]
