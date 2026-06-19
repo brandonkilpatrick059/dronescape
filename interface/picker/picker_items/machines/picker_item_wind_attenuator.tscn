@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://mlcpr2cf0ybn"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_dmgoe"]
+[ext_resource type="SpriteFrames" uid="uid://daxxl3xfqu7ui" path="res://sprites/machines/wind_attenuator.tres" id="2_dmgoe"]
+[ext_resource type="PackedScene" uid="uid://dche8xqmar0ue" path="res://entities/machines/wind_attenuator.tscn" id="3_ef8kk"]
+[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="4_dmgoe"]
+
+[node name="PickerItemWindAttenuator" type="Node2D" node_paths=PackedStringArray("place_criteria")]
+script = ExtResource("1_dmgoe")
+display_sprite_frames = ExtResource("2_dmgoe")
+display_animation = "picker"
+item = ExtResource("3_ef8kk")
+place_criteria = NodePath("no_solid_center")
+
+[node name="no_solid_center" type="Node" parent="."]
+script = ExtResource("4_dmgoe")
+center_excludes_groups = Array[String](["solid", "machine"])

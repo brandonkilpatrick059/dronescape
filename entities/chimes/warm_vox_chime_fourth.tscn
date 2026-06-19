@@ -15,7 +15,6 @@ radius = 16.0
 [node name="WarmVoxChimeFourth" type="Node2D" node_paths=PackedStringArray("wind_animations", "placement_criteria")]
 script = ExtResource("1_qc8y1")
 wind_animations = [NodePath("AnimatedSprite2D")]
-sensitivity = 1.5
 sensitivity_fraction = 1.0
 friction = 0.004
 placement_criteria = NodePath("two_tall_flat_stone")

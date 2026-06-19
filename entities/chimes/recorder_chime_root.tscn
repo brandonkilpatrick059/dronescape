@@ -15,7 +15,6 @@ radius = 16.0
 [node name="RecorderChimeRoot" type="Node2D" node_paths=PackedStringArray("wind_animations")]
 script = ExtResource("1_7djj5")
 wind_animations = [NodePath("windmill"), NodePath("bellows")]
-sensitivity = 1.5
 sensitivity_fraction = 1.0
 friction = 0.004
 

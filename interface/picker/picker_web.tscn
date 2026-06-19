@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://dro861wwj4abf"]
+[gd_scene load_steps=65 format=3 uid="uid://dro861wwj4abf"]
 
 [ext_resource type="Script" uid="uid://bdec8x55j6u7g" path="res://scripts/picker/picker_web.gd" id="1_gb7f4"]
 [ext_resource type="PackedScene" uid="uid://dveffq21xw1mh" path="res://interface/picker/picker_web_node.tscn" id="1_ilne7"]
@@ -63,6 +63,7 @@
 [ext_resource type="PackedScene" uid="uid://c2twg53dqf7bf" path="res://interface/picker/picker_items/plants/picker_item_tree_3.tscn" id="32_n61fb"]
 [ext_resource type="PackedScene" uid="uid://b6yq0ico5mdxl" path="res://interface/picker/picker_items/plants/picker_item_tree_4.tscn" id="33_4dmxk"]
 [ext_resource type="PackedScene" uid="uid://qywoyqlvu0t8" path="res://interface/picker/picker_items/props/picker_item_pillar_small.tscn" id="53_frt1v"]
+[ext_resource type="PackedScene" uid="uid://mlcpr2cf0ybn" path="res://interface/picker/picker_items/machines/picker_item_wind_attenuator.tscn" id="55_gcrj5"]
 
 [node name="PickerWeb" type="Node2D"]
 script = ExtResource("1_gb7f4")
@@ -275,6 +276,8 @@ position = Vector2(40, 175)
 prev_web_node = "picker_center"
 
 [node name="display_items" type="Node2D" parent="machine_circle"]
+
+[node name="PickerItemWindAttenuator" parent="machine_circle/display_items" instance=ExtResource("55_gcrj5")]
 
 [node name="PickerItemFrogMachine" parent="machine_circle/display_items" instance=ExtResource("7_m43hu")]
 
