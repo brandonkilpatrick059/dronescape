@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://doovfriya4x45"]
+[gd_scene load_steps=7 format=3 uid="uid://doovfriya4x45"]
 
 [ext_resource type="Script" uid="uid://ctjehdub1w68n" path="res://interface/menu/menu.gd" id="1_bdyrj"]
 [ext_resource type="Texture2D" uid="uid://dft6vbmp2q7m" path="res://sprites/interface/menu.png" id="1_l7knw"]
 [ext_resource type="FontFile" uid="uid://d25qxmflqeky0" path="res://fonts/georgia.ttf" id="3_lyntm"]
+[ext_resource type="FontFile" uid="uid://5yqkgh0yi5bo" path="res://fonts/menu_options_font.tres" id="4_lyntm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fg7ri"]
-font = ExtResource("3_lyntm")
+font = ExtResource("4_lyntm")
 font_size = 24
 font_color = Color(0.807843, 0.282353, 0.282353, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lyntm"]
+font = ExtResource("4_lyntm")
 
 [node name="Menu" type="Control" groups=["menu"]]
 z_index = 20
@@ -46,10 +50,39 @@ text = "AEROSCAPE"
 label_settings = SubResource("LabelSettings_fg7ri")
 horizontal_alignment = 1
 
-[node name="fullscreen_option" type="CheckButton" parent="CenterContainer/menu_background/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/menu_background/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_lyntm")
+
+[node name="fullscreen_option" type="CheckButton" parent="CenterContainer/menu_background/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_lyntm")
 text = "Fullscreen"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/menu_background/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/menu_background/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="resolution" type="Label" parent="CenterContainer/menu_background/VBoxContainer/HBoxContainer3/HBoxContainer"]
+layout_mode = 2
+text = " Resolution"
+label_settings = SubResource("LabelSettings_lyntm")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/menu_background/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="resolution_picker" type="OptionButton" parent="CenterContainer/menu_background/VBoxContainer/HBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+toggle_mode = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/menu_background/VBoxContainer/HBoxContainer3/HBoxContainer2"]
+custom_minimum_size = Vector2(6, 0)
+layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/menu_background/VBoxContainer"]
 layout_mode = 2
@@ -61,5 +94,6 @@ theme_override_fonts/font = ExtResource("3_lyntm")
 action_mode = 0
 text = "CLOSE"
 
-[connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/fullscreen_option" to="." method="_on_fullscreen_option_pressed"]
+[connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/HBoxContainer2/fullscreen_option" to="." method="_on_fullscreen_option_pressed"]
+[connection signal="item_selected" from="CenterContainer/menu_background/VBoxContainer/HBoxContainer3/HBoxContainer2/resolution_picker" to="." method="_on_resolution_picker_item_selected"]
 [connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/HBoxContainer/close_button" to="." method="_on_close_button_pressed"]

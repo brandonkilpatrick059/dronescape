@@ -19,7 +19,6 @@ var max_volume = -12
 
 var height = 640
 var width = 0
-var set_width = 640
 var switch_lock = false
 
 static func get_wind_visible() -> bool:
@@ -34,7 +33,10 @@ func _ready() -> void:
 	audio_player.volume_db = zero_volume
 	audio_player.play()
 	if(randf_range(0.0,1.0) < 0.5):
-		width = set_width
+		width = get_width()
+
+func get_width() -> float:
+	return SettingsVariables.supported_resolutions[SettingsVariables.resolution_index]
 
 func generate_wind():
 	var point_step = 16
@@ -46,7 +48,7 @@ func generate_wind():
 	if(!switch_lock && current_wind_speeds - min_wind_speed < 50):
 		switch_lock = true
 		if(width == 0):
-			width = 640
+			width = get_width()
 		else:
 			width = 0
 	elif(current_wind_speeds - min_wind_speed > 50):
