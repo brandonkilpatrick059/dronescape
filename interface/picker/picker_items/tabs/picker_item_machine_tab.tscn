@@ -8,3 +8,4 @@ script = ExtResource("1_axdbb")
 display_sprite_frames = ExtResource("2_1nb0b")
 display_animation = "machine"
 tab_path = "picker_machine"
+is_menu_tab = null

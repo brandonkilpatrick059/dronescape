@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpuhjqhsmyjrs"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_yedw7"]
+[ext_resource type="SpriteFrames" uid="uid://dee2d2dxl5vqj" path="res://sprites/interface/tabs.tres" id="2_1ng0o"]
+
+[node name="PickerItemMenuTab" type="Node2D"]
+script = ExtResource("1_yedw7")
+display_sprite_frames = ExtResource("2_1ng0o")
+display_animation = "menu"
+is_menu_tab = true

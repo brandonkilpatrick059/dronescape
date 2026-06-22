@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://doovfriya4x45"]
+[gd_scene load_steps=5 format=3 uid="uid://doovfriya4x45"]
 
+[ext_resource type="Script" uid="uid://ctjehdub1w68n" path="res://interface/menu/menu.gd" id="1_bdyrj"]
 [ext_resource type="Texture2D" uid="uid://dft6vbmp2q7m" path="res://sprites/interface/menu.png" id="1_l7knw"]
 [ext_resource type="FontFile" uid="uid://d25qxmflqeky0" path="res://fonts/georgia.ttf" id="3_lyntm"]
 
@@ -8,13 +9,15 @@ font = ExtResource("3_lyntm")
 font_size = 24
 font_color = Color(0.807843, 0.282353, 0.282353, 1)
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" groups=["menu"]]
+z_index = 20
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_bdyrj")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -52,8 +55,11 @@ text = "Fullscreen"
 layout_mode = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="CenterContainer/menu_background/VBoxContainer/HBoxContainer"]
+[node name="close_button" type="Button" parent="CenterContainer/menu_background/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_lyntm")
 action_mode = 0
 text = "CLOSE"
+
+[connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/fullscreen_option" to="." method="_on_fullscreen_option_pressed"]
+[connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/HBoxContainer/close_button" to="." method="_on_close_button_pressed"]

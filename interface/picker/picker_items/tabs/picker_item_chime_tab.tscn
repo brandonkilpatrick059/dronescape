@@ -8,3 +8,4 @@ script = ExtResource("1_t7evg")
 display_sprite_frames = ExtResource("2_jeku7")
 display_animation = "chime"
 tab_path = "picker_chime"
+is_menu_tab = null

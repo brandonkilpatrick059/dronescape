@@ -11,5 +11,6 @@ display_sprite_frames = ExtResource("2_5x5du")
 display_animation = "center_center"
 item = ExtResource("3_fslih")
 place_criteria = NodePath("generic_nonsolid_stone_criteria")
+is_menu_tab = null
 
 [node name="generic_nonsolid_stone_criteria" parent="." instance=ExtResource("4_sp005")]

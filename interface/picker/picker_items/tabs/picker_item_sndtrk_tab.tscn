@@ -8,3 +8,4 @@ script = ExtResource("1_yocmu")
 display_sprite_frames = ExtResource("2_yocmu")
 display_animation = "sndtrk"
 tab_path = "picker_sndtrk"
+is_menu_tab = null

@@ -11,5 +11,6 @@ display_sprite_frames = ExtResource("2_j7lgo")
 display_animation = "picker"
 item = ExtResource("3_h4kyo")
 place_criteria = NodePath("two_tall_flat_stone")
+is_menu_tab = null
 
 [node name="two_tall_flat_stone" parent="." instance=ExtResource("4_4ujsn")]

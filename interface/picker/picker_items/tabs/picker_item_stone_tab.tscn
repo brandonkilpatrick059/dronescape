@@ -8,3 +8,4 @@ script = ExtResource("1_wvkpf")
 display_sprite_frames = ExtResource("2_mbgtu")
 display_animation = "stone"
 tab_path = "picker_stone"
+is_menu_tab = null

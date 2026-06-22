@@ -8,3 +8,4 @@ script = ExtResource("1_es1ga")
 display_sprite_frames = ExtResource("2_fs8ra")
 display_animation = "stone_nonsolid"
 tab_path = "picker_stone_nonsolid"
+is_menu_tab = null

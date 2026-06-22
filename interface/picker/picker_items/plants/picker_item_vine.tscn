@@ -11,6 +11,7 @@ display_sprite_frames = ExtResource("2_crdvr")
 display_animation = "center_center"
 item = ExtResource("3_hp507")
 place_criteria = NodePath("vine_criteria")
+is_menu_tab = null
 
 [node name="vine_criteria" type="Node" parent="."]
 script = ExtResource("4_hihb8")

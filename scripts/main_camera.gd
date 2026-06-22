@@ -12,16 +12,16 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if(timer.is_stopped()):
-		if(bobbing_up && offset.y > -bob_max):
-			offset += Vector2(0,-scroll_speed)
+		if(bobbing_up && position.y > -bob_max):
+			position += Vector2(0,-scroll_speed)
 			timer.start(0.3)
-		elif(bobbing_up && offset.y <= -bob_max):
+		elif(bobbing_up && position.y <= -bob_max):
 			bobbing_up = false
 			timer.start(randf_range(1.0,1.5))
-		elif(!bobbing_up && offset.y < bob_max):
-			offset += Vector2(0,scroll_speed)
+		elif(!bobbing_up && position.y < bob_max):
+			position += Vector2(0,scroll_speed)
 			timer.start(0.3)
-		elif(!bobbing_up && offset.y >= bob_max):
+		elif(!bobbing_up && position.y >= bob_max):
 			bobbing_up = true
 			timer.start(randf_range(1.0,1.5))
 		

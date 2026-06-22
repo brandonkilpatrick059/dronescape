@@ -9,3 +9,4 @@ script = ExtResource("1_g8mfm")
 display_sprite_frames = ExtResource("2_jtv2p")
 display_animation = "pillar_small"
 item = ExtResource("3_3dbde")
+is_menu_tab = null

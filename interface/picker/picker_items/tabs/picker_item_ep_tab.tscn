@@ -8,3 +8,4 @@ script = ExtResource("1_uo5ux")
 display_sprite_frames = ExtResource("2_64ied")
 display_animation = "ep"
 tab_path = "picker_ep"
+is_menu_tab = null

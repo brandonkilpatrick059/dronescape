@@ -8,3 +8,4 @@ script = ExtResource("1_2jiak")
 display_sprite_frames = ExtResource("2_wvfmm")
 display_animation = "center_center"
 tab_path = "picker_purple_brick"
+is_menu_tab = null

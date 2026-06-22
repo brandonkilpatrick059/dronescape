@@ -21,13 +21,20 @@ var picker_item : Node
 
 var last_frame : int = 0
 
+var menu_tab : bool = false
+
 func _ready() -> void:
 	retracted = true
 	animated_sprite.play("retracted")
 
 func handle_input():
 	if(Input.is_action_just_pressed("main_action")):
-		if(mouse_over):
+		if(mouse_over && active):
+			if(menu_tab):
+				var picker = get_tree().get_first_node_in_group("picker_circle")
+				audio_player.stream = load("res://audio/interface/click.ogg")
+				audio_player.play()
+				picker.open_menu()
 			if(return_tab):
 				var picker_circle : Picker_Circle = get_tree().get_first_node_in_group("picker_circle")
 				picker_circle.location_to_prev()
@@ -118,6 +125,9 @@ func set_picker_item(node : Node):
 
 func get_picker_item() -> Node:
 	return picker_item
+
+func set_menu_tab(set_val : bool):
+	menu_tab = set_val
 
 func set_return_tab(set_val : bool):
 	clear_display()

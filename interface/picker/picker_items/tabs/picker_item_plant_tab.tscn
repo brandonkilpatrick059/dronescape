@@ -8,3 +8,4 @@ script = ExtResource("1_d36lg")
 display_sprite_frames = ExtResource("2_mjxe8")
 display_animation = "plant"
 tab_path = "picker_plant"
+is_menu_tab = null

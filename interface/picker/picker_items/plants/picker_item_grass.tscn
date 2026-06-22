@@ -11,6 +11,7 @@ display_sprite_frames = ExtResource("2_e0dal")
 display_animation = "picker"
 item = ExtResource("3_r2dn4")
 place_criteria = NodePath("grass_criteria")
+is_menu_tab = null
 
 [node name="grass_criteria" type="Node" parent="."]
 script = ExtResource("4_jvcjp")

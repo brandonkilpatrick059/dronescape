@@ -11,6 +11,7 @@ display_sprite_frames = ExtResource("2_ribut")
 display_animation = "picker_4"
 item = ExtResource("3_1cgah")
 place_criteria = NodePath("tree_criteria")
+is_menu_tab = null
 
 [node name="tree_criteria" type="Node" parent="."]
 script = ExtResource("4_2yip0")

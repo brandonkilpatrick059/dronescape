@@ -6,6 +6,7 @@ class_name Picker_Item extends Node2D
 @export var item : PackedScene = null
 @export var tab_path : String = ""
 @export var place_criteria : Place_Criteria = null
+@export var is_menu_tab = false
 
 func get_display_sprite_frames() -> SpriteFrames:
 	return display_sprite_frames
@@ -21,6 +22,11 @@ func get_tab_path() -> String:
 
 func get_place_criteria() -> Place_Criteria:
 	return place_criteria
+
+func get_is_menu_tab() -> bool:
+	if(is_menu_tab != null):
+		return is_menu_tab
+	return false
 
 func check_criteria(above : Array[Node2D], left : Array[Node2D],
 below : Array[Node2D], right : Array[Node2D], center : Array[Node2D]) -> bool:

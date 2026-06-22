@@ -11,5 +11,6 @@ display_sprite_frames = ExtResource("2_gs8de")
 display_animation = "center_center"
 item = ExtResource("3_6mdca")
 place_criteria = NodePath("generic_stone_criteria")
+is_menu_tab = null
 
 [node name="generic_stone_criteria" parent="." instance=ExtResource("4_twvib")]

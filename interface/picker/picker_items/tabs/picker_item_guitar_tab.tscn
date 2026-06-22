@@ -8,3 +8,4 @@ script = ExtResource("1_67fm7")
 display_sprite_frames = ExtResource("2_s3qyc")
 display_animation = "guitar"
 tab_path = "picker_guitar"
+is_menu_tab = null

@@ -42,6 +42,9 @@ func handle_input():
 	#elif(Input.is_action_just_pressed("third_action")):
 		#create_picker()
 
+func is_active() -> bool:
+	return active
+
 func set_create_grid_entity(scene : PackedScene):
 	create_grid_entity = scene
 

@@ -8,3 +8,4 @@ script = ExtResource("1_bbkge")
 display_sprite_frames = ExtResource("2_3dlcf")
 display_animation = "warm_vox"
 tab_path = "picker_warm_vox"
+is_menu_tab = null

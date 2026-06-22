@@ -39,9 +39,19 @@ func _ready() -> void:
 
 func handle_input():
 	if(Input.is_action_just_pressed("third_action")):
-		if(active and not fading_out and not fading_in):
+		var check_menu : Menu = get_tree().get_first_node_in_group("menu")
+		var menu_active = check_menu.is_active()
+		var check_cursor : Cursor = get_tree().get_first_node_in_group("cursor")
+		var cursor_active = check_cursor.is_active()
+		if(active 
+		and not fading_out 
+		and not fading_in):
 			disappear()
-		elif(not active and not fading_in and not fading_out):
+		elif(cursor_active 
+		and not menu_active 
+		and not active 
+		and not fading_in 
+		and not fading_out):
 			appear()
 
 func disappear():
@@ -51,7 +61,9 @@ func disappear():
 	var cursor = get_tree().get_first_node_in_group("cursor")
 	cursor.set_active()
 
+
 func appear():
+	set_active()
 	fading_in = true
 	audio_player.play()
 	var cursor = get_tree().get_first_node_in_group("cursor")
@@ -76,6 +88,20 @@ func set_inactive():
 	active = false
 	deactivate_bubbles()
 
+func open_menu():
+	if(active and not fading_out and not fading_in):
+		set_inactive()
+		fading_out = true
+		var inactive_menu : Menu = get_tree().get_first_node_in_group("menu")
+		inactive_menu.set_active()
+
+func close_menu():
+	if(not active and not fading_out and not fading_in):
+		fading_in = true
+		fading_out = false
+		var active_menu : Menu = get_tree().get_first_node_in_group("menu")
+		active_menu.set_inactive()
+
 func update_display_items():
 	for bubble : Picker_Bubble in picker_bubbles:
 		if(bubble != bubble_0):
@@ -91,10 +117,13 @@ func update_display_items():
 			var anim_name = item.get_display_animation()
 			var entity = item.get_item()
 			var tab_path = item.get_tab_path()
+			var is_menu_tab = item.get_is_menu_tab()
 			bubble.set_display(animation,anim_name) 
 			bubble.set_grid_entity(entity)
 			bubble.set_tab_path(tab_path)
 			bubble.set_picker_item(item)
+			bubble.set_menu_tab(is_menu_tab)
+			
 			index = index + 1
 
 func set_web_location(location : String):

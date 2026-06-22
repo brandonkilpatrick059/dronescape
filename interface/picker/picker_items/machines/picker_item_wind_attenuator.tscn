@@ -11,6 +11,7 @@ display_sprite_frames = ExtResource("2_dmgoe")
 display_animation = "picker"
 item = ExtResource("3_ef8kk")
 place_criteria = NodePath("no_solid_center")
+is_menu_tab = null
 
 [node name="no_solid_center" type="Node" parent="."]
 script = ExtResource("4_dmgoe")
