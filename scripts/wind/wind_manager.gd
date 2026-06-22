@@ -31,12 +31,16 @@ func _ready() -> void:
 	timer.one_shot = true
 	add_child(timer)
 	audio_player.volume_db = zero_volume
+	audio_player.bus = "effects"
 	audio_player.play()
 	if(randf_range(0.0,1.0) < 0.5):
 		width = get_width()
 
 func get_width() -> float:
-	return SettingsVariables.supported_resolutions[SettingsVariables.resolution_index]
+	var current_resolution : Vector2 = Vector2(0,0)
+	current_resolution = SettingsVariables.supported_resolutions[SettingsVariables.resolution_index]
+	var width = current_resolution.x
+	return width
 
 func generate_wind():
 	var point_step = 16

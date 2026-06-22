@@ -16,6 +16,7 @@ var is_top_of_falls = true
 
 func _ready() -> void:
 	grid_entity_init()
+	audio_player.bus = "effects"
 	timer.one_shot = true
 	add_child(timer)
 	timer.start(0.25)

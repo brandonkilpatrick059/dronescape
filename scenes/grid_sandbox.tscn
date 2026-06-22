@@ -22,13 +22,13 @@
 [ext_resource type="PackedScene" uid="uid://b36bp3j4d06bf" path="res://entities/chimes/sndtrk_chime_sixth_below.tscn" id="19_f5rqd"]
 [ext_resource type="PackedScene" uid="uid://5g0h50u7kjhn" path="res://interface/picker/picker_circle.tscn" id="20_gipbt"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u1qyx"]
-blend_mode = 1
-
 [sub_resource type="LabelSettings" id="LabelSettings_f5rqd"]
 font = ExtResource("18_or136")
 font_size = 8
 font_color = Color(0.835294, 0.231373, 0.356863, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u1qyx"]
+blend_mode = 1
 
 [node name="GridSandbox" type="Node2D"]
 
@@ -41,6 +41,46 @@ z_index = 5
 script = ExtResource("5_l6vqa")
 
 [node name="Menu" parent="Camera2D" instance=ExtResource("4_v6qp0")]
+
+[node name="screen_fade_to_black" type="Sprite2D" parent="Camera2D"]
+visible = false
+z_index = 10
+position = Vector2(7.99997, -12)
+scale = Vector2(14.25, 9.625)
+texture = ExtResource("8_w5276")
+script = ExtResource("9_luqy6")
+wait_time_secs = 5.0
+sets_cursor_active = true
+
+[node name="title" type="Sprite2D" parent="Camera2D"]
+z_index = 10
+position = Vector2(0, -64)
+texture = ExtResource("10_0q3eu")
+script = ExtResource("9_luqy6")
+wait_time_secs = 10.0
+
+[node name="version_number" type="Node2D" parent="Camera2D"]
+z_index = 10
+script = ExtResource("9_luqy6")
+wait_time_secs = 10.0
+
+[node name="Label" type="Label" parent="Camera2D/version_number"]
+offset_left = -16.0
+offset_top = 160.0
+offset_right = 24.0
+offset_bottom = 183.0
+label_settings = SubResource("LabelSettings_f5rqd")
+horizontal_alignment = 1
+script = ExtResource("18_f5rqd")
+
+[node name="fps" type="Label" parent="Camera2D"]
+z_index = 70
+offset_left = 256.0
+offset_top = 128.0
+offset_right = 296.0
+offset_bottom = 151.0
+text = "100"
+script = ExtResource("11_e3fxj")
 
 [node name="WindManager" parent="." instance=ExtResource("7_pl366")]
 position = Vector2(-320, -240)
@@ -81,32 +121,6 @@ z_index = -10
 position = Vector2(224, 160)
 texture = ExtResource("10_1n5ut")
 
-[node name="screen_fade_to_black" type="Sprite2D" parent="."]
-visible = false
-z_index = 10
-position = Vector2(7.99997, -12)
-scale = Vector2(14.25, 9.625)
-texture = ExtResource("8_w5276")
-script = ExtResource("9_luqy6")
-wait_time_secs = 5.0
-sets_cursor_active = true
-
-[node name="title" type="Sprite2D" parent="."]
-z_index = 10
-position = Vector2(0, -64)
-texture = ExtResource("10_0q3eu")
-script = ExtResource("9_luqy6")
-wait_time_secs = 10.0
-
-[node name="fps" type="Label" parent="."]
-z_index = 70
-offset_left = 256.0
-offset_top = 128.0
-offset_right = 296.0
-offset_bottom = 151.0
-text = "100"
-script = ExtResource("11_e3fxj")
-
 [node name="PurpleStone" parent="." instance=ExtResource("2_n7rse")]
 position = Vector2(-16, 16)
 
@@ -132,20 +146,6 @@ position = Vector2(0, 32)
 position = Vector2(-16, 32)
 
 [node name="MusicianManager" parent="." instance=ExtResource("16_43cbu")]
-
-[node name="version_number" type="Node2D" parent="."]
-z_index = 10
-script = ExtResource("9_luqy6")
-wait_time_secs = 10.0
-
-[node name="Label" type="Label" parent="version_number"]
-offset_left = -16.0
-offset_top = 160.0
-offset_right = 24.0
-offset_bottom = 183.0
-label_settings = SubResource("LabelSettings_f5rqd")
-horizontal_alignment = 1
-script = ExtResource("18_f5rqd")
 
 [node name="SndtrkChimeSixthBelow" parent="." instance=ExtResource("19_f5rqd")]
 position = Vector2(-16, 0)

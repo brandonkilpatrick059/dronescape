@@ -29,6 +29,7 @@ func _ready() -> void:
 	modulate = Color(1,1,1,0)
 	timer.one_shot = true
 	add_child(timer)
+	audio_player.bus = "interface"
 	audio_player.stream = load("res://audio/interface/picker_circle.ogg")
 	picker_bubbles = [
 		bubble_0, bubble_1, bubble_2,

@@ -26,6 +26,7 @@ var menu_tab : bool = false
 func _ready() -> void:
 	retracted = true
 	animated_sprite.play("retracted")
+	audio_player.bus = "interface"
 
 func handle_input():
 	if(Input.is_action_just_pressed("main_action")):

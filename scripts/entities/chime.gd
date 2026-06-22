@@ -36,6 +36,7 @@ func _ready() -> void:
 func initialize_audio():
 	audio_player.volume_db = zero_volume
 	audio_player.play()
+	audio_player.bus = "chime"
 
 func initialize_wind_animation():
 	for a_sprite : AnimatedSprite2D in wind_animations:
