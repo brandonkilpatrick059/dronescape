@@ -33,6 +33,7 @@ sprite_frames = ExtResource("4_r38pd")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_r38pd")
+volume_db = -6.0
 attenuation = 12.5533
 panning_strength = 4.0
 

@@ -12,6 +12,7 @@ font_color = Color(0.807843, 0.282353, 0.282353, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lyntm"]
 font = ExtResource("4_lyntm")
+font_size = 14
 
 [node name="Menu" type="Control" groups=["menu"]]
 z_index = 20
@@ -57,6 +58,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("4_lyntm")
+theme_override_font_sizes/font_size = 14
 text = "Fullscreen"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/menu_background/VBoxContainer"]
@@ -78,6 +80,8 @@ alignment = 2
 
 [node name="resolution_picker" type="OptionButton" parent="CenterContainer/menu_background/VBoxContainer/HBoxContainer3/HBoxContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_lyntm")
+theme_override_font_sizes/font_size = 12
 toggle_mode = false
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/menu_background/VBoxContainer/HBoxContainer3/HBoxContainer2"]
@@ -184,38 +188,120 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(6, 0)
 layout_mode = 2
 
+[node name="load_preset_container" type="HBoxContainer" parent="CenterContainer/menu_background/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/menu_background/VBoxContainer/load_preset_container"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/menu_background/VBoxContainer/load_preset_container"]
+layout_mode = 2
+
+[node name="load_preset_button" type="Button" parent="CenterContainer/menu_background/VBoxContainer/load_preset_container/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_lyntm")
+theme_override_font_sizes/font_size = 12
+action_mode = 0
+text = "LOAD PRESET"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/menu_background/VBoxContainer/load_preset_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="preset_picker" type="OptionButton" parent="CenterContainer/menu_background/VBoxContainer/load_preset_container/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_lyntm")
+theme_override_font_sizes/font_size = 12
+toggle_mode = false
+item_count = 4
+popup/item_0/text = "Simple Island"
+popup/item_0/id = 0
+popup/item_1/text = "Old Airship"
+popup/item_1/id = 1
+popup/item_2/text = "Temple Arboretum"
+popup/item_2/id = 2
+popup/item_3/text = "Floating Jungle"
+popup/item_3/id = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/menu_background/VBoxContainer/load_preset_container/HBoxContainer2"]
+custom_minimum_size = Vector2(6, 0)
+layout_mode = 2
+
 [node name="save_load_container" type="HBoxContainer" parent="CenterContainer/menu_background/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/menu_background/VBoxContainer/save_load_container"]
+custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/menu_background/VBoxContainer/save_load_container"]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 0
 
 [node name="save_button" type="Button" parent="CenterContainer/menu_background/VBoxContainer/save_load_container/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_lyntm")
+theme_override_font_sizes/font_size = 12
 action_mode = 0
 text = "SAVE"
 
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/menu_background/VBoxContainer/save_load_container/HBoxContainer"]
+layout_mode = 2
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/menu_background/VBoxContainer/save_load_container"]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 0
 
 [node name="load_button" type="Button" parent="CenterContainer/menu_background/VBoxContainer/save_load_container/HBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_lyntm")
+theme_override_font_sizes/font_size = 12
 action_mode = 0
 text = "LOAD"
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/menu_background/VBoxContainer/save_load_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/menu_background/VBoxContainer/save_load_container/HBoxContainer3"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
 [node name="close_container" type="HBoxContainer" parent="CenterContainer/menu_background/VBoxContainer"]
 layout_mode = 2
-alignment = 1
 
-[node name="close_button" type="Button" parent="CenterContainer/menu_background/VBoxContainer/close_container"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/menu_background/VBoxContainer/close_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/menu_background/VBoxContainer/close_container/HBoxContainer"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="close_button" type="Button" parent="CenterContainer/menu_background/VBoxContainer/close_container/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_lyntm")
+theme_override_font_sizes/font_size = 12
 action_mode = 0
 text = "CLOSE"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/menu_background/VBoxContainer/close_container"]
+layout_mode = 2
+alignment = 2
+
+[node name="donate_button" type="Button" parent="CenterContainer/menu_background/VBoxContainer/close_container/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_lyntm")
+theme_override_font_sizes/font_size = 12
+action_mode = 0
+text = "DONATE"
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/menu_background/VBoxContainer/close_container/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
 
 [connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/HBoxContainer2/fullscreen_option" to="." method="_on_fullscreen_option_pressed"]
 [connection signal="item_selected" from="CenterContainer/menu_background/VBoxContainer/HBoxContainer3/HBoxContainer2/resolution_picker" to="." method="_on_resolution_picker_item_selected"]
@@ -227,6 +313,9 @@ text = "CLOSE"
 [connection signal="drag_started" from="CenterContainer/menu_background/VBoxContainer/effects_volume_container/HBoxContainer2/effects_vol_slider" to="." method="_on_vol_slider_drag_started"]
 [connection signal="drag_ended" from="CenterContainer/menu_background/VBoxContainer/interface_volume_container2/HBoxContainer2/interface_vol_slider" to="." method="_on_vol_slider_drag_ended"]
 [connection signal="drag_started" from="CenterContainer/menu_background/VBoxContainer/interface_volume_container2/HBoxContainer2/interface_vol_slider" to="." method="_on_vol_slider_drag_started"]
+[connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/load_preset_container/HBoxContainer/load_preset_button" to="." method="_on_close_button_pressed"]
+[connection signal="item_selected" from="CenterContainer/menu_background/VBoxContainer/load_preset_container/HBoxContainer2/preset_picker" to="." method="_on_resolution_picker_item_selected"]
 [connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/save_load_container/HBoxContainer/save_button" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/save_load_container/HBoxContainer2/load_button" to="." method="_on_close_button_pressed"]
-[connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/close_container/close_button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/close_container/HBoxContainer/close_button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/close_container/HBoxContainer2/donate_button" to="." method="_on_close_button_pressed"]

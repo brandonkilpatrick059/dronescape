@@ -27,8 +27,8 @@ SettingsVariables="*res://scripts/settings_variables.gd"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=360
+window/size/viewport_width=632
+window/size/viewport_height=320
 window/stretch/mode="viewport"
 
 [input]
