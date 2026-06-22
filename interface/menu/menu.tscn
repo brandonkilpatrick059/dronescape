@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://doovfriya4x45"]
+
+[ext_resource type="Texture2D" uid="uid://dft6vbmp2q7m" path="res://sprites/interface/menu.png" id="1_l7knw"]
+[ext_resource type="FontFile" uid="uid://d25qxmflqeky0" path="res://fonts/georgia.ttf" id="3_lyntm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fg7ri"]
+font = ExtResource("3_lyntm")
+font_size = 24
+font_color = Color(0.807843, 0.282353, 0.282353, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="menu_background" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("1_l7knw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/menu_background"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title" type="Label" parent="CenterContainer/menu_background/VBoxContainer"]
+layout_mode = 2
+text = "AEROSCAPE"
+label_settings = SubResource("LabelSettings_fg7ri")
+horizontal_alignment = 1
+
+[node name="fullscreen_option" type="CheckButton" parent="CenterContainer/menu_background/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_lyntm")
+text = "Fullscreen"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/menu_background/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="CenterContainer/menu_background/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_lyntm")
+action_mode = 0
+text = "CLOSE"

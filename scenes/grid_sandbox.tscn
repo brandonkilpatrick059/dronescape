@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bvfn8m6rprwus"]
+[gd_scene load_steps=23 format=3 uid="uid://bvfn8m6rprwus"]
 
 [ext_resource type="PackedScene" uid="uid://clq5nv0qo1xmk" path="res://scenes/grid_base.tscn" id="1_qdhqp"]
 [ext_resource type="PackedScene" uid="uid://dp2sv2a17a7jy" path="res://entities/stones/purple_stone.tscn" id="2_n7rse"]
@@ -17,8 +17,9 @@
 [ext_resource type="Script" uid="uid://crncra6nnssso" path="res://scripts/utility/fps_counter.gd" id="11_e3fxj"]
 [ext_resource type="PackedScene" uid="uid://y07eptojel4s" path="res://entities/musicians/musician_manager.tscn" id="16_43cbu"]
 [ext_resource type="Script" uid="uid://clcns2u7rioq3" path="res://scripts/version_number.gd" id="18_f5rqd"]
-[ext_resource type="FontFile" uid="uid://ddj14a5wud451" path="res://Tiny5-Regular.ttf" id="18_or136"]
+[ext_resource type="FontFile" uid="uid://ddj14a5wud451" path="res://fonts/Tiny5-Regular.ttf" id="18_or136"]
 [ext_resource type="PackedScene" uid="uid://b36bp3j4d06bf" path="res://entities/chimes/sndtrk_chime_sixth_below.tscn" id="19_f5rqd"]
+[ext_resource type="PackedScene" uid="uid://5g0h50u7kjhn" path="res://interface/picker/picker_circle.tscn" id="20_gipbt"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u1qyx"]
 blend_mode = 1
@@ -145,3 +146,5 @@ script = ExtResource("18_f5rqd")
 
 [node name="SndtrkChimeSixthBelow" parent="." instance=ExtResource("19_f5rqd")]
 position = Vector2(-16, 0)
+
+[node name="PickerCircle" parent="." instance=ExtResource("20_gipbt")]

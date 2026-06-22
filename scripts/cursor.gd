@@ -39,8 +39,8 @@ func handle_input():
 		spawn_grid_entity()
 	elif(Input.is_action_just_pressed("second_action")):
 		delete_targeted()
-	elif(Input.is_action_just_pressed("third_action")):
-		create_picker()
+	#elif(Input.is_action_just_pressed("third_action")):
+		#create_picker()
 
 func set_create_grid_entity(scene : PackedScene):
 	create_grid_entity = scene
@@ -56,14 +56,14 @@ func set_picker_node(picker_node : Picker_Item):
 	current_picker_node.queue_free()
 	current_picker_node = picker_node
 
-func create_picker():
-	if(active):
-		var num_pickers : int = get_tree().get_nodes_in_group("picker_circle").size()
-		if(num_pickers == 0):
-			var circle = load("res://interface/picker/picker_circle.tscn").instantiate()
-			get_parent().add_child(circle)
-			circle.global_position = global_position
-			set_inactive()
+#func create_picker():
+	#if(active):
+		#var num_pickers : int = get_tree().get_nodes_in_group("picker_circle").size()
+		#if(num_pickers == 0):
+			#var circle = load("res://interface/picker/picker_circle.tscn").instantiate()
+			#get_parent().add_child(circle)
+			#circle.global_position = global_position
+			#set_inactive()
 
 func delete_targeted():
 	if(active):

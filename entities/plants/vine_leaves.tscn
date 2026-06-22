@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnschweccm1u0"]
+
+[ext_resource type="Script" uid="uid://darcrssbwah45" path="res://scripts/leaves.gd" id="1_02r3n"]
+[ext_resource type="SpriteFrames" uid="uid://dfdsxsfw70ou1" path="res://sprites/plants/leaf_c.tres" id="3_owxx1"]
+[ext_resource type="SpriteFrames" uid="uid://cm4v6dcg8vulu" path="res://sprites/plants/leaf_b.tres" id="4_v4hlb"]
+[ext_resource type="SpriteFrames" uid="uid://lfuh2c21x8w7" path="res://sprites/plants/vine.tres" id="5_02r3n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f727o"]
+size = Vector2(15, 15)
+
+[node name="VineLeaves" type="Node2D"]
+z_index = 1
+script = ExtResource("1_02r3n")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_f727o")
+
+[node name="leaves" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-2, 3)
+sprite_frames = ExtResource("3_owxx1")
+animation = &"left"
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(0, -3)
+sprite_frames = ExtResource("4_v4hlb")
+animation = &"left"
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-5, -2)
+sprite_frames = ExtResource("4_v4hlb")
+animation = &"left"
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(5, -2)
+sprite_frames = ExtResource("4_v4hlb")
+animation = &"left"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = -1
+sprite_frames = ExtResource("5_02r3n")
+animation = &"center_center"

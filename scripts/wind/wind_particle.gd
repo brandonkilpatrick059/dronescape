@@ -28,7 +28,11 @@ func get_velocity_x() -> float:
 	return linear_velocity.x
 
 func attenuate_velocity_x(amount : float):
+	var original_velocity = linear_velocity.x
 	linear_velocity.x = linear_velocity.x - amount
+	if((original_velocity > 0 && linear_velocity.x < 0) ||
+	(original_velocity < 0 && linear_velocity.x > 0)):
+		linear_velocity.x = 0.0
 
 func get_animated_sprite():
 	return animated_sprite

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ddj14a5wud451"
-path="res://.godot/imported/Tiny5-Regular.ttf-343606970de0449198a2a3d5b816e368.fontdata"
+uid="uid://d25qxmflqeky0"
+path="res://.godot/imported/georgia.ttf-587c5d9bbef26462ecb7afd28ceaf46c.fontdata"
 
 [deps]
 
-source_file="res://Tiny5-Regular.ttf"
-dest_files=["res://.godot/imported/Tiny5-Regular.ttf-343606970de0449198a2a3d5b816e368.fontdata"]
+source_file="res://fonts/georgia.ttf"
+dest_files=["res://.godot/imported/georgia.ttf-587c5d9bbef26462ecb7afd28ceaf46c.fontdata"]
 
 [params]
 

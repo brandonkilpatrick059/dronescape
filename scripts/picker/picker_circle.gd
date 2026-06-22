@@ -30,8 +30,6 @@ func _ready() -> void:
 	timer.one_shot = true
 	add_child(timer)
 	audio_player.stream = load("res://audio/interface/picker_circle.ogg")
-	audio_player.play()
-	fading_in = true
 	picker_bubbles = [
 		bubble_0, bubble_1, bubble_2,
 		bubble_3, bubble_4, bubble_5,
@@ -41,8 +39,10 @@ func _ready() -> void:
 
 func handle_input():
 	if(Input.is_action_just_pressed("third_action")):
-		if(active):
+		if(active and not fading_out and not fading_in):
 			disappear()
+		elif(not active and not fading_in and not fading_out):
+			appear()
 
 func disappear():
 	set_inactive()
@@ -50,6 +50,12 @@ func disappear():
 	audio_player.play()
 	var cursor = get_tree().get_first_node_in_group("cursor")
 	cursor.set_active()
+
+func appear():
+	fading_in = true
+	audio_player.play()
+	var cursor = get_tree().get_first_node_in_group("cursor")
+	global_position = cursor.global_position
 
 func activate_bubbles():
 	for bubble in picker_bubbles:
@@ -63,6 +69,8 @@ func set_active():
 	active = true
 	activate_bubbles()
 	update_display_items()
+	var cursor = get_tree().get_first_node_in_group("cursor")
+	cursor.set_inactive()
 
 func set_inactive():
 	active = false
@@ -126,6 +134,6 @@ func _physics_process(delta: float) -> void:
 		elif(fading_out && current_alpha > 0.0):
 			current_alpha = current_alpha - alpha_step
 		elif(fading_out && current_alpha <= 0.0):
-			queue_free()
+			fading_out = false
 		modulate = Color(1,1,1, current_alpha)
 	
