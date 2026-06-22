@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Aeroscape"
-config/version="A.3.1"
+config/version="A.4"
 run/main_scene="uid://bvfn8m6rprwus"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://bhde3mh0vsaxv"
