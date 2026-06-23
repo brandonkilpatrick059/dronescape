@@ -14,6 +14,7 @@ class_name Menu extends Control
 @onready var preset_picker : OptionButton = $CenterContainer/menu_background/VBoxContainer/load_preset_container/HBoxContainer2/preset_picker
 @onready var file_loc_button = $CenterContainer/menu_background/load_file/HBoxContainer2/HBoxContainer3/file_loc_button
 @onready var main_ui = $CenterContainer/menu_background/VBoxContainer
+@onready var file_load_picker : ItemList = $CenterContainer/menu_background/load_file/HBoxContainer/file_load_picker
 
 var active : bool = false
 
@@ -26,6 +27,8 @@ var volume_sliders : Array[Slider] = []
 var preset_paths : Array[String] =[
 	"res://presets/simple_island.txt"
 ]
+
+var load_item_paths : Array[String] = []
 
 func _ready() -> void:
 	visible = false
@@ -111,10 +114,18 @@ func adjust_volumes():
 		AudioServer.set_bus_volume_db(index, new_vol_db)
 		index = index + 1
 
-#func _process(delta: float) -> void:
-	#if(vol_adjusting):
-		#adjust_volumes()
-	
+func update_file_load_picker():
+	file_load_picker.clear()
+	load_item_paths.clear()
+	var dir : DirAccess = DirAccess.open(SaveLoadManager.saves_location)
+	dir.list_dir_begin()
+	var file_name = dir.get_next()
+	while file_name != "":
+		if(file_name.ends_with(SaveLoadManager.extension)):
+			load_item_paths.append(file_name)
+			var extension_removed = file_name.replace(SaveLoadManager.extension,"")
+			file_load_picker.add_item(extension_removed)
+		file_name = dir.get_next()
 
 func _on_save_button_pressed() -> void:
 	save_file_ui.visible = true
@@ -126,6 +137,7 @@ func _on_load_button_pressed() -> void:
 	save_file_ui.visible = false
 	load_file_ui.visible = true
 	main_ui.visible = false
+	update_file_load_picker()
 
 
 func _on_back_button_pressed() -> void:
@@ -151,12 +163,19 @@ func _on_save_file_button_pressed() -> void:
 		save_console.text = "file saved"
 		save_console.modulate = Color(0,1,0)
 
-
 func _on_file_loc_button_pressed() -> void:
-	OS.shell_show_in_file_manager(ProjectSettings.globalize_path("user://aeroscapes"))
+	OS.shell_show_in_file_manager(ProjectSettings.globalize_path(SaveLoadManager.saves_location))
 
 func _on_load_preset_button_pressed() -> void:
 	var preset_index = preset_picker.selected
 	var path = preset_paths[preset_index]
 	var save_load_manager : SaveLoadManager = get_tree().get_first_node_in_group("save_load_manager")
 	save_load_manager.load_aeroscape(path)
+
+func _on_load_file_button_pressed() -> void:
+	var selected_index : int = file_load_picker.get_selected_items()[0]
+	if(selected_index < load_item_paths.size()):
+		var load_path = str("/",load_item_paths[selected_index])
+		load_path = str(SaveLoadManager.saves_location,load_path)
+		var save_load_manager : SaveLoadManager = get_tree().get_first_node_in_group("save_load_manager")
+		save_load_manager.load_aeroscape(load_path)

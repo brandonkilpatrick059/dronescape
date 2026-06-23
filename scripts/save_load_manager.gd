@@ -2,10 +2,13 @@ class_name SaveLoadManager extends Node
 
 var save_file : FileAccess
 
+static var  extension : String = ".aeroscape"
+static var saves_location : String = "user://aeroscapes"
+
 func _ready() -> void:
 	var dir : DirAccess = DirAccess.open("user://")
-	if(!dir.dir_exists("user://aeroscapes")):
-		dir.make_dir("user://aeroscapes")
+	if(!dir.dir_exists(saves_location)):
+		dir.make_dir(saves_location)
 
 func settings_save_file_exists() -> bool:
 	return FileAccess.file_exists("user://settings.save")
@@ -48,6 +51,8 @@ func get_grid_entity_dictionary(entity : Grid_Entity) -> Dictionary:
 
 func load_grid_entity(dictionary : Dictionary):
 	var path : String = dictionary.get("packedscene_path")
+	if(path.contains("frog_machine")):
+		var test = 0
 	var packed_scene = load(path)
 	var instance = packed_scene.instantiate()
 	var pos_x = dictionary.get("pos_x")
