@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://clwfm4n7jvdyw"]
+
+[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="1_4kgag"]
+
+[node name="tree_criteria" type="Node"]
+script = ExtResource("1_4kgag")
+below_requires_groups = Array[String](["stone", "flat"])
+above_excludes_groups = Array[String](["stone"])
+center_excludes_groups = Array[String](["solid", "bush"])

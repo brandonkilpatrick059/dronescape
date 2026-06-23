@@ -25,16 +25,43 @@ func load_aeroscape(file_path : String):
 			"grid_entity":
 				load_grid_entity(dictionary)
 	save_file.close()
+	grid_base.update()
 
 func save_aeroscape(file_name : String): 
 	var path = str(str("user://aeroscapes/",file_name),".aeroscape")
 	save_file= FileAccess.open(path, FileAccess.WRITE)
 	save_grid_entities()
-	save_plants()
 	save_file.close()
 
 func save_grid_entities():
-	var entities = get_tree().get_nodes_in_group("grid_entity")
+	save_stones()
+	save_nonsolid_stones()
+	save_plants()
+	save_chimes()
+	save_machines()
+	save_water()
+
+func save_stones():
+	var entities = get_tree().get_nodes_in_group("stone")
+	save_entities(entities)
+
+func save_nonsolid_stones():
+	var entities = get_tree().get_nodes_in_group("stone_nonsolid")
+	save_entities(entities)
+
+func save_chimes():
+	var entities = get_tree().get_nodes_in_group("chime")
+	save_entities(entities)
+
+func save_machines():
+	var entities = get_tree().get_nodes_in_group("machine")
+	save_entities(entities)
+
+func save_water():
+	var entities = get_tree().get_nodes_in_group("water_fall")
+	save_entities(entities)
+
+func save_entities(entities : Array[Node]):
 	for entity : Grid_Entity in entities:
 		if(entity.get_packedscene_path() != ""):
 			var save_dictionary : Dictionary = get_grid_entity_dictionary(entity)
@@ -51,8 +78,6 @@ func get_grid_entity_dictionary(entity : Grid_Entity) -> Dictionary:
 
 func load_grid_entity(dictionary : Dictionary):
 	var path : String = dictionary.get("packedscene_path")
-	if(path.contains("frog_machine")):
-		var test = 0
 	var packed_scene = load(path)
 	var instance = packed_scene.instantiate()
 	var pos_x = dictionary.get("pos_x")
@@ -64,6 +89,24 @@ func load_grid_entity(dictionary : Dictionary):
 	grid_base.update()
 
 func save_plants():
+	save_trees()
+	save_grass()
+	save_vines()
+	save_bushes()
+
+func save_grass():
+	var entities = get_tree().get_nodes_in_group("grass")
+	save_entities(entities)
+
+func save_vines():
+	var entities = get_tree().get_nodes_in_group("vine")
+	save_entities(entities)
+
+func save_bushes():
+	var entities = get_tree().get_nodes_in_group("bush")
+	save_entities(entities)
+
+func save_trees():
 	pass
 
 func save_settings():

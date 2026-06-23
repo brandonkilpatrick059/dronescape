@@ -12,19 +12,24 @@ var grass_created = false
 
 var spawns_flowers = false
 
+var criteria_lock_timer := Timer.new()
+
 func _ready() -> void:
 	grid_entity_init()
+	criteria_lock_timer.one_shot = true
+	add_child(criteria_lock_timer)
 	timer.one_shot = true
 	add_child(timer)
 	timer.start(randf_range(min_growth_time,max_growth_time))
 	spawns_flowers = randf_range(0.0,1.0) < 0.20
-	
+	criteria_lock_timer.start(0.1)
 
 func set_orientation(name : String):
 	sprite.play(name)
 
 func _physics_process(delta: float) -> void:
-	queue_free_on_failed_placement_criteria()
+	if(criteria_lock_timer.is_stopped()):
+		queue_free_on_failed_placement_criteria()
 	if(spawns_flowers && timer.is_stopped() && vine_flower_ref == null):
 		if(grass_created):
 			grass_created = false

@@ -8,18 +8,21 @@ var spine_extending : bool = false
 var spine_retracting : bool = false
 
 var timer := Timer.new()
+var criteria_lock_timer := Timer.new()
 
 func _ready() -> void:
 	grid_entity_init()
 	timer.one_shot = true
+	criteria_lock_timer.one_shot = true
 	add_child(timer)
+	add_child(criteria_lock_timer)
 	animated_sprite.play("retracted")
 	spine.disabled = true
-	#timer.start(randf_range(5.0,10.0))
-	#timer.start(3.0)
+	criteria_lock_timer.start(0.1)
 
 func _physics_process(delta: float) -> void:
-	queue_free_on_failed_placement_criteria()
+	if(criteria_lock_timer.is_stopped()):
+		queue_free_on_failed_placement_criteria()
 	if(!spine_extended && !spine_extending):
 		animated_sprite.play("retracted")
 		spine.disabled = true

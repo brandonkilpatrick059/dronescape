@@ -7,6 +7,7 @@ class_name Water_Fall extends Grid_Entity
 @onready var water_detector : Area2D = $water_detector
 @onready var audio_player : AudioStreamPlayer2D = $AudioStreamPlayer2D
 var timer := Timer.new()
+var criteria_lock_timer := Timer.new()
 
 var mist = preload("res://effects/mist.tscn")
 
@@ -18,6 +19,8 @@ func _ready() -> void:
 	grid_entity_init()
 	audio_player.bus = "effects"
 	timer.one_shot = true
+	criteria_lock_timer.one_shot = true
+	add_child(criteria_lock_timer)
 	add_child(timer)
 	timer.start(0.25)
 	if(is_top_of_falls):
@@ -29,6 +32,7 @@ func _ready() -> void:
 		sprite.visible = true
 		top_sprite.visible = false
 		sprite.play("falls")
+	criteria_lock_timer.start(0.1)
 
 func set_animation_frame(frame : int, progress : float):
 	sprite.set_frame_and_progress(frame,progress)
@@ -62,7 +66,7 @@ func get_current_progress() -> float:
 		return sprite.frame_progress
 
 func _physics_process(delta: float) -> void:
-	if(is_top_of_falls):
+	if(is_top_of_falls && criteria_lock_timer.is_stopped()):
 		queue_free_on_failed_placement_criteria()
 	if(!is_top_of_falls):
 		var bodies = water_detector.get_overlapping_bodies()

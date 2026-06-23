@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdn4d0eqtmwi5"]
+[gd_scene load_steps=12 format=3 uid="uid://bdn4d0eqtmwi5"]
 
 [ext_resource type="Script" uid="uid://darcrssbwah45" path="res://scripts/leaves.gd" id="1_04ho4"]
+[ext_resource type="Script" uid="uid://dd6i748is1m04" path="res://scripts/bush.gd" id="1_fxyvd"]
 [ext_resource type="Texture2D" uid="uid://wccxj47ccgxw" path="res://sprites/plants/leaves_1.png" id="2_krdxh"]
 [ext_resource type="Texture2D" uid="uid://uj3qojpoxdx2" path="res://sprites/plants/bush_branches.png" id="3_3c1s3"]
 [ext_resource type="SpriteFrames" uid="uid://dfdsxsfw70ou1" path="res://sprites/plants/leaf_c.tres" id="3_lu4lc"]
 [ext_resource type="SpriteFrames" uid="uid://cm4v6dcg8vulu" path="res://sprites/plants/leaf_b.tres" id="4_3c1s3"]
 [ext_resource type="Script" uid="uid://rehp23qvb8vr" path="res://scripts/entities/grid_entity.gd" id="4_8xf25"]
 [ext_resource type="SpriteFrames" uid="uid://mwvlcnxcfrrd" path="res://sprites/plants/leaf_a.tres" id="5_8xf25"]
+[ext_resource type="PackedScene" uid="uid://clwfm4n7jvdyw" path="res://entities/criteria/tree_criteria.tscn" id="8_g14kg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f727o"]
 size = Vector2(15, 11)
@@ -14,9 +16,11 @@ size = Vector2(15, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lu4lc"]
 size = Vector2(16, 16)
 
-[node name="bush" type="Node2D" groups=["bush", "grid_entity", "plant"]]
+[node name="bush" type="Node2D" node_paths=PackedStringArray("placement_criteria") groups=["bush", "grid_entity", "plant"]]
 z_index = 1
-script = ExtResource("4_8xf25")
+script = ExtResource("1_fxyvd")
+placement_criteria = NodePath("tree_criteria")
+packedscene_path = "res://interface/picker/picker_items/plants/bush.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -130,3 +134,5 @@ animation = &"left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="grid_collision"]
 shape = SubResource("RectangleShape2D_lu4lc")
+
+[node name="tree_criteria" parent="." instance=ExtResource("8_g14kg")]

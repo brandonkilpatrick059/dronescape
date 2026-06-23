@@ -24,7 +24,7 @@ func _ready() -> void:
 	#queue_freeing during loading
 	criteria_lock_timer.one_shot = true
 	add_child(criteria_lock_timer)
-	criteria_lock_timer.start(1.0)
+	criteria_lock_timer.start(0.1)
 	sprite.play("default")
 
 func update_wind_animation():

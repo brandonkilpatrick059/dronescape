@@ -13,9 +13,10 @@ size = Vector2(16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2xnq"]
 radius = 5.0
 
-[node name="WaterFall" type="Node2D" node_paths=PackedStringArray("placement_criteria")]
+[node name="WaterFall" type="Node2D" node_paths=PackedStringArray("placement_criteria") groups=["water"]]
 script = ExtResource("1_p2xnq")
 placement_criteria = NodePath("water_placement_criteria")
+packedscene_path = "res://entities/water/water_fall.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_yj6pg")

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_wuqoh"]
 [ext_resource type="SpriteFrames" uid="uid://dee2d2dxl5vqj" path="res://sprites/interface/tabs.tres" id="2_wuqoh"]
 [ext_resource type="PackedScene" uid="uid://bdn4d0eqtmwi5" path="res://interface/picker/picker_items/plants/bush.tscn" id="3_wuqoh"]
-[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="4_5kjvl"]
+[ext_resource type="PackedScene" uid="uid://clwfm4n7jvdyw" path="res://entities/criteria/tree_criteria.tscn" id="4_wuqoh"]
 
 [node name="PickerItemBush" type="Node2D" node_paths=PackedStringArray("place_criteria")]
 script = ExtResource("1_wuqoh")
@@ -13,8 +13,4 @@ item = ExtResource("3_wuqoh")
 place_criteria = NodePath("tree_criteria")
 is_menu_tab = null
 
-[node name="tree_criteria" type="Node" parent="."]
-script = ExtResource("4_5kjvl")
-below_requires_groups = Array[String](["stone", "flat"])
-above_excludes_groups = Array[String](["stone"])
-center_excludes_groups = Array[String](["solid", "bush"])
+[node name="tree_criteria" parent="." instance=ExtResource("4_wuqoh")]

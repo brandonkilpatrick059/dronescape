@@ -9,8 +9,11 @@ var stones_nonsolid : Array[Node]
 
 var initialized = false
 
+var timer := Timer.new()
+
 func _ready() -> void:
-	pass
+	timer.one_shot = true
+	add_child(timer)
 
 func load_default_preset():
 	var save_load_manager : SaveLoadManager = get_tree().get_first_node_in_group("save_load_manager")
@@ -70,6 +73,11 @@ func update_orientations(group : String):
 		elif(!entity_above && entity_below):
 			animation_name = "top_center"
 		entity.set_orientation(animation_name)
+
+func _physics_process(delta: float) -> void:
+	if(timer.is_stopped()):
+		update()
+		timer.start(0.1)
 
 func _process(delta: float) -> void:
 	if(!initialized):
