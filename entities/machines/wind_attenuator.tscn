@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dche8xqmar0ue"]
+[gd_scene load_steps=5 format=3 uid="uid://dche8xqmar0ue"]
 
 [ext_resource type="Script" uid="uid://t1yr5s7ruvao" path="res://scripts/wind_attenuator.gd" id="1_gv08f"]
 [ext_resource type="SpriteFrames" uid="uid://daxxl3xfqu7ui" path="res://sprites/machines/wind_attenuator.tres" id="2_gv08f"]
+[ext_resource type="PackedScene" uid="uid://ck6r3j5hb37wj" path="res://entities/criteria/no_solid_center.tscn" id="3_ldrqp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ldrqp"]
 radius = 12.0
 
-[node name="WindAttenuator" type="Node2D" groups=["machine"]]
+[node name="WindAttenuator" type="Node2D" node_paths=PackedStringArray("placement_criteria") groups=["machine"]]
 script = ExtResource("1_gv08f")
+placement_criteria = NodePath("no_solid_center")
+packedscene_path = "res://entities/machines/wind_attenuator.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_gv08f")
@@ -24,3 +27,5 @@ position = Vector2(0, -8)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="grid_item"]
 polygon = PackedVector2Array(-8, 16, 8, 16, 8, 0, -8, 0)
+
+[node name="no_solid_center" parent="." instance=ExtResource("3_ldrqp")]

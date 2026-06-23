@@ -12,9 +12,12 @@ var initialized = false
 func _ready() -> void:
 	pass
 
+func load_default_preset():
+	var save_load_manager : SaveLoadManager = get_tree().get_first_node_in_group("save_load_manager")
+	save_load_manager.load_aeroscape("res://presets/simple_island.txt")
+
 func initialize_grid():
-	grid_entities = get_tree().get_nodes_in_group("grid_entity")
-	update()
+	load_default_preset()
 
 func update():
 	update_orientations("stone")
@@ -23,6 +26,11 @@ func update():
 	update_orientations("grass")
 	var musician_manager : Musician_Manager = get_tree().get_first_node_in_group("musician_manager")
 	musician_manager.update_musicians()
+
+func clear_grid():
+	var grid_entities = get_tree().get_nodes_in_group("grid_entity")
+	for entity in grid_entities:
+		entity.queue_free()
 
 func update_orientations(group : String):
 	var update_entitys : Array[Node] = get_tree().get_nodes_in_group(group)

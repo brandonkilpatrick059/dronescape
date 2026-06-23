@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnj5bg58d8dbt"]
+
+[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="1_1qyn7"]
+
+[node name="vine_criteria" type="Node"]
+script = ExtResource("1_1qyn7")
+center_requires_groups = Array[String](["stone"])
+center_excludes_groups = Array[String](["vine"])

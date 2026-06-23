@@ -8,6 +8,7 @@ size = Vector2(16, 16)
 
 [node name="PillarSmall" type="Node2D" groups=["grid_entity", "prop"]]
 script = ExtResource("1_wvjqp")
+packedscene_path = "res://entities/prop/pillar_small.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1

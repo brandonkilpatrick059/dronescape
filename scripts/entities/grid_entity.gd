@@ -2,6 +2,7 @@
 class_name Grid_Entity extends Node2D
 
 @export var placement_criteria : Place_Criteria = null
+@export var packedscene_path : String = ""
 
 var criteria_collider : Criteria_Collider = null
 
@@ -32,6 +33,9 @@ func set_placement_criteria(criteria : Place_Criteria):
 func queue_free_on_failed_placement_criteria():
 	if(!check_criteria()):
 		queue_free()
+
+func get_packedscene_path() -> String:
+	return packedscene_path
 
 func check_criteria() -> bool:
 	if(placement_criteria == null):

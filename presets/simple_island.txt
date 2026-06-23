@@ -1,0 +1,9 @@
+{"packedscene_path":"res://entities/stones/purple_stone.tscn","pos_y":16.0,"pos_x":-16.0,"type":"grid_entity"}
+{"packedscene_path":"res://entities/stones/purple_stone.tscn","pos_y":16.0,"pos_x":-32.0,"type":"grid_entity"}
+{"packedscene_path":"res://entities/stones/purple_stone.tscn","pos_y":16.0,"pos_x":0.0,"type":"grid_entity"}
+{"packedscene_path":"res://entities/stones/purple_stone.tscn","pos_y":16.0,"pos_x":16.0,"type":"grid_entity"}
+{"packedscene_path":"res://entities/stones/purple_stone.tscn","pos_y":16.0,"pos_x":32.0,"type":"grid_entity"}
+{"packedscene_path":"res://entities/stones/purple_stone.tscn","pos_y":32.0,"pos_x":16.0,"type":"grid_entity"}
+{"packedscene_path":"res://entities/stones/purple_stone.tscn","pos_y":32.0,"pos_x":0.0,"type":"grid_entity"}
+{"packedscene_path":"res://entities/stones/purple_stone.tscn","pos_y":32.0,"pos_x":-16.0,"type":"grid_entity"}
+{"packedscene_path":"res://entities/chimes/sndtrk_chime_sixth_below.tscn","pos_y":0.0,"pos_x":-16.0,"type":"grid_entity"}

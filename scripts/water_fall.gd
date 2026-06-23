@@ -24,6 +24,7 @@ func _ready() -> void:
 		sprite.visible = false
 		top_sprite.visible = true
 		top_sprite.play("top")
+		add_to_group("water_fall")
 	else:
 		sprite.visible = true
 		top_sprite.visible = false
@@ -61,7 +62,8 @@ func get_current_progress() -> float:
 		return sprite.frame_progress
 
 func _physics_process(delta: float) -> void:
-	queue_free_on_failed_placement_criteria()
+	if(is_top_of_falls):
+		queue_free_on_failed_placement_criteria()
 	if(!is_top_of_falls):
 		var bodies = water_detector.get_overlapping_bodies()
 		var found_water = false

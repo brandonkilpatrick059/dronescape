@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://pfbh1s6kknjh"]
+
+[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="1_r6th4"]
+
+[node name="water_placement_criteria" type="Node"]
+script = ExtResource("1_r6th4")
+center_requires_groups = Array[String](["stone"])

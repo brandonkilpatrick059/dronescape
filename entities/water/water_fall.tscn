@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmbakmd8qfd52"]
+[gd_scene load_steps=8 format=3 uid="uid://cmbakmd8qfd52"]
 
 [ext_resource type="Script" uid="uid://dngdxecgbjuog" path="res://scripts/water_fall.gd" id="1_p2xnq"]
 [ext_resource type="SpriteFrames" uid="uid://c7f0fa5gkmev7" path="res://sprites/water/water.tres" id="2_yj6pg"]
 [ext_resource type="AudioStream" uid="uid://yxdy7uevm2o1" path="res://audio/environment/pink_noise.wav" id="3_yj6pg"]
+[ext_resource type="PackedScene" uid="uid://pfbh1s6kknjh" path="res://entities/criteria/water_placement_criteria.tscn" id="4_jrk84"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
 
@@ -12,8 +13,9 @@ size = Vector2(16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2xnq"]
 radius = 5.0
 
-[node name="WaterFall" type="Node2D" groups=["water", "water_fall"]]
+[node name="WaterFall" type="Node2D" node_paths=PackedStringArray("placement_criteria")]
 script = ExtResource("1_p2xnq")
+placement_criteria = NodePath("water_placement_criteria")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_yj6pg")
@@ -52,6 +54,8 @@ stream = ExtResource("3_yj6pg")
 volume_db = -40.0
 attenuation = 12.5533
 panning_strength = 4.0
+
+[node name="water_placement_criteria" parent="." instance=ExtResource("4_jrk84")]
 
 [connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
 [connection signal="mouse_exited" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_exited"]

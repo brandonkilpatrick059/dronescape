@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://67eut8iwb5qi"]
+[gd_scene load_steps=8 format=3 uid="uid://67eut8iwb5qi"]
 
 [ext_resource type="Script" uid="uid://bg5hqgdng0moh" path="res://scripts/entities/chime.gd" id="1_130sj"]
 [ext_resource type="Texture2D" uid="uid://dwe36kjr2284x" path="res://sprites/chimes/warm_vox_chime.png" id="2_ud487"]
 [ext_resource type="SpriteFrames" uid="uid://bypeashfqs6m5" path="res://sprites/chimes/windmill_2.tres" id="3_130sj"]
 [ext_resource type="AudioStream" uid="uid://kkx3pf28b07w" path="res://audio/chimes/warm_vox_root_above.ogg" id="4_130sj"]
+[ext_resource type="PackedScene" uid="uid://dw4b0byau8het" path="res://entities/criteria/two_tall_flat_stone.tscn" id="5_ud487"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oj62h"]
 size = Vector2(16, 32)
@@ -11,11 +12,13 @@ size = Vector2(16, 32)
 [sub_resource type="CircleShape2D" id="CircleShape2D_oj62h"]
 radius = 16.0
 
-[node name="WarmVoxChimeRootAbove" type="Node2D" node_paths=PackedStringArray("wind_animations")]
+[node name="WarmVoxChimeRootAbove" type="Node2D" node_paths=PackedStringArray("wind_animations", "placement_criteria")]
 script = ExtResource("1_130sj")
 wind_animations = [NodePath("AnimatedSprite2D")]
 sensitivity_fraction = 1.0
 friction = 0.004
+placement_criteria = NodePath("two_tall_flat_stone")
+packedscene_path = "res://entities/chimes/warm_vox_chime_root_above.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
@@ -44,3 +47,5 @@ collision_mask = 2
 position = Vector2(0, -24)
 shape = SubResource("CircleShape2D_oj62h")
 debug_color = Color(1.82897e-06, 0.645261, 0.263897, 0.42)
+
+[node name="two_tall_flat_stone" parent="." instance=ExtResource("5_ud487")]

@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dskehoq0700sv"]
+[gd_scene load_steps=4 format=3 uid="uid://dskehoq0700sv"]
 
 [ext_resource type="Script" uid="uid://bntfwtkkywdxs" path="res://scripts/entities/placement_criteria/frog_machine.gd" id="1_4qqou"]
 [ext_resource type="SpriteFrames" uid="uid://bmha0bux35ac3" path="res://sprites/machines/frog_machine.tres" id="1_t62i5"]
+[ext_resource type="PackedScene" uid="uid://dw4b0byau8het" path="res://entities/criteria/two_tall_flat_stone.tscn" id="3_hgcuw"]
 
-[node name="FrogMachine" type="Node2D" groups=["machine"]]
+[node name="FrogMachine" type="Node2D" node_paths=PackedStringArray("placement_criteria") groups=["machine"]]
 script = ExtResource("1_4qqou")
+placement_criteria = NodePath("two_tall_flat_stone")
+packedscene_path = "res://entities/machines/frog_machine.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
@@ -25,3 +28,5 @@ position = Vector2(0, -8)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="grid_item"]
 polygon = PackedVector2Array(-8, 16, 8, 16, 8, 6, -8, 6)
+
+[node name="two_tall_flat_stone" parent="." instance=ExtResource("3_hgcuw")]

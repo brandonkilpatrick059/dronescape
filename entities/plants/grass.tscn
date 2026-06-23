@@ -1,16 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://bid74wmwj8ih"]
+[gd_scene load_steps=6 format=3 uid="uid://bid74wmwj8ih"]
 
 [ext_resource type="Script" uid="uid://b81apvab5biep" path="res://scripts/grass.gd" id="1_eved2"]
 [ext_resource type="SpriteFrames" uid="uid://bn70pfhr738cl" path="res://sprites/plants/grass.tres" id="2_eved2"]
+[ext_resource type="PackedScene" uid="uid://8v18npcehtx1" path="res://entities/criteria/grass_criteria.tscn" id="3_etwi8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhnib"]
 size = Vector2(16, 16)
 
-[node name="Grass" type="Node2D" groups=["grass", "plant"]]
+[node name="Grass" type="Node2D" node_paths=PackedStringArray("placement_criteria") groups=["grass", "plant"]]
 z_index = 1
 script = ExtResource("1_eved2")
+placement_criteria = NodePath("grass_criteria")
+packedscene_path = "res://entities/plants/grass.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
@@ -24,6 +27,8 @@ physics_material_override = SubResource("PhysicsMaterial_yk454")
 
 [node name="center" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_rhnib")
+
+[node name="grass_criteria" parent="." instance=ExtResource("3_etwi8")]
 
 [connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
 [connection signal="mouse_exited" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_exited"]

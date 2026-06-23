@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://doovfriya4x45"]
+[gd_scene load_steps=8 format=3 uid="uid://doovfriya4x45"]
 
 [ext_resource type="Script" uid="uid://ctjehdub1w68n" path="res://scripts/menu.gd" id="1_bdyrj"]
 [ext_resource type="Texture2D" uid="uid://dft6vbmp2q7m" path="res://sprites/interface/menu.png" id="1_l7knw"]
@@ -13,6 +13,10 @@ font_color = Color(0.807843, 0.282353, 0.282353, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_lyntm"]
 font = ExtResource("4_lyntm")
 font_size = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_tvg1i"]
+font = ExtResource("4_lyntm")
+font_size = 12
 
 [node name="Menu" type="Control" groups=["menu"]]
 z_index = 20
@@ -215,15 +219,10 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_lyntm")
 theme_override_font_sizes/font_size = 12
 toggle_mode = false
-item_count = 4
+selected = 0
+item_count = 1
 popup/item_0/text = "Simple Island"
 popup/item_0/id = 0
-popup/item_1/text = "Old Airship"
-popup/item_1/id = 1
-popup/item_2/text = "Temple Arboretum"
-popup/item_2/id = 2
-popup/item_3/text = "Floating Jungle"
-popup/item_3/id = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/menu_background/VBoxContainer/load_preset_container/HBoxContainer2"]
 custom_minimum_size = Vector2(6, 0)
@@ -245,7 +244,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_lyntm")
 theme_override_font_sizes/font_size = 12
 action_mode = 0
-text = "SAVE"
+text = "SAVE FILE"
 
 [node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/menu_background/VBoxContainer/save_load_container/HBoxContainer"]
 layout_mode = 2
@@ -259,7 +258,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_lyntm")
 theme_override_font_sizes/font_size = 12
 action_mode = 0
-text = "LOAD"
+text = "LOAD FILE"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/menu_background/VBoxContainer/save_load_container"]
 layout_mode = 2
@@ -303,6 +302,184 @@ text = "DONATE"
 custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
+[node name="save_file" type="VBoxContainer" parent="CenterContainer/menu_background"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title" type="Label" parent="CenterContainer/menu_background/save_file"]
+layout_mode = 2
+text = "SAVE FILE"
+label_settings = SubResource("LabelSettings_fg7ri")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/menu_background/save_file"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/menu_background/save_file/HBoxContainer"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="save_file_name" type="LineEdit" parent="CenterContainer/menu_background/save_file/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "file name"
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/menu_background/save_file/HBoxContainer"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="save_console_display" type="Label" parent="CenterContainer/menu_background/save_file"]
+layout_mode = 2
+text = "Not a valid file name"
+label_settings = SubResource("LabelSettings_tvg1i")
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/menu_background/save_file"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/menu_background/save_file"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/menu_background/save_file/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/menu_background/save_file/HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="save_file_button" type="Button" parent="CenterContainer/menu_background/save_file/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_lyntm")
+theme_override_font_sizes/font_size = 12
+action_mode = 0
+text = "SAVE"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/menu_background/save_file/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/menu_background/save_file/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="back_button_save" type="Button" parent="CenterContainer/menu_background/save_file/HBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_lyntm")
+theme_override_font_sizes/font_size = 12
+action_mode = 0
+text = "BACK"
+
+[node name="MarginContainer4" type="MarginContainer" parent="CenterContainer/menu_background/save_file"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="load_file" type="VBoxContainer" parent="CenterContainer/menu_background"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.001
+offset_bottom = -0.256012
+
+[node name="title" type="Label" parent="CenterContainer/menu_background/load_file"]
+layout_mode = 2
+text = "LOAD FILE"
+label_settings = SubResource("LabelSettings_fg7ri")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/menu_background/load_file"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/menu_background/load_file/HBoxContainer"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="file_load_picker" type="OptionButton" parent="CenterContainer/menu_background/load_file/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_lyntm")
+theme_override_font_sizes/font_size = 12
+toggle_mode = false
+item_count = 6
+popup/item_0/text = "test_1"
+popup/item_0/id = 0
+popup/item_1/text = "test_2"
+popup/item_1/id = 1
+popup/item_2/text = "test_3"
+popup/item_2/id = 2
+popup/item_3/text = "test_4"
+popup/item_3/id = 3
+popup/item_4/text = "test_5"
+popup/item_4/id = 4
+popup/item_5/text = "test_6"
+popup/item_5/id = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/menu_background/load_file/HBoxContainer"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/menu_background/load_file"]
+custom_minimum_size = Vector2(0, 156)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/menu_background/load_file"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/menu_background/load_file/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/menu_background/load_file/HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="load_file_button" type="Button" parent="CenterContainer/menu_background/load_file/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_lyntm")
+theme_override_font_sizes/font_size = 12
+action_mode = 0
+text = "LOAD"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/menu_background/load_file/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/menu_background/load_file/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="file_loc_button" type="Button" parent="CenterContainer/menu_background/load_file/HBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_lyntm")
+theme_override_font_sizes/font_size = 12
+action_mode = 0
+text = "FILE LOCATION"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/menu_background/load_file/HBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/menu_background/load_file/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="back_button_load" type="Button" parent="CenterContainer/menu_background/load_file/HBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_lyntm")
+theme_override_font_sizes/font_size = 12
+action_mode = 0
+text = "BACK"
+
+[node name="MarginContainer4" type="MarginContainer" parent="CenterContainer/menu_background/load_file"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
 [connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/HBoxContainer2/fullscreen_option" to="." method="_on_fullscreen_option_pressed"]
 [connection signal="item_selected" from="CenterContainer/menu_background/VBoxContainer/HBoxContainer3/HBoxContainer2/resolution_picker" to="." method="_on_resolution_picker_item_selected"]
 [connection signal="drag_ended" from="CenterContainer/menu_background/VBoxContainer/master_vol_container/HBoxContainer2/master_vol_slider" to="." method="_on_vol_slider_drag_ended"]
@@ -313,9 +490,13 @@ layout_mode = 2
 [connection signal="drag_started" from="CenterContainer/menu_background/VBoxContainer/effects_volume_container/HBoxContainer2/effects_vol_slider" to="." method="_on_vol_slider_drag_started"]
 [connection signal="drag_ended" from="CenterContainer/menu_background/VBoxContainer/interface_volume_container2/HBoxContainer2/interface_vol_slider" to="." method="_on_vol_slider_drag_ended"]
 [connection signal="drag_started" from="CenterContainer/menu_background/VBoxContainer/interface_volume_container2/HBoxContainer2/interface_vol_slider" to="." method="_on_vol_slider_drag_started"]
-[connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/load_preset_container/HBoxContainer/load_preset_button" to="." method="_on_close_button_pressed"]
-[connection signal="item_selected" from="CenterContainer/menu_background/VBoxContainer/load_preset_container/HBoxContainer2/preset_picker" to="." method="_on_resolution_picker_item_selected"]
-[connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/save_load_container/HBoxContainer/save_button" to="." method="_on_close_button_pressed"]
-[connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/save_load_container/HBoxContainer2/load_button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/load_preset_container/HBoxContainer/load_preset_button" to="." method="_on_load_preset_button_pressed"]
+[connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/save_load_container/HBoxContainer/save_button" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/save_load_container/HBoxContainer2/load_button" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/close_container/HBoxContainer/close_button" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="CenterContainer/menu_background/VBoxContainer/close_container/HBoxContainer2/donate_button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="CenterContainer/menu_background/save_file/HBoxContainer2/HBoxContainer/save_file_button" to="." method="_on_save_file_button_pressed"]
+[connection signal="pressed" from="CenterContainer/menu_background/save_file/HBoxContainer2/HBoxContainer2/back_button_save" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CenterContainer/menu_background/load_file/HBoxContainer2/HBoxContainer/load_file_button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="CenterContainer/menu_background/load_file/HBoxContainer2/HBoxContainer3/file_loc_button" to="." method="_on_file_loc_button_pressed"]
+[connection signal="pressed" from="CenterContainer/menu_background/load_file/HBoxContainer2/HBoxContainer2/back_button_load" to="." method="_on_back_button_pressed"]

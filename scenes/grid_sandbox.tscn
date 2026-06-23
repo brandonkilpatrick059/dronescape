@@ -1,7 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://bvfn8m6rprwus"]
+[gd_scene load_steps=23 format=3 uid="uid://bvfn8m6rprwus"]
 
 [ext_resource type="PackedScene" uid="uid://clq5nv0qo1xmk" path="res://scenes/grid_base.tscn" id="1_qdhqp"]
-[ext_resource type="PackedScene" uid="uid://dp2sv2a17a7jy" path="res://entities/stones/purple_stone.tscn" id="2_n7rse"]
 [ext_resource type="Texture2D" uid="uid://6q2qjpjla1ai" path="res://sprites/backgrounds/generic_gradient.png" id="3_pl366"]
 [ext_resource type="PackedScene" uid="uid://bwwo4l82msqi" path="res://interface/cursor.tscn" id="4_ohvtm"]
 [ext_resource type="PackedScene" uid="uid://doovfriya4x45" path="res://interface/menu/menu.tscn" id="4_v6qp0"]
@@ -19,8 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://y07eptojel4s" path="res://entities/musicians/musician_manager.tscn" id="16_43cbu"]
 [ext_resource type="Script" uid="uid://clcns2u7rioq3" path="res://scripts/version_number.gd" id="18_f5rqd"]
 [ext_resource type="FontFile" uid="uid://ddj14a5wud451" path="res://fonts/Tiny5-Regular.ttf" id="18_or136"]
-[ext_resource type="PackedScene" uid="uid://b36bp3j4d06bf" path="res://entities/chimes/sndtrk_chime_sixth_below.tscn" id="19_f5rqd"]
 [ext_resource type="PackedScene" uid="uid://5g0h50u7kjhn" path="res://interface/picker/picker_circle.tscn" id="20_gipbt"]
+[ext_resource type="Script" uid="uid://dl12t0fscv7ar" path="res://scripts/save_load_manager.gd" id="22_cfbmo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f5rqd"]
 font = ExtResource("18_or136")
@@ -30,7 +29,7 @@ font_color = Color(0.835294, 0.231373, 0.356863, 1)
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u1qyx"]
 blend_mode = 1
 
-[node name="GridSandbox" type="Node2D"]
+[node name="GridSandbox" type="Node2D" groups=["grid_sandbox"]]
 
 [node name="GridBase" parent="." instance=ExtResource("1_qdhqp")]
 
@@ -66,9 +65,9 @@ wait_time_secs = 10.0
 
 [node name="Label" type="Label" parent="Camera2D/version_number"]
 offset_left = -16.0
-offset_top = 160.0
+offset_top = 112.0
 offset_right = 24.0
-offset_bottom = 183.0
+offset_bottom = 135.0
 label_settings = SubResource("LabelSettings_f5rqd")
 horizontal_alignment = 1
 script = ExtResource("18_f5rqd")
@@ -121,33 +120,9 @@ z_index = -10
 position = Vector2(224, 160)
 texture = ExtResource("10_1n5ut")
 
-[node name="PurpleStone" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-16, 16)
-
-[node name="PurpleStone2" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-32, 16)
-
-[node name="PurpleStone3" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(0, 16)
-
-[node name="PurpleStone4" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(16, 16)
-
-[node name="PurpleStone7" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(32, 16)
-
-[node name="PurpleStone8" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(16, 32)
-
-[node name="PurpleStone5" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(0, 32)
-
-[node name="PurpleStone6" parent="." instance=ExtResource("2_n7rse")]
-position = Vector2(-16, 32)
-
 [node name="MusicianManager" parent="." instance=ExtResource("16_43cbu")]
 
-[node name="SndtrkChimeSixthBelow" parent="." instance=ExtResource("19_f5rqd")]
-position = Vector2(-16, 0)
-
 [node name="PickerCircle" parent="." instance=ExtResource("20_gipbt")]
+
+[node name="SaveLoadManager" type="Node" parent="." groups=["save_load_manager"]]
+script = ExtResource("22_cfbmo")

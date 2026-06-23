@@ -1,15 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://br0y5a8gswmmx"]
+[gd_scene load_steps=6 format=3 uid="uid://br0y5a8gswmmx"]
 
 [ext_resource type="Script" uid="uid://bibtitfh7a7o6" path="res://scripts/entities/stone.gd" id="1_jx4x8"]
 [ext_resource type="SpriteFrames" uid="uid://co5kn1o8y76xd" path="res://sprites/stones/blue/stone_blue.tres" id="2_1x302"]
+[ext_resource type="PackedScene" uid="uid://c51gseuu104ko" path="res://entities/criteria/generic_stone_criteria.tscn" id="3_t6b8p"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yk454"]
 size = Vector2(16, 16)
 
-[node name="BlueStone" type="Node2D" groups=["solid", "stone"]]
+[node name="BlueStone" type="Node2D" node_paths=PackedStringArray("placement_criteria") groups=["solid", "stone"]]
 script = ExtResource("1_jx4x8")
+placement_criteria = NodePath("generic_stone_criteria")
+packedscene_path = "res://entities/stones/blue_stone.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_1x302")
@@ -40,6 +43,8 @@ polygon = PackedVector2Array(-8, 8, 8, -8, -8, -8)
 
 [node name="center" type="CollisionShape2D" parent="grid_collision"]
 shape = SubResource("RectangleShape2D_yk454")
+
+[node name="generic_stone_criteria" parent="." instance=ExtResource("3_t6b8p")]
 
 [connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
 [connection signal="mouse_exited" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_exited"]

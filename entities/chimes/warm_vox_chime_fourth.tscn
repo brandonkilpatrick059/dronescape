@@ -18,6 +18,7 @@ wind_animations = [NodePath("AnimatedSprite2D")]
 sensitivity_fraction = 1.0
 friction = 0.004
 placement_criteria = NodePath("two_tall_flat_stone")
+packedscene_path = "res://entities/chimes/warm_vox_chime_fourth.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -8)

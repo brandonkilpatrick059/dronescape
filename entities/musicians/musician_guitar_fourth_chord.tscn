@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfevo4704lwus"]
+[gd_scene load_steps=6 format=3 uid="uid://dfevo4704lwus"]
 
 [ext_resource type="Script" uid="uid://dcpksnbji5uwx" path="res://scripts/entities/musician.gd" id="1_qjcws"]
 [ext_resource type="SpriteFrames" uid="uid://bm7iig2nopio6" path="res://sprites/musicians/guitar_fourth_chord.tres" id="2_qjcws"]
 [ext_resource type="AudioStream" uid="uid://bt7sjqy0m2n3h" path="res://audio/chimes/guitar_fourth_chord.ogg" id="3_qjcws"]
+[ext_resource type="PackedScene" uid="uid://dw4b0byau8het" path="res://entities/criteria/two_tall_flat_stone.tscn" id="4_jklic"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk7n0"]
 size = Vector2(16, 16)
 
-[node name="GuitarFourthChord" type="Node2D"]
+[node name="GuitarFourthChord" type="Node2D" node_paths=PackedStringArray("placement_criteria")]
 script = ExtResource("1_qjcws")
+placement_criteria = NodePath("two_tall_flat_stone")
+packedscene_path = "res://entities/musicians/musician_guitar_fourth_chord.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
@@ -24,3 +27,5 @@ panning_strength = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_sk7n0")
+
+[node name="two_tall_flat_stone" parent="." instance=ExtResource("4_jklic")]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://0vvbdtiagf3r"]
+[gd_scene load_steps=9 format=3 uid="uid://0vvbdtiagf3r"]
 
 [ext_resource type="Script" uid="uid://bg5hqgdng0moh" path="res://scripts/entities/chime.gd" id="1_r38pd"]
 [ext_resource type="Texture2D" uid="uid://dq8702atwmtx1" path="res://sprites/chimes/lattice.png" id="2_rtkcn"]
 [ext_resource type="SpriteFrames" uid="uid://ctlrquj07rmgs" path="res://sprites/chimes/windmill_4.tres" id="3_j8mmc"]
 [ext_resource type="SpriteFrames" uid="uid://cgojio5lg17au" path="res://sprites/chimes/green_recorder_chime.tres" id="4_r38pd"]
 [ext_resource type="AudioStream" uid="uid://du8ad6u3f2lo3" path="res://audio/chimes/recorder_up_fifth.ogg" id="5_r38pd"]
+[ext_resource type="PackedScene" uid="uid://dw4b0byau8het" path="res://entities/criteria/two_tall_flat_stone.tscn" id="6_rtkcn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oj62h"]
 size = Vector2(16, 32)
@@ -12,11 +13,13 @@ size = Vector2(16, 32)
 [sub_resource type="CircleShape2D" id="CircleShape2D_oj62h"]
 radius = 16.0
 
-[node name="RecorderChimeFifth" type="Node2D" node_paths=PackedStringArray("wind_animations")]
+[node name="RecorderChimeFifth" type="Node2D" node_paths=PackedStringArray("wind_animations", "placement_criteria")]
 script = ExtResource("1_r38pd")
 wind_animations = [NodePath("windmill"), NodePath("bellows")]
 sensitivity_fraction = 1.0
 friction = 0.004
+placement_criteria = NodePath("two_tall_flat_stone")
+packedscene_path = "res://entities/chimes/recorder_chime_fifth.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
@@ -51,3 +54,5 @@ collision_mask = 2
 position = Vector2(0, -24)
 shape = SubResource("CircleShape2D_oj62h")
 debug_color = Color(1.82897e-06, 0.645261, 0.263897, 0.42)
+
+[node name="two_tall_flat_stone" parent="." instance=ExtResource("6_rtkcn")]

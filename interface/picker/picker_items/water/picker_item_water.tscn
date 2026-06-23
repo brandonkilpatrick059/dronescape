@@ -3,16 +3,14 @@
 [ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_tnw8c"]
 [ext_resource type="SpriteFrames" uid="uid://c7f0fa5gkmev7" path="res://sprites/water/water.tres" id="2_hh1vc"]
 [ext_resource type="PackedScene" uid="uid://cmbakmd8qfd52" path="res://entities/water/water_fall.tscn" id="3_fl0mb"]
-[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="4_fl0mb"]
+[ext_resource type="PackedScene" uid="uid://pfbh1s6kknjh" path="res://entities/criteria/water_placement_criteria.tscn" id="4_fl0mb"]
 
 [node name="PickerItemWater" type="Node2D" node_paths=PackedStringArray("place_criteria")]
 script = ExtResource("1_tnw8c")
 display_sprite_frames = ExtResource("2_hh1vc")
 display_animation = "picker"
 item = ExtResource("3_fl0mb")
-place_criteria = NodePath("water_placement_criteria")
+place_criteria = NodePath("")
 is_menu_tab = null
 
-[node name="water_placement_criteria" type="Node" parent="."]
-script = ExtResource("4_fl0mb")
-center_requires_groups = Array[String](["stone"])
+[node name="water_placement_criteria" parent="." instance=ExtResource("4_fl0mb")]

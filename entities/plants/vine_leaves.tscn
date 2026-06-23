@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnschweccm1u0"]
+[gd_scene load_steps=6 format=3 uid="uid://cm7xpvv721vi4"]
 
 [ext_resource type="Script" uid="uid://darcrssbwah45" path="res://scripts/leaves.gd" id="1_02r3n"]
 [ext_resource type="SpriteFrames" uid="uid://dfdsxsfw70ou1" path="res://sprites/plants/leaf_c.tres" id="3_owxx1"]
