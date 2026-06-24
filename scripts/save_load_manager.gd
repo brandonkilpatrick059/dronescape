@@ -40,6 +40,7 @@ func save_grid_entities():
 	save_nonsolid_stones()
 	save_plants()
 	save_chimes()
+	save_musicians()
 	save_machines()
 	save_water()
 
@@ -53,6 +54,10 @@ func save_nonsolid_stones():
 
 func save_chimes():
 	var entities = get_tree().get_nodes_in_group("chime")
+	save_entities(entities)
+
+func save_musicians():
+	var entities = get_tree().get_nodes_in_group("musician")
 	save_entities(entities)
 
 func save_machines():

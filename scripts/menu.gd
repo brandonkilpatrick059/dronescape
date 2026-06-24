@@ -25,7 +25,9 @@ var vol_adjusting : bool = false
 var volume_sliders : Array[Slider] = []
 
 var preset_paths : Array[String] =[
-	"res://presets/simple_island.txt"
+	"res://presets/simple_island.txt",
+	"res://presets/floating_tower.txt",
+	"res://presets/temple_arboretum.txt",
 ]
 
 var load_item_paths : Array[String] = []
