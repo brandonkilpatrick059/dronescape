@@ -37,6 +37,7 @@ var max_forks = 2
 var branch_type : String = ""
 
 var load_leaves : String = ""
+var load_branches : Array[Plant_Tree] = []
 
 const branch_types : Array[String] =[
 		"branch_fork_right",
@@ -81,6 +82,10 @@ func set_is_branch(in_distance : int, parent : Plant_Tree, trunk : Plant_Tree):
 	is_trunk = false
 	parent_branch = parent
 	trunk_ref = trunk
+
+func set_parent_branch(parent: Plant_Tree):
+	parent_branch = parent
+	
 
 func set_is_load_branch():
 	is_trunk = false
@@ -295,7 +300,8 @@ func cursor_destroy():
 
 func destroy_self_and_all_branches():
 	for branch in branches:
-		branch.destroy_self_and_all_branches()
+		if(branch!=null):
+			branch.destroy_self_and_all_branches()
 	queue_free()
 
 func remove_child_branch(branch : Plant_Tree):
@@ -330,6 +336,39 @@ func get_save_data() -> Array[save_data]:
 		ret_data.append_array(new_data)
 	return ret_data
 
+func set_load_branches(new_load_branches : Array[Plant_Tree]):
+	load_branches.clear()
+	load_branches.append_array(new_load_branches)
+
+func connect_loaded_branches():
+	for point in branch_points:
+		var find_branch : Plant_Tree = null
+		if(point == "left"):
+			var new_root_point : String = root_point_from_branch("left")
+			find_branch = get_load_branch_at_point(global_position + Vector2(-16,0), new_root_point)
+		elif(point == "right"):
+			var new_root_point : String = root_point_from_branch("right")
+			find_branch = get_load_branch_at_point(global_position + Vector2(16,0), new_root_point)
+		elif(point == "up"):
+			var new_root_point : String = root_point_from_branch("up")
+			find_branch = get_load_branch_at_point(global_position + Vector2(0,-16), new_root_point)
+		if(find_branch != null):
+			branches.append(find_branch)
+			var new_load_branches :Array[Plant_Tree] = []
+			new_load_branches.append_array(load_branches)
+			new_load_branches.erase(self)
+			find_branch.set_load_branches(new_load_branches)
+			find_branch.set_parent_branch(self)
+	for branch in branches:
+		branch.connect_loaded_branches()
+
+func get_load_branch_at_point(pos : Vector2, root_dir : String) -> Node:
+	for branch in load_branches:
+		if branch.global_position == pos:
+			if(branch.root_point == root_dir):
+				return branch
+	return null
+
 func get_save_dictionary() -> Dictionary:
 	var new_save_data : Array[save_data] = get_save_data()
 	var save_dictionary : Dictionary = {
@@ -358,6 +397,7 @@ func load_from_dictionary(load_dict : Dictionary):
 		load_branch_from_dictionary_string(branch_dictionary_string)
 		branch_num = branch_num + 1
 		branch_dictionary_string = load_dict.get(str("branch",branch_num))
+	connect_loaded_branches()
 
 func load_branch_from_dictionary_string(dictionary_string : String):
 	var dictionary : Dictionary = JSON.parse_string(dictionary_string)
@@ -376,6 +416,7 @@ func load_branch_from_dictionary_string(dictionary_string : String):
 	instance.global_position = Vector2(pos_x,pos_y)
 	var grid_base : Grid_Base = get_tree().get_first_node_in_group("grid_base")
 	grid_base.update()
+	load_branches.append(instance)
 
 func grow_branches():
 	var grow_points : Array[String] = []
