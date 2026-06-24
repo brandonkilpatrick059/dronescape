@@ -12,6 +12,7 @@ size = Vector2(31, 20)
 [node name="Leaves1Large" type="Node2D"]
 z_index = 1
 script = ExtResource("1_1s413")
+leaves_type = "large"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

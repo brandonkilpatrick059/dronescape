@@ -2,6 +2,7 @@ class_name Leaves extends Node2D
 
 var sprites : Array[AnimatedSprite2D] = []
 @onready var wind_activation_area : Area2D = $Area2D
+@export var leaves_type : String = ""
 
 var timer := Timer.new()
 
@@ -15,6 +16,9 @@ var wind_effect_activation_level = 0.05
 var speed_scale_mults: Array[float] = []
 
 var animate_direction : String = ""
+
+func get_type() -> String:
+	return leaves_type
 
 func _ready() -> void:
 	timer.one_shot = true

@@ -173,9 +173,10 @@ func _on_load_preset_button_pressed() -> void:
 	save_load_manager.load_aeroscape(path)
 
 func _on_load_file_button_pressed() -> void:
-	var selected_index : int = file_load_picker.get_selected_items()[0]
-	if(selected_index < load_item_paths.size()):
-		var load_path = str("/",load_item_paths[selected_index])
-		load_path = str(SaveLoadManager.saves_location,load_path)
-		var save_load_manager : SaveLoadManager = get_tree().get_first_node_in_group("save_load_manager")
-		save_load_manager.load_aeroscape(load_path)
+	if(file_load_picker.get_selected_items().size() > 0):
+		var selected_index : int = file_load_picker.get_selected_items()[0]
+		if(selected_index < load_item_paths.size()):
+			var load_path = str("/",load_item_paths[selected_index])
+			load_path = str(SaveLoadManager.saves_location,load_path)
+			var save_load_manager : SaveLoadManager = get_tree().get_first_node_in_group("save_load_manager")
+			save_load_manager.load_aeroscape(load_path)

@@ -12,6 +12,7 @@ size = Vector2(15, 11)
 [node name="Leaves1Small" type="Node2D"]
 z_index = 1
 script = ExtResource("1_pgbw8")
+leaves_type = "small"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

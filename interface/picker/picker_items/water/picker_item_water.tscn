@@ -10,7 +10,7 @@ script = ExtResource("1_tnw8c")
 display_sprite_frames = ExtResource("2_hh1vc")
 display_animation = "picker"
 item = ExtResource("3_fl0mb")
-place_criteria = NodePath("")
+place_criteria = NodePath("water_placement_criteria")
 is_menu_tab = null
 
 [node name="water_placement_criteria" parent="." instance=ExtResource("4_fl0mb")]

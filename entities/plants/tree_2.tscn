@@ -1,17 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://cupyh20bjqxft"]
+[gd_scene load_steps=7 format=3 uid="uid://cupyh20bjqxft"]
 
 [ext_resource type="Script" uid="uid://do3u7xcxx4huo" path="res://scripts/tree.gd" id="1_m572w"]
 [ext_resource type="SpriteFrames" uid="uid://bqdqvyl3ks24n" path="res://sprites/plants/tree_1.tres" id="2_m73df"]
 [ext_resource type="PackedScene" uid="uid://1cway6yiukkh" path="res://entities/criteria_collider.tscn" id="3_kipep"]
+[ext_resource type="PackedScene" uid="uid://clwfm4n7jvdyw" path="res://entities/criteria/tree_criteria.tscn" id="4_m73df"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhnib"]
 size = Vector2(16, 16)
 
-[node name="Tree_2" type="Node2D" groups=["plant", "tree", "tree_branch"]]
+[node name="Tree_2" type="Node2D" node_paths=PackedStringArray("placement_criteria") groups=["plant", "tree", "tree_branch"]]
 script = ExtResource("1_m572w")
 max_height = 2
+placement_criteria = NodePath("tree_criteria")
+packedscene_path = "res://entities/plants/tree_1.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_m73df")
@@ -26,6 +29,8 @@ physics_material_override = SubResource("PhysicsMaterial_yk454")
 shape = SubResource("RectangleShape2D_rhnib")
 
 [node name="criteria_collider" parent="." instance=ExtResource("3_kipep")]
+
+[node name="tree_criteria" parent="." instance=ExtResource("4_m73df")]
 
 [connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
 [connection signal="mouse_exited" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_exited"]

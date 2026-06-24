@@ -34,6 +34,10 @@ var trunk_ref : Plant_Tree = null
 var num_forks = 0
 var max_forks = 2
 
+var branch_type : String = ""
+
+var load_leaves : String = ""
+
 const branch_types : Array[String] =[
 		"branch_fork_right",
 		"branch_fork_inv_from_left",
@@ -61,10 +65,13 @@ func _ready() -> void:
 	timer.start(growth_wait_secs)
 	if(is_trunk):
 		branch_points.append("up")
-		sprite.play("trunk_ground")
+		branch_type = "trunk_ground"
+		sprite.play(branch_type)
+		add_to_group("tree_trunk")
 		trunk_ref = self
-		var start_process = process_node.instantiate()
-		add_child(start_process)
+		if(not get_is_loaded()):
+			var start_process = process_node.instantiate()
+			add_child(start_process)
 
 func set_trunk_ref (ref : Plant_Tree):
 	trunk_ref = ref
@@ -74,6 +81,9 @@ func set_is_branch(in_distance : int, parent : Plant_Tree, trunk : Plant_Tree):
 	is_trunk = false
 	parent_branch = parent
 	trunk_ref = trunk
+
+func set_is_load_branch():
+	is_trunk = false
 
 func has_solid_bodies(bodies : Array[Node2D]):
 	for body in bodies:
@@ -155,66 +165,90 @@ func match_branch_code(code : String):
 			branch_end()
 
 func branch_fork_right():
-	sprite.play("branch_fork_right")
+	branch_type = "branch_fork_right"
+	sprite.play(branch_type)
 	root_point = "down"
 	branch_points = ["up","right"]
-	trunk_ref.add_forks()
+	if(trunk_ref != null):
+		trunk_ref.add_forks()
 
 func branch_fork_inv_from_left():
+	branch_type = "branch_fork_inv_from_left"
 	sprite.play("branch_fork_inv")
 	root_point = "left"
 	branch_points = ["up","right"]
-	trunk_ref.add_forks()
+	if(trunk_ref != null):
+		trunk_ref.add_forks()
 
 func branch_fork_inv_from_right():
+	branch_type = "branch_fork_inv_from_right"
 	sprite.play("branch_fork_inv")
 	root_point = "right"
 	branch_points = ["up","right"]
-	trunk_ref.add_forks()
+	if(trunk_ref != null):
+		trunk_ref.add_forks()
 
 func branch_fork_left():
-	sprite.play("branch_fork_left")
+	branch_type = "branch_fork_left"
+	sprite.play(branch_type)
 	root_point = "down"
 	branch_points = ["up","left"]
-	trunk_ref.add_forks()
+	if(trunk_ref != null):
+		trunk_ref.add_forks()
 
 func branch_fork_up():
-	sprite.play("branch_fork_up")
+	branch_type = "branch_fork_up"
+	sprite.play(branch_type)
 	root_point = "down"
 	branch_points = ["right","left"]
-	trunk_ref.add_forks()
+	if(trunk_ref != null):
+		trunk_ref.add_forks()
 
 func branch_bend_left():
-	sprite.play("branch_bend_left")
+	branch_type = "branch_bend_left"
+	sprite.play(branch_type)
 	root_point = "down"
 	branch_points = ["left"]
 
 func branch_bend_right():
-	sprite.play("branch_bend_right")
+	branch_type = "branch_bend_right"
+	sprite.play(branch_type)
 	root_point = "down"
 	branch_points = ["right"]
 
 func branch_inv_bend_left():
-	sprite.play("branch_inv_bend_left")
+	branch_type = "branch_inv_bend_left"
+	sprite.play(branch_type)
 	root_point = "left"
 	branch_points = ["up"]
 
 func branch_inv_bend_right():
-	sprite.play("branch_inv_bend_right")
+	branch_type = "branch_inv_bend_right"
+	sprite.play(branch_type)
 	root_point = "right"
 	branch_points = ["up"]
 
 func branch_straight_up():
-	sprite.play("branch_straight_up")
+	branch_type = "branch_straight_up"
+	sprite.play(branch_type)
 	root_point = "down"
 	branch_points = ["up"]
 
 func branch_end():
-	sprite.play("branch_end")
+	branch_type = "branch_end"
+	sprite.play(branch_type)
 	root_point = "down"
 	branch_points = []
 	if(leaves_ref == null):
-		if(randf_range(0.0,1.0) < 0.5):
+		if(load_leaves != ""):
+			match(load_leaves):
+				"small":
+					leaves_ref = leaves_small.instantiate()
+					add_child(leaves_ref)
+				"large":
+					leaves_ref = leaves_large.instantiate()
+					add_child(leaves_ref)
+		elif(randf_range(0.0,1.0) < 0.5):
 			leaves_ref = leaves_large.instantiate()
 			add_child(leaves_ref)
 		elif(randf_range(0.0,1.0) < 0.5):
@@ -251,6 +285,9 @@ func root_point_from_branch(branch_point : String) -> String:
 		_:
 			return ""
 
+func set_load_leaves(leaves : String):
+	load_leaves = leaves
+
 func cursor_destroy():
 	if(parent_branch != null):
 		parent_branch.remove_child_branch(self)
@@ -274,6 +311,72 @@ func propogate_growth():
 		for branch in branches:
 			branch.propogate_growth()
 
+class save_data:
+	var pos : Vector2 = Vector2(0,0)
+	var branch_type : String = ""
+	var leaves : String = ""
+
+func get_save_data() -> Array[save_data]:
+	var ret_data : Array[save_data] = []
+	var data := save_data.new()
+	data.pos = global_position
+	data.branch_type = branch_type
+	if(leaves_ref != null):
+		data.leaves = leaves_ref.get_type()
+	if(branch_type != "trunk_ground"):
+		ret_data.append(data)
+	for branch in branches:
+		var new_data = branch.get_save_data()
+		ret_data.append_array(new_data)
+	return ret_data
+
+func get_save_dictionary() -> Dictionary:
+	var new_save_data : Array[save_data] = get_save_data()
+	var save_dictionary : Dictionary = {
+		"type" : "tree",
+		"pos_x" : global_position.x,
+		"pos_y" : global_position.y,
+		"packedscene_path" : get_packedscene_path()
+	}
+	var branch_num = 0
+	for branch : save_data in new_save_data:
+		var branch_dictionary : Dictionary = {
+			"pos_x" : branch.pos.x,
+			"pos_y" : branch.pos.y,
+			"branch_type" : branch.branch_type,
+			"leaves" : branch.leaves
+		}
+		var branch_name = str("branch",branch_num)
+		save_dictionary.set(branch_name,JSON.stringify(branch_dictionary))
+		branch_num = branch_num + 1
+	return save_dictionary
+
+func load_from_dictionary(load_dict : Dictionary):
+	var branch_num = 0
+	var branch_dictionary_string = load_dict.get(str("branch",branch_num))
+	while(branch_dictionary_string != null):
+		load_branch_from_dictionary_string(branch_dictionary_string)
+		branch_num = branch_num + 1
+		branch_dictionary_string = load_dict.get(str("branch",branch_num))
+
+func load_branch_from_dictionary_string(dictionary_string : String):
+	var dictionary : Dictionary = JSON.parse_string(dictionary_string)
+	var pos_x = dictionary.get("pos_x")
+	var pos_y = dictionary.get("pos_y")
+	var packed_scene = load(get_packedscene_path())
+	var instance : Plant_Tree = packed_scene.instantiate()
+	var branch_type = dictionary.get("branch_type")
+	var leaves = dictionary.get("leaves")
+	instance.set_is_load_branch()
+	if(leaves != ""):
+		instance.set_load_leaves(leaves)
+	var grid_sandbox = get_tree().get_first_node_in_group("grid_sandbox")
+	grid_sandbox.add_child(instance)
+	instance.match_branch_code(branch_type)
+	instance.global_position = Vector2(pos_x,pos_y)
+	var grid_base : Grid_Base = get_tree().get_first_node_in_group("grid_base")
+	grid_base.update()
+
 func grow_branches():
 	var grow_points : Array[String] = []
 	for point in branch_points:
@@ -292,17 +395,3 @@ func grow_branches():
 		new_branch.get_branch(root_point_from_branch(point))
 		branches.append(new_branch)
 		used_branch_points.append(point)
-
-#func _physics_process(delta: float) -> void:
-	#queue_free_on_failed_placement_criteria()
-	#if(timer.is_stopped() && is_trunk):
-		#propogate_growth()
-		#timer.start(growth_wait_secs)
-		#if(grass_created):
-			#grass_created = false
-			#timer.start(randf_range(min_growth_time,max_growth_time))
-		#else:
-			#tall_grass_ref = tall_grass.instantiate()
-			#get_parent().add_child(tall_grass_ref)
-			#tall_grass_ref.global_position = global_position + Vector2(0,-16)
-			#grass_created = true

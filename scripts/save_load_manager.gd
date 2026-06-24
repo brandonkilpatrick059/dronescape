@@ -24,6 +24,8 @@ func load_aeroscape(file_path : String):
 		match type:
 			"grid_entity":
 				load_grid_entity(dictionary)
+			"tree":
+				load_tree(dictionary)
 	save_file.close()
 	grid_base.update()
 
@@ -76,17 +78,27 @@ func get_grid_entity_dictionary(entity : Grid_Entity) -> Dictionary:
 	}
 	return grid_entity_dictionary
 
-func load_grid_entity(dictionary : Dictionary):
+func load_grid_entity(dictionary : Dictionary) -> Node:
 	var path : String = dictionary.get("packedscene_path")
-	var packed_scene = load(path)
-	var instance = packed_scene.instantiate()
 	var pos_x = dictionary.get("pos_x")
 	var pos_y = dictionary.get("pos_y")
+	var instance = instantiate_grid_entity(path, Vector2(pos_x,pos_y))
+	return instance
+
+func instantiate_grid_entity(packedscene_path : String, pos : Vector2) -> Node:
+	var packed_scene = load(packedscene_path)
+	var instance : Grid_Entity = packed_scene.instantiate()
+	instance.set_is_loaded()
 	var grid_sandbox = get_tree().get_first_node_in_group("grid_sandbox")
 	grid_sandbox.add_child(instance)
-	instance.global_position = Vector2(pos_x,pos_y)
+	instance.global_position = pos
 	var grid_base : Grid_Base = get_tree().get_first_node_in_group("grid_base")
 	grid_base.update()
+	return instance
+
+func load_tree(dictionary : Dictionary):
+	var tree : Plant_Tree = load_grid_entity(dictionary)
+	tree.load_from_dictionary(dictionary)
 
 func save_plants():
 	save_trees()
@@ -107,28 +119,7 @@ func save_bushes():
 	save_entities(entities)
 
 func save_trees():
-	pass
-
-func save_settings():
-	#user settings
-	var settings : Dictionary = get_settings_dictionary()
-	var settings_file : FileAccess = FileAccess.open("user://settings.save", FileAccess.WRITE)
-	settings_file.store_line(JSON.stringify(settings))
-	
-	#input map settings
-	var input_map_manager = get_tree().get_first_node_in_group("input_map_manager")
-	var current_mapping = input_map_manager.get_current_mapping()
-	var keyboard_dictionary : Dictionary = current_mapping.get_keyboard_dictionary()
-	var controller_dictionary : Dictionary = current_mapping.get_controller_dictionary()
-	settings_file.store_line(JSON.stringify(keyboard_dictionary))
-	settings_file.store_line(JSON.stringify(controller_dictionary))
-	
-	settings_file.close()
-
-func get_settings_dictionary() -> Dictionary:
-	var settings_dictionary = {
-		"lighting_index" = SettingsVariables.lighting_index,
-		"resolution_index" = SettingsVariables.resolution_index,
-		"full_screen" = SettingsVariables.full_screen
-	}
-	return settings_dictionary
+	var entities = get_tree().get_nodes_in_group("tree_trunk")
+	for entity : Plant_Tree in entities:
+		var save_dictionary : Dictionary = entity.get_save_dictionary()
+		save_file.store_line(JSON.stringify(save_dictionary))

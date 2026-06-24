@@ -6,6 +6,8 @@ class_name Grid_Entity extends Node2D
 
 var criteria_collider : Criteria_Collider = null
 
+var is_loaded : bool = false
+
 func _ready() -> void:
 	grid_entity_init()
 
@@ -13,6 +15,12 @@ func grid_entity_init():
 	add_to_group("grid_entity")
 	if(placement_criteria != null):
 		init_collider()
+
+func set_is_loaded():
+	is_loaded = true
+
+func get_is_loaded():
+	return is_loaded
 
 func cursor_destroy():
 	queue_free()
