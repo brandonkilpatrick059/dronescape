@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dj0o6o76fnloc"
+path="res://.godot/imported/Audio 1.ogg-ed7064fc72502502b1a473ca48078f05.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/chimes/Audio 1.ogg"
+dest_files=["res://.godot/imported/Audio 1.ogg-ed7064fc72502502b1a473ca48078f05.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

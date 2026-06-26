@@ -5,12 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://dche8xqmar0ue" path="res://entities/machines/wind_attenuator.tscn" id="3_ef8kk"]
 [ext_resource type="PackedScene" uid="uid://ck6r3j5hb37wj" path="res://entities/criteria/no_solid_center.tscn" id="4_dmgoe"]
 
-[node name="PickerItemWindAttenuator" type="Node2D" node_paths=PackedStringArray("place_criteria")]
+[node name="PickerItemWindAttenuator" type="Node2D"]
 script = ExtResource("1_dmgoe")
 display_sprite_frames = ExtResource("2_dmgoe")
 display_animation = "picker"
 item = ExtResource("3_ef8kk")
-place_criteria = NodePath("")
 is_menu_tab = null
 
 [node name="no_solid_center" parent="." instance=ExtResource("4_dmgoe")]

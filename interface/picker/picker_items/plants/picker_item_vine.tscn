@@ -5,12 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://dl2e3h7muek6d" path="res://entities/plants/vine.tscn" id="3_hp507"]
 [ext_resource type="PackedScene" uid="uid://cnj5bg58d8dbt" path="res://entities/criteria/vine_criteria.tscn" id="4_hihb8"]
 
-[node name="PickerItemVine" type="Node2D" node_paths=PackedStringArray("place_criteria")]
+[node name="PickerItemVine" type="Node2D"]
 script = ExtResource("1_hihb8")
 display_sprite_frames = ExtResource("2_crdvr")
 display_animation = "center_center"
 item = ExtResource("3_hp507")
-place_criteria = NodePath("")
 is_menu_tab = null
 
 [node name="vine_criteria" parent="." instance=ExtResource("4_hihb8")]

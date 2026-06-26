@@ -29,6 +29,7 @@ func _ready() -> void:
 
 func initialize_audio():
 	audio_player.volume_db = max_volume
+	audio_player.bus = "chime"
 
 func play_music():
 	audio_player.play()

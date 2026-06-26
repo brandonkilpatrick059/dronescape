@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dcpksnbji5uwx" path="res://scripts/entities/musician.gd" id="1_y3om2"]
 [ext_resource type="SpriteFrames" uid="uid://fhtbii2wo2y3" path="res://sprites/musicians/guitar_sixth_chord.tres" id="2_y3om2"]
-[ext_resource type="AudioStream" uid="uid://d0k5602prqch3" path="res://audio/chimes/guitar_sixth_chord.ogg" id="3_y3om2"]
+[ext_resource type="AudioStream" uid="uid://cdi43dug72162" path="res://audio/chimes/guitar_sixth_chord.ogg" id="3_y3om2"]
 [ext_resource type="PackedScene" uid="uid://dw4b0byau8het" path="res://entities/criteria/two_tall_flat_stone.tscn" id="4_kute6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk7n0"]

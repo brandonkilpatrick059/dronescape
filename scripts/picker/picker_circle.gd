@@ -103,6 +103,14 @@ func close_menu():
 		var active_menu : Menu = get_tree().get_first_node_in_group("menu")
 		active_menu.set_inactive()
 
+func close_for_file_load():
+	if(not active and not fading_out and not fading_in):
+		fading_in = true
+		fading_out = false
+		var active_menu : Menu = get_tree().get_first_node_in_group("menu")
+		active_menu.set_inactive()
+		disappear()
+
 func update_display_items():
 	for bubble : Picker_Bubble in picker_bubbles:
 		if(bubble != bubble_0):

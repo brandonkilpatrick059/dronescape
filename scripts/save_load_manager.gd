@@ -5,6 +5,8 @@ var save_file : FileAccess
 static var  extension : String = ".aeroscape"
 static var saves_location : String = "user://aeroscapes"
 
+var loading_file_path : String = ""
+
 func _ready() -> void:
 	var dir : DirAccess = DirAccess.open("user://")
 	if(!dir.dir_exists(saves_location)):
@@ -13,7 +15,24 @@ func _ready() -> void:
 func settings_save_file_exists() -> bool:
 	return FileAccess.file_exists("user://settings.save")
 
+func start_load_saved_file(file_path : String):
+	var fade_to_black = get_tree().get_first_node_in_group("fade_to_black")
+	var callback_node = load("res://interface/load_file_callback.tscn").instantiate()
+	fade_to_black.add_child(callback_node)
+	fade_to_black.fade_in()
+	var cursor : Cursor =  get_tree().get_first_node_in_group("cursor")
+	cursor.set_inactive()
+	loading_file_path = file_path
+
+func commence_loading_saved_file():
+	var zero_volume : float = -60
+	AudioServer.set_bus_volume_db(0,zero_volume)
+	#TODO loading spinner on separate thread
+
 func load_aeroscape(file_path : String):
+	var temp_vol = AudioServer.get_bus_volume_db(0)
+	var zero_volume : float = -60
+	AudioServer.set_bus_volume_db(0,zero_volume)
 	var grid_base : Grid_Base = get_tree().get_first_node_in_group("grid_base")
 	grid_base.clear_grid()
 	save_file = FileAccess.open(file_path, FileAccess.READ)
@@ -28,6 +47,7 @@ func load_aeroscape(file_path : String):
 				load_tree(dictionary)
 	save_file.close()
 	grid_base.update()
+	AudioServer.set_bus_volume_db(0,temp_vol)
 
 func save_aeroscape(file_name : String): 
 	var path = str(str("user://aeroscapes/",file_name),".aeroscape")

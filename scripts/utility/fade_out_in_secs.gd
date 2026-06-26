@@ -23,6 +23,12 @@ func fade_out():
 	if(!fading_out && !fading_in):
 		fading_out = true
 
+func is_faded_out() -> bool:
+	return current_alpha == 0.0
+
+func is_faded_in() -> bool:
+	return current_alpha == 1.0
+
 func _physics_process(delta: float) -> void:
 	if(timer.is_stopped()):
 		if(current_alpha > 0.0 && fading_out):

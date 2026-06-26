@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dcpksnbji5uwx" path="res://scripts/entities/musician.gd" id="1_qjcws"]
 [ext_resource type="SpriteFrames" uid="uid://bm7iig2nopio6" path="res://sprites/musicians/guitar_fourth_chord.tres" id="2_qjcws"]
-[ext_resource type="AudioStream" uid="uid://bt7sjqy0m2n3h" path="res://audio/chimes/guitar_fourth_chord.ogg" id="3_qjcws"]
+[ext_resource type="AudioStream" uid="uid://dqdi2704rljni" path="res://audio/chimes/guitar_fourth_chord.ogg" id="3_jklic"]
 [ext_resource type="PackedScene" uid="uid://dw4b0byau8het" path="res://entities/criteria/two_tall_flat_stone.tscn" id="4_jklic"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk7n0"]
@@ -19,7 +19,7 @@ sprite_frames = ExtResource("2_qjcws")
 animation = &"playing"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_qjcws")
+stream = ExtResource("3_jklic")
 attenuation = 12.5533
 panning_strength = 4.0
 
