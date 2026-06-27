@@ -95,7 +95,6 @@ func _on_resolution_picker_item_selected(index: int) -> void:
 	var selected_resolution = SettingsVariables.supported_resolutions[SettingsVariables.resolution_index]
 	get_viewport().content_scale_size = selected_resolution
 
-
 func _on_vol_slider_drag_ended(value_changed: bool) -> void:
 	vol_adjusting = false
 	adjust_volumes()
@@ -117,23 +116,47 @@ func adjust_volumes():
 		index = index + 1
 
 func update_file_load_picker():
-	file_load_picker.clear()
-	load_item_paths.clear()
+	var new_file_load_paths : Array[String] = []
+	var new_file_load_items : Array[String] = []
 	var dir : DirAccess = DirAccess.open(SaveLoadManager.saves_location)
 	dir.list_dir_begin()
 	var file_name = dir.get_next()
 	while file_name != "":
 		if(file_name.ends_with(SaveLoadManager.extension)):
-			load_item_paths.append(file_name)
+			new_file_load_paths.append(file_name)
 			var extension_removed = file_name.replace(SaveLoadManager.extension,"")
-			file_load_picker.add_item(extension_removed)
+			new_file_load_items.append(extension_removed)
 		file_name = dir.get_next()
+	if(!matches_file_load_paths(new_file_load_paths)):
+		update_file_load_picker_items(new_file_load_items,new_file_load_paths)
+		
+
+func matches_file_load_paths(paths : Array[String]):
+	var index = 0
+	var matches : bool = true
+	if(paths.size() != load_item_paths.size()):
+		matches = false
+	else:
+		for path in paths:
+			if path != load_item_paths[index]:
+				matches = false
+				break
+			index = index + 1
+	return matches
+
+func update_file_load_picker_items(items : Array[String], paths : Array[String]):
+	file_load_picker.clear()
+	load_item_paths.clear()
+	var index = 0
+	while(index < items.size()):
+		file_load_picker.add_item(items[index])
+		load_item_paths.append(paths[index])
+		index = index + 1
 
 func _on_save_button_pressed() -> void:
 	save_file_ui.visible = true
 	load_file_ui.visible = false
 	main_ui.visible = false
-
 
 func _on_load_button_pressed() -> void:
 	save_file_ui.visible = false
@@ -141,13 +164,11 @@ func _on_load_button_pressed() -> void:
 	main_ui.visible = false
 	update_file_load_picker()
 
-
 func _on_back_button_pressed() -> void:
 	save_file_ui.visible = false
 	load_file_ui.visible = false
 	main_ui.visible = true
 	save_console.text = ""
-
 
 func _on_save_file_button_pressed() -> void:
 	var new_name = save_file_name.text
@@ -182,3 +203,7 @@ func _on_load_file_button_pressed() -> void:
 			load_path = str(SaveLoadManager.saves_location,load_path)
 			var save_load_manager : SaveLoadManager = get_tree().get_first_node_in_group("save_load_manager")
 			save_load_manager.load_aeroscape(load_path)
+
+func _physics_process(delta: float) -> void:
+	if(load_file_ui.visible == true):
+		update_file_load_picker()

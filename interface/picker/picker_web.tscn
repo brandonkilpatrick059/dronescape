@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://dro861wwj4abf"]
+[gd_scene load_steps=82 format=3 uid="uid://dro861wwj4abf"]
 
 [ext_resource type="Script" uid="uid://bdec8x55j6u7g" path="res://scripts/picker/picker_web.gd" id="1_gb7f4"]
 [ext_resource type="PackedScene" uid="uid://dveffq21xw1mh" path="res://interface/picker/picker_web_node.tscn" id="1_ilne7"]
@@ -39,8 +39,10 @@
 [ext_resource type="PackedScene" uid="uid://btd1bwtfss8wn" path="res://interface/picker/picker_items/tabs/picker_item_sndtrk_tab.tscn" id="16_4qrvy"]
 [ext_resource type="PackedScene" uid="uid://bif3i6w0j63lw" path="res://interface/picker/picker_items/stones/picker_item_green_brick.tscn" id="16_g5n8b"]
 [ext_resource type="PackedScene" uid="uid://qn7gofcuucdy" path="res://interface/picker/picker_items/tabs/picker_item_green_brick_nonsolid_tab.tscn" id="16_vxg0y"]
+[ext_resource type="PackedScene" uid="uid://kk8atnrx2gvn" path="res://interface/picker/picker_items/stones/picker_item_white_stone.tscn" id="17_4euys"]
 [ext_resource type="PackedScene" uid="uid://suymi8jnwdlu" path="res://interface/picker/picker_items/tabs/picker_item_ep_tab.tscn" id="17_56wr2"]
 [ext_resource type="PackedScene" uid="uid://duvo7hcxey3w6" path="res://interface/picker/picker_items/stones/picker_item_green_brick_2.tscn" id="17_ysruc"]
+[ext_resource type="PackedScene" uid="uid://35phw3hqyyxr" path="res://interface/picker/picker_items/tabs/picker_item_white_brick_tab.tscn" id="18_75mjy"]
 [ext_resource type="PackedScene" uid="uid://dbs02evi70cmo" path="res://interface/picker/picker_items/musicians/picker_item_guitar_root_chord.tscn" id="18_epfp3"]
 [ext_resource type="PackedScene" uid="uid://cegrqao13clup" path="res://interface/picker/picker_items/musicians/picker_item_guitar_fourth_chord.tscn" id="18_nyo6y"]
 [ext_resource type="PackedScene" uid="uid://duv54i0175m33" path="res://interface/picker/picker_items/musicians/picker_item_guitar_sixth_chord.tscn" id="19_lntgu"]
@@ -52,10 +54,12 @@
 [ext_resource type="PackedScene" uid="uid://csi5xfp8f6ixe" path="res://interface/picker/picker_items/stones/picker_item_green_brick_nonsolid.tscn" id="23_uklau"]
 [ext_resource type="PackedScene" uid="uid://kl5vnbi5a1gq" path="res://interface/picker/picker_items/musicians/picker_item_ep_fourth_chord.tscn" id="24_0m7v4"]
 [ext_resource type="PackedScene" uid="uid://c6sxgh2ev0aa1" path="res://interface/picker/picker_items/chimes/picker_item_sndtrk_sixth_below.tscn" id="24_a6itp"]
+[ext_resource type="PackedScene" uid="uid://yyi72hbfd1it" path="res://interface/picker/picker_items/stones/picker_item_white_stone_nonsolid.tscn" id="24_hsm2j"]
 [ext_resource type="PackedScene" uid="uid://hw7rytj4ku80" path="res://interface/picker/picker_items/stones/picker_item_green_brick_nonsolid_2.tscn" id="24_jv2pm"]
 [ext_resource type="PackedScene" uid="uid://k8qii01y6ejf" path="res://interface/picker/picker_items/chimes/picker_item_sndtrk_third.tscn" id="25_2fgbo"]
 [ext_resource type="PackedScene" uid="uid://dalmbhpud7moj" path="res://interface/picker/picker_items/musicians/picker_item_ep_root_chord.tscn" id="25_y3nep"]
 [ext_resource type="PackedScene" uid="uid://vs4dw08oaqmu" path="res://interface/picker/picker_items/musicians/picker_item_ep_sixth_chord.tscn" id="26_7am4d"]
+[ext_resource type="PackedScene" uid="uid://cgcb2q5805h5t" path="res://interface/picker/picker_items/tabs/picker_item_white_brick_nonsolid_tab.tscn" id="26_abu6c"]
 [ext_resource type="PackedScene" uid="uid://b7fhe2hc2ktm" path="res://interface/picker/picker_items/stones/picker_item_blue_brick.tscn" id="26_jgo85"]
 [ext_resource type="PackedScene" uid="uid://ihoj7ree1gay" path="res://interface/picker/picker_items/musicians/picker_item_ep_silent.tscn" id="27_0m7v4"]
 [ext_resource type="PackedScene" uid="uid://bsuw3g0qub5fg" path="res://interface/picker/picker_items/stones/picker_item_blue_brick_2.tscn" id="27_4g2km"]
@@ -63,13 +67,17 @@
 [ext_resource type="PackedScene" uid="uid://bgmx1i8qfpfam" path="res://interface/picker/picker_items/plants/picker_item_tree_tab.tscn" id="29_0bedl"]
 [ext_resource type="PackedScene" uid="uid://13hnhewndfl6" path="res://interface/picker/picker_items/stones/picker_item_blue_stone_nonsolid.tscn" id="29_1rdnb"]
 [ext_resource type="PackedScene" uid="uid://cd8oenvad7l7c" path="res://interface/picker/picker_items/plants/picker_item_tree_1.tscn" id="29_us33i"]
+[ext_resource type="PackedScene" uid="uid://bun20uhv63og7" path="res://interface/picker/picker_items/stones/picker_item_white_brick.tscn" id="30_ea4m0"]
 [ext_resource type="PackedScene" uid="uid://dkgs8d2ilr40m" path="res://interface/picker/picker_items/stones/picker_item_blue_stone_nonsolid_2.tscn" id="30_wbjhn"]
 [ext_resource type="PackedScene" uid="uid://ddj7k8e74rops" path="res://interface/picker/picker_items/plants/picker_item_tree_2.tscn" id="31_1icim"]
+[ext_resource type="PackedScene" uid="uid://pw42xe73n08u" path="res://interface/picker/picker_items/stones/picker_item_white_brick_2.tscn" id="31_x6ud6"]
 [ext_resource type="PackedScene" uid="uid://c2twg53dqf7bf" path="res://interface/picker/picker_items/plants/picker_item_tree_3.tscn" id="32_n61fb"]
 [ext_resource type="PackedScene" uid="uid://b6yq0ico5mdxl" path="res://interface/picker/picker_items/plants/picker_item_tree_4.tscn" id="33_4dmxk"]
 [ext_resource type="PackedScene" uid="uid://bynkyggytwk5b" path="res://interface/picker/picker_items/stones/picker_item_blue_brick_nonsolid.tscn" id="35_y041e"]
 [ext_resource type="PackedScene" uid="uid://bnm5odsjf2e0u" path="res://interface/picker/picker_items/stones/picker_item_blue_brick_nonsolid_2.tscn" id="36_jjwjs"]
 [ext_resource type="PackedScene" uid="uid://bflptma8wl1hl" path="res://interface/picker/picker_items/stones/picker_item_blue_brick_nonsolid_3.tscn" id="37_p7n24"]
+[ext_resource type="PackedScene" uid="uid://ck303l2woux8e" path="res://interface/picker/picker_items/stones/picker_item_white_brick_nonsolid.tscn" id="41_bvcnc"]
+[ext_resource type="PackedScene" uid="uid://d0e07yh3w0p51" path="res://interface/picker/picker_items/stones/picker_item_white_brick_nonsolid_2.tscn" id="42_44aq6"]
 [ext_resource type="PackedScene" uid="uid://qywoyqlvu0t8" path="res://interface/picker/picker_items/props/picker_item_pillar_small.tscn" id="53_frt1v"]
 [ext_resource type="PackedScene" uid="uid://mlcpr2cf0ybn" path="res://interface/picker/picker_items/machines/picker_item_wind_attenuator.tscn" id="55_gcrj5"]
 [ext_resource type="PackedScene" uid="uid://cfcegah3b56fo" path="res://interface/picker/picker_items/plants/picker_item_bush.tscn" id="61_xg5el"]
@@ -82,25 +90,18 @@ script = ExtResource("1_gb7f4")
 [node name="display_items" type="Node2D" parent="central_circle"]
 
 [node name="PickerItemChimeTab" parent="central_circle/display_items" instance=ExtResource("3_8d2d4")]
-is_menu_tab = null
 
 [node name="PickerItemStoneTab" parent="central_circle/display_items" instance=ExtResource("4_eeast")]
-is_menu_tab = null
 
 [node name="PickerItemStoneNonsolidTab" parent="central_circle/display_items" instance=ExtResource("5_lkjr6")]
-is_menu_tab = null
 
 [node name="PickerItemPlantTab" parent="central_circle/display_items" instance=ExtResource("6_lduwx")]
-is_menu_tab = null
 
 [node name="PickerItemMachineTab" parent="central_circle/display_items" instance=ExtResource("5_m43hu")]
-is_menu_tab = null
 
 [node name="PickerItemWater" parent="central_circle/display_items" instance=ExtResource("8_g8c2t")]
-is_menu_tab = null
 
 [node name="PickerItemPropTab" parent="central_circle/display_items" instance=ExtResource("9_c3jy3")]
-is_menu_tab = null
 
 [node name="PickerItemMenuTab" parent="central_circle/display_items" instance=ExtResource("10_p7n24")]
 
@@ -111,22 +112,20 @@ prev_web_node = "picker_center"
 [node name="display_items" type="Node2D" parent="stone_circle"]
 
 [node name="PickerItemPurpleStone" parent="stone_circle/display_items" instance=ExtResource("3_dquct")]
-is_menu_tab = null
 
 [node name="PickerItemPurpleBrickTab" parent="stone_circle/display_items" instance=ExtResource("7_8d2d4")]
-is_menu_tab = null
 
 [node name="PickerItemGreenStone" parent="stone_circle/display_items" instance=ExtResource("11_me2jx")]
-is_menu_tab = null
 
 [node name="PickerItemGreenBrickTab" parent="stone_circle/display_items" instance=ExtResource("12_ysruc")]
-is_menu_tab = null
 
 [node name="PickerItemBlueStoneTab" parent="stone_circle/display_items" instance=ExtResource("13_pe014")]
-is_menu_tab = null
 
 [node name="PickerItemBlueBrickTab" parent="stone_circle/display_items" instance=ExtResource("15_4g2km")]
-is_menu_tab = null
+
+[node name="PickerItemWhiteStone" parent="stone_circle/display_items" instance=ExtResource("17_4euys")]
+
+[node name="PickerItemWhiteBrickTab" parent="stone_circle/display_items" instance=ExtResource("18_75mjy")]
 
 [node name="stone_nonsolid_circle" parent="." groups=["picker_stone_nonsolid"] instance=ExtResource("1_ilne7")]
 position = Vector2(162, -14)
@@ -135,23 +134,21 @@ prev_web_node = "picker_center"
 [node name="display_items" type="Node2D" parent="stone_nonsolid_circle"]
 
 [node name="PickerItemPurpleStoneNonsolid" parent="stone_nonsolid_circle/display_items" instance=ExtResource("8_ef13l")]
-is_menu_tab = null
 
 [node name="PickerItemPurpleBrickNonsolidTab" parent="stone_nonsolid_circle/display_items" instance=ExtResource("12_2fgbo")]
-is_menu_tab = null
 
 [node name="PickerItemGreenStoneNonsolid" parent="stone_nonsolid_circle/display_items" instance=ExtResource("15_ce3pd")]
 position = Vector2(164.036, -60.9373)
-is_menu_tab = null
 
 [node name="PickerItemGreenBrickNonsolidTab" parent="stone_nonsolid_circle/display_items" instance=ExtResource("16_vxg0y")]
-is_menu_tab = null
 
 [node name="PickerItemBlueStoneNonsolidTab" parent="stone_nonsolid_circle/display_items" instance=ExtResource("19_wbjhn")]
-is_menu_tab = null
 
 [node name="PickerItemBlueBrickNonsolidTab" parent="stone_nonsolid_circle/display_items" instance=ExtResource("21_jjwjs")]
-is_menu_tab = null
+
+[node name="PickerItemWhiteStoneNonsolid" parent="stone_nonsolid_circle/display_items" instance=ExtResource("24_hsm2j")]
+
+[node name="PickerItemWhiteBrickNonsolidTab" parent="stone_nonsolid_circle/display_items" instance=ExtResource("26_abu6c")]
 
 [node name="purple_brick_circle" parent="." groups=["picker_purple_brick"] instance=ExtResource("1_ilne7")]
 position = Vector2(204, -178)
@@ -161,11 +158,9 @@ prev_web_node = "picker_stone"
 
 [node name="PickerItemPurpleBrick2" parent="purple_brick_circle/display_items" instance=ExtResource("8_m43hu")]
 position = Vector2(-84, 70)
-is_menu_tab = null
 
 [node name="PickerItemPurpleBrick" parent="purple_brick_circle/display_items" instance=ExtResource("2_gb7f4")]
 position = Vector2(-84, 70)
-is_menu_tab = null
 
 [node name="green_brick_circle" parent="." groups=["picker_green_brick"] instance=ExtResource("1_ilne7")]
 position = Vector2(323, -154)
@@ -174,10 +169,18 @@ prev_web_node = "picker_stone"
 [node name="display_items" type="Node2D" parent="green_brick_circle"]
 
 [node name="PickerItemGreenBrick" parent="green_brick_circle/display_items" instance=ExtResource("16_g5n8b")]
-is_menu_tab = null
 
 [node name="PickerItemGreenBrick2" parent="green_brick_circle/display_items" instance=ExtResource("17_ysruc")]
-is_menu_tab = null
+
+[node name="white_brick_circle" parent="." groups=["picker_white_brick"] instance=ExtResource("1_ilne7")]
+position = Vector2(415, -235)
+prev_web_node = "picker_stone"
+
+[node name="display_items" type="Node2D" parent="white_brick_circle"]
+
+[node name="PickerItemWhiteBrick" parent="white_brick_circle/display_items" instance=ExtResource("30_ea4m0")]
+
+[node name="PickerItemWhiteBrick2" parent="white_brick_circle/display_items" instance=ExtResource("31_x6ud6")]
 
 [node name="blue_stone_circle" parent="." groups=["picker_blue_stone"] instance=ExtResource("1_ilne7")]
 position = Vector2(414, -88)
@@ -187,10 +190,8 @@ prev_web_node = "picker_stone"
 
 [node name="PickerItemBlueStone" parent="blue_stone_circle/display_items" instance=ExtResource("13_jv2pm")]
 position = Vector2(-294, -20)
-is_menu_tab = null
 
 [node name="PickerItemBlueStone2" parent="blue_stone_circle/display_items" instance=ExtResource("13_0dkkk")]
-is_menu_tab = null
 
 [node name="blue_brick_circle" parent="." groups=["picker_blue_brick"] instance=ExtResource("1_ilne7")]
 position = Vector2(485, -12)
@@ -199,22 +200,18 @@ prev_web_node = "picker_stone"
 [node name="display_items" type="Node2D" parent="blue_brick_circle"]
 
 [node name="PickerItemBlueBrick" parent="blue_brick_circle/display_items" instance=ExtResource("26_jgo85")]
-is_menu_tab = null
 
 [node name="PickerItemBlueBrick2" parent="blue_brick_circle/display_items" instance=ExtResource("27_4g2km")]
-is_menu_tab = null
 
 [node name="purple_brick_nonsolid_circle" parent="." groups=["picker_purple_brick_nonsolid"] instance=ExtResource("1_ilne7")]
-position = Vector2(285, -48)
+position = Vector2(287, -36)
 prev_web_node = "picker_stone_nonsolid"
 
 [node name="display_items" type="Node2D" parent="purple_brick_nonsolid_circle"]
 
 [node name="PickerItemPurpleBrickNonsolid" parent="purple_brick_nonsolid_circle/display_items" instance=ExtResource("14_a6itp")]
-is_menu_tab = null
 
 [node name="PickerItemPurpleBrickNonsolid2" parent="purple_brick_nonsolid_circle/display_items" instance=ExtResource("15_2fgbo")]
-is_menu_tab = null
 
 [node name="green_brick_nonsolid_circle" parent="." groups=["picker_green_brick_nonsolid"] instance=ExtResource("1_ilne7")]
 position = Vector2(378, 19)
@@ -223,10 +220,18 @@ prev_web_node = "picker_stone_nonsolid"
 [node name="display_items" type="Node2D" parent="green_brick_nonsolid_circle"]
 
 [node name="PickerItemGreenBrickNonsolid" parent="green_brick_nonsolid_circle/display_items" instance=ExtResource("23_uklau")]
-is_menu_tab = null
 
 [node name="PickerItemGreenBrickNonsolid2" parent="green_brick_nonsolid_circle/display_items" instance=ExtResource("24_jv2pm")]
-is_menu_tab = null
+
+[node name="white_brick_nonsolid_circle" parent="." groups=["picker_white_brick_nonsolid"] instance=ExtResource("1_ilne7")]
+position = Vector2(486, 85)
+prev_web_node = "picker_stone_nonsolid"
+
+[node name="display_items" type="Node2D" parent="white_brick_nonsolid_circle"]
+
+[node name="PickerItemWhiteBrickNonsolid" parent="white_brick_nonsolid_circle/display_items" instance=ExtResource("41_bvcnc")]
+
+[node name="PickerItemWhiteBrickNonsolid_2" parent="white_brick_nonsolid_circle/display_items" instance=ExtResource("42_44aq6")]
 
 [node name="blue_stone_nonsolid_circle" parent="." groups=["picker_blue_stone_nonsolid"] instance=ExtResource("1_ilne7")]
 position = Vector2(391, 121)
@@ -235,10 +240,8 @@ prev_web_node = "picker_stone_nonsolid"
 [node name="display_items" type="Node2D" parent="blue_stone_nonsolid_circle"]
 
 [node name="PickerItemBlueStoneNonsolid" parent="blue_stone_nonsolid_circle/display_items" instance=ExtResource("29_1rdnb")]
-is_menu_tab = null
 
 [node name="PickerItemBlueStoneNonsolid2" parent="blue_stone_nonsolid_circle/display_items" instance=ExtResource("30_wbjhn")]
-is_menu_tab = null
 
 [node name="blue_brick_nonsolid_circle" parent="." groups=["picker_blue_brick_nonsolid"] instance=ExtResource("1_ilne7")]
 position = Vector2(322, 203)
@@ -247,13 +250,10 @@ prev_web_node = "picker_stone_nonsolid"
 [node name="display_items" type="Node2D" parent="blue_brick_nonsolid_circle"]
 
 [node name="PickerItemBlueBrickNonsolid" parent="blue_brick_nonsolid_circle/display_items" instance=ExtResource("35_y041e")]
-is_menu_tab = null
 
 [node name="PickerItemBlueBrickNonsolid2" parent="blue_brick_nonsolid_circle/display_items" instance=ExtResource("36_jjwjs")]
-is_menu_tab = null
 
 [node name="PickerItemBlueBrickNonsolid3" parent="blue_brick_nonsolid_circle/display_items" instance=ExtResource("37_p7n24")]
-is_menu_tab = null
 
 [node name="chime_circle" parent="." groups=["picker_chime"] instance=ExtResource("1_ilne7")]
 position = Vector2(2, -144)
@@ -265,16 +265,12 @@ prev_web_node = "picker_center"
 position = Vector2(0, -113)
 
 [node name="PickerItemRecorderTab" parent="chime_circle/display_items" instance=ExtResource("13_6403v")]
-is_menu_tab = null
 
 [node name="PickerItemSndtrkTab" parent="chime_circle/display_items" instance=ExtResource("16_4qrvy")]
-is_menu_tab = null
 
 [node name="PickerItemGuitarTab" parent="chime_circle/display_items" instance=ExtResource("14_lntgu")]
-is_menu_tab = null
 
 [node name="PickerItemEpTab" parent="chime_circle/display_items" instance=ExtResource("17_56wr2")]
-is_menu_tab = null
 
 [node name="recorder_circle" parent="." groups=["picker_recorder"] instance=ExtResource("1_ilne7")]
 position = Vector2(102, -252)
@@ -283,13 +279,10 @@ prev_web_node = "picker_chime"
 [node name="display_items" type="Node2D" parent="recorder_circle"]
 
 [node name="PickerItemRecorderRoot" parent="recorder_circle/display_items" instance=ExtResource("13_ty46p")]
-is_menu_tab = null
 
 [node name="PickerItemRecorderFourth" parent="recorder_circle/display_items" instance=ExtResource("14_advcm")]
-is_menu_tab = null
 
 [node name="PickerItemRecorderFifth" parent="recorder_circle/display_items" instance=ExtResource("14_xa0jl")]
-is_menu_tab = null
 
 [node name="sndtrk_circle" parent="." groups=["picker_sndtrk"] instance=ExtResource("1_ilne7")]
 position = Vector2(176, -380)
@@ -299,23 +292,18 @@ prev_web_node = "picker_chime"
 
 [node name="PickerItemSndtrkSixthBelow" parent="sndtrk_circle/display_items" instance=ExtResource("24_a6itp")]
 position = Vector2(2.60501, 269.678)
-is_menu_tab = null
 
 [node name="PickerItemSndtrkRoot" parent="sndtrk_circle/display_items" instance=ExtResource("22_4qrvy")]
 position = Vector2(2.60501, 269.678)
-is_menu_tab = null
 
 [node name="PickerItemSndtrkThird" parent="sndtrk_circle/display_items" instance=ExtResource("25_2fgbo")]
 position = Vector2(2.60501, 269.678)
-is_menu_tab = null
 
 [node name="PickerItemSndtrkFourth" parent="sndtrk_circle/display_items" instance=ExtResource("21_yc0gq")]
 position = Vector2(2.60501, 269.678)
-is_menu_tab = null
 
 [node name="PickerItemSndtrkSixthAbove" parent="sndtrk_circle/display_items" instance=ExtResource("23_31mcq")]
 position = Vector2(2.60501, 269.678)
-is_menu_tab = null
 
 [node name="guitar_circle" parent="." groups=["picker_guitar"] instance=ExtResource("1_ilne7")]
 position = Vector2(205, -284)
@@ -324,14 +312,11 @@ prev_web_node = "picker_chime"
 [node name="display_items" type="Node2D" parent="guitar_circle"]
 
 [node name="PickerItemGuitarSixthChord" parent="guitar_circle/display_items" instance=ExtResource("19_lntgu")]
-is_menu_tab = null
 
 [node name="PickerItemGuitarRootChord" parent="guitar_circle/display_items" instance=ExtResource("18_epfp3")]
 position = Vector2(-203, 140)
-is_menu_tab = null
 
 [node name="PickerItemGuitarFourthChord" parent="guitar_circle/display_items" instance=ExtResource("18_nyo6y")]
-is_menu_tab = null
 
 [node name="ep_circle" parent="." groups=["picker_ep"] instance=ExtResource("1_ilne7")]
 position = Vector2(295, -255)
@@ -340,16 +325,12 @@ prev_web_node = "picker_chime"
 [node name="display_items" type="Node2D" parent="ep_circle"]
 
 [node name="PickerItemEPSixthChord" parent="ep_circle/display_items" instance=ExtResource("26_7am4d")]
-is_menu_tab = null
 
 [node name="PickerItemEPRootChord" parent="ep_circle/display_items" instance=ExtResource("25_y3nep")]
-is_menu_tab = null
 
 [node name="PickerItemEPFourthChord" parent="ep_circle/display_items" instance=ExtResource("24_0m7v4")]
-is_menu_tab = null
 
 [node name="PickerItemEPSilent" parent="ep_circle/display_items" instance=ExtResource("27_0m7v4")]
-is_menu_tab = null
 
 [node name="warm_vox_circle" parent="." groups=["picker_warm_vox"] instance=ExtResource("1_ilne7")]
 position = Vector2(2, -257)
@@ -358,13 +339,10 @@ prev_web_node = "picker_chime"
 [node name="display_items" type="Node2D" parent="warm_vox_circle"]
 
 [node name="PickerItemWarmVoxRoot" parent="warm_vox_circle/display_items" instance=ExtResource("4_owebj")]
-is_menu_tab = null
 
 [node name="PickerItemWarmVoxFourth" parent="warm_vox_circle/display_items" instance=ExtResource("5_8d2d4")]
-is_menu_tab = null
 
 [node name="PickerItemWarmVoxRootAbove" parent="warm_vox_circle/display_items" instance=ExtResource("6_eeast")]
-is_menu_tab = null
 
 [node name="machine_circle" parent="." groups=["picker_machine"] instance=ExtResource("1_ilne7")]
 position = Vector2(40, 175)
@@ -373,10 +351,8 @@ prev_web_node = "picker_center"
 [node name="display_items" type="Node2D" parent="machine_circle"]
 
 [node name="PickerItemWindAttenuator" parent="machine_circle/display_items" instance=ExtResource("55_gcrj5")]
-is_menu_tab = null
 
 [node name="PickerItemFrogMachine" parent="machine_circle/display_items" instance=ExtResource("7_m43hu")]
-is_menu_tab = null
 
 [node name="prop_circle" parent="." groups=["picker_prop"] instance=ExtResource("1_ilne7")]
 position = Vector2(-161, 67)
@@ -385,7 +361,6 @@ prev_web_node = "picker_center"
 [node name="display_items" type="Node2D" parent="prop_circle"]
 
 [node name="PickerItemPillarSmall" parent="prop_circle/display_items" instance=ExtResource("53_frt1v")]
-is_menu_tab = null
 
 [node name="plant_circle" parent="." groups=["picker_plant"] instance=ExtResource("1_ilne7")]
 position = Vector2(132, 96)
@@ -394,16 +369,12 @@ prev_web_node = "picker_center"
 [node name="display_items" type="Node2D" parent="plant_circle"]
 
 [node name="PickerItemVine" parent="plant_circle/display_items" instance=ExtResource("7_33bpc")]
-is_menu_tab = null
 
 [node name="PickerItemGrass" parent="plant_circle/display_items" instance=ExtResource("27_xfmo8")]
-is_menu_tab = null
 
 [node name="PickerItemTreeTab" parent="plant_circle/display_items" instance=ExtResource("29_0bedl")]
-is_menu_tab = null
 
 [node name="PickerItemBush" parent="plant_circle/display_items" instance=ExtResource("61_xg5el")]
-is_menu_tab = null
 
 [node name="tree_circle" parent="." groups=["picker_tree"] instance=ExtResource("1_ilne7")]
 position = Vector2(261, 107)
@@ -413,16 +384,12 @@ prev_web_node = "picker_plant"
 
 [node name="PickerItemTree1" parent="tree_circle/display_items" instance=ExtResource("29_us33i")]
 position = Vector2(-129, -11)
-is_menu_tab = null
 
 [node name="PickerItemTree2" parent="tree_circle/display_items" instance=ExtResource("31_1icim")]
-is_menu_tab = null
 
 [node name="PickerItemTree3" parent="tree_circle/display_items" instance=ExtResource("32_n61fb")]
-is_menu_tab = null
 
 [node name="PickerItemTree4" parent="tree_circle/display_items" instance=ExtResource("33_4dmxk")]
-is_menu_tab = null
 
 [node name="helper_lines" type="Node2D" parent="."]
 
@@ -436,6 +403,13 @@ default_color = Color(1, 0, 0, 1)
 z_index = 2
 position = Vector2(120, -52)
 points = PackedVector2Array(33, -30, 203, -102)
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Line2D21" type="Line2D" parent="helper_lines"]
+z_index = 2
+position = Vector2(69, -113)
+points = PackedVector2Array(33, -30, 72, -57, 109, -105, 152, -118, 200.214, -77.7754, 285, -102, 347, -122)
 width = 2.0
 default_color = Color(1, 0, 0, 1)
 
@@ -540,7 +514,14 @@ default_color = Color(1, 0, 0, 1)
 [node name="Line2D13" type="Line2D" parent="helper_lines"]
 z_index = 2
 position = Vector2(170, 106)
-points = PackedVector2Array(115, -154, 27, -147)
+points = PackedVector2Array(116, -143, 27, -147)
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Line2D22" type="Line2D" parent="helper_lines"]
+z_index = 2
+position = Vector2(118, 101)
+points = PackedVector2Array(367, -16, 297, -123, 241, -132, 209, -186, 141, -188, 99, -172, 35, -158, 27, -147)
 width = 2.0
 default_color = Color(1, 0, 0, 1)
 

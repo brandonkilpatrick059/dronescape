@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bj2qsd7y2yrox"]
+
+[ext_resource type="Script" uid="uid://bibtitfh7a7o6" path="res://scripts/entities/stone.gd" id="1_8y2tb"]
+[ext_resource type="SpriteFrames" uid="uid://dd304lc3bp3og" path="res://sprites/stones/white_brick_nonsolid/brick_white_nonsolid_2.tres" id="2_8y2tb"]
+[ext_resource type="PackedScene" uid="uid://onxtvmsejgun" path="res://entities/criteria/generic_nonsolid_criteria.tscn" id="3_rjpxe"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk454"]
+size = Vector2(16, 16)
+
+[node name="WhiteBrickNonsolid2" type="Node2D" node_paths=PackedStringArray("placement_criteria") groups=["stone_nonsolid"]]
+z_index = -2
+script = ExtResource("1_8y2tb")
+placement_criteria = NodePath("generic_nonsolid_stone_criteria")
+packedscene_path = "res://entities/stones/white_stone_nonsolid.tscn"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_8y2tb")
+animation = &"bottom_left"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_yk454")
+
+[node name="center" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_yk454")
+
+[node name="top_left" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-8, 8, 8, -8, 8, 8)
+
+[node name="top_right" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-8, -8, 8, 8, -8, 8)
+
+[node name="bottom_left" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-8, -8, 8, 8, 8, -8)
+
+[node name="bottom_right" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-8, 8, 8, -8, -8, -8)
+
+[node name="generic_nonsolid_stone_criteria" parent="." instance=ExtResource("3_rjpxe")]
+
+[connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_exited"]

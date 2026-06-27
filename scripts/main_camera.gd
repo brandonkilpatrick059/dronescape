@@ -1,7 +1,7 @@
 extends Camera2D
 
 var scroll_speed = 1
-var bob_max = 8
+var bob_max = 4
 var bobbing_up = false
 
 var timer := Timer.new()

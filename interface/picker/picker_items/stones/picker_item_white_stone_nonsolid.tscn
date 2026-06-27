@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://yyi72hbfd1it"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_0kcnl"]
+[ext_resource type="SpriteFrames" uid="uid://bt7mk3dhupyqw" path="res://sprites/stones/white_nonsolid/stone_white_nonsolid.tres" id="2_0kcnl"]
+[ext_resource type="PackedScene" uid="uid://bgvylci1pf3kh" path="res://entities/stones/white_stone_nonsolid.tscn" id="3_pk5nx"]
+[ext_resource type="PackedScene" uid="uid://onxtvmsejgun" path="res://entities/criteria/generic_nonsolid_criteria.tscn" id="4_3oafo"]
+
+[node name="PickerItemWhiteStoneNonsolid" type="Node2D" node_paths=PackedStringArray("place_criteria")]
+script = ExtResource("1_0kcnl")
+display_sprite_frames = ExtResource("2_0kcnl")
+display_animation = "center_center"
+item = ExtResource("3_pk5nx")
+place_criteria = NodePath("generic_nonsolid_stone_criteria")
+is_menu_tab = null
+
+[node name="generic_nonsolid_stone_criteria" parent="." instance=ExtResource("4_3oafo")]

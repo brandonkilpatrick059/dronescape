@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://kk8atnrx2gvn"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_fumsy"]
+[ext_resource type="SpriteFrames" uid="uid://ccqoew467j75e" path="res://sprites/stones/white/stone_white.tres" id="2_fumsy"]
+[ext_resource type="PackedScene" uid="uid://c2rx7xkox3a4l" path="res://entities/stones/white_stone.tscn" id="3_e0mmo"]
+[ext_resource type="PackedScene" uid="uid://c51gseuu104ko" path="res://entities/criteria/generic_stone_criteria.tscn" id="4_x7lw1"]
+
+[node name="PickerItemWhiteStone" type="Node2D" node_paths=PackedStringArray("place_criteria")]
+script = ExtResource("1_fumsy")
+display_sprite_frames = ExtResource("2_fumsy")
+display_animation = "center_center"
+item = ExtResource("3_e0mmo")
+place_criteria = NodePath("generic_stone_criteria")
+is_menu_tab = null
+
+[node name="generic_stone_criteria" parent="." instance=ExtResource("4_x7lw1")]

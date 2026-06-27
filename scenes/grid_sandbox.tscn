@@ -65,12 +65,11 @@ texture = ExtResource("10_0q3eu")
 script = ExtResource("9_luqy6")
 wait_time_secs = 10.0
 
-[node name="version_number" type="Node2D" parent="Camera2D"]
+[node name="version_number" type="Node2D" parent="Camera2D/title"]
 z_index = 10
-script = ExtResource("9_luqy6")
-wait_time_secs = 10.0
+position = Vector2(0, 64)
 
-[node name="Label" type="Label" parent="Camera2D/version_number"]
+[node name="Label" type="Label" parent="Camera2D/title/version_number"]
 offset_left = -16.0
 offset_top = 112.0
 offset_right = 24.0

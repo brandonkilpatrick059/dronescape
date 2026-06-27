@@ -5,11 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://bid74wmwj8ih" path="res://entities/plants/grass.tscn" id="3_r2dn4"]
 [ext_resource type="PackedScene" uid="uid://8v18npcehtx1" path="res://entities/criteria/grass_criteria.tscn" id="4_e0dal"]
 
-[node name="PickerItemGrass" type="Node2D"]
+[node name="PickerItemGrass" type="Node2D" node_paths=PackedStringArray("place_criteria")]
 script = ExtResource("1_e0dal")
 display_sprite_frames = ExtResource("2_e0dal")
 display_animation = "picker"
 item = ExtResource("3_r2dn4")
+place_criteria = NodePath("grass_criteria")
 is_menu_tab = null
 
 [node name="grass_criteria" parent="." instance=ExtResource("4_e0dal")]

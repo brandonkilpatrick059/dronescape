@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2rx7xkox3a4l"]
+
+[ext_resource type="Script" uid="uid://bibtitfh7a7o6" path="res://scripts/entities/stone.gd" id="1_g3umo"]
+[ext_resource type="SpriteFrames" uid="uid://ccqoew467j75e" path="res://sprites/stones/white/stone_white.tres" id="2_g3umo"]
+[ext_resource type="PackedScene" uid="uid://c51gseuu104ko" path="res://entities/criteria/generic_stone_criteria.tscn" id="3_n3vbw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk454"]
+size = Vector2(16, 16)
+
+[node name="WhiteStone" type="Node2D" node_paths=PackedStringArray("placement_criteria") groups=["solid", "stone"]]
+script = ExtResource("1_g3umo")
+placement_criteria = NodePath("generic_stone_criteria")
+packedscene_path = "res://entities/stones/white_stone.tscn"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_g3umo")
+animation = &"bottom_right"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_yk454")
+
+[node name="center" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_yk454")
+
+[node name="top_left" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-8, 8, 8, -8, 8, 8)
+
+[node name="top_right" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-8, -8, 8, 8, -8, 8)
+
+[node name="bottom_left" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-8, -8, 8, 8, 8, -8)
+
+[node name="bottom_right" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-8, 8, 8, -8, -8, -8)
+
+[node name="grid_collision" type="StaticBody2D" parent="."]
+
+[node name="center" type="CollisionShape2D" parent="grid_collision"]
+shape = SubResource("RectangleShape2D_yk454")
+
+[node name="generic_stone_criteria" parent="." instance=ExtResource("3_n3vbw")]
+
+[connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_exited"]
