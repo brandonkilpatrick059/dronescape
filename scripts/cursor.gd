@@ -99,7 +99,7 @@ func set_picker_node(picker_node : Picker_Item):
 
 func delete_targeted():
 	if(active):
-		if(rectangle_deleting):
+		if(rectangle_selecting && rectangle_deleting):
 			var delete_bodies : Array[Node2D] = []
 			for rect : SelectRect in select_rects:
 				delete_bodies.append_array(rect.get_center_overlapping())
@@ -192,13 +192,16 @@ func set_active():
 func clear_select_rects():
 	for rect in select_rects:
 		rect.disable()
-	select_rects_pool.append_array(select_rects)
 	select_rects.clear()
 
 func get_select_rect_from_pool() -> Node:
-	var rect = select_rects_pool.pop_back()
-	rect.enable()
-	return rect
+	var ret_rect = null
+	for rect in select_rects_pool:
+		if(not rect.get_active()):
+			rect.enable()
+			ret_rect = rect
+			break
+	return ret_rect
 
 #func return_select_rect_to_pool(rect : Node):
 	#rect.disable()

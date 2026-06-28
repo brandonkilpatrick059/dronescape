@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://1cway6yiukkh" path="res://entities/criteria_collider.tscn" id="3_4c5tr"]
 
 [node name="SelectRect" type="Sprite2D"]
+z_index = 5
 texture = ExtResource("1_vda0t")
 script = ExtResource("2_pn3nb")
 

@@ -10,6 +10,9 @@ func _ready() -> void:
 func get_center_overlapping() -> Array[Node2D]:
 	return $criteria_collider.get_center_overlapping()
 
+func get_active() -> bool:
+	return active
+
 func disable():
 	visible = false
 	active = false
