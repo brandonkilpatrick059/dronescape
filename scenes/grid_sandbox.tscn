@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bvfn8m6rprwus"]
+[gd_scene load_steps=28 format=3 uid="uid://bvfn8m6rprwus"]
 
 [ext_resource type="PackedScene" uid="uid://clq5nv0qo1xmk" path="res://scenes/grid_base.tscn" id="1_qdhqp"]
 [ext_resource type="Texture2D" uid="uid://6q2qjpjla1ai" path="res://sprites/backgrounds/generic_gradient.png" id="3_pl366"]
@@ -24,6 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://5g0h50u7kjhn" path="res://interface/picker/picker_circle.tscn" id="20_gipbt"]
 [ext_resource type="Script" uid="uid://dl12t0fscv7ar" path="res://scripts/save_load_manager.gd" id="22_cfbmo"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s0ca8"]
+light_mode = 1
+
 [sub_resource type="LabelSettings" id="LabelSettings_f5rqd"]
 font = ExtResource("18_or136")
 font_size = 8
@@ -47,6 +50,7 @@ z_index = 5
 script = ExtResource("5_l6vqa")
 
 [node name="Menu" parent="Camera2D" instance=ExtResource("4_v6qp0")]
+material = SubResource("CanvasItemMaterial_s0ca8")
 
 [node name="screen_fade_to_black" type="Sprite2D" parent="Camera2D" groups=["fade_to_black"]]
 visible = false

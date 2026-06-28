@@ -23,12 +23,13 @@ func initialize_grid():
 	load_default_preset()
 
 func update():
-	update_orientations("stone")
-	update_orientations("stone_nonsolid")
-	update_orientations("vine")
-	update_orientations("grass")
-	var musician_manager : Musician_Manager = get_tree().get_first_node_in_group("musician_manager")
-	musician_manager.update_musicians()
+	if(!Engine.is_editor_hint()):
+		update_orientations("stone")
+		update_orientations("stone_nonsolid")
+		update_orientations("vine")
+		update_orientations("grass")
+		var musician_manager : Musician_Manager = get_tree().get_first_node_in_group("musician_manager")
+		musician_manager.update_musicians()
 
 func clear_grid():
 	var grid_entities = get_tree().get_nodes_in_group("grid_entity")

@@ -14,9 +14,26 @@ var active : bool = false
 
 var create_grid_entity : PackedScene = load("res://entities/stones/purple_stone.tscn")
 
+var select_rect : PackedScene = load("res://interface/select_rect.tscn")
+
 var current_picker_node : Picker_Item = null
 
 var can_place_entity : bool = true
+
+var main_action_pressed : bool = false
+var second_action_pressed : bool = false
+var rectangle_selecting : bool = false
+var rectangle_start : Vector2 = Vector2(0,0)
+var rectangle_end : Vector2 = Vector2(0,0)
+var rectangle_creating : bool = false
+var rectangle_deleting : bool = false
+
+var select_rects_pool : Array[Node] = []
+var select_rects : Array[Node] = []
+
+var prev_position : Vector2 = Vector2(0,0)
+
+var initialized : bool = false
 
 const delete_target_order : Array[String] = [
 		"machine",
@@ -33,14 +50,35 @@ const delete_target_order : Array[String] = [
 func _ready() -> void:
 	var purple_stone_pick = load("res://interface/picker/picker_items/stones/picker_item_purple_stone.tscn")
 	current_picker_node = purple_stone_pick.instantiate()
+	prev_position = global_position
+
 
 func handle_input():
 	if(Input.is_action_just_pressed("main_action")):
-		spawn_grid_entity()
+		if(!rectangle_selecting):
+			rectangle_start = global_position
+			rectangle_creating = true
+			rectangle_deleting = false
+			main_action_pressed = true
+	elif(Input.is_action_just_released("main_action")):
+		main_action_pressed = false
+		if(rectangle_selecting && rectangle_deleting):
+			pass #todo support this
+		else:
+			spawn_grid_entity()
+		rectangle_selecting = false
+		clear_select_rects()
 	elif(Input.is_action_just_pressed("second_action")):
+		if(!rectangle_selecting):
+			rectangle_start = global_position
+			rectangle_deleting = true
+			rectangle_creating = false
+			second_action_pressed = true
+	elif(Input.is_action_just_released("second_action")):
+		second_action_pressed = false
 		delete_targeted()
-	#elif(Input.is_action_just_pressed("third_action")):
-		#create_picker()
+		rectangle_selecting = false
+		clear_select_rects()
 
 func is_active() -> bool:
 	return active
@@ -59,24 +97,25 @@ func set_picker_node(picker_node : Picker_Item):
 	current_picker_node.queue_free()
 	current_picker_node = picker_node
 
-#func create_picker():
-	#if(active):
-		#var num_pickers : int = get_tree().get_nodes_in_group("picker_circle").size()
-		#if(num_pickers == 0):
-			#var circle = load("res://interface/picker/picker_circle.tscn").instantiate()
-			#get_parent().add_child(circle)
-			#circle.global_position = global_position
-			#set_inactive()
-
 func delete_targeted():
 	if(active):
-		var bodies: Array[Node2D] = get_overlapping_bodies()
-		if(bodies.size() > 0):
-			var target = get_delete_target(bodies)
-			if(target != null && target.is_in_group("grid_entity")):
-				target.cursor_destroy()
-				update_grid_base()
-				play_stream("res://audio/interface/brush_snare.ogg")
+		if(rectangle_deleting):
+			var delete_bodies : Array[Node2D] = []
+			for rect : SelectRect in select_rects:
+				delete_bodies.append_array(rect.get_center_overlapping())
+			for body in delete_bodies:
+				if(body.get_parent().is_in_group("grid_entity")):
+					body.get_parent().cursor_destroy()
+			update_grid_base()
+			play_stream("res://audio/interface/brush_snare.ogg")
+		else:
+			var bodies: Array[Node2D] = get_overlapping_bodies()
+			if(bodies.size() > 0):
+				var target = get_delete_target(bodies)
+				if(target != null && target.is_in_group("grid_entity")):
+					target.cursor_destroy()
+					update_grid_base()
+					play_stream("res://audio/interface/brush_snare.ogg")
 
 func get_delete_target(bodies : Array[Node2D]):
 	var return_body : Node2D = null
@@ -105,14 +144,14 @@ func spawn_grid_entity():
 		else:
 			play_stream("res://audio/interface/no_place.ogg")
 
-func spawn_entity():
+func spawn_entity(create_pos : Vector2 = global_position):
 	var entity : Grid_Entity = create_grid_entity.instantiate()
 	get_parent().add_child(entity)
 	if(current_picker_node.get_place_criteria() != null &&
 		entity.get_placement_criteria() == null):
 		var criteria = current_picker_node.get_place_criteria().duplicate()
 		entity.set_placement_criteria(criteria)
-	entity.global_position = global_position
+	entity.global_position = create_pos
 	update_grid_base()
 	var drum = randi_range(1,3)
 	play_stream(str(str("res://audio/interface/drum/",drum),".ogg"))
@@ -144,10 +183,65 @@ func fade_near_picker_circle():
 func set_inactive():
 	visible = false
 	active = false
+	main_action_pressed = false
 
 func set_active():
 	visible = true
 	active = true
+
+func clear_select_rects():
+	for rect in select_rects:
+		rect.disable()
+	select_rects_pool.append_array(select_rects)
+	select_rects.clear()
+
+func get_select_rect_from_pool() -> Node:
+	var rect = select_rects_pool.pop_back()
+	rect.enable()
+	return rect
+
+#func return_select_rect_to_pool(rect : Node):
+	#rect.disable()
+	#select_rects_pool.append(rect)
+
+func update_rectangle_select():
+	if(main_action_pressed || second_action_pressed):
+		if(global_position.distance_to(rectangle_start) > 0):
+			clear_select_rects()
+			rectangle_selecting = true
+			rectangle_end = global_position
+			var x_step = Grid_Base.grid_size
+			var y_step = Grid_Base.grid_size
+			if(rectangle_end.x < rectangle_start.x):
+				x_step = -x_step
+			if(rectangle_end.y < rectangle_start.y):
+				y_step = -y_step
+			var x_pos = rectangle_start.x
+			var y_pos = rectangle_start.y
+			var max_x_steps = 8
+			var max_y_steps = 8
+			var x_steps = 0
+			var y_steps = 0
+			while(x_pos != rectangle_end.x + x_step && #add step to make it inclusiv
+			x_steps < max_x_steps): 
+				while(y_pos != rectangle_end.y + y_step &&
+				y_steps < max_y_steps):
+					var new_select_rect = get_select_rect_from_pool()
+					if(rectangle_creating):
+						new_select_rect.modulate = Color(0,1,0,0.5)
+					elif(rectangle_deleting):
+						new_select_rect.modulate = Color(1,0,0,0.5)
+					new_select_rect.global_position = Vector2(x_pos,y_pos)
+					select_rects.append(new_select_rect)
+					y_pos = y_pos + y_step
+					y_steps = y_steps + 1
+				x_pos = x_pos + x_step
+				x_steps = x_steps + 1
+				y_pos = rectangle_start.y
+				y_steps = 0
+	else:
+		rectangle_selecting = false
+		clear_select_rects()
 
 func update_can_place_entity():
 	var above : Array[Node2D] =  []
@@ -162,12 +256,25 @@ func update_can_place_entity():
 	center.append_array(criteria_collider.get_center_overlapping())
 	can_place_entity = current_picker_node.check_criteria(above,left,below,right,center)
 
+func initialize_cursor():
+	var index = 0
+	var max_select_rects = 64
+	while(index < max_select_rects):
+		var new_rect = select_rect.instantiate()
+		get_parent().add_child(new_rect)
+		select_rects_pool.append(new_rect)
+		index = index + 1
+
 func _physics_process(delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()
 	var grid_position = mouse_pos
 	var grid_size_vect : Vector2 = Vector2(Grid_Base.grid_size,Grid_Base.grid_size)
-	global_position = grid_position.snapped(grid_size_vect)
-	
+	var new_position : Vector2 = grid_position.snapped(grid_size_vect)
+	if(prev_position != new_position):
+		global_position = new_position
+		prev_position = new_position
+		update_rectangle_select()
+
 	update_can_place_entity()
 	if(can_place_entity):
 		modulate = Color(1,1,1,1)
@@ -175,3 +282,7 @@ func _physics_process(delta: float) -> void:
 		modulate = Color(1,0,0,1)
 	
 	handle_input()
+	
+	if(not initialized):
+		initialize_cursor()
+		initialized = true
