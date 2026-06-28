@@ -35,6 +35,10 @@ var prev_position : Vector2 = Vector2(0,0)
 
 var initialized : bool = false
 
+var select_rect_timer := Timer.new()
+
+var input_lockout_timer := Timer.new()
+
 const delete_target_order : Array[String] = [
 		"machine",
 		"musician",
@@ -51,34 +55,42 @@ func _ready() -> void:
 	var purple_stone_pick = load("res://interface/picker/picker_items/stones/picker_item_purple_stone.tscn")
 	current_picker_node = purple_stone_pick.instantiate()
 	prev_position = global_position
-
+	select_rect_timer.one_shot = true
+	add_child(select_rect_timer)
+	input_lockout_timer.one_shot = true
+	add_child(input_lockout_timer)
+	input_lockout_timer.start(0.1)
 
 func handle_input():
-	if(Input.is_action_just_pressed("main_action")):
-		if(!rectangle_selecting):
-			rectangle_start = global_position
-			rectangle_creating = true
-			rectangle_deleting = false
-			main_action_pressed = true
-	elif(Input.is_action_just_released("main_action")):
-		main_action_pressed = false
-		if(rectangle_selecting && rectangle_deleting):
-			pass #todo support this
-		else:
-			spawn_grid_entity()
-		rectangle_selecting = false
-		clear_select_rects()
-	elif(Input.is_action_just_pressed("second_action")):
-		if(!rectangle_selecting):
-			rectangle_start = global_position
-			rectangle_deleting = true
-			rectangle_creating = false
-			second_action_pressed = true
-	elif(Input.is_action_just_released("second_action")):
-		second_action_pressed = false
-		delete_targeted()
-		rectangle_selecting = false
-		clear_select_rects()
+	if(is_active() && input_lockout_timer.is_stopped()):
+		if(Input.is_action_just_pressed("main_action")):
+			if(!rectangle_selecting):
+				rectangle_start = global_position
+				rectangle_creating = true
+				rectangle_deleting = false
+				main_action_pressed = true
+		elif(Input.is_action_just_released("main_action")):
+			main_action_pressed = false
+			if(rectangle_selecting && rectangle_creating):
+				if(can_place_entity):
+					get_select_rects()
+					for rect in select_rects:
+						spawn_grid_entity(rect)
+			else:
+				spawn_grid_entity()
+			rectangle_selecting = false
+			clear_select_rects_pool()
+		elif(Input.is_action_just_pressed("second_action")):
+			if(!rectangle_selecting):
+				rectangle_start = global_position
+				rectangle_deleting = true
+				rectangle_creating = false
+				second_action_pressed = true
+		elif(Input.is_action_just_released("second_action")):
+			second_action_pressed = false
+			delete_targeted()
+			rectangle_selecting = false
+			clear_select_rects_pool()
 
 func is_active() -> bool:
 	return active
@@ -101,7 +113,7 @@ func delete_targeted():
 	if(active):
 		if(rectangle_selecting && rectangle_deleting):
 			var delete_bodies : Array[Node2D] = []
-			for rect : SelectRect in select_rects:
+			for rect : SelectRect in get_select_rects():
 				delete_bodies.append_array(rect.get_center_overlapping())
 			for body in delete_bodies:
 				if(body.get_parent().is_in_group("grid_entity")):
@@ -128,19 +140,23 @@ func get_delete_target(bodies : Array[Node2D]):
 			break
 	return return_body
 
-func spawn_grid_entity():
+func spawn_grid_entity(select_rect : SelectRect = null):
 	if(active):
 		if(can_place_entity):
-			var bodies: Array[Node2D] = get_overlapping_bodies()
-			if(bodies.size() == 0):
+			if(select_rect == null):
 				spawn_entity()
 			else:
-				var can_spawn : bool = true
-				for body in bodies:
-					if(body.is_in_group("solid")):
-						can_spawn = false
-				if(can_spawn):
-					spawn_entity()
+				spawn_entity(select_rect.global_position)
+			#var bodies: Array[Node2D] = get_overlapping_bodies()
+			#if(bodies.size() == 0):
+				#spawn_entity()
+			#else:
+				#var can_spawn : bool = true
+				#for body in bodies:
+					#if(body.is_in_group("solid")):
+						#can_spawn = false
+				#if(can_spawn):
+					#spawn_entity()
 		else:
 			play_stream("res://audio/interface/no_place.ogg")
 
@@ -184,15 +200,16 @@ func set_inactive():
 	visible = false
 	active = false
 	main_action_pressed = false
+	input_lockout_timer.start(0.1)
 
 func set_active():
 	visible = true
 	active = true
+	input_lockout_timer.start(0.1)
 
-func clear_select_rects():
-	for rect in select_rects:
+func clear_select_rects_pool():
+	for rect in select_rects_pool:
 		rect.disable()
-	select_rects.clear()
 
 func get_select_rect_from_pool() -> Node:
 	var ret_rect = null
@@ -203,14 +220,17 @@ func get_select_rect_from_pool() -> Node:
 			break
 	return ret_rect
 
-#func return_select_rect_to_pool(rect : Node):
-	#rect.disable()
-	#select_rects_pool.append(rect)
+func get_select_rects() -> Array[Node]:
+	select_rects.clear()
+	for rect in select_rects_pool:
+		if rect.get_active():
+			select_rects.append(rect)
+	return select_rects
 
 func update_rectangle_select():
 	if(main_action_pressed || second_action_pressed):
 		if(global_position.distance_to(rectangle_start) > 0):
-			clear_select_rects()
+			clear_select_rects_pool()
 			rectangle_selecting = true
 			rectangle_end = global_position
 			var x_step = Grid_Base.grid_size
@@ -244,20 +264,36 @@ func update_rectangle_select():
 				y_steps = 0
 	else:
 		rectangle_selecting = false
-		clear_select_rects()
+		clear_select_rects_pool()
 
 func update_can_place_entity():
-	var above : Array[Node2D] =  []
-	above.append_array(criteria_collider.get_above_overlapping())
-	var left : Array[Node2D] =  []
-	left.append_array(criteria_collider.get_left_overlapping())
-	var below : Array[Node2D] =  []
-	below.append_array(criteria_collider.get_below_overlapping())
-	var right : Array[Node2D] =  []
-	right.append_array(criteria_collider.get_right_overlapping())
-	var center : Array[Node2D] =  []
-	center.append_array(criteria_collider.get_center_overlapping())
-	can_place_entity = current_picker_node.check_criteria(above,left,below,right,center)
+	if(not rectangle_selecting):
+		var above : Array[Node2D] =  []
+		above.append_array(criteria_collider.get_above_overlapping())
+		var left : Array[Node2D] =  []
+		left.append_array(criteria_collider.get_left_overlapping())
+		var below : Array[Node2D] =  []
+		below.append_array(criteria_collider.get_below_overlapping())
+		var right : Array[Node2D] =  []
+		right.append_array(criteria_collider.get_right_overlapping())
+		var center : Array[Node2D] =  []
+		center.append_array(criteria_collider.get_center_overlapping())
+		can_place_entity = current_picker_node.check_criteria(above,left,below,right,center)
+	elif(rectangle_selecting && rectangle_creating):
+		get_select_rects()
+		var can_place : bool = true
+		for rect : SelectRect in select_rects:
+			var rect_can_place : bool = rect.can_place_entity(current_picker_node)
+			can_place = can_place && rect_can_place
+		can_place_entity = can_place
+		if(can_place_entity):
+			set_select_rects_color(Color(0,1,0,0.5))
+		else:
+			set_select_rects_color(Color(0.7,0.5,0.0,0.5))
+
+func set_select_rects_color(color : Color):
+	for rect in select_rects:
+		rect.modulate = color
 
 func initialize_cursor():
 	var index = 0
@@ -276,16 +312,19 @@ func _physics_process(delta: float) -> void:
 	if(prev_position != new_position):
 		global_position = new_position
 		prev_position = new_position
-		update_rectangle_select()
-
-	update_can_place_entity()
+		if(select_rect_timer.is_stopped()):
+			update_rectangle_select()
+			select_rect_timer.start(0.05)
+			#if(rectangle_creating):
+				#update_can_place_entity()
 	if(can_place_entity):
 		modulate = Color(1,1,1,1)
 	else:
 		modulate = Color(1,0,0,1)
 	
 	handle_input()
-	
+	#if(not rectangle_selecting):
+	update_can_place_entity()
 	if(not initialized):
 		initialize_cursor()
 		initialized = true
