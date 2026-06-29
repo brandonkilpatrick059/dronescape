@@ -231,7 +231,7 @@ func update_rectangle_select():
 			var max_y_steps = 8
 			var x_steps = 0
 			var y_steps = 0
-			while(x_pos != rectangle_end.x + x_step && #add step to make it inclusiv
+			while(x_pos != rectangle_end.x + x_step && #add step to make it inclusive
 			x_steps < max_x_steps): 
 				while(y_pos != rectangle_end.y + y_step &&
 				y_steps < max_y_steps):
@@ -295,8 +295,8 @@ func _physics_process(delta: float) -> void:
 	var grid_position = mouse_pos
 	var grid_size_vect : Vector2 = Vector2(Grid_Base.grid_size,Grid_Base.grid_size)
 	var new_position : Vector2 = grid_position.snapped(grid_size_vect)
+	global_position = new_position
 	if(prev_position != new_position):
-		global_position = new_position
 		prev_position = new_position
 		if(select_rect_timer.is_stopped()):
 			update_rectangle_select()
