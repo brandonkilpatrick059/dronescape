@@ -11,6 +11,7 @@ var mouse_over : bool = false
 func _ready() -> void:
 	grid_entity_init()
 	add_to_group("orientable")
+	sprite.play("center_center")
 
 func get_orient_group() -> String:
 	if(is_in_group("stone")):

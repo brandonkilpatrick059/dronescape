@@ -301,7 +301,7 @@ func _physics_process(delta: float) -> void:
 		prev_position = new_position
 		if(select_rect_timer.is_stopped()):
 			update_rectangle_select()
-			select_rect_timer.start(0.05)
+			select_rect_timer.start(0.006)
 	if(can_place_entity):
 		modulate = Color(1,1,1,1)
 	else:
