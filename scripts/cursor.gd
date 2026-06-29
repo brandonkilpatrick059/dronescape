@@ -192,7 +192,7 @@ func set_inactive():
 func set_active():
 	visible = true
 	active = true
-	input_lockout_timer.start(0.1)
+	input_lockout_timer.start(0.5)
 
 func clear_select_rects_pool():
 	for rect in select_rects_pool:
