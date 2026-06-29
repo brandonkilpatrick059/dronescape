@@ -45,6 +45,53 @@ func queue_free_on_failed_placement_criteria():
 func get_packedscene_path() -> String:
 	return packedscene_path
 
+#called on entities in group "orientable"
+func orient_self():
+	var entity_above : bool = false
+	var entity_below : bool = false
+	var entity_right : bool = false
+	var entity_left : bool = false
+	var above_overlapping = criteria_collider.get_above_overlapping()
+	var below_overlapping = criteria_collider.get_below_overlapping()
+	var right_overlapping = criteria_collider.get_right_overlapping()
+	var left_overlapping = criteria_collider.get_left_overlapping()
+	entity_above = has_orient_group(above_overlapping)
+	entity_below = has_orient_group(below_overlapping)
+	entity_right = has_orient_group(right_overlapping)
+	entity_left = has_orient_group(left_overlapping)
+	var animation_name = "center_center"
+	if(entity_right && entity_above && !entity_left && entity_below):
+		animation_name = "center_left"
+	elif(!entity_right && entity_above && entity_left && entity_below):
+		animation_name = "center_right"
+	elif(!entity_right && entity_left && !entity_below):
+		animation_name = "bottom_right"
+	elif(entity_right && !entity_left && !entity_below):
+		animation_name = "bottom_left"
+	elif(entity_right && !entity_above && !entity_left && entity_below):
+		animation_name = "top_left"
+	elif(!entity_right && !entity_above && entity_left && entity_below):
+		animation_name = "top_right"
+	elif(entity_above && !entity_below):
+		animation_name = "bottom_center"
+	elif(!entity_above && entity_below):
+		animation_name = "top_center"
+	set_orientation(animation_name)
+
+func has_orient_group(entities : Array[Node2D]) -> bool:
+	for entity in entities:
+		var orient_group : String = get_orient_group()
+		if entity.get_parent().is_in_group(orient_group):
+			return true
+	return false
+
+func get_orient_group() -> String:
+	return ""
+
+#overridden in "orientable" objects
+func set_orientation(name : String):
+	pass
+
 func check_criteria() -> bool:
 	if(placement_criteria == null):
 		return true

@@ -19,6 +19,10 @@ func _ready() -> void:
 	add_child(timer)
 	timer.start(randf_range(min_growth_time,max_growth_time))
 	criteria_lock_timer.start(0.1)
+	add_to_group("orientable")
+
+func get_orient_group() -> String:
+	return "grass"
 
 func set_orientation(name : String):
 	sprite.play(name)

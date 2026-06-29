@@ -1,38 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://1cway6yiukkh"]
+[gd_scene load_steps=7 format=3 uid="uid://1cway6yiukkh"]
 
 [ext_resource type="Script" uid="uid://bmlq2yi7wao2n" path="res://scripts/entities/placement_criteria/criteria_collider.gd" id="1_ukyte"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jrcvv"]
-radius = 5.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukyte"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8tjp"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vgx5"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dehua"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pdf6"]
+size = Vector2(8, 8)
 
 [node name="criteria_collider" type="Node2D"]
 script = ExtResource("1_ukyte")
 
 [node name="above" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="above"]
 position = Vector2(0, -16)
-shape = SubResource("CircleShape2D_jrcvv")
+shape = SubResource("RectangleShape2D_ukyte")
 
 [node name="below" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="below"]
 position = Vector2(0, 16)
-shape = SubResource("CircleShape2D_jrcvv")
+shape = SubResource("RectangleShape2D_h8tjp")
 
 [node name="left" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="left"]
 position = Vector2(-16, 0)
-shape = SubResource("CircleShape2D_jrcvv")
+shape = SubResource("RectangleShape2D_1vgx5")
 
 [node name="right" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
 position = Vector2(16, 0)
-shape = SubResource("CircleShape2D_jrcvv")
+shape = SubResource("RectangleShape2D_dehua")
 
 [node name="center" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="center"]
-shape = SubResource("CircleShape2D_jrcvv")
+shape = SubResource("RectangleShape2D_1pdf6")

@@ -118,7 +118,6 @@ func delete_targeted():
 			for body in delete_bodies:
 				if(body.get_parent().is_in_group("grid_entity")):
 					body.get_parent().cursor_destroy()
-			update_grid_base()
 			play_stream("res://audio/interface/brush_snare.ogg")
 		else:
 			var bodies: Array[Node2D] = get_overlapping_bodies()
@@ -126,7 +125,6 @@ func delete_targeted():
 				var target = get_delete_target(bodies)
 				if(target != null && target.is_in_group("grid_entity")):
 					target.cursor_destroy()
-					update_grid_base()
 					play_stream("res://audio/interface/brush_snare.ogg")
 
 func get_delete_target(bodies : Array[Node2D]):
@@ -147,28 +145,17 @@ func spawn_grid_entity(select_rect : SelectRect = null):
 				spawn_entity()
 			else:
 				spawn_entity(select_rect.global_position)
-			#var bodies: Array[Node2D] = get_overlapping_bodies()
-			#if(bodies.size() == 0):
-				#spawn_entity()
-			#else:
-				#var can_spawn : bool = true
-				#for body in bodies:
-					#if(body.is_in_group("solid")):
-						#can_spawn = false
-				#if(can_spawn):
-					#spawn_entity()
 		else:
 			play_stream("res://audio/interface/no_place.ogg")
 
 func spawn_entity(create_pos : Vector2 = global_position):
-	var entity : Grid_Entity = create_grid_entity.instantiate()
+	var entity = create_grid_entity.instantiate()
 	get_parent().add_child(entity)
 	if(current_picker_node.get_place_criteria() != null &&
 		entity.get_placement_criteria() == null):
 		var criteria = current_picker_node.get_place_criteria().duplicate()
 		entity.set_placement_criteria(criteria)
 	entity.global_position = create_pos
-	update_grid_base()
 	var drum = randi_range(1,3)
 	play_stream(str(str("res://audio/interface/drum/",drum),".ogg"))
 
@@ -289,7 +276,7 @@ func update_can_place_entity():
 		if(can_place_entity):
 			set_select_rects_color(Color(0,1,0,0.5))
 		else:
-			set_select_rects_color(Color(0.7,0.5,0.0,0.5))
+			set_select_rects_color(Color(0.5,0.5,0.0,0.5))
 
 func set_select_rects_color(color : Color):
 	for rect in select_rects:
@@ -315,15 +302,12 @@ func _physics_process(delta: float) -> void:
 		if(select_rect_timer.is_stopped()):
 			update_rectangle_select()
 			select_rect_timer.start(0.05)
-			#if(rectangle_creating):
-				#update_can_place_entity()
 	if(can_place_entity):
 		modulate = Color(1,1,1,1)
 	else:
 		modulate = Color(1,0,0,1)
 	
 	handle_input()
-	#if(not rectangle_selecting):
 	update_can_place_entity()
 	if(not initialized):
 		initialize_cursor()

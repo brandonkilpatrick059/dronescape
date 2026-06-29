@@ -10,13 +10,23 @@ var mouse_over : bool = false
 
 func _ready() -> void:
 	grid_entity_init()
+	add_to_group("orientable")
+
+func get_orient_group() -> String:
+	if(is_in_group("stone")):
+		return "stone"
+	elif(is_in_group("stone_nonsolid")):
+		return "stone_nonsolid"
+	else:
+		return ""
 
 func get_grid_vector() -> Vector2:
 	return Vector2(grid_x, grid_y)
 
 func set_orientation(name : String):
 	sprite.play(name)
-	set_stone_collision(name)
+	if(not is_in_group("stone_nonsolid")):
+		set_stone_collision(name)
 
 func set_stone_collision(name : String):
 	if(name.contains("center")):

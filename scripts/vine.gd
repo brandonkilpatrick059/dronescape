@@ -23,6 +23,10 @@ func _ready() -> void:
 	timer.start(randf_range(min_growth_time,max_growth_time))
 	spawns_flowers = randf_range(0.0,1.0) < 0.20
 	criteria_lock_timer.start(0.1)
+	add_to_group("orientable")
+
+func get_orient_group() -> String:
+	return "vine"
 
 func set_orientation(name : String):
 	sprite.play(name)
