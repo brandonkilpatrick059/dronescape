@@ -51,6 +51,7 @@ func orient_self():
 	var entity_below : bool = false
 	var entity_right : bool = false
 	var entity_left : bool = false
+	criteria_collider.force_collision_update()
 	var above_overlapping = criteria_collider.get_above_overlapping()
 	var below_overlapping = criteria_collider.get_below_overlapping()
 	var right_overlapping = criteria_collider.get_right_overlapping()

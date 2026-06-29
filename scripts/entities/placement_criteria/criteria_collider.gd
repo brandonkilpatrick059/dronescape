@@ -23,21 +23,16 @@ func force_collision_update():
 	$center/CollisionShape2D.disabled = false
 
 func get_above_overlapping() -> Array[Node2D]:
-	force_collision_update()
 	return above_collider.get_overlapping_bodies()
 
 func get_left_overlapping() -> Array[Node2D]:
-	force_collision_update()
 	return left_collider.get_overlapping_bodies()
 
 func get_below_overlapping() -> Array[Node2D]:
-	force_collision_update()
 	return below_collider.get_overlapping_bodies()
 	
 func get_right_overlapping() -> Array[Node2D]:
-	force_collision_update()
 	return right_collider.get_overlapping_bodies()
 
 func get_center_overlapping() -> Array[Node2D]:
-	force_collision_update()
 	return center_collider.get_overlapping_bodies()

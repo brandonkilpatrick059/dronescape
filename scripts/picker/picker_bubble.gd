@@ -46,7 +46,7 @@ func handle_input():
 				audio_player.play()
 				var cursor : Cursor = get_tree().get_first_node_in_group("cursor")
 				cursor.set_create_grid_entity(grid_entity)
-				var set_picker_item = get_picker_item().duplicate()
+				var set_picker_item = get_picker_item()
 				cursor.set_picker_node(set_picker_item)
 				var picker_circle : Picker_Circle = get_tree().get_first_node_in_group("picker_circle")
 				picker_circle.disappear()

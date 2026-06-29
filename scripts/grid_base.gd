@@ -73,10 +73,10 @@ func clear_grid():
 		entity.queue_free()
 
 func _physics_process(delta: float) -> void:
-	update()
-	#if(timer.is_stopped()):
-		#update()
-		#timer.start(0.006)
+	#update()
+	if(timer.is_stopped()):
+		update()
+		timer.start(0.01)
 
 func _process(delta: float) -> void:
 	if(!initialized):

@@ -62,7 +62,6 @@ func disappear():
 	var cursor = get_tree().get_first_node_in_group("cursor")
 	cursor.set_active()
 
-
 func appear():
 	set_active()
 	fading_in = true

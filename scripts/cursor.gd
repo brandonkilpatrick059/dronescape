@@ -106,7 +106,6 @@ func get_picker_node() -> Picker_Item:
 	return current_picker_node
 
 func set_picker_node(picker_node : Picker_Item):
-	current_picker_node.queue_free()
 	current_picker_node = picker_node
 
 func delete_targeted():
