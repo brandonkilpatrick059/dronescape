@@ -16,5 +16,8 @@ func _physics_process(delta: float) -> void:
 	if(criteria_lockout_timer.is_stopped()):
 		get_parent().queue_free_on_failed_placement_criteria()
 	if(timer.is_stopped()):
-		get_parent().propogate_growth()
-		timer.start(growth_wait_secs)
+		if(get_parent().is_done_growing()):
+			queue_free()
+		else:
+			get_parent().propogate_growth()
+			queue_free()

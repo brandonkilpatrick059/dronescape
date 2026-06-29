@@ -38,6 +38,7 @@ var branch_type : String = ""
 
 var load_leaves : String = ""
 var load_branches : Array[Plant_Tree] = []
+var done_growing = false
 
 const branch_types : Array[String] =[
 		"branch_fork_right",
@@ -313,7 +314,6 @@ func propogate_growth():
 	if(branch_points.size() > 0 &&
 	branches.size() == 0):
 		grow_branches()
-	else:
 		for branch in branches:
 			branch.propogate_growth()
 
@@ -417,6 +417,9 @@ func load_branch_from_dictionary_string(dictionary_string : String):
 	var grid_base : Grid_Base = get_tree().get_first_node_in_group("grid_base")
 	grid_base.update()
 	load_branches.append(instance)
+
+func is_done_growing() -> bool:
+	return done_growing
 
 func grow_branches():
 	var grow_points : Array[String] = []

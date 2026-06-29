@@ -21,6 +21,10 @@ var height = 640
 var width = 0
 var switch_lock = false
 
+var update_timer := Timer.new()
+var wind_particles : Array[Node] = []
+var particle_index : int = 0
+
 static func get_wind_visible() -> bool:
 	return wind_visible
 
@@ -35,6 +39,9 @@ func _ready() -> void:
 	audio_player.play()
 	if(randf_range(0.0,1.0) < 0.5):
 		width = get_width()
+	
+	update_timer.one_shot = true
+	add_child(update_timer)
 
 func get_width() -> float:
 	var current_resolution : Vector2 = Vector2(0,0)
@@ -74,7 +81,9 @@ func generate_wind():
 	
 func handle_input():
 	if(Input.is_action_just_pressed("dev_1")):
-		wind_visible = !wind_visible
+		var menu = get_tree().get_first_node_in_group("menu")
+		if(not menu.is_active()):
+			wind_visible = !wind_visible
 
 func update_audio():
 	var wind_level = current_wind_speeds/max_wind_speed
@@ -84,34 +93,51 @@ func update_audio():
 	audio_player.volume_db = current_volume
 
 func update_wind_particles():
-	var wind_particles = get_tree().get_nodes_in_group("wind_particle")
-	for wind : Wind_Particle in wind_particles:
-		var num_frames : float = float(wind.get_animated_sprite().sprite_frames.get_frame_count("default"))
-		var current_frame : int = int(wind.get_energy() * num_frames)
-		wind.get_animated_sprite().frame = current_frame
-		wind.visible = Wind_Manager.get_wind_visible()
-		var camera = get_tree().get_first_node_in_group("camera") 
-		var wind_streak = load("res://effects/wind_streak.tscn")
-		if(wind.get_energy() > 0.4   &&
-		!wind.get_wind_streak_created() && 
-		randf_range(0.0,1.0) < 0.0002): 
-			wind.set_wind_streak_ref(wind_streak.instantiate())
-			wind.get_parent().add_child(wind.wind_streak_ref)
-			wind.get_wind_streak_ref().global_position = global_position
-			wind.set_wind_streak_created()
-		if(wind.get_wind_streak_created() && wind.get_wind_streak_ref() != null):
-			wind.get_wind_streak_ref().global_position = Vector2(wind.global_position.x,wind.get_wind_streak_ref().global_position.y)
-		if(wind.global_position.distance_to(camera.global_position) > 800):
-			wind.queue_free()
-		if(wind.life_timer.is_stopped()):
-			wind.queue_free()
-		if(wind.launched && wind.get_energy() < 0.1):
-			wind.queue_free()
+	var particles_processed_per_tick : int = 12
+	var num_processed = 0
+	wind_particles = get_tree().get_nodes_in_group("wind_particle")
+	while(num_processed < particles_processed_per_tick):
+		if(wind_particles.size() > 0):
+			if(particle_index < wind_particles.size()):
+				var process_node = wind_particles[particle_index]
+				if(process_node != null):
+					process_node.update()
+				particle_index = particle_index + 1
+			else:
+				particle_index = 0
+		num_processed = num_processed + 1
+
+#func update_wind_particles():
+	#var wind_particles = get_tree().get_nodes_in_group("wind_particle")
+	#for wind : Wind_Particle in wind_particles:
+		#var num_frames : float = float(wind.get_animated_sprite().sprite_frames.get_frame_count("default"))
+		#var current_frame : int = int(wind.get_energy() * num_frames)
+		#wind.get_animated_sprite().frame = current_frame
+		#wind.visible = Wind_Manager.get_wind_visible()
+		#var camera = get_tree().get_first_node_in_group("camera") 
+		#var wind_streak = load("res://effects/wind_streak.tscn")
+		#if(wind.get_energy() > 0.4   &&
+		#!wind.get_wind_streak_created() && 
+		#randf_range(0.0,1.0) < 0.0002): 
+			#wind.set_wind_streak_ref(wind_streak.instantiate())
+			#wind.get_parent().add_child(wind.wind_streak_ref)
+			#wind.get_wind_streak_ref().global_position = global_position
+			#wind.set_wind_streak_created()
+		#if(wind.get_wind_streak_created() && wind.get_wind_streak_ref() != null):
+			#wind.get_wind_streak_ref().global_position = Vector2(wind.global_position.x,wind.get_wind_streak_ref().global_position.y)
+		#if(wind.global_position.distance_to(camera.global_position) > 800):
+			#wind.queue_free()
+		#if(wind.life_timer.is_stopped()):
+			#wind.queue_free()
+		#if(wind.launched && wind.get_energy() < 0.1): 
+			#wind.queue_free()
 
 func _physics_process(delta: float) -> void:
 	handle_input()
-	#update_wind_particles()
 	if(timer.is_stopped()):
 		generate_wind()
 		update_audio()
 		timer.start(0.5)
+	if(update_timer.is_stopped()):
+		update_wind_particles()
+		update_timer.start(0.01)

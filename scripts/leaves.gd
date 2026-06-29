@@ -35,6 +35,7 @@ func _ready() -> void:
 		speed_scale_mults.append(gen)
 	set_speed_scales(0.0)
 	update_wind_animation()
+	add_to_group("updatable")
 
 func update_wind_animation():
 	if(activation_level > wind_effect_activation_level):
@@ -98,6 +99,10 @@ func update_activation_level():
 	elif(activation_level < 0.0):
 		activation_level = 0.0
 
-func _physics_process(delta: float) -> void:
+#func _physics_process(delta: float) -> void:
+	#update_activation_level()
+	#update_wind_animation()
+
+func update():
 	update_activation_level()
 	update_wind_animation()

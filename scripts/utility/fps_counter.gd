@@ -5,6 +5,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	text = str(Engine.get_frames_per_second())
-	if(Input.is_action_just_pressed("dev_2")):
-		visible = !visible
-	
+	var menu = get_tree().get_first_node_in_group("menu")
+	if(not menu.is_active()):
+		if(Input.is_action_just_pressed("dev_2")):
+			visible = !visible
