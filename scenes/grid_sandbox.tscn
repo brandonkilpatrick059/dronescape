@@ -62,7 +62,7 @@ script = ExtResource("9_luqy6")
 wait_time_secs = 5.0
 sets_cursor_active = true
 
-[node name="title" type="Sprite2D" parent="Camera2D"]
+[node name="title" type="Sprite2D" parent="Camera2D" groups=["title"]]
 z_index = 23
 position = Vector2(0, -64)
 texture = ExtResource("10_0q3eu")

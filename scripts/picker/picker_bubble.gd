@@ -23,38 +23,40 @@ var last_frame : int = 0
 
 var menu_tab : bool = false
 
+var process_node_ref : Node = null
+
+@export var is_picker : bool = false
+
 func _ready() -> void:
 	retracted = true
 	animated_sprite.play("retracted")
 	audio_player.bus = "interface"
+	if(not is_picker):
+		var process_node = load("res://interface/picker/picker_bubble_process.tscn")
+		process_node_ref = process_node.instantiate()
+		add_child(process_node_ref)
 
 func handle_input():
-	if(Input.is_action_just_pressed("main_action")):
+	if(Input.is_action_just_released("main_action")):
 		if(mouse_over && active):
+			var picker_circle : Picker_Circle = get_tree().get_first_node_in_group("picker_circle")
+			audio_player.stream = load("res://audio/interface/click.ogg")
 			if(menu_tab):
-				var picker = get_tree().get_first_node_in_group("picker_circle")
-				audio_player.stream = load("res://audio/interface/click.ogg")
 				audio_player.play()
-				picker.open_menu()
-			if(return_tab):
-				var picker_circle : Picker_Circle = get_tree().get_first_node_in_group("picker_circle")
+				picker_circle.open_menu()
+			elif(return_tab):
 				picker_circle.location_to_prev()
-				audio_player.stream = load("res://audio/interface/click.ogg")
 				audio_player.play()
+			elif(tab_path != ""):
+				audio_player.play()
+				picker_circle.set_web_location(tab_path)
 			elif(grid_entity != null):
-				audio_player.stream = load("res://audio/interface/click.ogg")
 				audio_player.play()
 				var cursor : Cursor = get_tree().get_first_node_in_group("cursor")
 				cursor.set_create_grid_entity(grid_entity)
 				var set_picker_item = get_picker_item()
 				cursor.set_picker_node(set_picker_item)
-				var picker_circle : Picker_Circle = get_tree().get_first_node_in_group("picker_circle")
 				picker_circle.disappear()
-			elif(tab_path != ""):
-				audio_player.stream = load("res://audio/interface/click.ogg")
-				audio_player.play()
-				var picker_circle : Picker_Circle = get_tree().get_first_node_in_group("picker_circle")
-				picker_circle.set_web_location(tab_path)
 
 func handle_animation():
 	if(active):
@@ -100,6 +102,7 @@ func set_active():
 
 func set_inactive():
 	active = false
+	grid_entity = null
 
 func set_grid_entity(scene : PackedScene):
 	grid_entity = scene
@@ -109,11 +112,6 @@ func get_grid_entity() -> PackedScene:
 
 func set_tab_path(path : String):
 	tab_path = path
-
-func _physics_process(delta: float) -> void:
-	if(!Engine.is_editor_hint()):
-		handle_animation()
-		handle_input()
 
 func _on_area_2d_mouse_entered() -> void:
 	mouse_over = true

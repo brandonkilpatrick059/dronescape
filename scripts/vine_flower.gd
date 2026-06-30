@@ -23,8 +23,16 @@ func _ready() -> void:
 		scale = Vector2(-scale.x,scale.y)
 	if(randf_range(0.0,1.0) < 0.5):
 		scale = Vector2(scale.x,-scale.y)
+	add_to_group("updatable")
 
-func _physics_process(delta: float) -> void:
+#func _physics_process(delta: float) -> void:
+	#queue_free_on_failed_placement_criteria()
+	#if(timer.is_stopped() && growth_level < 4):
+		#growth_level = growth_level + 1
+		#timer.start(randf_range(min_growth_time,max_growth_time))
+		#sprite.play(str(growth_level))
+
+func update():
 	queue_free_on_failed_placement_criteria()
 	if(timer.is_stopped() && growth_level < 4):
 		growth_level = growth_level + 1

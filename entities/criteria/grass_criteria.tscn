@@ -5,6 +5,5 @@
 [node name="grass_criteria" type="Node"]
 script = ExtResource("1_dk75v")
 center_requires_groups = Array[String](["stone", "flat"])
-above_excludes_groups = Array[String](["stone"])
 below_excludes_groups = Array[String](["water"])
 center_excludes_groups = Array[String](["grass", "water"])

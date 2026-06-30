@@ -68,6 +68,8 @@ func set_active():
 	active = true
 	visible = true
 	update_buttons()
+	var title = get_tree().get_first_node_in_group("title")
+	title.visible = false
 
 func set_inactive():
 	active = false

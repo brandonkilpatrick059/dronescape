@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctvcttnfdjsj1"]
+
+[ext_resource type="Script" uid="uid://5shrje3wdx6i" path="res://scripts/picker_bubble_process.gd" id="1_5lmva"]
+
+[node name="PickerBubbleProcess" type="Node2D"]
+script = ExtResource("1_5lmva")

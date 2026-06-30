@@ -8,12 +8,13 @@ radius = 8.0
 
 [node name="PickerBubble" type="Node2D"]
 script = ExtResource("1_twwt7")
+is_picker = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
 sprite_frames = ExtResource("1_uxkh3")
 animation = &"retracted"
-frame_progress = 0.870654
+frame_progress = 0.859074
 
 [node name="Area2D" type="Area2D" parent="."]
 

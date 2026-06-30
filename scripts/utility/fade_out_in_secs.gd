@@ -46,4 +46,3 @@ func _physics_process(delta: float) -> void:
 			var cursor = get_tree().get_first_node_in_group("cursor")
 			cursor.set_active()
 			set_cursor = true
-		

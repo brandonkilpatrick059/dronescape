@@ -14,27 +14,36 @@ texture = ExtResource("2_nrb80")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="PickerBubble" parent="." instance=ExtResource("3_3ke6i")]
+is_picker = true
 
 [node name="PickerBubble2" parent="." instance=ExtResource("3_3ke6i")]
 position = Vector2(0, -32)
+is_picker = true
 
 [node name="PickerBubble3" parent="." instance=ExtResource("3_3ke6i")]
 position = Vector2(24, -24)
+is_picker = true
 
 [node name="PickerBubble4" parent="." instance=ExtResource("3_3ke6i")]
 position = Vector2(32, 0)
+is_picker = true
 
 [node name="PickerBubble5" parent="." instance=ExtResource("3_3ke6i")]
 position = Vector2(24, 24)
+is_picker = true
 
 [node name="PickerBubble6" parent="." instance=ExtResource("3_3ke6i")]
 position = Vector2(0, 32)
+is_picker = true
 
 [node name="PickerBubble7" parent="." instance=ExtResource("3_3ke6i")]
 position = Vector2(-24, 24)
+is_picker = true
 
 [node name="PickerBubble8" parent="." instance=ExtResource("3_3ke6i")]
 position = Vector2(-32, 0)
+is_picker = true
 
 [node name="PickerBubble9" parent="." instance=ExtResource("3_3ke6i")]
 position = Vector2(-24, -24)
+is_picker = true
