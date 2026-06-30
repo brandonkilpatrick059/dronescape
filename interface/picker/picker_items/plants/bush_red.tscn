@@ -1,0 +1,138 @@
+[gd_scene load_steps=12 format=3 uid="uid://cvxmo3tgf1xkl"]
+
+[ext_resource type="Script" uid="uid://dd6i748is1m04" path="res://scripts/bush.gd" id="1_pux1s"]
+[ext_resource type="Texture2D" uid="uid://wccxj47ccgxw" path="res://sprites/plants/leaves_1.png" id="2_mhdis"]
+[ext_resource type="Texture2D" uid="uid://bebio0m7qfl47" path="res://sprites/plants/bush_branches_2.png" id="3_pux1s"]
+[ext_resource type="Script" uid="uid://rehp23qvb8vr" path="res://scripts/entities/grid_entity.gd" id="4_2bwo0"]
+[ext_resource type="Script" uid="uid://darcrssbwah45" path="res://scripts/leaves.gd" id="5_e16ma"]
+[ext_resource type="SpriteFrames" uid="uid://dwvpm8d3bv1a5" path="res://sprites/plants/leaf_red_c.tres" id="6_pux1s"]
+[ext_resource type="SpriteFrames" uid="uid://cvk6hkw6wlct7" path="res://sprites/plants/leaf_red_b.tres" id="7_mhdis"]
+[ext_resource type="SpriteFrames" uid="uid://cjaovxvykml7y" path="res://sprites/plants/leaf_red_a.tres" id="8_mhdis"]
+[ext_resource type="PackedScene" uid="uid://clwfm4n7jvdyw" path="res://entities/criteria/tree_criteria.tscn" id="9_i6ifx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f727o"]
+size = Vector2(15, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lu4lc"]
+size = Vector2(16, 16)
+
+[node name="bush" type="Node2D" node_paths=PackedStringArray("placement_criteria") groups=["bush", "grid_entity", "plant"]]
+z_index = 1
+script = ExtResource("1_pux1s")
+placement_criteria = NodePath("tree_criteria")
+packedscene_path = "res://interface/picker/picker_items/plants/bush_red.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.384314)
+texture = ExtResource("2_mhdis")
+
+[node name="branches" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("3_pux1s")
+script = ExtResource("4_2bwo0")
+
+[node name="leaves2" type="Node2D" parent="."]
+position = Vector2(0, -1)
+script = ExtResource("5_e16ma")
+
+[node name="Area2D" type="Area2D" parent="leaves2"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leaves2/Area2D"]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_f727o")
+
+[node name="leaves" type="Node2D" parent="leaves2"]
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(-2, 2)
+sprite_frames = ExtResource("6_pux1s")
+animation = &"left"
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(2, 2)
+sprite_frames = ExtResource("6_pux1s")
+animation = &"left"
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(-4, 5)
+sprite_frames = ExtResource("6_pux1s")
+animation = &"left"
+
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(0, 5)
+sprite_frames = ExtResource("6_pux1s")
+animation = &"left"
+
+[node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(4, 5)
+sprite_frames = ExtResource("6_pux1s")
+animation = &"left"
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(-6, 5)
+sprite_frames = ExtResource("7_mhdis")
+animation = &"left"
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(-4, 0)
+sprite_frames = ExtResource("7_mhdis")
+animation = &"left"
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="leaves2/leaves"]
+sprite_frames = ExtResource("7_mhdis")
+animation = &"left"
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(4, 0)
+sprite_frames = ExtResource("7_mhdis")
+animation = &"left"
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(-2, 5)
+sprite_frames = ExtResource("7_mhdis")
+animation = &"left"
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(2, 5)
+sprite_frames = ExtResource("7_mhdis")
+animation = &"left"
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(6, 5)
+sprite_frames = ExtResource("7_mhdis")
+animation = &"left"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(-2, -2)
+sprite_frames = ExtResource("8_mhdis")
+animation = &"left"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(2, -2)
+sprite_frames = ExtResource("8_mhdis")
+animation = &"left"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(-4, 3)
+sprite_frames = ExtResource("8_mhdis")
+animation = &"left"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(0, 3)
+sprite_frames = ExtResource("8_mhdis")
+animation = &"left"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="leaves2/leaves"]
+position = Vector2(4, 3)
+sprite_frames = ExtResource("8_mhdis")
+animation = &"left"
+
+[node name="grid_collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grid_collision"]
+shape = SubResource("RectangleShape2D_lu4lc")
+
+[node name="tree_criteria" parent="." instance=ExtResource("9_i6ifx")]

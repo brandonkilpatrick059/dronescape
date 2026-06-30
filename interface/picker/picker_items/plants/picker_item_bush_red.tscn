@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://b88b0mx3vi4nh"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_vfu4u"]
+[ext_resource type="SpriteFrames" uid="uid://dee2d2dxl5vqj" path="res://sprites/interface/tabs.tres" id="2_8aq3s"]
+[ext_resource type="PackedScene" uid="uid://cvxmo3tgf1xkl" path="res://interface/picker/picker_items/plants/bush_red.tscn" id="3_vfu4u"]
+[ext_resource type="PackedScene" uid="uid://clwfm4n7jvdyw" path="res://entities/criteria/tree_criteria.tscn" id="4_huwgh"]
+
+[node name="PickerItemBushRed" type="Node2D" node_paths=PackedStringArray("place_criteria")]
+script = ExtResource("1_vfu4u")
+display_sprite_frames = ExtResource("2_8aq3s")
+display_animation = "bush_red"
+item = ExtResource("3_vfu4u")
+place_criteria = NodePath("tree_criteria")
+is_menu_tab = null
+
+[node name="tree_criteria" parent="." instance=ExtResource("4_huwgh")]
