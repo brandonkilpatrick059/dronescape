@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://dro861wwj4abf"]
+[gd_scene load_steps=90 format=3 uid="uid://dro861wwj4abf"]
 
 [ext_resource type="Script" uid="uid://bdec8x55j6u7g" path="res://scripts/picker/picker_web.gd" id="1_gb7f4"]
 [ext_resource type="PackedScene" uid="uid://dveffq21xw1mh" path="res://interface/picker/picker_web_node.tscn" id="1_ilne7"]
@@ -81,6 +81,14 @@
 [ext_resource type="PackedScene" uid="uid://qywoyqlvu0t8" path="res://interface/picker/picker_items/props/picker_item_pillar_small.tscn" id="53_frt1v"]
 [ext_resource type="PackedScene" uid="uid://mlcpr2cf0ybn" path="res://interface/picker/picker_items/machines/picker_item_wind_attenuator.tscn" id="55_gcrj5"]
 [ext_resource type="PackedScene" uid="uid://cfcegah3b56fo" path="res://interface/picker/picker_items/plants/picker_item_bush.tscn" id="61_xg5el"]
+[ext_resource type="PackedScene" uid="uid://2wogiqdwgct" path="res://interface/picker/picker_items/tabs/picker_item_vines_tab.tscn" id="74_vet05"]
+[ext_resource type="PackedScene" uid="uid://c6v3gy2c46rax" path="res://interface/picker/picker_items/tabs/picker_item_grass_tab.tscn" id="75_crk5l"]
+[ext_resource type="PackedScene" uid="uid://4ordclldxrw7" path="res://interface/picker/picker_items/plants/picker_item_vine_2.tscn" id="79_crk5l"]
+[ext_resource type="PackedScene" uid="uid://dgh5us7g1xaqw" path="res://interface/picker/picker_items/plants/picker_item_grass_yellow.tscn" id="81_cit7g"]
+[ext_resource type="PackedScene" uid="uid://cuwak8ts4lu66" path="res://interface/picker/picker_items/plants/picker_item_tree_red_1.tscn" id="86_8prns"]
+[ext_resource type="PackedScene" uid="uid://cgeiaikjhutb" path="res://interface/picker/picker_items/plants/picker_item_tree_red_4.tscn" id="86_h4uqq"]
+[ext_resource type="PackedScene" uid="uid://b8j4bjniyhkfr" path="res://interface/picker/picker_items/plants/picker_item_tree_red_3.tscn" id="87_nkd52"]
+[ext_resource type="PackedScene" uid="uid://b2q2xu2vgey4p" path="res://interface/picker/picker_items/plants/picker_item_tree_red_2.tscn" id="88_nw16j"]
 
 [node name="PickerWeb" type="Node2D"]
 script = ExtResource("1_gb7f4")
@@ -368,13 +376,33 @@ prev_web_node = "picker_center"
 
 [node name="display_items" type="Node2D" parent="plant_circle"]
 
-[node name="PickerItemVine" parent="plant_circle/display_items" instance=ExtResource("7_33bpc")]
+[node name="PickerItemVinesTab" parent="plant_circle/display_items" instance=ExtResource("74_vet05")]
 
-[node name="PickerItemGrass" parent="plant_circle/display_items" instance=ExtResource("27_xfmo8")]
+[node name="PickerItemGrassTab" parent="plant_circle/display_items" instance=ExtResource("75_crk5l")]
 
 [node name="PickerItemTreeTab" parent="plant_circle/display_items" instance=ExtResource("29_0bedl")]
 
 [node name="PickerItemBush" parent="plant_circle/display_items" instance=ExtResource("61_xg5el")]
+
+[node name="vine_circle" parent="." groups=["picker_vine"] instance=ExtResource("1_ilne7")]
+position = Vector2(158, 198)
+prev_web_node = "picker_plant"
+
+[node name="display_items" type="Node2D" parent="vine_circle"]
+
+[node name="PickerItemVine" parent="vine_circle/display_items" instance=ExtResource("7_33bpc")]
+
+[node name="PickerItemVine2" parent="vine_circle/display_items" instance=ExtResource("79_crk5l")]
+
+[node name="grass_cricle" parent="." groups=["picker_grass"] instance=ExtResource("1_ilne7")]
+position = Vector2(234, 264)
+prev_web_node = "picker_plant"
+
+[node name="display_items" type="Node2D" parent="grass_cricle"]
+
+[node name="PickerItemGrass" parent="grass_cricle/display_items" instance=ExtResource("27_xfmo8")]
+
+[node name="PickerItemGrassYellow" parent="grass_cricle/display_items" instance=ExtResource("81_cit7g")]
 
 [node name="tree_circle" parent="." groups=["picker_tree"] instance=ExtResource("1_ilne7")]
 position = Vector2(261, 107)
@@ -390,6 +418,14 @@ position = Vector2(-129, -11)
 [node name="PickerItemTree3" parent="tree_circle/display_items" instance=ExtResource("32_n61fb")]
 
 [node name="PickerItemTree4" parent="tree_circle/display_items" instance=ExtResource("33_4dmxk")]
+
+[node name="PickerItemTreeRed4" parent="tree_circle/display_items" instance=ExtResource("86_h4uqq")]
+
+[node name="PickerItemTreeRed3" parent="tree_circle/display_items" instance=ExtResource("87_nkd52")]
+
+[node name="PickerItemTreeRed2" parent="tree_circle/display_items" instance=ExtResource("88_nw16j")]
+
+[node name="PickerItemTreeRed1" parent="tree_circle/display_items" instance=ExtResource("86_8prns")]
 
 [node name="helper_lines" type="Node2D" parent="."]
 
@@ -501,6 +537,20 @@ default_color = Color(1, 0, 0, 1)
 z_index = 2
 position = Vector2(5, 177)
 points = PackedVector2Array(127, -80, 27, -147)
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Line2D23" type="Line2D" parent="helper_lines"]
+z_index = 2
+position = Vector2(113, 206)
+points = PackedVector2Array(45, -9, 93, -127, 65, -147, 27, -147)
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Line2D24" type="Line2D" parent="helper_lines"]
+z_index = 2
+position = Vector2(142, 219)
+points = PackedVector2Array(93, 46, 113, -7, 91.82, -34.1801, 55, -71, 73, -127, 66, -154, 27, -147)
 width = 2.0
 default_color = Color(1, 0, 0, 1)
 

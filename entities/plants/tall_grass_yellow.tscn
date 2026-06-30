@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://d31awdk1m4613"]
+
+[ext_resource type="Script" uid="uid://c31ppuojy31f8" path="res://scripts/tall_grass.gd" id="1_4dfb1"]
+[ext_resource type="SpriteFrames" uid="uid://crjh3d8piwqj0" path="res://sprites/plants/tall_grass_yellow.tres" id="2_4dfb1"]
+[ext_resource type="Script" uid="uid://cg1qkm8xm87k7" path="res://scripts/entities/placement_criteria/place_criteria.gd" id="3_u6xa3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhnib"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0wvn4"]
+radius = 16.0312
+
+[node name="TallGrassYellow" type="Node2D" node_paths=PackedStringArray("placement_criteria") groups=["plant", "plant_growth", "tall_grass"]]
+z_index = 1
+script = ExtResource("1_4dfb1")
+placement_criteria = NodePath("needs_grass_underneath")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_4dfb1")
+animation = &"2_still"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_yk454")
+
+[node name="center" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_rhnib")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_0wvn4")
+debug_color = Color(0, 0.647941, 0.19648, 0.42)
+
+[node name="needs_grass_underneath" type="Node" parent="."]
+script = ExtResource("3_u6xa3")
+below_requires_groups = Array[String](["grass"])
+
+[connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_exited"]

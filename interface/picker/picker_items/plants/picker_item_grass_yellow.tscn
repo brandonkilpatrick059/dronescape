@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgh5us7g1xaqw"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_ci5ij"]
+[ext_resource type="SpriteFrames" uid="uid://bpkye8t46eb82" path="res://sprites/plants/grass_yellow.tres" id="2_ci5ij"]
+[ext_resource type="PackedScene" uid="uid://bjpmv3slofea7" path="res://entities/plants/grass_yellow.tscn" id="3_203jx"]
+[ext_resource type="PackedScene" uid="uid://8v18npcehtx1" path="res://entities/criteria/grass_criteria.tscn" id="4_eqdwx"]
+
+[node name="PickerItemGrassYellow" type="Node2D" node_paths=PackedStringArray("place_criteria")]
+script = ExtResource("1_ci5ij")
+display_sprite_frames = ExtResource("2_ci5ij")
+display_animation = "picker"
+item = ExtResource("3_203jx")
+place_criteria = NodePath("grass_criteria")
+is_menu_tab = null
+
+[node name="grass_criteria" parent="." instance=ExtResource("4_eqdwx")]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjpmv3slofea7"]
+
+[ext_resource type="Script" uid="uid://b81apvab5biep" path="res://scripts/grass.gd" id="1_vq124"]
+[ext_resource type="SpriteFrames" uid="uid://bpkye8t46eb82" path="res://sprites/plants/grass_yellow.tres" id="2_vq124"]
+[ext_resource type="PackedScene" uid="uid://d31awdk1m4613" path="res://entities/plants/tall_grass_yellow.tscn" id="2_wf8ly"]
+[ext_resource type="PackedScene" uid="uid://8v18npcehtx1" path="res://entities/criteria/grass_criteria.tscn" id="3_o4uej"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhnib"]
+size = Vector2(16, 16)
+
+[node name="GrassYellow" type="Node2D" node_paths=PackedStringArray("placement_criteria") groups=["grass", "plant"]]
+z_index = 1
+script = ExtResource("1_vq124")
+tall_grass_override = ExtResource("2_wf8ly")
+placement_criteria = NodePath("grass_criteria")
+packedscene_path = "res://entities/plants/grass_yellow.tscn"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = ExtResource("2_vq124")
+animation = &"center_center"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_yk454")
+
+[node name="center" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_rhnib")
+
+[node name="grass_criteria" parent="." instance=ExtResource("3_o4uej")]
+
+[connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_exited"]

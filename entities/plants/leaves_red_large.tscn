@@ -1,0 +1,330 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbitcuyu8ri01"]
+
+[ext_resource type="Script" uid="uid://darcrssbwah45" path="res://scripts/leaves.gd" id="1_iewpa"]
+[ext_resource type="Texture2D" uid="uid://c3r0soubxs2e7" path="res://sprites/plants/leaves_1_large.png" id="2_yr3qg"]
+[ext_resource type="SpriteFrames" uid="uid://dwvpm8d3bv1a5" path="res://sprites/plants/leaf_red_c.tres" id="3_iewpa"]
+[ext_resource type="SpriteFrames" uid="uid://cvk6hkw6wlct7" path="res://sprites/plants/leaf_red_b.tres" id="4_iewpa"]
+[ext_resource type="SpriteFrames" uid="uid://cjaovxvykml7y" path="res://sprites/plants/leaf_red_a.tres" id="5_iewpa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0m5n4"]
+size = Vector2(31, 20)
+
+[node name="LeavesRedLarge" type="Node2D"]
+z_index = 1
+script = ExtResource("1_iewpa")
+leaves_type = "large"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.32549)
+texture = ExtResource("2_yr3qg")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_0m5n4")
+
+[node name="leaves" type="Node2D" parent="."]
+position = Vector2(0, 2)
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-2, 2)
+sprite_frames = ExtResource("3_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(2, 2)
+sprite_frames = ExtResource("3_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-4, 5)
+sprite_frames = ExtResource("3_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(0, 5)
+sprite_frames = ExtResource("3_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D48" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-9, -4)
+sprite_frames = ExtResource("3_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D49" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(9, -4)
+sprite_frames = ExtResource("3_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D50" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-6, 0)
+sprite_frames = ExtResource("3_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D51" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(6, 0)
+sprite_frames = ExtResource("3_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D52" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(5, -3)
+sprite_frames = ExtResource("3_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D53" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-5, -3)
+sprite_frames = ExtResource("3_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D54" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-2, -3)
+sprite_frames = ExtResource("3_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D55" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(2, -3)
+sprite_frames = ExtResource("3_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D56" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(2, -7)
+sprite_frames = ExtResource("3_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D57" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-2, -7)
+sprite_frames = ExtResource("3_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D58" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-7, -9)
+sprite_frames = ExtResource("3_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D60" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(0, -2)
+sprite_frames = ExtResource("3_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D59" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(7, -9)
+sprite_frames = ExtResource("3_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(4, 5)
+sprite_frames = ExtResource("3_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-6, 5)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D33" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-9, 4)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D34" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-13, 4)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D35" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-13, -1)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D36" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-9, -1)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D37" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-11, -6)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D38" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-4, -9)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D39" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(4, -9)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D40" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(0, -9)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D41" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(9, 4)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D42" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(13, 4)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D43" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(13, -1)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D44" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(9, -1)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D45" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(11, -6)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D46" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(7, -6)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D47" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-7, -6)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-4, 0)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="leaves"]
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(4, 0)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-2, 5)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(2, 5)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(6, 5)
+sprite_frames = ExtResource("4_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-2, -2)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(2, -2)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-4, 3)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(0, 3)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(4, 3)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-11, 2)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-9, -8)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-7, 2)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-2, -11)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D22" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(2, -11)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D24" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(0, -6)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D25" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(4, -6)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D26" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(9, -8)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D27" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(7, -3)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D28" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(11, -3)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D29" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(11, 2)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D30" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(7, 2)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D31" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-11, -3)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D32" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-7, -3)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"
+
+[node name="AnimatedSprite2D23" type="AnimatedSprite2D" parent="leaves"]
+position = Vector2(-4, -6)
+sprite_frames = ExtResource("5_iewpa")
+animation = &"left"

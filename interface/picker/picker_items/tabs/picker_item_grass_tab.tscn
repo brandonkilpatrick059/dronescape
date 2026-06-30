@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6v3gy2c46rax"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_47s61"]
+[ext_resource type="SpriteFrames" uid="uid://bn70pfhr738cl" path="res://sprites/plants/grass.tres" id="2_47s61"]
+
+[node name="PickerItemGrassTab" type="Node2D"]
+script = ExtResource("1_47s61")
+display_sprite_frames = ExtResource("2_47s61")
+display_animation = "picker"
+tab_path = "picker_grass"
+is_menu_tab = null

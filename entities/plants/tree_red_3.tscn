@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://b21b6eja8xeq4"]
+
+[ext_resource type="Script" uid="uid://do3u7xcxx4huo" path="res://scripts/tree.gd" id="1_kjero"]
+[ext_resource type="SpriteFrames" uid="uid://ug5ptpgo04iq" path="res://sprites/plants/tree_2.tres" id="2_4lpig"]
+[ext_resource type="PackedScene" uid="uid://1cway6yiukkh" path="res://entities/criteria_collider.tscn" id="6_ly4du"]
+[ext_resource type="PackedScene" uid="uid://clwfm4n7jvdyw" path="res://entities/criteria/tree_criteria.tscn" id="7_bn63p"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk454"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhnib"]
+size = Vector2(16, 16)
+
+[node name="Tree_red_3" type="Node2D" node_paths=PackedStringArray("placement_criteria") groups=["plant", "tree", "tree_branch"]]
+script = ExtResource("1_kjero")
+max_height = 3
+has_red_leaves = true
+placement_criteria = NodePath("tree_criteria")
+packedscene_path = "res://entities/plants/tree_red_1.tscn"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_4lpig")
+animation = &"trunk_ground"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_yk454")
+
+[node name="center" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_rhnib")
+
+[node name="criteria_collider" parent="." instance=ExtResource("6_ly4du")]
+
+[node name="tree_criteria" parent="." instance=ExtResource("7_bn63p")]
+
+[connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_exited"]

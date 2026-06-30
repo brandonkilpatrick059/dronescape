@@ -1,10 +1,12 @@
 class_name Plant_Tree extends Grid_Entity
 
 @export var max_height = 1
-
+@export var has_red_leaves : bool = false
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var branch : PackedScene = preload("res://entities/plants/tree_1.tscn")
+@onready var leaves_small_red : PackedScene = preload("res://entities/plants/leaves_red_small.tscn")
 @onready var leaves_small : PackedScene = preload("res://entities/plants/leaves_1_small.tscn")
+@onready var leaves_large_red: PackedScene = preload("res://entities/plants/leaves_red_large.tscn")
 @onready var leaves_large : PackedScene = preload("res://entities/plants/leaves_1_large.tscn")
 @onready var process_node : PackedScene = preload("res://entities/plants/tree_process.tscn")
 @onready var growth_check_collider : Criteria_Collider = $criteria_collider
@@ -70,6 +72,7 @@ func _ready() -> void:
 		branch_type = "trunk_ground"
 		sprite.play(branch_type)
 		add_to_group("tree_trunk")
+		add_to_group("updatable")
 		trunk_ref = self
 		if(not get_is_loaded()):
 			var start_process = process_node.instantiate()
@@ -247,19 +250,28 @@ func branch_end():
 	branch_points = []
 	if(leaves_ref == null):
 		if(load_leaves != ""):
-			match(load_leaves):
-				"small":
-					leaves_ref = leaves_small.instantiate()
-					add_child(leaves_ref)
-				"large":
-					leaves_ref = leaves_large.instantiate()
-					add_child(leaves_ref)
+			get_leaves(load_leaves)
 		elif(randf_range(0.0,1.0) < 0.5):
-			leaves_ref = leaves_large.instantiate()
-			add_child(leaves_ref)
+			get_leaves("large")
 		elif(randf_range(0.0,1.0) < 0.5):
-			leaves_ref = leaves_small.instantiate()
+			get_leaves("small")
+
+func get_leaves(type : String):
+	match type:
+		"small":
+			if(has_red_leaves):
+				leaves_ref = leaves_small_red.instantiate()
+			else:
+				leaves_ref = leaves_small.instantiate()
 			add_child(leaves_ref)
+			load_leaves = "small"
+		"large":
+			if(has_red_leaves):
+				leaves_ref = leaves_large_red.instantiate()
+			else:
+				leaves_ref = leaves_large.instantiate()
+			add_child(leaves_ref)
+			load_leaves = "large"
 
 func set_orientation(name : String):
 	sprite.play(name)
@@ -274,8 +286,8 @@ func is_branch_end() -> bool:
 	else:
 		return true
 
-func grow_branch(new_root : String):
-	var new_branch = branch.instantiate()
+#func grow_branch(new_root : String):
+	#var new_branch = branch.instantiate()
 
 
 func root_point_from_branch(branch_point : String) -> String:
@@ -315,7 +327,8 @@ func propogate_growth():
 	branches.size() == 0):
 		grow_branches()
 		for branch in branches:
-			branch.propogate_growth()
+			var start_process = process_node.instantiate()
+			branch.add_child(start_process)
 
 class save_data:
 	var pos : Vector2 = Vector2(0,0)
@@ -328,7 +341,7 @@ func get_save_data() -> Array[save_data]:
 	data.pos = global_position
 	data.branch_type = branch_type
 	if(leaves_ref != null):
-		data.leaves = leaves_ref.get_type()
+		data.leaves = load_leaves
 	if(branch_type != "trunk_ground"):
 		ret_data.append(data)
 	for branch in branches:
@@ -418,8 +431,9 @@ func load_branch_from_dictionary_string(dictionary_string : String):
 	grid_base.update()
 	load_branches.append(instance)
 
-func is_done_growing() -> bool:
-	return done_growing
+func update():
+	if(timer.is_stopped()):
+		queue_free_on_failed_placement_criteria()
 
 func grow_branches():
 	var grow_points : Array[String] = []
@@ -427,7 +441,7 @@ func grow_branches():
 		if(!used_branch_points.has(point)):
 			grow_points.append(point)
 	for point in grow_points:
-		var new_branch : Plant_Tree = branch.instantiate()
+		var new_branch : Plant_Tree = load(get_packedscene_path()).instantiate()
 		new_branch.set_is_branch(distance_from_root,self,trunk_ref)
 		get_parent().add_child(new_branch)
 		if(point == "left"):
