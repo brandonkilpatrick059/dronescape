@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjjv2nlsk45fe"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_dwnym"]
+[ext_resource type="SpriteFrames" uid="uid://bcvsiyjpqfpqr" path="res://sprites/chimes/red_gurdy_chime.tres" id="2_dwnym"]
+
+[node name="PickerItemGurdyTab" type="Node2D"]
+script = ExtResource("1_dwnym")
+display_sprite_frames = ExtResource("2_dwnym")
+display_animation = "picker"
+tab_path = "picker_gurdy"
+is_menu_tab = null

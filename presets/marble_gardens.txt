@@ -525,7 +525,6 @@
 {"packedscene_path":"res://entities/musicians/musician_voice_sixth.tscn","pos_x":32.0,"pos_y":16.0,"type":"grid_entity"}
 {"packedscene_path":"res://entities/musicians/musician_ep_silent.tscn","pos_x":64.0,"pos_y":16.0,"type":"grid_entity"}
 {"packedscene_path":"res://entities/musicians/musician_ep_silent.tscn","pos_x":96.0,"pos_y":-128.0,"type":"grid_entity"}
-{"packedscene_path":"res://entities/musicians/musician_ep_silent.tscn","pos_x":-160.0,"pos_y":16.0,"type":"grid_entity"}
 {"packedscene_path":"res://entities/musicians/musician_voice_root.tscn","pos_x":-80.0,"pos_y":80.0,"type":"grid_entity"}
 {"packedscene_path":"res://entities/machines/frog_machine.tscn","pos_x":-128.0,"pos_y":16.0,"type":"grid_entity"}
 {"packedscene_path":"res://entities/machines/frog_machine.tscn","pos_x":112.0,"pos_y":-64.0,"type":"grid_entity"}

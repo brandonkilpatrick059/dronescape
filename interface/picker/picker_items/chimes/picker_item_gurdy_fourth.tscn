@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://p5hd5rdjrga"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_wp2ku"]
+[ext_resource type="SpriteFrames" uid="uid://dssu8n46d54dv" path="res://sprites/chimes/blue_gurdy_chime.tres" id="2_wp2ku"]
+[ext_resource type="PackedScene" uid="uid://dwvrntcqfvdfh" path="res://entities/chimes/gurdy_chime_fourth.tscn" id="3_xdi14"]
+[ext_resource type="PackedScene" uid="uid://dw4b0byau8het" path="res://entities/criteria/two_tall_flat_stone.tscn" id="4_72dbw"]
+
+[node name="PickerItemGurdyFourth" type="Node2D" node_paths=PackedStringArray("place_criteria")]
+script = ExtResource("1_wp2ku")
+display_sprite_frames = ExtResource("2_wp2ku")
+display_animation = "picker"
+item = ExtResource("3_xdi14")
+place_criteria = NodePath("two_tall_flat_stone")
+is_menu_tab = null
+
+[node name="two_tall_flat_stone" parent="." instance=ExtResource("4_72dbw")]

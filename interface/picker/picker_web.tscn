@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://dro861wwj4abf"]
+[gd_scene load_steps=103 format=3 uid="uid://dro861wwj4abf"]
 
 [ext_resource type="Script" uid="uid://bdec8x55j6u7g" path="res://scripts/picker/picker_web.gd" id="1_gb7f4"]
 [ext_resource type="PackedScene" uid="uid://dveffq21xw1mh" path="res://interface/picker/picker_web_node.tscn" id="1_ilne7"]
@@ -80,8 +80,13 @@
 [ext_resource type="PackedScene" uid="uid://d0e07yh3w0p51" path="res://interface/picker/picker_items/stones/picker_item_white_brick_nonsolid_2.tscn" id="42_44aq6"]
 [ext_resource type="PackedScene" uid="uid://qywoyqlvu0t8" path="res://interface/picker/picker_items/props/picker_item_pillar_small.tscn" id="53_frt1v"]
 [ext_resource type="PackedScene" uid="uid://dtfockk5lnr43" path="res://interface/picker/picker_items/tabs/picker_item_voice_tab.tscn" id="53_s01gr"]
+[ext_resource type="PackedScene" uid="uid://cjjv2nlsk45fe" path="res://interface/picker/picker_items/tabs/picker_item_gurdy_tab.tscn" id="54_7ppc3"]
 [ext_resource type="PackedScene" uid="uid://mlcpr2cf0ybn" path="res://interface/picker/picker_items/machines/picker_item_wind_attenuator.tscn" id="55_gcrj5"]
+[ext_resource type="PackedScene" uid="uid://bexbkd7nyywio" path="res://interface/picker/picker_items/chimes/picker_item_gurdy_sixth.tscn" id="58_1w3wn"]
+[ext_resource type="PackedScene" uid="uid://dik2lt4pb84ym" path="res://interface/picker/picker_items/chimes/picker_item_gurdy_root.tscn" id="58_j8ct7"]
+[ext_resource type="PackedScene" uid="uid://c67q8jwbabeon" path="res://interface/picker/picker_items/chimes/picker_item_gurdy_third.tscn" id="60_78rg4"]
 [ext_resource type="PackedScene" uid="uid://cfcegah3b56fo" path="res://interface/picker/picker_items/plants/picker_item_bush.tscn" id="61_xg5el"]
+[ext_resource type="PackedScene" uid="uid://p5hd5rdjrga" path="res://interface/picker/picker_items/chimes/picker_item_gurdy_fourth.tscn" id="61_yfxvv"]
 [ext_resource type="PackedScene" uid="uid://w4teiqxhv8pd" path="res://interface/picker/picker_items/musicians/picker_item_voice_root.tscn" id="67_c3dhm"]
 [ext_resource type="PackedScene" uid="uid://coy8w1too53jj" path="res://interface/picker/picker_items/musicians/picker_item_voice_sixth.tscn" id="68_c4vad"]
 [ext_resource type="PackedScene" uid="uid://k1dm256qy048" path="res://interface/picker/picker_items/musicians/picker_item_voice_third.tscn" id="70_7ppc3"]
@@ -290,6 +295,10 @@ position = Vector2(0, -113)
 
 [node name="PickerItemVoiceTab" parent="chime_circle/display_items" instance=ExtResource("53_s01gr")]
 
+[node name="PickerItemGurdyTab" parent="chime_circle/display_items" instance=ExtResource("54_7ppc3")]
+
+[node name="PickerItemGurdyTab2" parent="chime_circle/display_items" instance=ExtResource("54_7ppc3")]
+
 [node name="recorder_circle" parent="." groups=["picker_recorder"] instance=ExtResource("1_ilne7")]
 position = Vector2(102, -252)
 prev_web_node = "picker_chime"
@@ -301,6 +310,20 @@ prev_web_node = "picker_chime"
 [node name="PickerItemRecorderFourth" parent="recorder_circle/display_items" instance=ExtResource("14_advcm")]
 
 [node name="PickerItemRecorderFifth" parent="recorder_circle/display_items" instance=ExtResource("14_xa0jl")]
+
+[node name="gurdy_circle" parent="." groups=["picker_gurdy"] instance=ExtResource("1_ilne7")]
+position = Vector2(-109, -297)
+prev_web_node = "picker_chime"
+
+[node name="display_items" type="Node2D" parent="gurdy_circle"]
+
+[node name="PickerItemGurdySixth" parent="gurdy_circle/display_items" instance=ExtResource("58_1w3wn")]
+
+[node name="PickerItemGurdyRoot" parent="gurdy_circle/display_items" instance=ExtResource("58_j8ct7")]
+
+[node name="PickerItemGurdyThird" parent="gurdy_circle/display_items" instance=ExtResource("60_78rg4")]
+
+[node name="PickerItemGurdyFourth" parent="gurdy_circle/display_items" instance=ExtResource("61_yfxvv")]
 
 [node name="sndtrk_circle" parent="." groups=["picker_sndtrk"] instance=ExtResource("1_ilne7")]
 position = Vector2(176, -380)
@@ -519,6 +542,13 @@ default_color = Color(1, 0, 0, 1)
 z_index = 2
 position = Vector2(-90, 43)
 points = PackedVector2Array(-23, -118, 29, -141, 59, -157)
+width = 2.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Line2D27" type="Line2D" parent="helper_lines"]
+z_index = 2
+position = Vector2(-90, -17)
+points = PackedVector2Array(-18, -279, 25, -184, 59, -157)
 width = 2.0
 default_color = Color(1, 0, 0, 1)
 

@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://dwvrntcqfvdfh"]
+
+[ext_resource type="Script" uid="uid://bg5hqgdng0moh" path="res://scripts/entities/chime.gd" id="1_ytfw1"]
+[ext_resource type="Texture2D" uid="uid://dq8702atwmtx1" path="res://sprites/chimes/lattice.png" id="2_abtc8"]
+[ext_resource type="SpriteFrames" uid="uid://ctlrquj07rmgs" path="res://sprites/chimes/windmill_4.tres" id="3_sggwd"]
+[ext_resource type="SpriteFrames" uid="uid://dssu8n46d54dv" path="res://sprites/chimes/blue_gurdy_chime.tres" id="4_ytfw1"]
+[ext_resource type="AudioStream" uid="uid://brqaggsaudjsn" path="res://audio/chimes/gurdy_fourth_chord.ogg" id="5_ytfw1"]
+[ext_resource type="PackedScene" uid="uid://dw4b0byau8het" path="res://entities/criteria/two_tall_flat_stone.tscn" id="6_lustf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oj62h"]
+size = Vector2(16, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oj62h"]
+radius = 16.0
+
+[node name="GurdyChimeFourth" type="Node2D" node_paths=PackedStringArray("wind_animations", "placement_criteria")]
+script = ExtResource("1_ytfw1")
+wind_animations = [NodePath("windmill"), NodePath("bellows")]
+sensitivity_fraction = 1.0
+friction = 0.004
+placement_criteria = NodePath("two_tall_flat_stone")
+packedscene_path = "res://entities/chimes/gurdy_chime_fourth.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -8)
+texture = ExtResource("2_abtc8")
+
+[node name="windmill" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -23)
+sprite_frames = ExtResource("3_sggwd")
+
+[node name="bellows" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+sprite_frames = ExtResource("4_ytfw1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ytfw1")
+volume_db = -6.0
+attenuation = 12.5533
+panning_strength = 4.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_oj62h")
+
+[node name="wind_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wind_area"]
+position = Vector2(0, -24)
+shape = SubResource("CircleShape2D_oj62h")
+debug_color = Color(1.82897e-06, 0.645261, 0.263897, 0.42)
+
+[node name="two_tall_flat_stone" parent="." instance=ExtResource("6_lustf")]
