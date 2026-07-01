@@ -13,11 +13,12 @@ size = Vector2(16, 16)
 z_index = -2
 script = ExtResource("1_8byiu")
 placement_criteria = NodePath("generic_nonsolid_stone_criteria")
-packedscene_path = "res://entities/stones/white_stone_nonsolid.tscn"
+packedscene_path = "res://entities/stones/white_brick_nonsolid.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_8byiu")
-animation = &"bottom_left"
+animation = &"center_center"
+frame_progress = 0.567991
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 input_pickable = true

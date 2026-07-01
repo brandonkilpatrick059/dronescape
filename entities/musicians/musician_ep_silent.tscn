@@ -23,6 +23,7 @@ stream = ExtResource("3_cp2y7")
 volume_db = -60.0
 attenuation = 12.5533
 panning_strength = 4.0
+bus = &"chime"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

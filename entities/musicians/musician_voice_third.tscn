@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbe5vwr18un35"]
+
+[ext_resource type="Script" uid="uid://dcpksnbji5uwx" path="res://scripts/entities/musician.gd" id="1_fju0x"]
+[ext_resource type="SpriteFrames" uid="uid://ce0hepnu0jht2" path="res://sprites/musicians/voice_third.tres" id="2_fju0x"]
+[ext_resource type="AudioStream" uid="uid://n05mlvl3cdpe" path="res://audio/chimes/voice_third.ogg" id="3_fju0x"]
+[ext_resource type="PackedScene" uid="uid://dw4b0byau8het" path="res://entities/criteria/two_tall_flat_stone.tscn" id="4_m0vj7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sk7n0"]
+size = Vector2(16, 16)
+
+[node name="VoiceThird" type="Node2D" node_paths=PackedStringArray("placement_criteria")]
+script = ExtResource("1_fju0x")
+finished_after_secs = 5.0
+placement_criteria = NodePath("two_tall_flat_stone")
+packedscene_path = "res://entities/musicians/musician_voice_third.tscn"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = ExtResource("2_fju0x")
+animation = &"playing"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fju0x")
+attenuation = 12.5533
+panning_strength = 4.0
+bus = &"chime"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_sk7n0")
+
+[node name="two_tall_flat_stone" parent="." instance=ExtResource("4_m0vj7")]

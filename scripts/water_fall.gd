@@ -33,6 +33,7 @@ func _ready() -> void:
 		top_sprite.visible = false
 		sprite.play("falls")
 	criteria_lock_timer.start(0.1)
+	add_to_group("updatable")
 
 func set_animation_frame(frame : int, progress : float):
 	sprite.set_frame_and_progress(frame,progress)
@@ -64,8 +65,7 @@ func get_current_progress() -> float:
 		return top_sprite.frame_progress
 	else:
 		return sprite.frame_progress
-
-func _physics_process(delta: float) -> void:
+func update():
 	if(is_top_of_falls && criteria_lock_timer.is_stopped()):
 		queue_free_on_failed_placement_criteria()
 	if(!is_top_of_falls):
@@ -106,5 +106,46 @@ func _physics_process(delta: float) -> void:
 			get_parent().add_child(mist4)
 			mist4.global_position = global_position + Vector2(8,8)
 			timer.start(0.5)
+#func _physics_process(delta: float) -> void:
+	#if(is_top_of_falls && criteria_lock_timer.is_stopped()):
+		#queue_free_on_failed_placement_criteria()
+	#if(!is_top_of_falls):
+		#var bodies = water_detector.get_overlapping_bodies()
+		#var found_water = false
+		#for body in bodies:
+			#if (body.get_parent().is_in_group("water")):
+				#found_water = true
+		#if(!found_water):
+			#queue_free()
+		#
+	#if(timer.is_stopped() && falls_ref == null):
+		#if(fall_created):
+			#fall_created = false
+			#timer.start(0.25)
+		#elif(!solid_below() && !going_offscreen()):
+			#if(audio_player.playing):
+				#audio_player.stop()
+			#falls_ref = continued_falls.instantiate()
+			#falls_ref.is_not_top_of_falls()
+			#get_parent().add_child(falls_ref)
+			#falls_ref.set_animation_frame(get_current_frame(),get_current_progress())
+			#falls_ref.global_position = global_position + Vector2(0,16)
+			#fall_created = true
+		#elif(solid_below()):
+			#if(!audio_player.playing):
+				#audio_player.play()
+			#var mist1 = mist.instantiate()
+			#var mist2 = mist.instantiate()
+			#var mist3 = mist.instantiate()
+			#var mist4 = mist.instantiate()
+			#get_parent().add_child(mist1)
+			#mist1.global_position = global_position + Vector2(-4,8)
+			#get_parent().add_child(mist2)
+			#mist2.global_position = global_position + Vector2(-12,8)
+			#get_parent().add_child(mist3)
+			#mist3.global_position = global_position + Vector2(4,8)
+			#get_parent().add_child(mist4)
+			#mist4.global_position = global_position + Vector2(8,8)
+			#timer.start(0.5)
 			
 			

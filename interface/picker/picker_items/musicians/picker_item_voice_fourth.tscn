@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://djywfybj1pp5g"]
+
+[ext_resource type="Script" uid="uid://fygslmd34n2c" path="res://scripts/picker/picker_item.gd" id="1_5utmn"]
+[ext_resource type="SpriteFrames" uid="uid://dqlu2ec3yh5qd" path="res://sprites/musicians/voice_fourth.tres" id="2_5utmn"]
+[ext_resource type="PackedScene" uid="uid://xv5c87imdpov" path="res://entities/musicians/musician_voice_fourth.tscn" id="3_sqjc7"]
+[ext_resource type="PackedScene" uid="uid://dw4b0byau8het" path="res://entities/criteria/two_tall_flat_stone.tscn" id="4_qxfy3"]
+
+[node name="PickerItemVoiceFourth" type="Node2D" node_paths=PackedStringArray("place_criteria")]
+script = ExtResource("1_5utmn")
+display_sprite_frames = ExtResource("2_5utmn")
+display_animation = "picker"
+item = ExtResource("3_sqjc7")
+place_criteria = NodePath("two_tall_flat_stone")
+is_menu_tab = null
+
+[node name="two_tall_flat_stone" parent="." instance=ExtResource("4_qxfy3")]

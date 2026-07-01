@@ -16,7 +16,8 @@ packedscene_path = "res://entities/stones/white_stone.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_a48s5")
-animation = &"top_right"
+animation = &"center_center"
+frame_progress = 0.0956357
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4

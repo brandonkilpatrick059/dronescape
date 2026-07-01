@@ -22,6 +22,7 @@ animation = &"playing"
 stream = ExtResource("3_5rlt5")
 attenuation = 12.5533
 panning_strength = 4.0
+bus = &"chime"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

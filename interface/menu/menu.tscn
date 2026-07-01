@@ -223,9 +223,9 @@ selected = 0
 item_count = 3
 popup/item_0/text = "Simple Island"
 popup/item_0/id = 0
-popup/item_1/text = "Floating Tower"
+popup/item_1/text = "Sky Arboretum"
 popup/item_1/id = 1
-popup/item_2/text = "Temple Arboretum"
+popup/item_2/text = "Marble Gardens"
 popup/item_2/id = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/menu_background/VBoxContainer/load_preset_container/HBoxContainer2"]
